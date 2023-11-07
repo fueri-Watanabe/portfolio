@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+.custom-button {
+  @apply border-b border-r shadow-lg rounded-lg p-2.5 border-gray-300 dark:bg-slate-800 dark:text-white/80 dark:border-slate-600
+  tracking-wide text-sm placeholder-gray-400 bg-white focus:ring disabled:opacity-40 disabled:cursor-not-allowed focus:border-fuchsia-500 focus:ring-fuchsia-500/20;
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
