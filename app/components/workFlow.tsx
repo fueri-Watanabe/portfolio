@@ -1,6 +1,6 @@
 const WorkFlow = () => {
   return (
-    <>
+    <div className="container">
       <div className="py-5">
         <div className="row align-items-center fw-bold">
           <span className="col-1 d-block d-md-none fs-3">①</span>
@@ -98,7 +98,7 @@ const WorkFlow = () => {
           </span>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 export default WorkFlow;

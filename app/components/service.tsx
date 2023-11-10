@@ -1,6 +1,9 @@
+import Image from "next/image";
+import { IconSauce } from "../const/iconSauce";
+
 const Service = () => {
   return (
-    <>
+    <div className="container flex justify-between">
       <div className="py-6">
         <p>
           fueri（フエリ）ではGoogleのサービスを中心に、
@@ -24,7 +27,42 @@ const Service = () => {
           フロントエンド開発も行っております。
         </p>
       </div>
-    </>
+      <div className="">
+        {IconSauce.map((value, index) => {
+          return (
+            <div key={index}>
+              <div className="flex items-center">
+                {value.PGLanguage?.map((value) => {
+                  return (
+                    <div key={index} className="p-1">
+                      <Image src={value} alt="" width={50} height={50} />
+                    </div>
+                  );
+                })}
+              </div>
+              <div className="flex items-center">
+                {value.Frontend?.map((value) => {
+                  return (
+                    <div key={index} className="p-1">
+                      <Image src={value} alt="" width={50} height={50} />
+                    </div>
+                  );
+                })}
+              </div>
+              <div className="flex items-center">
+                {value.BackendDBCloud?.map((value) => {
+                  return (
+                    <div key={index} className="p-1">
+                      <Image src={value} alt="" width={50} height={50} />
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
   );
 };
 export default Service;

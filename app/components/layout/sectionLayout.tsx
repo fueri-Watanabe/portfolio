@@ -1,3 +1,20 @@
+const SectionLayout = ({
+  children,
+  title,
+  secondTitle,
+}: {
+  children: React.ReactNode;
+  title: string;
+  secondTitle: string;
+}) => {
+  return (
+    <div className="py-10">
+      <Title title={title} secondTitle={secondTitle} />
+      <div className="py-3">{children}</div>
+    </div>
+  );
+};
+
 const Title = ({
   title,
   secondTitle,
@@ -17,4 +34,5 @@ const Title = ({
     </div>
   );
 };
-export default Title;
+
+export default SectionLayout;

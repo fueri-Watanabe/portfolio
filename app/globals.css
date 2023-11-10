@@ -3,11 +3,12 @@
 @tailwind utilities;
 
 .custom-button {
-  @apply border-b border-r shadow-lg rounded-lg p-2.5 border-gray-300 dark:bg-slate-800 dark:text-white/80 dark:border-slate-600
-  tracking-wide text-sm placeholder-gray-400 bg-white focus:ring disabled:opacity-40 disabled:cursor-not-allowed focus:border-fuchsia-500 focus:ring-fuchsia-500/20;
+  @apply border-b border-r shadow-lg drop-shadow rounded-lg p-2.5 border-gray-300 dark:bg-slate-800 dark:text-white/80 dark:border-slate-600
+  tracking-wide text-sm placeholder-gray-400 bg-white focus:ring disabled:opacity-40 disabled:cursor-not-allowed focus:border-fuchsia-500 focus:ring-fuchsia-500/20
+  hover:drop-shadow-xl hover:bg-gray-100;
 }
 
-:root {
+/* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -29,4 +30,4 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-}
+} */

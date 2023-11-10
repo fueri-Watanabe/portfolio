@@ -1,16 +1,20 @@
 import Link from "next/link";
 import { HeaderLink } from "../const/linkData";
+import ModeSwitcher from "./modeSwitcher";
+import Image from "next/image";
 
 export const Header = () => {
   return (
-    <>
-      <div className="sticky top-0 p-6 bg-gray-500">
-        <div className="flex justify-between">
-          <div>fueri logo</div>
-          <div className="flex gap-4">
+    <div className="flex justify-center items-center">
+      <div className="fixed z-20 top-3 p-2 mx-auto rounded-lg backdrop-blur-sm shadow-md drop-shadow-lg">
+        <div className="flex justify-between items-center gap-8">
+          <div>
+            <Image src="/logo.png" alt="logo" width={50} height={50} />
+          </div>
+          <div className="flex items-center gap-4">
             {HeaderLink.map((link) => {
               return (
-                <Link key={link.href} href="/">
+                <Link key={link.label} href="/">
                   <div>
                     <p className="text-lg">{link.label}</p>
                   </div>
@@ -18,8 +22,11 @@ export const Header = () => {
               );
             })}
           </div>
+          <div className="flex items-center p-1">
+            <ModeSwitcher />
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };

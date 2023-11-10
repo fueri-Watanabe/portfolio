@@ -6,11 +6,12 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "class",
   theme: {
     container: {
       center: true,
       padding: {
-        "2xl": "16rem",
+        "2xl": "12rem",
       },
     },
     extend: {

@@ -20,13 +20,13 @@ export const HeaderLink = [
     href: "/",
     show: true,
   },
-  {
-    title: "料金紹介",
-    label: "PRICE",
-    icon: "",
-    href: "/",
-    show: true,
-  },
+  // {
+  //   title: "料金紹介",
+  //   label: "PRICE",
+  //   icon: "",
+  //   href: "/",
+  //   show: true,
+  // },
   {
     title: "よくある質問",
     label: "FAQ",

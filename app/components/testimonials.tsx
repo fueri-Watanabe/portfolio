@@ -1,6 +1,6 @@
 const Testimonials = () => {
   return (
-    <>
+    <div className="container">
       <p className="text-md-center fw-light">
         依頼完了後のお客様からのレビューを一部掲載しております。
       </p>
@@ -50,7 +50,7 @@ const Testimonials = () => {
         </p>
       </div>
       <div className="col text-end">卸売・小売</div>
-    </>
+    </div>
   );
 };
 export default Testimonials;

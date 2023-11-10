@@ -1,8 +1,8 @@
 export const Footer = () => {
   return (
     <>
-      <div className="p-6 bg-gray-500">
-        <p className="text-lg">©2021 fueri</p>
+      <div className="flex justify-center items-center p-3 bg-gray-500">
+        <p className="text-base">©2021 fueri</p>
       </div>
     </>
   );
