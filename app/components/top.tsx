@@ -3,7 +3,7 @@ import Image from "next/image";
 const Top = () => {
   return (
     <div className="container">
-      <div className="flex justify-center items-center w-full py-40">
+      <div className="flex justify-center items-center w-full py-36">
         <div className="flex flex-col gap-6">
           <div className="flex flex-col items-start">
             <div className="text-4xl pb-8">
@@ -27,7 +27,7 @@ const Top = () => {
             </button>
           </div>
         </div>
-        <div className="flex justify-center items-center w-1/3">
+        <div className="flex justify-center items-center w-1/2">
           <Image src="/working.gif" alt="working" width={500} height={500} />
         </div>
       </div>

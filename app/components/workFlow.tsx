@@ -1,3 +1,4 @@
+// TODO 蛇腹に横長・アイコン/イラスト付きで動きを付ける。
 const WorkFlow = () => {
   return (
     <div className="container">

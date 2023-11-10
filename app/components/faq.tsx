@@ -1,3 +1,4 @@
+// TODO　ノート風、答えを手書き赤ペンみたいにする。
 const FAQ = () => {
   return (
     <section id="fAQ">

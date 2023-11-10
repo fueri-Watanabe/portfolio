@@ -1,3 +1,4 @@
+// TODO　名刺カード風に作成
 const Profile = () => {
   return (
     <section id="profile">

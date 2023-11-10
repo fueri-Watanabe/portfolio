@@ -1,5 +1,7 @@
 "use client";
 
+// TODO　確認画面はモーダルで表示
+
 // import { useForm } from "react-hook-form";
 import { useState } from "react";
 // import { ErrorMessage } from "@hookform/error-message";

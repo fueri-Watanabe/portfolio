@@ -8,9 +8,9 @@ const SectionLayout = ({
   secondTitle: string;
 }) => {
   return (
-    <div className="py-10">
+    <div className="py-14">
       <Title title={title} secondTitle={secondTitle} />
-      <div className="py-3">{children}</div>
+      <div className="pt-14">{children}</div>
     </div>
   );
 };
