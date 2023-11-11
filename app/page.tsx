@@ -33,9 +33,11 @@ const Home = () => {
         <SectionLayout title={"Profile"} secondTitle={"プロフィール"}>
           <Profile />
         </SectionLayout>
+        {/* <BgLayout bgClass={"bg-gradient-to-r from-orange-500 to-yellow-500"}> */}
         <SectionLayout title={""} secondTitle={""}>
           <Form />
         </SectionLayout>
+        {/* </BgLayout> */}
       </main>
     </>
   );
