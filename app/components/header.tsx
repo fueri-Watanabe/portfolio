@@ -9,7 +9,13 @@ export const Header = () => {
       <div className="fixed z-20 top-3 p-2 mx-auto rounded-lg backdrop-blur-sm shadow-md drop-shadow-lg">
         <div className="flex justify-between items-center gap-8">
           <div>
-            <Image src="/logo.png" alt="logo" width={50} height={50} />
+            <Image
+              src="/logo.png"
+              alt="logo"
+              width={100}
+              height={100}
+              className="w-12 h-auto"
+            />
           </div>
           <div className="flex items-center gap-4">
             {HeaderLink.map((link) => {

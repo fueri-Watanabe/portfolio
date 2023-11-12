@@ -19,28 +19,46 @@ const Service = () => {
           return (
             <div key={index}>
               <div className="flex items-center">
-                {value.PGLanguage?.map((value) => {
+                {value.PGLanguage?.map((value, index) => {
                   return (
                     <div key={index} className="p-2">
-                      <Image src={value} alt="" width={50} height={50} />
+                      <Image
+                        src={value}
+                        alt=""
+                        width={100}
+                        height={100}
+                        className="w-12 h-auto"
+                      />
                     </div>
                   );
                 })}
               </div>
               <div className="flex items-center">
-                {value.Frontend?.map((value) => {
+                {value.Frontend?.map((value, index) => {
                   return (
                     <div key={index} className="p-2">
-                      <Image src={value} alt="" width={50} height={50} />
+                      <Image
+                        src={value}
+                        alt=""
+                        width={100}
+                        height={100}
+                        className="w-12 h-auto"
+                      />
                     </div>
                   );
                 })}
               </div>
               <div className="flex items-center">
-                {value.BackendDBCloud?.map((value) => {
+                {value.BackendDBCloud?.map((value, index) => {
                   return (
                     <div key={index} className="p-2">
-                      <Image src={value} alt="" width={50} height={50} />
+                      <Image
+                        src={value}
+                        alt=""
+                        width={100}
+                        height={100}
+                        className="w-12 h-auto"
+                      />
                     </div>
                   );
                 })}
