@@ -8,6 +8,7 @@ import FAQ from "./components/faq";
 import Profile from "./components/profile";
 import Form from "./components/form";
 import SectionLayout from "./components/layout/sectionLayout";
+import Projects from "./components/projects";
 
 const Home = () => {
   return (
@@ -32,14 +33,15 @@ const Home = () => {
         <SectionLayout title={"FAQ"} secondTitle={"よくある質問"}>
           <FAQ />
         </SectionLayout>
+        <SectionLayout title={"Projects"} secondTitle={"プロジェクト"}>
+          <Projects />
+        </SectionLayout>
         <SectionLayout title={"Profile"} secondTitle={"プロフィール"}>
           <Profile />
         </SectionLayout>
-        {/* <BgLayout bgClass={"bg-gradient-to-r from-orange-500 to-yellow-500"}> */}
         <SectionLayout title={""} secondTitle={""}>
           <Form />
         </SectionLayout>
-        {/* </BgLayout> */}
       </main>
     </>
   );
