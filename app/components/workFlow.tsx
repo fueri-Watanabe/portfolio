@@ -39,21 +39,19 @@ const WorkFlow = () => {
   ];
   return (
     <div className="container">
-      <div className="py-5">
+      <div className="flex flex-col gap-10 py-5">
         {contents.map((value, index) => {
           return (
-            <div key={index} className="w-auto">
-              <p className="text-emerald-800 font-bold">{value.title}</p>
-              <div className="flex h-40 border rounded-lg bg-pink-300">
-                <Image
-                  src={value.src}
-                  alt=""
-                  width={200}
-                  height={100}
-                  className="bg-gray-500 rounded-full"
-                />
-                <div>
-                  <p>{value.explain}</p>
+            <div key={index} className="flex items-center gap-4">
+              <Image src={value.src} alt="" width={100} height={50} />
+              <div className="flex flex-col items-start gap-4">
+                <p className="text-emerald-600 text-xl font-bold">
+                  {value.title}
+                </p>
+                <div className="flex items-center">
+                  <div>
+                    <p className="text-lg">{value.explain}</p>
+                  </div>
                 </div>
               </div>
             </div>

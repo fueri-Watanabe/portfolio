@@ -8,9 +8,9 @@ const SectionLayout = ({
   secondTitle: string;
 }) => {
   return (
-    <div className="py-14">
+    <div className="pt-20 pb-32">
       <Title title={title} secondTitle={secondTitle} />
-      <div className="pt-14">{children}</div>
+      <div className="pt-20">{children}</div>
     </div>
   );
 };
@@ -26,7 +26,7 @@ const Title = ({
     <div className="container flex gap-5 items-center">
       {/* <div className="flex flex-col justify-center items-center gap-2 p-2 my-10"> */}
       <div className="flex-none">
-        <p className="font-bold text-3xl text-cyan-500">{secondTitle}</p>
+        <p className="font-bold text-4xl text-cyan-500">{secondTitle}</p>
       </div>
       {/* <p className="text-xl">{title}</p> */}
       {/* </div> */}

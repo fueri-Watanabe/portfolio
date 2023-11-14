@@ -42,34 +42,30 @@ const FAQ = () => {
   ];
   return (
     <section id="fAQ">
-      <div className="container py-5" style={{ maxWidth: "1100px" }}>
-        <div className="border p-10 bg-yellow-100">
-          <div className="text-center mt-4 mb-5">
-            <div className="h2">
-              <span className="">FAQ.</span>
-            </div>
-          </div>
+      <div className="container py-5">
+        <div className="grid grid-cols-3 gap-3">
           {contents.map((value, index) => {
             return (
-              <div key={index} className="grid grid-cols-12 gap-1 my-6">
-                <div className="col-start-1 col-span-1 text-cyan-700">Q.</div>
-                <div className="col-start-2 col-span-11 text-cyan-700">
-                  {value.question}
-                </div>
-                <div className="col-start-2 col-span-11 text-red-500 font-semibold">
-                  {value.answer}
-                </div>
+              <div
+                key={index}
+                className="flex flex-col justify-between h-52 border rounded p-3"
+              >
+                <div className="text-cyan-700">Q.{value.question}</div>
+                <div className="text-red-500">{value.answer}</div>
               </div>
             );
           })}
-          <div className="border">
+          <div className="flex flex-col justify-between border rounded">
+            <div></div>
             <div className="underline">
-              <p className="">お手頃な価格で発注いただけます。</p>
-              <p className="">
-                相談・お見積り無料。 お気軽にお問い合わせください。
+              <p>
+                お手頃な価格で発注いただけます。
+                相談・お見積り無料、お気軽にお問い合わせください。
               </p>
             </div>
-            <button className="custom-button">お問い合わせ</button>
+            <div className="flex justify-center">
+              <button className="w-1/2 custom-button">お問い合わせ</button>
+            </div>
           </div>
         </div>
       </div>
