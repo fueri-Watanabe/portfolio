@@ -33,12 +33,12 @@ const Home = () => {
         <SectionLayout title={"FAQ"} secondTitle={"よくある質問"}>
           <FAQ />
         </SectionLayout>
-        <SectionLayout title={"Projects"} secondTitle={"プロジェクト"}>
+        <SectionLayout title={"Projects"} secondTitle={"プロジェクト/デモ"}>
           <Projects />
         </SectionLayout>
-        <SectionLayout title={"Profile"} secondTitle={"プロフィール"}>
+        {/* <SectionLayout title={"Profile"} secondTitle={"プロフィール"}>
           <Profile />
-        </SectionLayout>
+        </SectionLayout> */}
         <SectionLayout title={""} secondTitle={""}>
           <Form />
         </SectionLayout>

@@ -35,6 +35,13 @@ export const HeaderLink = [
     show: true,
   },
   {
+    title: "プロジェクト",
+    label: "PROJECTS",
+    icon: "",
+    href: "/",
+    show: true,
+  },
+  {
     title: "プロフィール",
     label: "PROFILE",
     icon: "",
