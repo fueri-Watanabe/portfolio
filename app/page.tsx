@@ -18,7 +18,7 @@ const Home = () => {
         <BgLayout bgClass={"bg-gradient-to-r from-cyan-500 to-blue-500"}>
           <Top />
         </BgLayout>
-        <div className="h-20 w-full bg-gradient-to-r from-cyan-500 to-blue-500 [clip-path:polygon(0%_0%,_100%_0%,_0%_100%)]"></div>
+        <div className="h-20 w-full bg-gradient-to-r from-cyan-500 to-blue-500 [clip-path:polygon(0%_0%,100%_0%,0%_100%)]"></div>
         <SectionLayout title={"Service"} secondTitle={"サービス"}>
           <Service />
         </SectionLayout>
