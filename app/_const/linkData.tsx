@@ -41,13 +41,13 @@ export const HeaderLink = [
     href: "/",
     show: true,
   },
-  {
-    title: "プロフィール",
-    label: "PROFILE",
-    icon: "",
-    href: "/",
-    show: true,
-  },
+  // {
+  //   title: "プロフィール",
+  //   label: "PROFILE",
+  //   icon: "",
+  //   href: "/",
+  //   show: true,
+  // },
   {
     title: "お問い合わせ",
     label: "CONTACT",

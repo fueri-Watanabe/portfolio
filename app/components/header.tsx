@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { HeaderLink } from "../const/linkData";
+import { HeaderLink } from "../_const/linkData";
 import ModeSwitcher from "./modeSwitcher";
 import Image from "next/image";
 

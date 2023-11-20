@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { IconSauce } from "../const/iconSauce";
+import { IconSauce } from "../_const/iconSauce";
 import { CodeBracketSquareIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 

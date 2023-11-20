@@ -22,12 +22,12 @@ const Home = () => {
         <SectionLayout title={"Service"} secondTitle={"サービス"}>
           <Service />
         </SectionLayout>
-        <BgLayout bgClass={""}>
+        {/* <BgLayout bgClass={""}>
           <SectionLayout title={"Testimonials"} secondTitle={"お客様の声"}>
             <Testimonials />
           </SectionLayout>
-        </BgLayout>
-        <SectionLayout title={"WorkFlow"} secondTitle={"作業の流れ"}>
+        </BgLayout> */}
+        <SectionLayout title={"WorkFlow"} secondTitle={"製作の流れ"}>
           <WorkFlow />
         </SectionLayout>
         <SectionLayout title={"FAQ"} secondTitle={"よくある質問"}>
