@@ -1,3 +1,4 @@
+import { QuestionMarkCircleIcon } from "@heroicons/react/24/outline";
 // TODO　ノート風、答えを手書き赤ペンみたいにする。
 const FAQ = () => {
   const contents = [
@@ -48,10 +49,11 @@ const FAQ = () => {
             return (
               <div
                 key={index}
-                className="flex flex-col justify-between h-52 border rounded p-3"
+                className="flex flex-col justify-between h-52 hover:shadow-lg duration-500 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800  hover:dark:bg-slate-700 rounded p-3"
               >
-                <div className="text-cyan-700">Q.{value.question}</div>
-                <div className="text-red-500">{value.answer}</div>
+                <QuestionMarkCircleIcon className="h-6 w-6 text-gray-500" />
+                <div className="font-medium title-font">{value.question}</div>
+                <div className="leading-relaxed text-base">{value.answer}</div>
               </div>
             );
           })}
