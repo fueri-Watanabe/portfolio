@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { IconSauce } from "../_const/iconSauce";
+import { IconSauce } from "../../_const/iconSauce";
 import { CodeBracketSquareIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 
@@ -79,10 +79,10 @@ const IconBox = ({ icon }: { icon: { iconName: string; src: string } }) => {
       )}
       <Image
         src={icon.src}
-        alt=""
+        alt={icon.iconName}
         width={45}
         height={45}
-        // className="w-12 h-12"
+        // className="object-contain h-auto"
         onMouseOver={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
       />

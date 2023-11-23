@@ -42,36 +42,34 @@ const FAQ = () => {
     },
   ];
   return (
-    <section id="fAQ">
-      <div className="container py-5">
-        <div className="grid grid-cols-3 gap-3">
-          {contents.map((value, index) => {
-            return (
-              <div
-                key={index}
-                className="flex flex-col justify-between h-52 hover:shadow-lg duration-500 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800  hover:dark:bg-slate-700 rounded p-3"
-              >
-                <QuestionMarkCircleIcon className="h-6 w-6 text-gray-500" />
-                <div className="font-medium title-font">{value.question}</div>
-                <div className="leading-relaxed text-base">{value.answer}</div>
-              </div>
-            );
-          })}
-          <div className="flex flex-col justify-between border rounded">
-            <div></div>
-            <div className="underline">
-              <p>
-                お手頃な価格で発注いただけます。
-                相談・お見積り無料、お気軽にお問い合わせください。
-              </p>
+    <div className="container py-5">
+      <div className="grid grid-cols-3 gap-3">
+        {contents.map((value, index) => {
+          return (
+            <div
+              key={index}
+              className="flex flex-col justify-between h-52 hover:shadow-lg duration-500 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800  hover:dark:bg-slate-700 rounded p-3"
+            >
+              <QuestionMarkCircleIcon className="h-6 w-6 text-gray-500" />
+              <div className="font-medium title-font">{value.question}</div>
+              <div className="leading-relaxed text-base">{value.answer}</div>
             </div>
-            <div className="flex justify-center">
-              <button className="w-1/2 custom-button">お問い合わせ</button>
-            </div>
+          );
+        })}
+        <div className="flex flex-col justify-between border rounded">
+          <div></div>
+          <div className="underline">
+            <p>
+              お手頃な価格で発注いただけます。
+              相談・お見積り無料、お気軽にお問い合わせください。
+            </p>
+          </div>
+          <div className="flex justify-center">
+            <button className="w-1/2 custom-button">お問い合わせ</button>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

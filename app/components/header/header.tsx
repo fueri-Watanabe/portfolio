@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { HeaderLink } from "../_const/linkData";
-import ModeSwitcher from "./modeSwitcher";
+import { HeaderLink } from "../../_const/linkData";
+import ModeSwitcher from "../tools/modeSwitcher";
 import Image from "next/image";
 
 export const Header = () => {

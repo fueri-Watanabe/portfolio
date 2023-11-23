@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Header } from "./components/header";
-import { Footer } from "./components/footer";
-import Providers from "./components/providers";
+import { Header } from "./components/header/header";
+import { Footer } from "./components/footer/footer";
+import Providers from "./components/tools/providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ja" suppressHydrationWarning>
+    <html lang="ja" suppressHydrationWarning className="scroll-smooth">
       <body className={`${inter.className} dark:bg-slate-900`}>
         <Providers>
           <Header />

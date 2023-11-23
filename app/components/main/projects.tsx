@@ -1,7 +1,6 @@
-import { ProjectData } from "../_const/projectData";
+import { ProjectData } from "../../_const/projectData";
 import Image from "next/image";
 // TODO デモの共有
-// TODO URL先のプレビューの実装
 const Projects = () => {
   return (
     <>

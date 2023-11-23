@@ -2,16 +2,18 @@ const SectionLayout = ({
   children,
   title,
   secondTitle,
+  idName,
 }: {
   children: React.ReactNode;
   title: string;
   secondTitle: string;
+  idName: string;
 }) => {
   return (
-    <div className="pt-20 pb-32">
+    <section id={idName} className="pt-20 pb-32">
       <Title title={title} secondTitle={secondTitle} />
       <div className="pt-20">{children}</div>
-    </div>
+    </section>
   );
 };
 

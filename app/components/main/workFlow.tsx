@@ -1,5 +1,5 @@
 import Image from "next/image";
-// TODO 蛇腹に横長・アイコン/イラスト付きで動きを付ける。
+
 const WorkFlow = () => {
   const contents = [
     {
@@ -34,29 +34,37 @@ const WorkFlow = () => {
       title: "完了(納品)",
       src: "/workFlow/finish.svg",
       explain:
-        "ご依頼終了後でもご質問・ご相談等ありましたらお気軽にご連絡ください。※納品後1ヶ月間は無料で手直しをしております。※追加の修正の場合は別途のご依頼となり追加料金を頂く場合があります。",
+        "ご依頼終了後でもご質問・ご相談等ありましたらお気軽にご連絡ください。\n※納品後1ヶ月間は無料で手直しをしております。\n※追加の修正の場合は別途のご依頼となり追加料金を頂く場合があります。",
     },
   ];
+
   return (
     <div className="container">
       <div className="flex flex-col py-5">
         {contents.map((value, index) => {
           return (
-            <div key={index} className="flex relative items-center py-6 gap-4">
+            <div key={index} className="flex relative items-center py-6 gap-10">
               <div className="h-full w-6 absolute inset-0 flex items-center justify-center">
                 <div className="h-full w-1 bg-gray-200 pointer-events-none"></div>
               </div>
-              <div className="flex-shrink-0 w-6 h-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-emerald-600 text-white relative z-10 title-font font-medium text-sm">
+              <div className="flex-shrink-0 w-6 h-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-[#00bfa6] text-white relative z-10 title-font font-medium text-sm">
                 {index + 1}
               </div>
-              <Image src={value.src} alt="" width={100} height={50} />
+              <Image
+                src={value.src}
+                alt={value.title}
+                width={100}
+                height={50}
+              />
               <div className="flex flex-col items-start gap-4">
-                <p className="text-emerald-600 text-xl font-medium title-font">
+                <p className="text-[#00bfa6] text-2xl font-semibold title-font">
                   {value.title}
                 </p>
                 <div className="flex items-center">
                   <div>
-                    <p className="leading-relaxed">{value.explain}</p>
+                    <p className="leading-relaxed whitespace-pre-wrap">
+                      {value.explain}
+                    </p>
                   </div>
                 </div>
               </div>

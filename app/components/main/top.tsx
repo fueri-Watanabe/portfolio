@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const Top = () => {
   return (
@@ -18,9 +19,9 @@ const Top = () => {
           <div className="text-4xl">
             <p className="text-white dark:text-slate-800">Web Developer</p>
           </div>
-          <button className="w-auto custom-button">
+          <Link href={"#service"} className="w-auto custom-button">
             <p className="text-lg">サービスを見る</p>
-          </button>
+          </Link>
         </div>
         <div className="flex justify-center items-center w-1/2">
           <Image src="/working.gif" alt="working" width={500} height={500} />
