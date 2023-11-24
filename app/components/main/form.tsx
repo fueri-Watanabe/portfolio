@@ -2,7 +2,7 @@
 
 // TODO　確認画面はモーダルで表示
 // TODO submit処理の作成
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import Confirm from "../modal/confirm";
 
 const Form = () => {
@@ -10,10 +10,11 @@ const Form = () => {
   // const handleClose = () => setShow(false);
   // const handleShow = () => setShow(true);
 
-  const toConfirm = (e: any) => {
+  const toConfirm = (e: FormEvent) => {
     e.preventDefault();
     setModal(true);
-    console.log(e.target[1].value);
+    const target = e.target;
+    console.log(Object.values(target).map((v) => v.value));
   };
 
   return (

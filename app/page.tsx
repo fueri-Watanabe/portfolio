@@ -13,7 +13,7 @@ import Projects from "./components/main/projects";
 const Home = () => {
   return (
     <>
-      <main className="">
+      <main className="" id="top">
         <BgLayout bgClass={"bg-gradient-to-r from-cyan-500 to-blue-500"}>
           <Top />
         </BgLayout>

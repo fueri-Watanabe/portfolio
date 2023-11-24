@@ -8,7 +8,7 @@ export const Header = () => {
     <div className="flex justify-center items-center">
       <div className="fixed z-20 top-3 p-2 mx-auto rounded-lg backdrop-blur-sm shadow-md drop-shadow-lg">
         <div className="flex justify-between items-center gap-8">
-          <div>
+          <Link href={""}>
             <Image
               src="/logo.png"
               alt="logo"
@@ -16,11 +16,11 @@ export const Header = () => {
               height={100}
               className="w-12 h-auto"
             />
-          </div>
+          </Link>
           <div className="flex items-center gap-4">
             {HeaderLink.map((link) => {
               return (
-                <Link key={link.label} href="/">
+                <Link key={link.label} href={link.href}>
                   <div>
                     <p className="text-lg">{link.label}</p>
                   </div>
