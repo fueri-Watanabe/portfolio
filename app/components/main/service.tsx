@@ -7,8 +7,8 @@ import { useState } from "react";
 
 const Service = () => {
   return (
-    <div className="container flex justify-between items-center h-80">
-      <div className="flex flex-col justify-between gap-8 w-1/2 h-full">
+    <div className="container flex flex-col lg:flex-row justify-between items-center gap-10 lg:gap-0 lg:h-80">
+      <div className="flex flex-col justify-between gap-8 lg:w-1/2 h-full">
         <p className="text-3xl">Webアプリケーション開発</p>
         <ul className="flex flex-col gap-3 text-xl">
           <li className="flex">
@@ -30,7 +30,7 @@ const Service = () => {
         </ul>
         <p>社内システム・個人ツールの作成、あらゆる業務をサポート致します。</p>
       </div>
-      <div className="">
+      <div>
         <div className="flex flex-col gap-2">
           <div>
             <p className="text-2xl font-semibold">

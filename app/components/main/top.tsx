@@ -4,7 +4,7 @@ import Link from "next/link";
 const Top = () => {
   return (
     <div className="container">
-      <div className="flex justify-center items-center w-full py-36">
+      <div className="flex flex-col lg:flex-row justify-center items-center w-full py-36 px-8 lg:px-0">
         <div className="flex flex-col items-start gap-8">
           <div className="flex items-end gap-2 text-4xl font-bold text-white dark:text-slate-800">
             <p>
@@ -23,7 +23,7 @@ const Top = () => {
             <p className="text-lg">サービスを見る</p>
           </Link>
         </div>
-        <div className="flex justify-center items-center w-1/2">
+        <div className="flex justify-center items-center lg:w-1/2">
           <Image src="/working.gif" alt="working" width={500} height={500} />
         </div>
       </div>
