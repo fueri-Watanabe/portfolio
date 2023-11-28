@@ -25,7 +25,7 @@ const Form = () => {
         }}
       >
         <div className="flex justify-center items-center">
-          <div className="w-1/3 p-10 text-left rounded-lg bg-slate-100 dark:bg-slate-800">
+          <div className="lg:w-1/3 lg:p-10 p-4 text-left rounded-lg bg-slate-100 dark:bg-slate-800">
             <div className="p-3 text-gray-900 dark:text-white text-lg font-medium title-font">
               <p>お問い合わせフォーム</p>
             </div>

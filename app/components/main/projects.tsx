@@ -5,7 +5,7 @@ const Projects = () => {
   return (
     <>
       <div className="container">
-        <div className="grid grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-12">
           {ProjectData.map((value, index) => {
             return (
               <button

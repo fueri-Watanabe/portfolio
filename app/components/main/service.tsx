@@ -85,6 +85,7 @@ const IconBox = ({ icon }: { icon: { iconName: string; src: string } }) => {
         // className="object-contain h-auto"
         onMouseOver={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
+        onClick={() => setHover(true)}
       />
     </div>
   );

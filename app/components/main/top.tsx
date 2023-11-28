@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-
+// TODO スマホサイズ良い感じの配置にする。
 const Top = () => {
   return (
     <div className="container">

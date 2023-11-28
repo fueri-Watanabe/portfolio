@@ -10,7 +10,7 @@ const SectionLayout = ({
   idName: string;
 }) => {
   return (
-    <section id={idName} className="pt-20 pb-32 px-8 lg:px-0">
+    <section id={idName} className="pt-20 pb-32 px-4 lg:px-0">
       <Title title={title} secondTitle={secondTitle} />
       <div className="pt-20">{children}</div>
     </section>

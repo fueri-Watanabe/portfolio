@@ -50,21 +50,23 @@ const WorkFlow = () => {
               <div className="flex-shrink-0 w-6 h-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-[#00bfa6] text-white relative z-10 title-font font-medium text-sm">
                 {index + 1}
               </div>
-              <Image
-                src={value.src}
-                alt={value.title}
-                width={100}
-                height={50}
-              />
-              <div className="flex flex-col items-start gap-4">
-                <p className="text-[#00bfa6] text-2xl font-semibold title-font">
-                  {value.title}
-                </p>
-                <div className="flex items-center">
-                  <div>
-                    <p className="leading-relaxed whitespace-pre-wrap">
-                      {value.explain}
-                    </p>
+              <div className="flex flex-col lg:flex-row lg:gap-10">
+                <Image
+                  src={value.src}
+                  alt={value.title}
+                  width={100}
+                  height={50}
+                />
+                <div className="flex flex-col items-start gap-4">
+                  <p className="text-[#00bfa6] text-2xl font-semibold title-font">
+                    {value.title}
+                  </p>
+                  <div className="flex items-center">
+                    <div>
+                      <p className="leading-relaxed whitespace-pre-wrap">
+                        {value.explain}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>

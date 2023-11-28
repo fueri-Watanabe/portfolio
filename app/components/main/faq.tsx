@@ -43,7 +43,7 @@ const FAQ = () => {
   ];
   return (
     <div className="container py-5">
-      <div className="grid grid-cols-3 gap-3">
+      <div className="grid lg:grid-cols-3 gap-3">
         {contents.map((value, index) => {
           return (
             <div
@@ -56,7 +56,7 @@ const FAQ = () => {
             </div>
           );
         })}
-        <div className="flex flex-col justify-between border rounded">
+        <div className="flex flex-col justify-between border rounded h-52">
           <div></div>
           <div className="underline">
             <p>
