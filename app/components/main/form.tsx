@@ -2,28 +2,37 @@
 
 // TODO　確認画面はモーダルで表示
 // TODO submit処理の作成
-import { FormEvent, useState } from "react";
+import { useState } from "react";
 import Confirm from "../modal/confirm";
+import { useForm, SubmitHandler, FieldValues } from "react-hook-form";
+
+export type inputs = {
+  title: string;
+  company: string;
+  contactName: string;
+  email: string;
+  content: string;
+};
+
+export const inputTitle: inputs = {
+  title: "ご用件",
+  contactName: "お名前",
+  company: "貴社名",
+  email: "メールアドレス",
+  content: "お問い合わせ内容",
+};
 
 const Form = () => {
+  const { register, handleSubmit, getValues } = useForm<inputs>();
   const [modal, setModal] = useState(false);
-  // const handleClose = () => setShow(false);
-  // const handleShow = () => setShow(true);
 
-  const toConfirm = (e: FormEvent) => {
-    e.preventDefault();
-    setModal(true);
-    const target = e.target;
-    console.log(Object.values(target).map((v) => v.value));
+  const onSubmit: SubmitHandler<FieldValues> = () => {
+    console.log(true);
   };
 
   return (
     <>
-      <form
-        onSubmit={(e) => {
-          toConfirm(e);
-        }}
-      >
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex justify-center items-center">
           <div className="lg:w-1/3 lg:p-10 p-4 text-left rounded-lg bg-slate-100 dark:bg-slate-800">
             <div className="p-3 text-gray-900 dark:text-white text-lg font-medium title-font">
@@ -40,61 +49,75 @@ const Form = () => {
               <div className="py-4">
                 <div className="my-6">
                   <label className="leading-7 text-sm">
-                    ご用件<sup className="text-red-500">*</sup>
+                    {inputTitle.title}
+                    <sup className="text-red-500">*</sup>
                   </label>
                   <input
                     type="text"
-                    name=""
+                    defaultValue={"test title"}
                     className="w-full dark:bg-gray-700 rounded text-base outline-none py-1 px-3 leading-6"
-                  />
-                </div>
-                <div className="my-6">
-                  <label className="leading-7 text-sm">貴社名</label>
-                  <input
-                    type="text"
-                    name="company"
-                    className="w-full dark:bg-gray-700 rounded text-base outline-none py-1 px-3 leading-6"
+                    {...register("title", { required: true })}
                   />
                 </div>
                 <div className="my-6">
                   <label className="leading-7 text-sm">
-                    お名前<sup className="text-red-500">*</sup>
+                    {inputTitle.contactName}
+                    <sup className="text-red-500">*</sup>
                   </label>
                   <input
                     type="text"
-                    name="name"
+                    defaultValue={"test contactName"}
                     className="w-full dark:bg-gray-700 rounded text-base outline-none py-1 px-3 leading-6"
+                    {...register("contactName", { required: true })}
                   />
                 </div>
                 <div className="my-6">
                   <label className="leading-7 text-sm">
-                    メールアドレス<sup className="text-red-500">*</sup>
+                    {inputTitle.company}
                   </label>
                   <input
                     type="text"
-                    name="email"
+                    defaultValue={"test company"}
                     className="w-full dark:bg-gray-700 rounded text-base outline-none py-1 px-3 leading-6"
+                    {...register("company")}
                   />
                 </div>
                 <div className="my-6">
                   <label className="leading-7 text-sm">
-                    お問い合わせ内容
+                    {inputTitle.email}
+                    <sup className="text-red-500">*</sup>
+                  </label>
+                  <input
+                    type="text"
+                    defaultValue={"test email"}
+                    className="w-full dark:bg-gray-700 rounded text-base outline-none py-1 px-3 leading-6"
+                    {...register("email", { required: true })}
+                  />
+                </div>
+                <div className="my-6">
+                  <label className="leading-7 text-sm">
+                    {inputTitle.content}
                     <sup className="text-red-500">*</sup>
                   </label>
                   <textarea
-                    name=""
+                    defaultValue={"test content"}
                     className="w-full dark:bg-gray-700 rounded h-32 text-base outline-none py-1 px-3 leading-6"
+                    {...register("content", { required: true })}
                   />
                 </div>
               </div>
-              <button type="submit" className="w-full custom-button">
+              <button
+                type="button"
+                className="w-full custom-button"
+                onClick={() => setModal(true)}
+              >
                 内容確認
               </button>
             </div>
           </div>
         </div>
+        {modal && <Confirm setModal={setModal} values={getValues()} />}
       </form>
-      {modal && <Confirm />}
     </>
   );
 };
