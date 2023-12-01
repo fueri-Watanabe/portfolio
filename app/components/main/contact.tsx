@@ -1,6 +1,5 @@
 "use client";
 
-// TODO　確認画面はモーダルで表示
 // TODO submit処理の作成
 import { useState } from "react";
 import Confirm from "../modal/confirm";
@@ -111,7 +110,7 @@ const Form = () => {
                 className="w-full custom-button"
                 onClick={() => setModal(true)}
               >
-                内容確認
+                <p className="text-lg">送信内容確認</p>
               </button>
             </div>
           </div>

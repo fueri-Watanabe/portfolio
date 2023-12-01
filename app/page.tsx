@@ -6,7 +6,7 @@ import Testimonials from "./components/main/testimonials";
 import WorkFlow from "./components/main/workFlow";
 import FAQ from "./components/main/faq";
 import Profile from "./components/main/profile";
-import Form from "./components/main/form";
+import Form from "./components/main/contact";
 import SectionLayout from "./components/layout/sectionLayout";
 import Projects from "./components/main/projects";
 
@@ -50,7 +50,7 @@ const Home = () => {
         {/* <SectionLayout title={"Profile"} secondTitle={"プロフィール"} idName="profile">
           <Profile />
         </SectionLayout> */}
-        <SectionLayout title={""} secondTitle={""} idName="form">
+        <SectionLayout title={""} secondTitle={""} idName="contact">
           <Form />
         </SectionLayout>
       </main>
