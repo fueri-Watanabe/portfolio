@@ -25,8 +25,20 @@ const Form = () => {
   const { register, handleSubmit, getValues } = useForm<inputs>();
   const [modal, setModal] = useState(false);
 
-  const onSubmit: SubmitHandler<FieldValues> = () => {
-    console.log(true);
+  const onSubmit: SubmitHandler<inputs> = async (data) => {
+    const res = await fetch("/api/contact", {
+      body: JSON.stringify({
+        email: data.email,
+        message: data.content,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+    });
+
+    const result = await res.json();
+    console.log(result);
   };
 
   return (
