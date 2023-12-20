@@ -26,6 +26,10 @@ export const IconSauce = {
         iconName: "PHP",
         src: "/devIcons/php.svg",
       },
+      GoogleAppsScript: {
+        iconName: "GAS",
+        src: "/devIcons/gas-icon.svg",
+      },
     },
   },
   Frontend: {
@@ -38,6 +42,10 @@ export const IconSauce = {
       Nextjs: {
         iconName: "Next.js",
         src: "/devIcons/nextjs-icon.svg",
+      },
+      Jotai: {
+        iconName: "Jotai",
+        src: "/devIcons/jotai-icon.svg",
       },
       TailwindCSS: {
         iconName: "Tailwind-CSS",

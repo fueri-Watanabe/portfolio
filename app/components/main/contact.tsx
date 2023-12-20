@@ -100,7 +100,7 @@ const Form = () => {
                   </label>
                   <input
                     type="text"
-                    defaultValue={"test email"}
+                    defaultValue={"watanabe@fueri.jp"}
                     className="w-full dark:bg-gray-700 rounded text-base outline-none py-1 px-3 leading-6"
                     {...register("email", { required: true })}
                   />

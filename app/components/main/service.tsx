@@ -30,13 +30,13 @@ const Service = () => {
         </ul>
         <p>社内システム・個人ツールの作成、あらゆる業務をサポート致します。</p>
       </div>
-      <div>
-        <div className="flex flex-col gap-2">
+      <div className="p-2">
+        <div className="flex flex-col gap-3">
           <div>
             <p className="text-2xl font-semibold">
               {IconSauce.PGLanguage.title}
             </p>
-            <div className="flex items-center">
+            <div className="flex items-center flex-wrap">
               {Object.values(IconSauce.PGLanguage.icon).map((value, index) => {
                 return <IconBox key={index} icon={value} />;
               })}
@@ -71,22 +71,24 @@ const Service = () => {
 const IconBox = ({ icon }: { icon: { iconName: string; src: string } }) => {
   const [hover, setHover] = useState(false);
   return (
-    <div className="relative flex flex-col items-center p-2">
+    <div className="relative flex flex-col basis-1/5 items-center p-2">
       {hover && (
-        <div className="absolute top-0 -translate-y-5 bg-slate-600 rounded">
+        <div className="absolute top-0 -translate-y-6 bg-slate-600 rounded">
           <p className="text-white text-xs p-1">{icon.iconName}</p>
         </div>
       )}
-      <Image
-        src={icon.src}
-        alt={icon.iconName}
-        width={45}
-        height={45}
-        // className="object-contain h-auto"
-        onMouseOver={() => setHover(true)}
-        onMouseLeave={() => setHover(false)}
-        onClick={() => setHover(true)}
-      />
+      <div className="rounded-full bg-white bg-opacity-10 p-3">
+        <Image
+          src={icon.src}
+          alt={icon.iconName}
+          width={45}
+          height={45}
+          className="lg:h-10 lg:w-10 h-8 w-8"
+          onMouseOver={() => setHover(true)}
+          onMouseLeave={() => setHover(false)}
+          onClick={() => setHover(true)}
+        />
+      </div>
     </div>
   );
 };

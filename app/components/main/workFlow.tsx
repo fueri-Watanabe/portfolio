@@ -50,12 +50,13 @@ const WorkFlow = () => {
               <div className="flex-shrink-0 w-10 h-10 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-[#00bfa6] text-white relative z-10 title-font font-medium text-lg">
                 {index + 1}
               </div>
-              <div className="flex flex-col lg:flex-row lg:gap-10">
+              <div className="flex flex-col items-center lg:flex-row lg:gap-10">
                 <Image
                   src={value.src}
                   alt={value.title}
                   width={100}
                   height={50}
+                  className="h-24 w-24"
                 />
                 <div className="flex flex-col items-start gap-4">
                   <p className="text-[#00bfa6] text-2xl font-semibold title-font">

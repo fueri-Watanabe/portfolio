@@ -20,7 +20,7 @@ const Projects = () => {
                         return (
                           <div
                             key={iconIndex}
-                            className="w-8 h-8 flex justify-center items-center"
+                            className="w-10 h-10 flex justify-center items-center rounded-full bg-white p-2"
                           >
                             <Image
                               src={iconSrc}
@@ -36,7 +36,7 @@ const Projects = () => {
                     <p className="text-slate-500 text-xs">{value.url}</p>
                   </div>
                   <Image
-                    className="w-1/2 border rounded-xl"
+                    className="w-1/2 rounded-xl"
                     src={value.image}
                     alt=""
                     width={500}
