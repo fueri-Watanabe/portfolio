@@ -10,9 +10,9 @@ services:
     command: sh -c "npm run dev"
     networks:
       - default
-      - snowboard_default #snowboadコンテナのネットワーク名
+      - portfolio_default
 volumes:
   node_modules:
 networks:
-  snowboard_default:
+  portfolio_default:
     external: true
