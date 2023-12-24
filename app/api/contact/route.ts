@@ -1,11 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
-import SendGrid from "@sendgrid/mail";
+import nodemailer from "nodemailer";
 
 // TODO sendgrid送信の作成
 export const POST = async (request: NextRequest) => {
   const data = await request.json();
-  process.env.SENDGRID_API_KEY &&
-    SendGrid.setApiKey(process.env.SENDGRID_API_KEY);
 
   const msg = {
     to: data.email,
@@ -18,7 +16,15 @@ export const POST = async (request: NextRequest) => {
   console.log(msg);
 
   try {
-    await SendGrid.send(msg);
+    const transpoter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.MAIL_ACCOUNT,
+        pass: process.env.xxxx,
+      },
+    });
+
+    // await SendGrid.send(msg);
     return NextResponse.json({ message: "メール送信成功" }, { status: 200 });
   } catch (error) {
     if (error) {
