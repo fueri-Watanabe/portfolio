@@ -10,7 +10,7 @@ export const POST = async (request: NextRequest) => {
   const msg = {
     to: data.email,
     from: "wmiayuhi@gmail.com",
-    subject: "TESTお問合せありがとうございました。",
+    subject: "お問合せありがとうございました。",
     text: "お問合せを受け付けました。回答をお待ちください。" + data.message,
     html: "お問合せを受け付けました。回答をお待ちください。" + data.message,
   };
