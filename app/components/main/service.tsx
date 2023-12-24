@@ -9,7 +9,7 @@ const Service = () => {
   return (
     <div className="container flex flex-col lg:flex-row justify-between items-center gap-10 lg:gap-0 lg:h-80">
       <div className="flex flex-col justify-between gap-8 lg:w-1/2 h-full">
-        <p className="text-3xl">Webアプリケーション開発</p>
+        <p className="text-3xl">Webアプリケーション開発TEST</p>
         <ul className="flex flex-col gap-3 text-xl">
           <li className="flex">
             <CodeBracketSquareIcon className="h-6 w-6 text-gray-500" />
