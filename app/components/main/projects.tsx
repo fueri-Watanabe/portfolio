@@ -23,7 +23,7 @@ const Projects = () => {
                         return (
                           <div
                             key={iconIndex}
-                            className="w-10 h-10 flex justify-center items-center rounded-full bg-white p-2"
+                            className="w-10 h-10 flex justify-center items-center rounded-full bg-slate-200 dark:bg-white p-2"
                           >
                             <Image
                               src={iconSrc}
