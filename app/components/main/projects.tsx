@@ -1,5 +1,7 @@
 import { ProjectData } from "../../_const/projectData";
 import Image from "next/image";
+import Link from "next/link";
+
 // TODO デモの共有
 const Projects = () => {
   return (
@@ -8,9 +10,10 @@ const Projects = () => {
         <div className="grid lg:grid-cols-2 gap-12">
           {ProjectData.map((value, index) => {
             return (
-              <button
+              <Link
                 key={index}
-                type="button"
+                href={value.url}
+                // type="button"
                 className="w-full h-60 border rounded-xl"
               >
                 <div className="flex items-center gap-4 h-full p-6">
@@ -43,7 +46,7 @@ const Projects = () => {
                     height={500}
                   />
                 </div>
-              </button>
+              </Link>
             );
           })}
         </div>
