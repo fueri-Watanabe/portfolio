@@ -15,16 +15,23 @@ export const POST = async (request: NextRequest) => {
 
   console.log(msg);
 
+  const auth = {
+    user: process.env.MAIL_USER,
+    pass: process.env.MAIL_PASS,
+  };
+
+  const transport = {
+    service: "gmail",
+    auth,
+  };
+
   try {
-    const transpoter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.MAIL_ACCOUNT,
-        pass: process.env.xxxx,
-      },
+    const transporter = nodemailer.createTransport(transport);
+
+    transporter.sendMail(msg, (err, response) => {
+      console.log(err || response);
     });
 
-    // await SendGrid.send(msg);
     return NextResponse.json({ message: "メール送信成功" }, { status: 200 });
   } catch (error) {
     if (error) {
