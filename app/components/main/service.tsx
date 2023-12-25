@@ -77,7 +77,7 @@ const IconBox = ({ icon }: { icon: { iconName: string; src: string } }) => {
           <p className="text-white text-xs p-1">{icon.iconName}</p>
         </div>
       )}
-      <div className="rounded-full bg-white bg-opacity-10 p-3">
+      <div className="rounded-full bg-slate-200 dark:bg-slate-700 p-3">
         <Image
           src={icon.src}
           alt={icon.iconName}

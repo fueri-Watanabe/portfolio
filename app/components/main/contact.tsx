@@ -65,7 +65,7 @@ const Form = () => {
                   </label>
                   <input
                     type="text"
-                    defaultValue={"test title"}
+                    placeholder="システム開発の相談・見積り"
                     className="w-full dark:bg-gray-700 rounded text-base outline-none py-1 px-3 leading-6"
                     {...register("title", { required: true })}
                   />
@@ -77,7 +77,6 @@ const Form = () => {
                   </label>
                   <input
                     type="text"
-                    defaultValue={"test contactName"}
                     className="w-full dark:bg-gray-700 rounded text-base outline-none py-1 px-3 leading-6"
                     {...register("contactName", { required: true })}
                   />
@@ -88,7 +87,6 @@ const Form = () => {
                   </label>
                   <input
                     type="text"
-                    defaultValue={"test company"}
                     className="w-full dark:bg-gray-700 rounded text-base outline-none py-1 px-3 leading-6"
                     {...register("company")}
                   />
@@ -100,7 +98,6 @@ const Form = () => {
                   </label>
                   <input
                     type="text"
-                    defaultValue={"watanabe@fueri.jp"}
                     className="w-full dark:bg-gray-700 rounded text-base outline-none py-1 px-3 leading-6"
                     {...register("email", { required: true })}
                   />
@@ -111,7 +108,6 @@ const Form = () => {
                     <sup className="text-red-500">*</sup>
                   </label>
                   <textarea
-                    defaultValue={"test content"}
                     className="w-full dark:bg-gray-700 rounded h-32 text-base outline-none py-1 px-3 leading-6"
                     {...register("content", { required: true })}
                   />
