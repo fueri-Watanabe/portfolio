@@ -63,7 +63,7 @@ export const Header = () => {
               <NavLink showNav={showNav} setShowNav={setShowNav} />
             </div>
             <div className="lg:hidden">
-              <p className="text-3xl">fueri</p>
+              <p className="text-3xl cursor-default">fueri</p>
             </div>
             <div className="lg:flex items-center p-1 hidden">
               <ModeSwitcher />
