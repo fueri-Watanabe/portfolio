@@ -58,7 +58,7 @@ export const Header = () => {
             <button
               type="button"
               onClick={() => setShowNav(showNav ? false : true)}
-              onMouseLeave={() => setShowNav(false)}
+              // onMouseLeave={() => setShowNav(false)}
               className="flex justify-center items-center lg:hidden h-10 w-10"
             >
               <Bars3Icon className="h-8 w-8" />
