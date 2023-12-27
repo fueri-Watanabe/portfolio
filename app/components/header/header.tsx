@@ -12,7 +12,11 @@ const NavLink = () => {
     <>
       {HeaderLink.map((link) => {
         return (
-          <Link key={link.label} href={link.href} className="p-2 lg:p-1">
+          <Link
+            key={link.label}
+            href={link.href}
+            className="w-1/2 lg:w-auto p-2 lg:p-1"
+          >
             <div>
               <p className="text-lg">{link.label}</p>
             </div>
@@ -61,7 +65,7 @@ export const Header = () => {
             </button>
           </div>
           {showNav && (
-            <div className="flex lg:flex-row flex-col items-center pt-2 lg:hidden">
+            <div className="flex flex-col justify-center items-center text-center pt-2 lg:hidden">
               <NavLink />
             </div>
           )}
