@@ -26,7 +26,7 @@ const Form = () => {
   const [modal, setModal] = useState(false);
 
   const onSubmit: SubmitHandler<inputs> = async (data) => {
-    const res = await fetch("/api/contact", {
+    await fetch("/api/contact", {
       body: JSON.stringify({
         email: data.email,
         message: data.content,
@@ -36,9 +36,6 @@ const Form = () => {
       },
       method: "POST",
     });
-
-    const result = await res.json();
-    console.log(result);
   };
 
   return (

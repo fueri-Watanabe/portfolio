@@ -8,7 +8,6 @@ const Confirm = ({
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
   values: inputs;
 }) => {
-  console.log(values);
   return (
     <>
       <div
