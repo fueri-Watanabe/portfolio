@@ -47,7 +47,7 @@ const WorkFlow = () => {
               <div className="h-full w-10 absolute inset-0 flex items-center justify-center">
                 <div className="h-full w-1 bg-gray-200 pointer-events-none"></div>
               </div>
-              <div className="flex-shrink-0 w-10 h-10 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-[#00bfa6] text-white relative z-10 title-font font-medium text-lg">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-[#00bfa6] text-white relative font-medium text-lg">
                 {index + 1}
               </div>
               <div className="flex flex-col items-center lg:flex-row lg:gap-10">

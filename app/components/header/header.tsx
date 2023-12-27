@@ -1,26 +1,35 @@
 "use client";
 
-import Link from "next/link";
 import { HeaderLink } from "../../_const/linkData";
 import ModeSwitcher from "../tools/modeSwitcher";
 import Image from "next/image";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
-const NavLink = () => {
+const NavLink = ({
+  showNav,
+  setShowNav,
+}: {
+  showNav: boolean;
+  setShowNav: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
+  const router = useRouter();
   return (
     <>
       {HeaderLink.map((link) => {
         return (
-          <Link
+          <button
             key={link.label}
-            href={link.href}
+            type="button"
+            onClick={() => {
+              router.push(link.href);
+              showNav && setShowNav(false);
+            }}
             className="w-1/2 lg:w-auto p-2 lg:p-1"
           >
-            <div>
-              <p className="text-lg">{link.label}</p>
-            </div>
-          </Link>
+            <p className="text-lg">{link.label}</p>
+          </button>
         );
       })}
     </>
@@ -29,13 +38,17 @@ const NavLink = () => {
 
 export const Header = () => {
   const [showNav, setShowNav] = useState(false);
+  const router = useRouter();
   return (
     <div className="flex justify-center items-center">
       <div className="fixed z-20 top-3 p-2 w-full lg:w-auto mx-auto rounded-lg backdrop-blur-sm shadow-md drop-shadow-lg">
         <div>
           <div className="flex justify-between items-center gap-8">
-            <Link
-              href={""}
+            <button
+              onClick={() => {
+                router.push("");
+                showNav && setShowNav(false);
+              }}
               className="flex justify-center items-center h-10 w-10"
             >
               <Image
@@ -45,9 +58,9 @@ export const Header = () => {
                 height={100}
                 className="w-12 h-auto"
               />
-            </Link>
+            </button>
             <div className="lg:flex items-center gap-2 hidden">
-              <NavLink />
+              <NavLink showNav={showNav} setShowNav={setShowNav} />
             </div>
             <div className="lg:hidden">
               <p className="text-3xl">fueri</p>
@@ -58,7 +71,6 @@ export const Header = () => {
             <button
               type="button"
               onClick={() => setShowNav(showNav ? false : true)}
-              // onMouseLeave={() => setShowNav(false)}
               className="flex justify-center items-center lg:hidden h-10 w-10"
             >
               <Bars3Icon className="h-8 w-8" />
@@ -66,11 +78,19 @@ export const Header = () => {
           </div>
           {showNav && (
             <div className="flex flex-col justify-center items-center text-center pt-2 lg:hidden">
-              <NavLink />
+              <NavLink showNav={showNav} setShowNav={setShowNav} />
             </div>
           )}
         </div>
       </div>
+      {showNav && (
+        <div
+          onClick={(e) =>
+            e.target == e.currentTarget && showNav && setShowNav(false)
+          }
+          className="opacity-80 fixed inset-0 z-10"
+        ></div>
+      )}
     </div>
   );
 };
