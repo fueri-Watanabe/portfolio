@@ -37,16 +37,16 @@ const Form = () => {
 
   const onSubmit: SubmitHandler<inputs> = async (data) => {
     if (modal) {
-      // await fetch("/api/contact", {
-      //   body: JSON.stringify({
-      //     email: data.email,
-      //     message: data.content,
-      //   }),
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      //   method: "POST",
-      // });
+      await fetch("/api/contact", {
+        body: JSON.stringify({
+          email: data.email,
+          message: data.content,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+      });
       setCompleteDisplay(true);
     } else {
       setModal(true);
