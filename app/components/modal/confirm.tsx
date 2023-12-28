@@ -50,7 +50,6 @@ const Confirm = ({
           </button>
         </div>
       </div>
-      <div className="opacity-80 fixed inset-0 z-40 bg-slate-50 dark:bg-slate-950"></div>
     </>
   );
 };

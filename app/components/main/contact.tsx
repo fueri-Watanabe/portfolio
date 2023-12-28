@@ -1,9 +1,11 @@
 "use client";
 
-// TODO submit処理の作成
 import { useState } from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { ContactSchema } from "../tools/validation";
+import { zodResolver } from "@hookform/resolvers/zod";
 import Confirm from "../modal/confirm";
-import { useForm, SubmitHandler, FieldValues } from "react-hook-form";
+import Complete from "../modal/complete";
 
 export type inputs = {
   title: string;
@@ -22,21 +24,36 @@ export const inputTitle: inputs = {
 };
 
 const Form = () => {
-  const { register, handleSubmit, getValues } = useForm<inputs>();
+  const {
+    register,
+    handleSubmit,
+    getValues,
+    formState: { errors },
+  } = useForm<inputs>({
+    resolver: zodResolver(ContactSchema),
+  });
   const [modal, setModal] = useState(false);
+  const [completeDisplay, setCompleteDisplay] = useState(false);
 
   const onSubmit: SubmitHandler<inputs> = async (data) => {
-    await fetch("/api/contact", {
-      body: JSON.stringify({
-        email: data.email,
-        message: data.content,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-      method: "POST",
-    });
+    if (modal) {
+      // await fetch("/api/contact", {
+      //   body: JSON.stringify({
+      //     email: data.email,
+      //     message: data.content,
+      //   }),
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   method: "POST",
+      // });
+      setCompleteDisplay(true);
+    } else {
+      setModal(true);
+    }
   };
+
+  const errorMessageClassName = "text-sm text-red-500";
 
   return (
     <>
@@ -60,6 +77,11 @@ const Form = () => {
                     {inputTitle.title}
                     <sup className="text-red-500">*</sup>
                   </label>
+                  {errors.title?.message && (
+                    <p className={errorMessageClassName}>
+                      {errors.title?.message}
+                    </p>
+                  )}
                   <input
                     type="text"
                     placeholder="システム開発の相談・見積り"
@@ -72,6 +94,11 @@ const Form = () => {
                     {inputTitle.contactName}
                     <sup className="text-red-500">*</sup>
                   </label>
+                  {errors.contactName?.message && (
+                    <p className={errorMessageClassName}>
+                      {errors.contactName?.message}
+                    </p>
+                  )}
                   <input
                     type="text"
                     className="w-full dark:bg-gray-700 rounded text-base outline-none py-1 px-3 leading-6"
@@ -93,6 +120,11 @@ const Form = () => {
                     {inputTitle.email}
                     <sup className="text-red-500">*</sup>
                   </label>
+                  {errors.email?.message && (
+                    <p className={errorMessageClassName}>
+                      {errors.email?.message}
+                    </p>
+                  )}
                   <input
                     type="text"
                     className="w-full dark:bg-gray-700 rounded text-base outline-none py-1 px-3 leading-6"
@@ -104,23 +136,35 @@ const Form = () => {
                     {inputTitle.content}
                     <sup className="text-red-500">*</sup>
                   </label>
+                  {errors.content?.message && (
+                    <p className={errorMessageClassName}>
+                      {errors.content?.message}
+                    </p>
+                  )}
                   <textarea
                     className="w-full dark:bg-gray-700 rounded h-32 text-base outline-none py-1 px-3 leading-6"
                     {...register("content", { required: true })}
                   />
                 </div>
               </div>
-              <button
-                type="button"
-                className="w-full custom-button"
-                onClick={() => setModal(true)}
-              >
+              <button type="submit" className="w-full custom-button">
                 <p className="text-lg">送信内容確認</p>
               </button>
             </div>
           </div>
         </div>
-        {modal && <Confirm setModal={setModal} values={getValues()} />}
+        {modal &&
+          (completeDisplay ? (
+            <Complete
+              setModal={setModal}
+              setCompleteDisplay={setCompleteDisplay}
+            />
+          ) : (
+            <Confirm setModal={setModal} values={getValues()} />
+          ))}
+        {modal && (
+          <div className="opacity-80 fixed inset-0 z-40 bg-slate-50 dark:bg-slate-950"></div>
+        )}
       </form>
     </>
   );
