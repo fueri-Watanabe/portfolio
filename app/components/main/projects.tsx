@@ -14,9 +14,9 @@ const Projects = () => {
                 key={index}
                 href={value.url}
                 // type="button"
-                className="w-full h-60 border rounded-xl"
+                className="w-full h-60 border rounded-xl shadow hover:border-slate-100 hover:dark:border-slate-600 hover:shadow-xl duration-300"
               >
-                <div className="flex items-center gap-4 h-full p-6">
+                <div className="flex items-center gap-4 h-full p-6 hover:scale-105 duration-300">
                   <div className="flex flex-col justify-between items-start h-full w-1/2">
                     <div className="flex gap-2">
                       {value.icon.map((iconSrc, iconIndex) => {

@@ -1,11 +1,8 @@
 import Top from "./components/main/top";
 import Service from "./components/main/service";
-import Title from "./components/title";
 import BgLayout from "./components/layout/bgLayout";
-import Testimonials from "./components/main/testimonials";
 import WorkFlow from "./components/main/workFlow";
 import FAQ from "./components/main/faq";
-import Profile from "./components/main/profile";
 import Form from "./components/main/contact";
 import SectionLayout from "./components/layout/sectionLayout";
 import Projects from "./components/main/projects";
@@ -25,11 +22,6 @@ const Home = () => {
         >
           <Service />
         </SectionLayout>
-        {/* <BgLayout bgClass={""}>
-          <SectionLayout title={"Testimonials"} secondTitle={"お客様の声"}  idName="testimonials">
-            <Testimonials />
-          </SectionLayout>
-        </BgLayout> */}
         <SectionLayout
           title={"WorkFlow"}
           secondTitle={"製作の流れ"}
@@ -47,9 +39,6 @@ const Home = () => {
         >
           <Projects />
         </SectionLayout>
-        {/* <SectionLayout title={"Profile"} secondTitle={"プロフィール"} idName="profile">
-          <Profile />
-        </SectionLayout> */}
         <SectionLayout title={""} secondTitle={""} idName="contact">
           <Form />
         </SectionLayout>

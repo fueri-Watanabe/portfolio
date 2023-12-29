@@ -1,24 +1,45 @@
+import { ContactSchemaType } from "@/app/components/tools/validation";
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
-// TODO sendgrid送信の作成
 export const POST = async (request: NextRequest) => {
-  const data = await request.json();
-
+  const data: ContactSchemaType = await request.json();
+  const { title, contactName, company, email, content } = data;
   const toHostMessage = {
-    from: data.email,
+    from: email,
     to: process.env.MAIL_USER,
-    subject: "[お問い合わせ]",
-    text: "お問合せがありました。" + data.message,
-    html: "お問合せがありました。" + data.message,
+    subject: "ポートフォリオからお問い合わせがありました。",
+    text: `お問合せがありました。
+    ご用件: ${title}
+    お名前: ${contactName}
+    貴社名: ${company}
+    メールアドレス: ${email}
+    お問い合わせ内容: ${content}`,
+    html: `<p><strong>お問合せがありました。</strong></p>
+    <p>ご用件: ${title}<p>
+    <p>お名前: ${contactName}<p>
+    <p>貴社名: ${company}<p>
+    <p>メールアドレス: ${email}<p>
+    <p>お問い合わせ内容: ${content}<p>`,
   };
 
   const toCustomerMessage = {
     from: process.env.MAIL_USER,
-    to: data.email,
+    to: email,
     subject: "お問合せありがとうございました。",
-    text: "お問合せを受け付けました。回答をお待ちください。" + data.message,
-    html: "お問合せを受け付けました。回答をお待ちください。" + data.message,
+    text: `お問合せを受け付けました。回答をお待ちください。
+    ご用件: ${title}
+    お名前: ${contactName}
+    貴社名: ${company}
+    メールアドレス: ${email}
+    お問い合わせ内容: ${content}`,
+    html: `<p><strong>お問合せを受け付けました。</strong></p>
+    <p><strong>回答をお待ちください。</strong></p>
+    <p>ご用件: ${title}</p>
+    <p>お名前: ${contactName}</p>
+    <p>貴社名: ${company}</p>
+    <p>メールアドレス: ${email}</p>
+    <p>お問い合わせ内容: ${content}</p>`,
   };
 
   const auth = {
@@ -37,7 +58,6 @@ export const POST = async (request: NextRequest) => {
     const transporter = nodemailer.createTransport(transport);
     await transporter.sendMail(toHostMessage);
     await transporter.sendMail(toCustomerMessage);
-    console.log(data);
     return NextResponse.json({ message: "メール送信成功" }, { status: 200 });
   } catch (error) {
     if (error) {

@@ -23,7 +23,7 @@ export const ProjectData = [
       IconSauce.Frontend.icon.Nextjs.src,
       IconSauce.PGLanguage.icon.TypeScript.src,
       IconSauce.Frontend.icon.TailwindCSS.src,
-      IconSauce.BackendDBCloud.icon.Vercel.src,
+      IconSauce.BackendDBCloud.icon.CloudRun.src,
     ],
     title: "Portfolio",
     url: "http://fueri.jp/",

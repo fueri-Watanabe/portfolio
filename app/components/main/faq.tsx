@@ -49,7 +49,7 @@ const FAQ = () => {
           return (
             <div
               key={index}
-              className="flex flex-col justify-between h-52 hover:shadow-xl duration-300 bg-slate-100 hover:bg-slate-50 dark:bg-slate-800  hover:dark:bg-slate-700 rounded p-3"
+              className="flex flex-col justify-between h-52 hover:shadow-xl duration-300 bg-slate-100 hover:bg-slate-50 dark:bg-slate-800 hover:dark:bg-slate-700 rounded p-3"
             >
               <div className="flex flex-col gap-2">
                 <QuestionMarkCircleIcon className="h-6 w-6 text-gray-500" />

@@ -1,12 +1,15 @@
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import { inputs, inputTitle } from "../main/contact";
+import { inputTitle } from "../main/contact";
+import { ContactSchemaType } from "../tools/validation";
 
 const Confirm = ({
   setModal,
   values,
+  isPending,
 }: {
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
-  values: inputs;
+  values: ContactSchemaType;
+  isPending: boolean;
 }) => {
   return (
     <>
@@ -26,26 +29,39 @@ const Confirm = ({
           </div>
         </div>
         <div className="relative overflow-x-hidden overflow-y-auto px-14 py-4 text-lg">
-          <div className="flex flex-col justify-center items-left gap-4">
-            {(Object.keys(inputTitle) as (keyof inputs)[]).map((key, index) => {
-              return (
-                <div key={index} className="flex flex-col">
-                  <p className="font-semibold">{inputTitle[key]}</p>
-                  <p className="">{values[key]}</p>
-                </div>
-              );
-            })}
-          </div>
+          {!isPending ? (
+            <div className="flex flex-col justify-center items-left gap-4">
+              {(Object.keys(inputTitle) as (keyof ContactSchemaType)[]).map(
+                (key, index) => {
+                  return (
+                    <div key={index} className="flex flex-col">
+                      <p className="font-semibold">{inputTitle[key]}</p>
+                      <p className="whitespace-pre">{values[key]}</p>
+                    </div>
+                  );
+                }
+              )}
+            </div>
+          ) : (
+            <div className="flex justify-center py-4">
+              <div className="animate-spin h-20 w-20 border-4 border-blue-500 rounded-xl"></div>
+            </div>
+          )}
         </div>
         <div className="flex flex-row justify-center items-center gap-6 p-5">
           <button
             type="button"
             className="h-12 lg:h-10 w-32 custom-button"
             onClick={() => setModal(false)}
+            disabled={isPending}
           >
             キャンセル
           </button>
-          <button type="submit" className="h-12 lg:h-10 w-32 custom-button">
+          <button
+            type="submit"
+            className="h-12 lg:h-10 w-32 custom-button"
+            disabled={isPending}
+          >
             送信
           </button>
         </div>

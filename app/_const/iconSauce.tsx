@@ -80,6 +80,10 @@ export const IconSauce = {
         iconName: "Vercel",
         src: "/devIcons/vercel-icon.svg",
       },
+      CloudRun: {
+        iconName: "Cloud Run",
+        src: "/devIcons/cloud_run.svg",
+      },
     },
   },
 };
