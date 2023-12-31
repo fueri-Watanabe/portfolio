@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .custom-button {
-  @apply border-b border-r drop-shadow rounded-lg p-2.5 border-gray-300 dark:bg-slate-800 font-semibold text-cyan-800 dark:text-white/80 dark:border-slate-600
+  @apply border-b border-r drop-shadow rounded-lg p-2.5 border-gray-300 dark:bg-slate-800 font-semibold text-slate-800 dark:text-white/80 dark:border-slate-600
   tracking-wide text-sm placeholder-gray-400 bg-white disabled:opacity-40 disabled:cursor-not-allowed hover:drop-shadow-xl hover:bg-slate-100 hover:dark:bg-slate-900;
 }
 
