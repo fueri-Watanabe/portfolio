@@ -14,7 +14,10 @@ const ModeSwitcher = () => {
     return null;
   }
   return (
-    <button onClick={() => setTheme(theme == "dark" ? "light" : "dark")}>
+    <button
+      aria-label="darkModeSwitch"
+      onClick={() => setTheme(theme == "dark" ? "light" : "dark")}
+    >
       {theme == "dark" ? (
         <SunIcon className="h-6 w-6" />
       ) : (

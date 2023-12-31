@@ -72,6 +72,7 @@ export const Header = () => {
               type="button"
               onClick={() => setShowNav(showNav ? false : true)}
               className="flex justify-center items-center lg:hidden h-10 w-10"
+              aria-label="menuBar"
             >
               <Bars3Icon className="h-8 w-8" />
             </button>

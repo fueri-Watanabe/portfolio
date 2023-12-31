@@ -86,6 +86,7 @@ const Form = () => {
                     </p>
                   )}
                   <select
+                    aria-label="title"
                     className="w-full dark:bg-gray-700 rounded text-base outline-none py-1 px-3 leading-6"
                     {...register("title", { required: true })}
                   >
@@ -100,7 +101,7 @@ const Form = () => {
                   </select>
                 </div>
                 <div className="my-6">
-                  <label className="leading-7 text-sm">
+                  <label htmlFor="contactName" className="leading-7 text-sm">
                     {inputTitle.contactName}
                     <sup className="text-red-500">*</sup>
                   </label>
@@ -111,22 +112,24 @@ const Form = () => {
                   )}
                   <input
                     type="text"
+                    id="contactName"
                     className="w-full dark:bg-gray-700 rounded text-base outline-none py-1 px-3 leading-6"
                     {...register("contactName", { required: true })}
                   />
                 </div>
                 <div className="my-6">
-                  <label className="leading-7 text-sm">
+                  <label htmlFor="company" className="leading-7 text-sm">
                     {inputTitle.company}
                   </label>
                   <input
                     type="text"
+                    id="company"
                     className="w-full dark:bg-gray-700 rounded text-base outline-none py-1 px-3 leading-6"
                     {...register("company")}
                   />
                 </div>
                 <div className="my-6">
-                  <label className="leading-7 text-sm">
+                  <label htmlFor="email" className="leading-7 text-sm">
                     {inputTitle.email}
                     <sup className="text-red-500">*</sup>
                   </label>
@@ -137,12 +140,13 @@ const Form = () => {
                   )}
                   <input
                     type="text"
+                    id="email"
                     className="w-full dark:bg-gray-700 rounded text-base outline-none py-1 px-3 leading-6"
                     {...register("email", { required: true })}
                   />
                 </div>
                 <div className="my-6">
-                  <label className="leading-7 text-sm">
+                  <label htmlFor="content" className="leading-7 text-sm">
                     {inputTitle.content}
                     <sup className="text-red-500">*</sup>
                   </label>
@@ -152,6 +156,7 @@ const Form = () => {
                     </p>
                   )}
                   <textarea
+                    id="content"
                     className="w-full dark:bg-gray-700 rounded h-32 text-base outline-none py-1 px-3 leading-6"
                     {...register("content", { required: true })}
                   />
