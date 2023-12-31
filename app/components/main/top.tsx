@@ -27,7 +27,10 @@ const Top = () => {
           </Link>
         </div>
         <div className="flex justify-center items-center lg:w-1/2">
-          <Image src="/working.gif" alt="working" width={500} height={500} />
+          <video autoPlay loop muted playsInline>
+            <source src="/working.webm" type="video/webm" />
+          </video>
+          {/* <Image src="/working.gif" alt="working" width={500} height={500} /> */}
         </div>
       </div>
     </div>
