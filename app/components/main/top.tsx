@@ -23,7 +23,7 @@ const Top = () => {
             href={"#service"}
             className="w-auto custom-button hover:scale-110 duration-300"
           >
-            <p className="text-md p-1">サービスを見る</p>
+            <p className="text-cyan-700 text-md p-1">サービスを見る</p>
           </Link>
         </div>
         <div className="flex justify-center items-center lg:w-1/2">

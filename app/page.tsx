@@ -15,31 +15,19 @@ const Home = () => {
           <Top />
         </BgLayout>
         <div className="h-20 w-full bg-gradient-to-r from-cyan-500 to-blue-500 [clip-path:polygon(0%_0%,100%_0%,0%_100%)]"></div>
-        <SectionLayout
-          title={"Service"}
-          secondTitle={"サービス"}
-          idName="service"
-        >
+        <SectionLayout secondTitle={"サービス"} idName="service">
           <Service />
         </SectionLayout>
-        <SectionLayout
-          title={"WorkFlow"}
-          secondTitle={"製作の流れ"}
-          idName="workFlow"
-        >
+        <SectionLayout secondTitle={"製作の流れ"} idName="workFlow">
           <WorkFlow />
         </SectionLayout>
-        <SectionLayout title={"FAQ"} secondTitle={"よくある質問"} idName="fAQ">
+        <SectionLayout secondTitle={"よくある質問"} idName="fAQ">
           <FAQ />
         </SectionLayout>
-        <SectionLayout
-          title={"Projects"}
-          secondTitle={"プロジェクト/デモ"}
-          idName="projects"
-        >
+        <SectionLayout secondTitle={"プロジェクト/デモ"} idName="projects">
           <Projects />
         </SectionLayout>
-        <SectionLayout title={""} secondTitle={""} idName="contact">
+        <SectionLayout secondTitle={""} idName="contact">
           <Form />
         </SectionLayout>
       </main>
