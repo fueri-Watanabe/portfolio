@@ -59,7 +59,7 @@ const WorkFlow = () => {
                   className="h-24 w-24"
                 />
                 <div className="flex flex-col items-start gap-4">
-                  <p className="text-[#00bfa6] text-2xl font-semibold title-font">
+                  <p className="text-2xl font-semibold title-font">
                     {value.title}
                   </p>
                   <div className="flex items-center">

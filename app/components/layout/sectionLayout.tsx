@@ -19,9 +19,7 @@ const Title = ({ secondTitle }: { secondTitle: string }) => {
   return (
     <div className="container flex gap-5 items-center">
       <div className="flex-none">
-        <p className="font-bold text-4xl text-slate-800 dark:text-white">
-          {secondTitle}
-        </p>
+        <p className="font-bold text-4xl">{secondTitle}</p>
       </div>
       <div className="w-full border-t"></div>
     </div>
