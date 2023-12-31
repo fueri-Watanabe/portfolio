@@ -27,7 +27,7 @@ export const ProjectData = [
     ],
     title: "Portfolio",
     url: "http://fueri.jp/",
-    image: "/projectImage/portfolio.png",
+    image: "/projectImage/portfolio.webp",
   },
   // {
   //   icon: [
