@@ -7,9 +7,21 @@ import Providers from "./components/tools/providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
+const siteName = "Web Developer fueri/Hiroshi Watanabe";
+const description = "Web Developer fueri/Hiroshi Watanabe";
+const url = "https://fueri.jp/";
+
 export const metadata: Metadata = {
-  title: "Web Developer fueri/Hiroshi Watanabe",
-  description: "Web Developer fueri/Hiroshi Watanabe",
+  title: { default: siteName, template: `%s - ${siteName}` },
+  description,
+  openGraph: {
+    title: siteName,
+    description,
+    url,
+    siteName,
+    locale: "ja_JP",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

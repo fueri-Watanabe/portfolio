@@ -1,6 +1,6 @@
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { inputTitle } from "../main/contact";
-import { ContactSchemaType } from "../tools/validation";
+import { ContactSchemaType } from "../type/validation";
 
 const Confirm = ({
   setModal,

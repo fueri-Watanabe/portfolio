@@ -29,9 +29,7 @@ const Top = () => {
         <div className="flex justify-center items-center lg:w-1/2">
           <video autoPlay loop muted playsInline>
             <source src="/animation/working.webm" type="video/webm" />
-            <source src="/animation/working.mp4" type="video/mp4" />
           </video>
-          {/* <Image src="/working.gif" alt="working" width={500} height={500} /> */}
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import { ContactSchemaType } from "@/app/components/tools/validation";
+import { ContactSchemaType } from "@/app/components/type/validation";
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 

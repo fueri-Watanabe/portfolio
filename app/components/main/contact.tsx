@@ -2,7 +2,7 @@
 
 import { useState, useTransition } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { ContactSchema, ContactSchemaType } from "../tools/validation";
+import { ContactSchema, ContactSchemaType } from "../type/validation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Confirm from "../modal/confirm";
 import Complete from "../modal/complete";
