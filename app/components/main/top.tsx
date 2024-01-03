@@ -27,7 +27,7 @@ const Top = () => {
           </Link>
         </div>
         <div className="flex justify-center items-center lg:w-1/2">
-          <video autoPlay loop muted playsInline poster="/working.png">
+          <video autoPlay loop muted playsInline>
             <source src="/animation/working.webm" type="video/webm" />
           </video>
         </div>
