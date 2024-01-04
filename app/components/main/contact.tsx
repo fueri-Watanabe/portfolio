@@ -88,9 +88,10 @@ const Form = () => {
                   <select
                     aria-label="title"
                     className="w-full dark:bg-gray-700 rounded text-base outline-none py-1 px-3 leading-6"
+                    defaultValue={""}
                     {...register("title", { required: true })}
                   >
-                    <option hidden></option>
+                    <option value={""} hidden disabled></option>
                     {ContactTitles.map((title, index) => {
                       return (
                         <option key={index} value={title}>

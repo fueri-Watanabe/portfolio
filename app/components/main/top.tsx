@@ -1,7 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
-// TODO スマホサイズ良い感じの配置にする。
 const Top = () => {
+  const wait = () => console.log(false);
   return (
     <div className="container">
       <div className="flex flex-col lg:flex-row justify-center items-center w-full py-36 px-8 lg:px-0">
@@ -27,8 +26,9 @@ const Top = () => {
           </Link>
         </div>
         <div className="flex justify-center items-center lg:w-1/2">
-          <video autoPlay loop muted playsInline>
+          <video autoPlay loop muted playsInline poster="/working.png">
             <source src="/animation/working.webm" type="video/webm" />
+            <source src="/animation/working.mp4" type="video/mp4" />
           </video>
         </div>
       </div>
