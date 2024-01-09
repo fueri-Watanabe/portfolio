@@ -41,7 +41,7 @@ export const Header = () => {
   const router = useRouter();
   return (
     <div className="flex justify-center items-center">
-      <div className="fixed z-20 top-3 p-2 w-full lg:w-auto mx-auto rounded-lg backdrop-blur-sm shadow-md drop-shadow-lg">
+      <div className="fixed z-20 top-3 p-2 w-full lg:w-[674px] mx-auto rounded-lg backdrop-blur-sm shadow-md drop-shadow-lg">
         <div>
           <div className="flex justify-between items-center gap-8">
             <button
@@ -54,9 +54,9 @@ export const Header = () => {
               <Image
                 src="/logo.png"
                 alt="logo"
-                width={100}
-                height={100}
-                className="w-12 h-auto"
+                width={50}
+                height={50}
+                className="w-10 h-auto"
               />
             </button>
             <div className="lg:flex items-center gap-2 hidden">
