@@ -5,7 +5,7 @@ export const Footer = () => {
         <div className="flex flex-col justify-between items-center p-8 h-64 ">
           <div></div>
           <p className="text-white dark:text-slate-800 text-base">
-            ©2021 fueri
+            © 2021-{new Date().getFullYear()} fueri
           </p>
         </div>
       </div>
