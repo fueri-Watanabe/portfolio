@@ -10,7 +10,7 @@ const serviceContents = [
   "業務系Webサービス",
   "DB管理型Webアプリケーション構築",
   "既存サイト・システム修正/管理",
-  "Googleアプリ(Gmail・スプレッドシート等)連携",
+  "Googleアプリ連携",
 ];
 
 const Service = () => {
