@@ -52,7 +52,7 @@ export const Header = () => {
               className="flex justify-center items-center h-10 w-10"
             >
               <Image
-                src="/logo.png"
+                src="/logo.webp"
                 alt="logo"
                 width={50}
                 height={50}
