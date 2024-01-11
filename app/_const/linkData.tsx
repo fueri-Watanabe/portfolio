@@ -20,13 +20,6 @@ export const HeaderLink = [
     href: "#workFlow",
     show: true,
   },
-  // {
-  //   title: "料金紹介",
-  //   label: "PRICE",
-  //   icon: "",
-  //   href: "#price",
-  //   show: true,
-  // },
   {
     title: "よくある質問",
     label: "FAQ",
@@ -41,13 +34,6 @@ export const HeaderLink = [
     href: "#projects",
     show: true,
   },
-  // {
-  //   title: "プロフィール",
-  //   label: "PROFILE",
-  //   icon: "",
-  //   href: "#profile",
-  //   show: true,
-  // },
   {
     title: "お問い合わせ",
     label: "CONTACT",
