@@ -5,28 +5,28 @@ import { IconSauce } from "../../_const/iconSauce";
 import { CodeBracketSquareIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 
+const serviceContents = [
+  "Webサイト",
+  "業務系Webサービス",
+  "DB管理型Webアプリケーション構築",
+  "既存サイト・システム修正/管理",
+  "Googleアプリ(Gmail・スプレッドシート等)連携",
+];
+
 const Service = () => {
   return (
     <div className="container flex flex-col lg:flex-row justify-between items-center gap-10 lg:gap-0 lg:h-auto">
       <div className="flex flex-col justify-between gap-8 lg:w-1/2 h-full">
         <p className="text-3xl">Webアプリケーション開発</p>
         <ul className="flex flex-col gap-3 text-xl">
-          <li className="flex">
-            <CodeBracketSquareIcon className="h-6 w-6 text-gray-500 hover:text-gray-900 hover:dark:text-gray-300" />
-            予約管理・商品管理システム
-          </li>
-          <li className="flex">
-            <CodeBracketSquareIcon className="h-6 w-6 text-gray-500 hover:text-gray-900 hover:dark:text-gray-300" />
-            データツール
-          </li>
-          <li className="flex">
-            <CodeBracketSquareIcon className="h-6 w-6 text-gray-500 hover:text-gray-900 hover:dark:text-gray-300" />
-            書類作成の自動化
-          </li>
-          <li className="flex">
-            <CodeBracketSquareIcon className="h-6 w-6 text-gray-500 hover:text-gray-900 hover:dark:text-gray-300" />
-            Googleサービス内の連携・自動化
-          </li>
+          {serviceContents.map((value, index) => {
+            return (
+              <li key={index} className="flex">
+                <CodeBracketSquareIcon className="h-6 w-6 text-gray-500 hover:text-gray-900 hover:dark:text-gray-300" />
+                {value}
+              </li>
+            );
+          })}
         </ul>
         <p>社内システム・個人ツールの作成、あらゆる業務をサポート致します。</p>
       </div>
