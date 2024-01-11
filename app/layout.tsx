@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 const siteName = "Web Developer fueri/Hiroshi Watanabe";
 const description = "Web Developer fueri/Hiroshi Watanabe";
-const url = "https://fueri.jp/";
+const url = "https://fueri.jp";
 
 export const metadata: Metadata = {
   title: { default: siteName, template: `%s - ${siteName}` },
