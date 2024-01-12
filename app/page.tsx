@@ -15,7 +15,7 @@ const Home = () => {
           <Top />
         </BgLayout>
         <div className="h-20 w-full bg-gradient-to-r from-cyan-500 to-blue-500 [clip-path:polygon(0%_0%,100%_0%,0%_100%)]"></div>
-        <SectionLayout secondTitle={"サービス"} idName="service">
+        <SectionLayout secondTitle={"サービス/スキル"} idName="service">
           <Service />
         </SectionLayout>
         <SectionLayout secondTitle={"製作の流れ"} idName="workFlow">
