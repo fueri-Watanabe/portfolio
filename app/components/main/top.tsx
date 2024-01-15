@@ -4,7 +4,7 @@ const Top = () => {
   return (
     <div className="container">
       <div className="flex flex-col lg:flex-row justify-center items-center w-full py-36 px-8 lg:px-0">
-        <div className="flex flex-col items-start gap-8">
+        <div className="flex flex-col items-start gap-8 lg:w-[429px] lg:h-[208px]">
           <div className="flex items-center lg:items-end gap-2 text-4xl font-bold text-white dark:text-slate-800 duration-300">
             <p>
               <ruby>
@@ -25,7 +25,7 @@ const Top = () => {
             <p className="text-md p-1">サービスを見る</p>
           </Link>
         </div>
-        <div className="flex justify-center items-center lg:w-1/2">
+        <div className="flex justify-center items-center lg:w-[576px] lg:h-[576px]">
           <video autoPlay loop muted playsInline poster="/working.webp">
             <source src="/animation/working.webm" type="video/webm" />
             <source src="/animation/working.mp4" type="video/mp4" />
