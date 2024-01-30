@@ -12,6 +12,7 @@ const Projects = () => {
               <Link
                 key={index}
                 href={value.url}
+                target="_blank"
                 className="w-full h-60 border rounded-xl shadow hover:border-slate-100 hover:dark:border-slate-600 hover:shadow-xl duration-300"
               >
                 <div className="flex items-center gap-4 h-full p-6 hover:scale-105 duration-300">

@@ -14,19 +14,6 @@ const serviceContents = [
 ];
 
 const Service = () => {
-  // const textLightOff = "flex items-center text-gray-500";
-  const textLightOn = "flex items-center";
-  // const [contentClass, setContentClass] = useState(0);
-
-  // useEffect(() => {
-  //   const intervalId = setInterval(() => {
-  //     setContentClass((prev) => (prev == 5 ? 0 : prev + 1));
-  //   }, 1000);
-  //   return () => {
-  //     clearInterval(intervalId);
-  //   };
-  // }, [contentClass]);
-
   return (
     <div className="container flex flex-col lg:flex-row justify-between items-center gap-10 lg:gap-0 lg:h-auto">
       <div className="flex flex-col justify-between gap-8 lg:w-1/2 h-full">
@@ -34,11 +21,7 @@ const Service = () => {
         <ul className="flex flex-col gap-3 text-xl">
           {serviceContents.map((value, index) => {
             return (
-              <li
-                key={index}
-                className={textLightOn}
-                // className={contentClass > index ? textLightOn : textLightOff}
-              >
+              <li key={index} className="flex items-center">
                 <CodeBracketSquareIcon className="h-6 w-6" />
                 <p>{value}</p>
               </li>
