@@ -10,8 +10,7 @@ export const ProjectData = [
       IconSauce.BackendDBCloud.icon.Vercel.src,
     ],
     title: "予約管理システムデモ",
-    url: "https://booking-management-system-demo-cqvgosvfn-fueri-watanabe.vercel.app/",
-    // url: "https://booking-management-system-demo.vercel.app/",
+    url: "https://booking-management-system-demo.vercel.app/",
     image: "/projectImage/booking-management-system-demo.webp",
   },
   // {

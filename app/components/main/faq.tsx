@@ -25,11 +25,11 @@ const contents = [
     answer:
       "作成作業やデバッグに支障が無ければ大丈夫です。作成内容により作業が進まない場合がございますので事前にお伝えください。fueriでは、個人情報の保護に関する法律その他の関係法令を遵守いたします。",
   },
-  {
-    question: "相談やお見積りは無料でしょうか？",
-    answer:
-      "はい、無料です。幅広くお受けしておりますのでお気軽にご連絡ください。",
-  },
+  // {
+  //   question: "相談やお見積りは無料でしょうか？",
+  //   answer:
+  //     "はい、無料です。幅広くお受けしておりますのでお気軽にご連絡ください。",
+  // },
   {
     question: "相場が分からず費用が心配です。金額は相談出来ますか？",
     answer:
@@ -49,34 +49,26 @@ const FAQ = () => {
           return (
             <div
               key={index}
-              className="flex flex-col justify-between h-52 hover:shadow-xl duration-300 bg-slate-100 hover:bg-slate-50 dark:bg-slate-800 hover:dark:bg-slate-700 rounded p-3"
+              className="flex flex-col justify-between h-52 hover:shadow-xl duration-300 bg-slate-100 hover:bg-slate-50 dark:bg-slate-800 hover:dark:bg-slate-600 rounded py-2"
             >
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2 px-4">
                 <QuestionMarkCircleIcon className="h-6 w-6 text-gray-500" />
                 <p className="text-sm font-medium">{value.question}</p>
               </div>
-              <div className="leading-relaxed text-sm">{value.answer}</div>
+              <div className="basis-1/2 bg-slate-200 dark:bg-slate-700 leading-relaxed text-sm rounded-2xl p-2 mx-2">
+                {value.answer}
+              </div>
             </div>
           );
         })}
-        <div className="flex flex-col justify-between border rounded h-52">
-          <div></div>
-          <div className="underline">
-            <p>
-              お手頃な価格で発注いただけます。
-              相談・お見積り無料、お気軽にお問い合わせください。
-            </p>
-          </div>
-          <div className="flex justify-center p-4">
-            <Link
-              href={"#contact"}
-              className="w-2/3 lg:w-1/2 custom-button text-center"
-            >
-              <p>お問い合わせ</p>
-            </Link>
-          </div>
-        </div>
       </div>
+      <Link
+        href={"#contact"}
+        className="flex flex-col lg:w-2/3 mx-auto py-10 mt-20 text-center text-xl border dark:border-slate-800 hover:border-slate-300 hover:shadow-lg hover:dark:shadow-none hover:dark:border-white hover:bg-slate-100 hover:dark:bg-slate-800 dark:bg-slate-950 rounded-2xl duration-300"
+      >
+        <p>お手頃な価格で発注いただけます。</p>
+        <p>相談・お見積り無料、お気軽にお問い合わせください。</p>
+      </Link>
     </div>
   );
 };
