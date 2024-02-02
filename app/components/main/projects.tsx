@@ -34,7 +34,9 @@ const Projects = () => {
                         );
                       })}
                     </div>
-                    <p className="font-medium">{value.title}</p>
+                    <div className="flex justify-center">
+                      <p className="font-medium">{value.title}</p>
+                    </div>
                     <p className="text-slate-500 text-xs">{value.url}</p>
                   </div>
                   <Image
