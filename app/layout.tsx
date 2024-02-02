@@ -12,6 +12,7 @@ const description = "Web Developer fueri/Hiroshi Watanabe";
 const url = "https://fueri.jp";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(url),
   title: { default: siteName, template: `%s - ${siteName}` },
   description,
   openGraph: {
