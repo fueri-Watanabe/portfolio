@@ -105,7 +105,7 @@ export const IconSauce = {
       Github: {
         iconName: "Github",
         src: "/devIcons/github-mark.svg",
-        main: true,
+        main: false,
       },
     },
   },
