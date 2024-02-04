@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "./components/header/header";
 import { Footer } from "./components/footer/footer";
 import Providers from "./components/tools/providers";
+import { Noto_Sans_JP } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,15 +26,20 @@ export const metadata: Metadata = {
   },
 };
 
+const notoSansJP = Noto_Sans_JP({
+  subsets: ["latin"],
+  variable: "--font-noto-sans-jp",
+});
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ja" suppressHydrationWarning className="scroll-smooth">
+    <html lang="ja" className="scroll-smooth" suppressHydrationWarning>
       <body
-        className={`${inter.className} text-cyan-800 dark:text-white dark:bg-slate-900`}
+        className={`${inter.className} ${notoSansJP.className} text-cyan-800 dark:text-white dark:bg-slate-900`}
       >
         <Providers>
           <Header />

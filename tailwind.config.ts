@@ -8,6 +8,9 @@ const config: Config = {
   ],
   darkMode: "class",
   theme: {
+    fontFamily: {
+      sans: ["var(--font-noto-sans-jp)"],
+    },
     container: {
       center: true,
       padding: {
