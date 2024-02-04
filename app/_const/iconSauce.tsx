@@ -102,6 +102,11 @@ export const IconSauce = {
         src: "/devIcons/firebase.svg",
         main: false,
       },
+      Github: {
+        iconName: "Github",
+        src: "/devIcons/github-mark.svg",
+        main: true,
+      },
     },
   },
 };
