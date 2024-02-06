@@ -20,7 +20,7 @@ export const Footer = () => {
             <Link
               href={"https://github.com/fueri-Watanabe"}
               target="_blank"
-              className="bg-black dark:bg-transparent rounded-lg p-1"
+              className="bg-black dark:bg-transparent rounded-full p-1"
             >
               <Image
                 src={"/devIcons/github-mark-white.svg"}

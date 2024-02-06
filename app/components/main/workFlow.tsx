@@ -56,7 +56,7 @@ const WorkFlow = () => {
                   alt={value.title}
                   width={100}
                   height={50}
-                  className="h-24 w-24"
+                  className="h-24 w-24 hover:scale-125 transition"
                 />
                 <div className="flex flex-col items-start gap-4">
                   <p className="text-2xl font-semibold title-font">
