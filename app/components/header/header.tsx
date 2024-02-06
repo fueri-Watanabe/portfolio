@@ -65,7 +65,7 @@ export const Header = () => {
             <div className="lg:hidden">
               <p className="text-3xl cursor-default">fueri</p>
             </div>
-            <div className="lg:flex items-center p-1">
+            <div className="lg:flex items-center p-1 hidden">
               <ModeSwitcher />
             </div>
             <button
