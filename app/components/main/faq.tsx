@@ -25,11 +25,6 @@ const contents = [
     answer:
       "作成作業やデバッグに支障が無ければ大丈夫です。作成内容により作業が進まない場合がございますので事前にお伝えください。fueriでは、個人情報の保護に関する法律その他の関係法令を遵守いたします。",
   },
-  // {
-  //   question: "相談やお見積りは無料でしょうか？",
-  //   answer:
-  //     "はい、無料です。幅広くお受けしておりますのでお気軽にご連絡ください。",
-  // },
   {
     question: "相場が分からず費用が心配です。金額は相談出来ますか？",
     answer:
@@ -44,7 +39,7 @@ const contents = [
 const FAQ = () => {
   return (
     <div className="container pb-5">
-      <div className="grid lg:grid-cols-3 gap-3">
+      <div className="grid lg:grid-cols-3 gap-4 lg:gap-3">
         {contents.map((value, index) => {
           return (
             <div

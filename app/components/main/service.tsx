@@ -70,7 +70,7 @@ const Service = () => {
           <ul className="flex flex-col gap-3 text-xl">
             {serviceContents.map((value, index) => {
               return (
-                <li key={index} className="flex items-center">
+                <li key={index} className="flex items-center gap-1">
                   <CodeBracketSquareIcon className="h-6 w-6" />
                   <p>{value}</p>
                 </li>
