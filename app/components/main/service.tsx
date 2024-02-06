@@ -50,13 +50,15 @@ const Service = () => {
             return (
               <div
                 key={index}
-                className="h-44 p-6 flex flex-col justify-between basis-1/3 gap-5 dark:border rounded-xl hover:dark:bg-white hover:shadow-xl hover:dark:text-slate-900 transition select-none"
+                className="h-44 flex flex-col basis-1/3 rounded-xl bg-gradient-to-tr from-pink-300 to-blue-300 p-0.5"
               >
-                <div className="flex flex-row items-center gap-6">
-                  <div>{value.icon}</div>
-                  <div className="text-xl font-semibold">{value.title}</div>
+                <div className="h-44 p-6 flex flex-col justify-between gap-5 rounded-xl bg-white dark:bg-slate-900 hover:dark:bg-white hover:shadow-xl hover:dark:text-slate-900 transition select-none">
+                  <div className="flex flex-row items-center gap-6">
+                    <div>{value.icon}</div>
+                    <div className="text-xl font-semibold">{value.title}</div>
+                  </div>
+                  <div className="basis-3/5">{value.text}</div>
                 </div>
-                <div className="basis-3/5">{value.text}</div>
               </div>
             );
           })}
