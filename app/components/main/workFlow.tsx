@@ -79,7 +79,7 @@ const WorkFlow = () => {
         })}
       </div>
       <div className="text-center mt-14">
-        <div className="inline-block text-left">
+        <div className="inline-block text-left font-light">
           <p>※納品後1ヶ月間は無料で手直しをしております。</p>
           <p>
             ※追加の修正の場合は別途のご依頼となり追加料金を頂く場合があります。
