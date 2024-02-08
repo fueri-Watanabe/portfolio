@@ -34,7 +34,7 @@ const WorkFlow = () => {
       title: "完了(納品)",
       src: "/workFlow/finish.svg",
       explain:
-        "ご依頼終了後でもご質問・ご相談等ありましたらお気軽にご連絡ください。\n※納品後1ヶ月間は無料で手直しをしております。\n※追加の修正の場合は別途のご依頼となり追加料金を頂く場合があります。",
+        "ご依頼終了後でもご質問・ご相談等ありましたらお気軽にご連絡ください。",
     },
   ];
 
@@ -43,28 +43,31 @@ const WorkFlow = () => {
       <div className="flex flex-col py-5">
         {contents.map((value, index) => {
           return (
-            <div key={index} className="flex relative items-center py-6 gap-10">
+            <div
+              key={index}
+              className="group flex relative items-center py-6 gap-10"
+            >
               <div className="h-full w-10 absolute inset-0 flex items-center justify-center">
                 <div className="h-full w-1 bg-gray-200 pointer-events-none"></div>
               </div>
               <div className="flex-shrink-0 w-10 h-10 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-[#00bfa6] text-white relative font-medium text-lg cursor-default hover:animate-spin">
                 {index + 1}
               </div>
-              <div className="flex flex-col items-center lg:flex-row lg:gap-10">
+              <div className="flex flex-col items-center mx-auto lg:m-0 lg:flex-row lg:gap-10">
                 <Image
                   src={value.src}
                   alt={value.title}
                   width={100}
                   height={50}
-                  className="h-24 w-24 hover:scale-125 transition"
+                  className="h-24 w-24 group-hover:scale-125 transition"
                 />
-                <div className="flex flex-col items-start gap-4">
-                  <p className="text-2xl font-semibold title-font">
+                <div className="flex flex-col items-center lg:items-start gap-4">
+                  <p className="text-2xl group-hover:text-3xl font-semibold title-font duration-150">
                     {value.title}
                   </p>
                   <div className="flex items-center">
                     <div>
-                      <p className="leading-relaxed whitespace-pre-wrap">
+                      <p className="leading-relaxed whitespace-pre-wrap duration-150">
                         {value.explain}
                       </p>
                     </div>
@@ -74,6 +77,14 @@ const WorkFlow = () => {
             </div>
           );
         })}
+      </div>
+      <div className="text-center mt-14">
+        <div className="inline-block text-left">
+          <p>※納品後1ヶ月間は無料で手直しをしております。</p>
+          <p>
+            ※追加の修正の場合は別途のご依頼となり追加料金を頂く場合があります。
+          </p>
+        </div>
       </div>
     </div>
   );

@@ -61,7 +61,7 @@ const FAQ = () => {
         href={"#contact"}
         className="flex flex-col lg:w-2/3 justify-center items-center gap-4 mx-auto px-4 py-8 mt-20 text-md lg:text-xl border dark:border-slate-800 hover:border-slate-300 hover:shadow-lg hover:dark:shadow-none hover:dark:border-white hover:bg-slate-100 hover:dark:bg-slate-800 dark:bg-slate-950 rounded-2xl duration-300"
       >
-        <p>お手頃な価格で発注いただけます。</p>
+        <p className="text-center">お手頃な価格で発注いただけます。</p>
         <div className="flex flex-col lg:flex-row justify-center items-center gap-4 lg:gap-0">
           <p>相談・お見積り無料、</p>
           <p>お気軽にお問い合わせください。</p>

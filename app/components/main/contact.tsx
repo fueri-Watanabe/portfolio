@@ -59,7 +59,7 @@ const Form = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex justify-center items-center">
           <div className="lg:w-1/3 lg:p-10 p-4 text-left rounded-lg bg-slate-100 dark:bg-slate-800">
-            <div className="p-3 text-gray-900 dark:text-white text-xl font-medium title-font">
+            <div className="p-3 text-gray-900 dark:text-white text-center lg:text-start text-xl font-medium title-font">
               <p>お問い合わせフォーム</p>
             </div>
             <ul className="p-3 leading-relaxed text-gray-600 dark:text-gray-400">

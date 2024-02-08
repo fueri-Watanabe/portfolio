@@ -1,9 +1,6 @@
-"use client";
-
 import Image from "next/image";
 import { IconSauce } from "../../_const/iconSauce";
 import { CodeBracketSquareIcon } from "@heroicons/react/24/outline";
-import { useState } from "react";
 import {
   ChatBubbleLeftRightIcon,
   UsersIcon,
@@ -129,29 +126,21 @@ const IconBox = ({
 }: {
   icon: { iconName: string; src: string; main: boolean };
 }) => {
-  const [hover, setHover] = useState(false);
   return (
     <>
       {icon.main && (
         <div className="relative flex flex-col basis-1/5 items-center p-1 lg:p-2">
-          {hover && (
-            <div className="absolute top-0 -translate-y-6 bg-slate-600 rounded">
-              <p className="text-white text-xs p-1">{icon.iconName}</p>
-            </div>
-          )}
-          <div
-            className="rounded-full bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 hover:dark:bg-slate-600 duration-300 p-3"
-            onMouseOver={() => setHover(true)}
-            onMouseLeave={() => setHover(false)}
-            onClick={() => setHover(true)}
-          >
+          <div className="group peer rounded-full bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 hover:dark:bg-slate-600 duration-300 p-3">
             <Image
               src={icon.src}
               alt={icon.iconName}
               width={45}
               height={45}
-              className="lg:h-10 lg:w-10 h-7 w-7 hover:scale-125 duration-200"
+              className="lg:h-10 lg:w-10 h-7 w-7 group-hover:scale-125 duration-200"
             />
+          </div>
+          <div className="absolute top-0 -translate-y-6 bg-slate-600 rounded hidden peer-hover:block">
+            <p className="text-white text-xs p-1">{icon.iconName}</p>
           </div>
         </div>
       )}

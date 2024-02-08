@@ -1,7 +1,6 @@
 import { ProjectData } from "../../_const/projectData";
 import Image from "next/image";
 import Link from "next/link";
-import { IconSauce } from "@/app/_const/iconSauce";
 
 const Projects = () => {
   return (
