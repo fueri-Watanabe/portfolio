@@ -80,43 +80,36 @@ const Service = () => {
         </div>
         <div className="p-2">
           <div className="flex flex-col gap-3">
-            <div>
-              <p className="text-2xl font-semibold">
-                {IconSauce.PGLanguage.title}
-              </p>
-              <div className="flex items-center flex-wrap">
-                {Object.values(IconSauce.PGLanguage.icon).map(
-                  (value, index) => {
-                    return <IconBox key={index} icon={value} />;
-                  }
-                )}
-              </div>
-            </div>
-            <div>
-              <p className="text-2xl font-semibold">
-                {IconSauce.Frontend.title}
-              </p>
-              <div className="flex items-center flex-wrap">
-                {Object.values(IconSauce.Frontend.icon).map((value, index) => {
-                  return <IconBox key={index} icon={value} />;
-                })}
-              </div>
-            </div>
-            <div>
-              <p className="text-2xl font-semibold">
-                {IconSauce.BackendDBCloud.title}
-              </p>
-              <div className="flex items-center flex-wrap">
-                {Object.values(IconSauce.BackendDBCloud.icon).map(
-                  (value, index) => {
-                    return <IconBox key={index} icon={value} />;
-                  }
-                )}
-              </div>
-            </div>
+            {Object.values(IconSauce).map((iconSauceValue, index) => {
+              return (
+                <div key={index}>
+                  <p className="text-2xl font-semibold">
+                    {iconSauceValue.title}
+                  </p>
+                  <div className="flex items-center flex-wrap">
+                    {Object.values(iconSauceValue.icon).map((value) => {
+                      return <IconBox key={value.iconName} icon={value} />;
+                    })}
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
+      {/* <div className="flex justify-center items-center flex-wrap">
+        {Object.values(IconSauce).map((iconSauceValue) => {
+          return Object.values(iconSauceValue.icon).map((iconValues) => {
+            return iconValues.svg ? (
+              <li key={iconValues.iconName} className="mx-8">
+                {iconValues.svg}
+              </li>
+            ) : (
+              ""
+            );
+          });
+        })}
+      </div> */}
     </div>
   );
 };
