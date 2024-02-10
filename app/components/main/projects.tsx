@@ -6,7 +6,7 @@ const Projects = () => {
   return (
     <>
       <div className="container">
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="max-w-sm lg:max-w-full mx-auto grid lg:grid-cols-2 gap-12">
           {ProjectData.map((value, index) => {
             return (
               <Link

@@ -40,7 +40,7 @@ const WorkFlow = () => {
 
   return (
     <div className="container">
-      <div className="flex flex-col py-5">
+      <div className="max-w-sm lg:max-w-full mx-auto flex flex-col py-5">
         {contents.map((value, index) => {
           return (
             <div

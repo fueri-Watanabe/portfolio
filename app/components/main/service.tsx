@@ -36,11 +36,10 @@ const serviceContents = [
 const Service = () => {
   return (
     <div className="container flex flex-col gap-32">
-      <div className="flex flex-col gap-14">
-        <div className="flex justify-center items-center">
-          <p className="text-center text-3xl lg:text-4xl">
-            フルスタックエンジニア 3つの特徴
-          </p>
+      <div className="max-w-sm lg:max-w-full mx-auto flex flex-col gap-14">
+        <div className="flex lg:flex-row flex-col justify-center items-center text-center text-3xl lg:text-4xl gap-2">
+          <span>フルスタックエンジニア</span>
+          <span>3つの特徴</span>
         </div>
         <div className="flex flex-col lg:flex-row justify-between items-center gap-10 lg:gap-10 lg:h-auto">
           {Object.values(strengths).map((value, index) => {

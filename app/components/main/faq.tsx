@@ -39,7 +39,7 @@ const contents = [
 const FAQ = () => {
   return (
     <div className="container pb-5">
-      <div className="grid lg:grid-cols-3 gap-4 lg:gap-3">
+      <div className="grid lg:grid-cols-3 max-w-sm lg:max-w-full mx-auto gap-4 lg:gap-3">
         {contents.map((value, index) => {
           return (
             <div
@@ -59,7 +59,7 @@ const FAQ = () => {
       </div>
       <Link
         href={"#contact"}
-        className="flex flex-col lg:w-2/3 justify-center items-center gap-4 mx-auto px-4 py-8 mt-20 text-md lg:text-xl border dark:border-slate-800 hover:border-slate-300 hover:shadow-lg hover:dark:shadow-none hover:dark:border-white hover:bg-slate-100 hover:dark:bg-slate-800 dark:bg-slate-950 rounded-2xl duration-300"
+        className="max-w-sm lg:max-w-full flex flex-col lg:w-2/3 justify-center items-center gap-4 mx-auto px-4 py-8 mt-20 text-md lg:text-xl border dark:border-slate-800 hover:border-slate-300 hover:shadow-lg hover:dark:shadow-none hover:dark:border-white hover:bg-slate-100 hover:dark:bg-slate-800 dark:bg-slate-950 rounded-2xl duration-300"
       >
         <p className="text-center">お手頃な価格で発注いただけます。</p>
         <div className="flex flex-col lg:flex-row justify-center items-center gap-4 lg:gap-0">
