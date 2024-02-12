@@ -19,7 +19,7 @@ import {
   SiPlanetscale,
 } from "@icons-pack/react-simple-icons";
 
-const svgClassName = "w-16 h-16";
+const svgClassName = "w-14 h-14 drop-shadow-lg";
 
 export const IconSauce = {
   PGLanguage: {

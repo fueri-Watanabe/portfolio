@@ -4,8 +4,11 @@ import { IconSauce } from "@/app/_const/iconSauce";
 const MarqueeField = () => {
   return (
     <>
-      <div className="py-10">
-        <Marquee pauseOnClick gradient gradientColor="hsl(var(--widget))">
+      <div className="w-20 py-4 shadow-lg rounded-2xl">
+        <Marquee
+          pauseOnClick
+          //    gradient gradientColor="hsl(var(--widget))"
+        >
           {Object.values(IconSauce).map((iconSauceValue) => {
             return Object.values(iconSauceValue.icon).map((iconValues) => {
               return iconValues.svg ? (
