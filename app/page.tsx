@@ -6,6 +6,7 @@ import FAQ from "./components/main/faq";
 import Form from "./components/main/contact";
 import SectionLayout from "./components/layout/sectionLayout";
 import Projects from "./components/main/projects";
+import MarqueeField from "./components/main/marqueeField";
 
 const Home = () => {
   return (
@@ -18,7 +19,8 @@ const Home = () => {
         >
           <Top />
         </BgLayout>
-        <div className="relative bg-white dark:bg-slate-900">
+        <div className="-mt-32 relative bg-white dark:bg-slate-900">
+          <MarqueeField />
           <SectionLayout secondTitle={"サービス/スキル"} idName="service">
             <Service />
           </SectionLayout>

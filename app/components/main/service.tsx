@@ -100,9 +100,9 @@ const Service = () => {
         {Object.values(IconSauce).map((iconSauceValue) => {
           return Object.values(iconSauceValue.icon).map((iconValues) => {
             return iconValues.svg ? (
-              <li key={iconValues.iconName} className="mx-8">
+              <div key={iconValues.iconName} className="mx-8">
                 {iconValues.svg}
-              </li>
+              </div>
             ) : (
               ""
             );

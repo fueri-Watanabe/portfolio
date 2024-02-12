@@ -131,6 +131,14 @@ export const IconSauce = {
         svg: null,
         main: true,
       },
+      // GoogleCloud: {
+      //   iconName: "GoogleCloud",
+      //   src: "/devIcons/cloud_run.svg",
+      //   svg: (
+      //     <SiGooglecloud className={svgClassName} />
+      //   ),
+      //   main: true,
+      // },
       Nodejs: {
         iconName: "Node.js",
         src: "/devIcons/nodejs-icon.svg",

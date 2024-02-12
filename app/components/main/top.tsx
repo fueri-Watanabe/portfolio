@@ -2,8 +2,8 @@ import Link from "next/link";
 const Top = () => {
   return (
     <div className="container flex h-full">
-      <div className="flex flex-col lg:flex-row justify-end lg:justify-center items-center w-full px-8 lg:px-0">
-        <div className="flex flex-col items-center lg:items-start gap-8 lg:gap-16">
+      <div className="flex flex-col md:flex-row justify-end lg:justify-center items-center w-full px-8 lg:px-0">
+        <div className="flex flex-col items-center lg:items-start gap-8 lg:gap-16 text-center">
           <div className="flex flex-col lg:flex-row items-center lg:items-end gap-8 lg:gap-2 text-4xl lg:text-5xl font-bold text-white dark:text-slate-800 duration-300">
             <p className="text-5xl">
               <ruby>

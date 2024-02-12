@@ -1,5 +1,4 @@
-import { IconSauce } from "@/app/_const/iconSauce";
-import Image from "next/image";
+import { SiGithub } from "@icons-pack/react-simple-icons";
 import Link from "next/link";
 
 export const Footer = () => {
@@ -20,15 +19,9 @@ export const Footer = () => {
             <Link
               href={"https://github.com/fueri-Watanabe"}
               target="_blank"
-              className="bg-black dark:bg-transparent rounded-full p-1"
+              className="rounded-full p-1"
             >
-              <Image
-                src={"/devIcons/github-mark-white.svg"}
-                alt={IconSauce.BackendDBCloud.icon.Github.iconName}
-                width={45}
-                height={45}
-                className="h-7 w-7"
-              />
+              <SiGithub className="w-7 h-7" />
             </Link>
           </div>
         </div>

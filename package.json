@@ -17,6 +17,7 @@
     "nodemailer": "^6.9.7",
     "react": "^18",
     "react-dom": "^18",
+    "react-fast-marquee": "^1.6.4",
     "react-hook-form": "^7.48.2",
     "zod": "^3.22.4"
   },
