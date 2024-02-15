@@ -44,13 +44,13 @@ const FAQ = () => {
           return (
             <div
               key={index}
-              className="flex flex-col justify-between h-52 hover:shadow-xl duration-300 bg-slate-100 hover:bg-slate-50 dark:bg-slate-800 hover:dark:bg-slate-600 rounded py-2"
+              className="flex flex-col justify-between h-52 hover:shadow-xl duration-300 bg-slate-100 hover:bg-slate-50 dark:bg-slate-800 hover:dark:bg-slate-600 rounded-lg py-2"
             >
               <div className="flex flex-col gap-2 px-4">
                 <QuestionMarkCircleIcon className="h-6 w-6 text-gray-500" />
                 <p className="text-sm font-medium">{value.question}</p>
               </div>
-              <div className="basis-1/2 bg-slate-200 dark:bg-slate-700 leading-relaxed text-sm rounded-2xl p-2 mx-2">
+              <div className="basis-1/2 bg-slate-200 dark:bg-slate-900 leading-relaxed text-sm rounded p-2 mx-2">
                 {value.answer}
               </div>
             </div>

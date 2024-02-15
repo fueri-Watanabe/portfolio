@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { IconSauce } from "../../_const/iconSauce";
 import { CodeBracketSquareIcon } from "@heroicons/react/24/outline";
 import {
@@ -6,6 +5,7 @@ import {
   UsersIcon,
   ClipboardDocumentCheckIcon,
 } from "@heroicons/react/24/outline";
+import Marquee from "react-fast-marquee";
 
 const strengths = {
   one: {
@@ -77,63 +77,50 @@ const Service = () => {
             社内システム・個人ツールの作成、あらゆる業務をサポート致します。
           </p>
         </div>
-        <div className="p-2">
+        <div className="p-2 w-full lg:w-5/12">
           <div className="flex flex-col gap-3">
             {Object.values(IconSauce).map((iconSauceValue, index) => {
               return (
                 <div key={index}>
-                  <p className="text-2xl font-semibold">
+                  <p className="text-xl font-semibold">
                     {iconSauceValue.title}
                   </p>
-                  <div className="flex items-center flex-wrap">
+                  <Marquee
+                    pauseOnClick
+                    gradient
+                    gradientColor="hsl(var(--widget))"
+                    direction={index % 2 ? "right" : "left"}
+                  >
                     {Object.values(iconSauceValue.icon).map((value) => {
                       return <IconBox key={value.iconName} icon={value} />;
                     })}
-                  </div>
+                  </Marquee>
                 </div>
               );
             })}
           </div>
         </div>
       </div>
-      {/* <div className="flex justify-center items-center flex-wrap">
-        {Object.values(IconSauce).map((iconSauceValue) => {
-          return Object.values(iconSauceValue.icon).map((iconValues) => {
-            return iconValues.svg ? (
-              <div key={iconValues.iconName} className="mx-8">
-                {iconValues.svg}
-              </div>
-            ) : (
-              ""
-            );
-          });
-        })}
-      </div> */}
     </div>
   );
 };
 
-const IconBox = ({
+export const IconBox = ({
   icon,
 }: {
-  icon: { iconName: string; src: string; main: boolean };
+  icon: {
+    iconName: string;
+    svg: JSX.Element;
+    display: boolean;
+  };
 }) => {
+  const { iconName, svg, display } = icon;
   return (
     <>
-      {icon.main && (
-        <div className="relative flex flex-col basis-1/5 items-center p-1 lg:p-2">
-          <div className="group peer rounded-full bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 hover:dark:bg-slate-600 duration-300 p-3">
-            <Image
-              src={icon.src}
-              alt={icon.iconName}
-              width={45}
-              height={45}
-              className="lg:h-10 lg:w-10 h-7 w-7 group-hover:scale-125 duration-200"
-            />
-          </div>
-          <div className="absolute top-0 -translate-y-6 bg-slate-600 rounded hidden peer-hover:block">
-            <p className="text-white text-xs p-1">{icon.iconName}</p>
-          </div>
+      {display && (
+        <div className="relative flex flex-col items-center p-1 lg:p-3">
+          <div className="p-2">{svg}</div>
+          <p className="text-xs select-none">{iconName}</p>
         </div>
       )}
     </>

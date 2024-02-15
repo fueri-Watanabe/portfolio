@@ -11,11 +11,7 @@ const Home = () => {
   return (
     <>
       <main id="top">
-        <BgLayout
-          bgClass={
-            "sticky inset-0 h-screen bg-gradient-to-r from-cyan-500 to-blue-500"
-          }
-        >
+        <BgLayout bgClass="sticky inset-0 h-screen bg-gradient-to-r from-cyan-500 to-blue-500">
           <Top />
         </BgLayout>
         <div className="relative bg-white dark:bg-slate-900">
