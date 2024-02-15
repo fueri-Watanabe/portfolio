@@ -40,14 +40,16 @@ export const ProjectData = [
     url: "https://react-fueri-website.vercel.app/",
     image: "/projectImage/ex-portfolio.webp",
   },
-  // {
-  //   icon: [
-  //     IconSauce.PGLanguage.icon.JavaScript.svg,
-  //     IconSauce.Frontend.icon.React.svg,
-  //     IconSauce.Frontend.icon.Bootstrap.svg,
-  //   ],
-  //   title: "ex-Portfolio",
-  //   url: "http://localhost:3000/",
-  //   image: "/projectImage/portfolio.png",
-  // },
+  {
+    icon: [
+      IconSauce.Frontend.icon.Nextjs.svg,
+      IconSauce.PGLanguage.icon.TypeScript.svg,
+      IconSauce.Frontend.icon.TailwindCSS.svg,
+      IconSauce.Frontend.icon.shadcnUi.svg,
+      IconSauce.BackendDBCloud.icon.Vercel.svg,
+    ],
+    title: "sharevalues",
+    url: "https://sharevalues.vercel.app/",
+    image: null,
+  },
 ];

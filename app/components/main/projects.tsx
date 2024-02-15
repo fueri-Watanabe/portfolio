@@ -1,6 +1,7 @@
 import { ProjectData } from "../../_const/projectData";
 import Image from "next/image";
 import Link from "next/link";
+import { PhotoIcon } from "@heroicons/react/24/outline";
 
 const Projects = () => {
   return (
@@ -36,13 +37,20 @@ const Projects = () => {
                       <p className="text-slate-500 text-xs">{value.url}</p>
                     </div>
                   </div>
-                  <Image
-                    className="order-1 lg:order-2 object-cover lg:w-1/2 h-full rounded-t-xl lg:rounded-r-xl lg:rounded-l-none"
-                    src={value.image}
-                    alt=""
-                    width={500}
-                    height={500}
-                  />
+                  {value.image ? (
+                    <Image
+                      className="order-1 lg:order-2 object-cover w-full lg:w-1/2 h-full rounded-t-xl lg:rounded-r-xl lg:rounded-l-none"
+                      src={value.image}
+                      alt=""
+                      width={500}
+                      height={500}
+                    />
+                  ) : (
+                    <div className="order-1 lg:order-2 flex justify-center items-center gap-2 w-full lg:w-1/2 h-full bg-slate-100 dark:bg-slate-800 rounded-t-xl lg:rounded-r-xl lg:rounded-l-none">
+                      <PhotoIcon className="h-6 w-6 text-gray-500" />
+                      <p className="text-xl">NO IMAGE</p>
+                    </div>
+                  )}
                 </div>
               </Link>
             );
