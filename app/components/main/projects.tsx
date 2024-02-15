@@ -37,7 +37,7 @@ const Projects = () => {
                     </div>
                   </div>
                   <Image
-                    className="order-1 lg:order-2 object-cover lg:w-1/2 h-full rounded-t-xl lg:rounded-r-xl"
+                    className="order-1 lg:order-2 object-cover lg:w-1/2 h-full rounded-t-xl lg:rounded-r-xl lg:rounded-l-none"
                     src={value.image}
                     alt=""
                     width={500}
