@@ -3,6 +3,7 @@
 import { MoonIcon, SunIcon } from "@heroicons/react/24/outline";
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
+import { motion } from "framer-motion";
 
 const ModeSwitcher = () => {
   const { theme, setTheme } = useTheme();
@@ -14,7 +15,7 @@ const ModeSwitcher = () => {
     return null;
   }
   return (
-    <button
+    <motion.button
       aria-label="darkModeSwitch"
       onClick={() => setTheme(theme == "dark" ? "light" : "dark")}
     >
@@ -23,7 +24,7 @@ const ModeSwitcher = () => {
       ) : (
         <MoonIcon className="h-6 w-6" />
       )}
-    </button>
+    </motion.button>
   );
 };
 export default ModeSwitcher;
