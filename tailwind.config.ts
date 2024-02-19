@@ -10,6 +10,7 @@ const config: Config = {
   theme: {
     fontFamily: {
       sans: ["var(--font-noto-sans-jp)"],
+      title: ["Work Sans"],
     },
     container: {
       center: true,
