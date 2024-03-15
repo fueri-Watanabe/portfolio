@@ -6,6 +6,18 @@ export const ProjectData = [
       IconSauce.Frontend.icon.Nextjs.svg,
       IconSauce.PGLanguage.icon.TypeScript.svg,
       IconSauce.Frontend.icon.TailwindCSS.svg,
+      IconSauce.Frontend.icon.shadcnUi.svg,
+      IconSauce.BackendDBCloud.icon.Vercel.svg,
+    ],
+    title: "sharevalues",
+    url: "https://sharevalues.vercel.app/",
+    image: "/projectImage/sharevalues.webp",
+  },
+  {
+    icon: [
+      IconSauce.Frontend.icon.Nextjs.svg,
+      IconSauce.PGLanguage.icon.TypeScript.svg,
+      IconSauce.Frontend.icon.TailwindCSS.svg,
       IconSauce.BackendDBCloud.icon.Vercel.svg,
     ],
     title: "予約管理システムデモ",
@@ -39,17 +51,5 @@ export const ProjectData = [
     title: "旧ポートフォリオ(React)",
     url: "https://react-fueri-website.vercel.app/",
     image: "/projectImage/ex-portfolio.webp",
-  },
-  {
-    icon: [
-      IconSauce.Frontend.icon.Nextjs.svg,
-      IconSauce.PGLanguage.icon.TypeScript.svg,
-      IconSauce.Frontend.icon.TailwindCSS.svg,
-      IconSauce.Frontend.icon.shadcnUi.svg,
-      IconSauce.BackendDBCloud.icon.Vercel.svg,
-    ],
-    title: "sharevalues",
-    url: "https://sharevalues.vercel.app/",
-    image: null,
   },
 ];
