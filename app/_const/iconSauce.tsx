@@ -131,7 +131,7 @@ export const IconSauce = {
       Firebase: {
         iconName: "Firebase",
         svg: <SiFirebase className={svgClassName} />,
-        display: false,
+        display: true,
       },
       Github: {
         iconName: "Github",

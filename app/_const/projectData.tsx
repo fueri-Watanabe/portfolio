@@ -47,6 +47,18 @@ export const ProjectData = [
       IconSauce.PGLanguage.icon.TypeScript.svg,
       IconSauce.Frontend.icon.TailwindCSS.svg,
       IconSauce.BackendDBCloud.icon.Vercel.svg,
+      IconSauce.BackendDBCloud.icon.Firebase.svg,
+    ],
+    title: "fueri LifeChronicle",
+    url: "https://fueri-lifechronicle.vercel.app/",
+    image: "",
+  },
+  {
+    icon: [
+      IconSauce.Frontend.icon.Nextjs.svg,
+      IconSauce.PGLanguage.icon.TypeScript.svg,
+      IconSauce.Frontend.icon.TailwindCSS.svg,
+      IconSauce.BackendDBCloud.icon.Vercel.svg,
     ],
     title: "fueri Web Applications",
     url: "https://fueri-web-applications.vercel.app/",
