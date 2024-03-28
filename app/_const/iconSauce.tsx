@@ -20,6 +20,7 @@ import {
   SiShadcnui,
   SiGooglecloud,
   SiVisualstudiocode,
+  SiGooglegemini,
 } from "@icons-pack/react-simple-icons";
 
 const svgClassName = "w-14 h-14 drop-shadow-lg";
@@ -141,6 +142,11 @@ export const IconSauce = {
       VSCode: {
         iconName: "VSCode",
         svg: <SiVisualstudiocode className={svgClassName} />,
+        display: true,
+      },
+      Geimini: {
+        iconName: "Gemini",
+        svg: <SiGooglegemini className={svgClassName} />,
         display: true,
       },
     },

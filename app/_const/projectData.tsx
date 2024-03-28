@@ -51,7 +51,7 @@ export const ProjectData = [
     ],
     title: "fueri LifeChronicle",
     url: "https://fueri-lifechronicle.vercel.app/",
-    image: "",
+    image: "/projectImage/fueri-lifechronicle.webp",
   },
   {
     icon: [
