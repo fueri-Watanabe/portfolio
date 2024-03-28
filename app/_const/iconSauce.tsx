@@ -144,7 +144,7 @@ export const IconSauce = {
         svg: <SiVisualstudiocode className={svgClassName} />,
         display: true,
       },
-      Geimini: {
+      Gemini: {
         iconName: "Gemini",
         svg: <SiGooglegemini className={svgClassName} />,
         display: true,
