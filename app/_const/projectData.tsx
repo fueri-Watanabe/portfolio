@@ -53,17 +53,17 @@ export const ProjectData = [
     url: "https://fueri-lifechronicle.vercel.app/",
     image: "/projectImage/fueri-lifechronicle.webp",
   },
-  {
-    icon: [
-      IconSauce.Frontend.icon.Nextjs.svg,
-      IconSauce.PGLanguage.icon.TypeScript.svg,
-      IconSauce.Frontend.icon.TailwindCSS.svg,
-      IconSauce.BackendDBCloud.icon.Vercel.svg,
-    ],
-    title: "fueri Web Applications",
-    url: "https://fueri-web-applications.vercel.app/",
-    image: "",
-  },
+  // {
+  //   icon: [
+  //     IconSauce.Frontend.icon.Nextjs.svg,
+  //     IconSauce.PGLanguage.icon.TypeScript.svg,
+  //     IconSauce.Frontend.icon.TailwindCSS.svg,
+  //     IconSauce.BackendDBCloud.icon.Vercel.svg,
+  //   ],
+  //   title: "fueri Web Applications",
+  //   url: "https://fueri-web-applications.vercel.app/",
+  //   image: "",
+  // },
   {
     icon: [
       IconSauce.Frontend.icon.React.svg,
