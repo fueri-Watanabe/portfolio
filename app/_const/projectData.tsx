@@ -7,6 +7,18 @@ export const ProjectData = [
       IconSauce.PGLanguage.icon.TypeScript.svg,
       IconSauce.Frontend.icon.TailwindCSS.svg,
       IconSauce.Frontend.icon.shadcnUi.svg,
+      IconSauce.BackendDBCloud.icon.Firebase.svg,
+    ],
+    title: "foliotree",
+    url: "https://foliotree.jp/",
+    image: "/projectImage/foliotree.webp",
+  },
+  {
+    icon: [
+      IconSauce.Frontend.icon.Nextjs.svg,
+      IconSauce.PGLanguage.icon.TypeScript.svg,
+      IconSauce.Frontend.icon.TailwindCSS.svg,
+      IconSauce.Frontend.icon.shadcnUi.svg,
       IconSauce.BackendDBCloud.icon.Vercel.svg,
     ],
     title: "sharevalues",
