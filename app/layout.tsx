@@ -1,15 +1,26 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Plus_Jakarta_Sans, Noto_Sans_JP, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import { Header } from "./components/header/header";
-import { Footer } from "./components/footer/footer";
+import Header from "@/components/header/header";
 import Providers from "./components/tools/providers";
-import { Noto_Sans_JP } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-plus-jakarta",
+});
 
-const siteName = "Web Developer fueri/Hiroshi Watanabe";
-const description = "Web Developer fueri/Hiroshi Watanabe";
+const notoSansJP = Noto_Sans_JP({
+  subsets: ["latin"],
+  variable: "--font-noto-sans-jp",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains-mono",
+});
+
+const siteName = "fueri / Hiroshi Watanabe - Portfolio";
+const description = "Web Developer / フルスタックエンジニア Hiroshi Watanabe のポートフォリオサイト";
 const url = "https://fueri.jp";
 
 export const metadata: Metadata = {
@@ -28,15 +39,10 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: dark)", color: "#0F172A" },
+    { media: "(prefers-color-scheme: dark)", color: "#090d16" },
     { media: "(prefers-color-scheme: light)", color: "#ffffff" },
   ],
 };
-
-const notoSansJP = Noto_Sans_JP({
-  subsets: ["latin"],
-  variable: "--font-noto-sans-jp",
-});
 
 export default function RootLayout({
   children,
@@ -46,12 +52,11 @@ export default function RootLayout({
   return (
     <html lang="ja" className="scroll-smooth" suppressHydrationWarning>
       <body
-        className={`${inter.className} ${notoSansJP.className} text-cyan-800 dark:text-white dark:bg-slate-900`}
+        className={`${plusJakartaSans.variable} ${notoSansJP.variable} ${jetbrainsMono.variable} font-sans bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 antialiased min-h-screen transition-colors duration-300`}
       >
         <Providers>
           <Header />
           {children}
-          <Footer />
         </Providers>
       </body>
     </html>

@@ -1,38 +1,30 @@
-import Top from "./components/main/top";
-import Service from "./components/main/service";
-import WorkFlow from "./components/main/workFlow";
-import FAQ from "./components/main/faq";
-import Form from "./components/main/contact";
-import SectionLayout from "./components/layout/sectionLayout";
-import Projects from "./components/main/projects";
+import HeroSection from "@/components/sections/hero-section";
+import BentoProjectsSection from "@/components/sections/bento-projects";
+import SkillsSection from "@/components/sections/skills-section";
+import WorkflowSection from "@/components/sections/workflow-section";
+import FAQSection from "@/components/sections/faq-section";
+import ContactSection from "@/components/sections/contact-section";
 
-const Home = () => {
+export default function Home() {
   return (
-    <>
-      <main id="top">
-        <div className="sticky inset-0 h-screen w-full dark:bg-slate-950 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]">
-          <Top />
-        </div>
-        <div className="relative bg-white dark:bg-slate-900">
-          <SectionLayout secondTitle={"サービス/スキル"} idName="service">
-            <Service />
-          </SectionLayout>
-          <SectionLayout secondTitle={"製作の流れ"} idName="workFlow">
-            <WorkFlow />
-          </SectionLayout>
-          <SectionLayout secondTitle={"よくある質問"} idName="fAQ">
-            <FAQ />
-          </SectionLayout>
-          <SectionLayout secondTitle={"プロジェクト/デモ"} idName="projects">
-            <Projects />
-          </SectionLayout>
-          <SectionLayout secondTitle={""} idName="contact">
-            <Form />
-          </SectionLayout>
-        </div>
-      </main>
-    </>
-  );
-};
+    <main className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300 overflow-x-hidden">
+      {/* 1. ヒーローセクション */}
+      <HeroSection />
 
-export default Home;
+      {/* 2. Bento Grid 実績プロダクト */}
+      <BentoProjectsSection />
+
+      {/* 3. スキル & 強み */}
+      <SkillsSection />
+
+      {/* 4. 制作の流れ */}
+      <WorkflowSection />
+
+      {/* 5. FAQ よくある質問 */}
+      <FAQSection />
+
+      {/* 6. お問い合わせ */}
+      <ContactSection />
+    </main>
+  );
+}

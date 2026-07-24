@@ -19,7 +19,6 @@ import {
   SiPlanetscale,
   SiShadcnui,
   SiGooglecloud,
-  SiVisualstudiocode,
   SiGooglegemini,
 } from "@icons-pack/react-simple-icons";
 
@@ -141,7 +140,11 @@ export const IconSauce = {
       },
       VSCode: {
         iconName: "VSCode",
-        svg: <SiVisualstudiocode className={svgClassName} />,
+        svg: (
+          <svg className={svgClassName} viewBox="0 0 24 24" fill="currentColor">
+            <path d="M23.15 2.587L18.21.21a1.494 1.494 0 0 0-1.705.29l-9.46 8.63-4.12-3.12a.999.999 0 0 0-1.276.06L.346 7.373a1 1 0 0 0 .043 1.458l4.02 3.51-4.02 3.51a1 1 0 0 0-.043 1.458l1.303 1.303a.999.999 0 0 0 1.276.06l4.12-3.12 9.46 8.63c.484.442 1.185.55 1.777.27l4.94-2.377A1.5 1.5 0 0 0 24 20.73V3.27a1.5 1.5 0 0 0-.85-1.353z" />
+          </svg>
+        ),
         display: true,
       },
       Gemini: {

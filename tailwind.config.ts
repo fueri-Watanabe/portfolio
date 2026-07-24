@@ -8,14 +8,15 @@ const config: Config = {
   ],
   darkMode: "class",
   theme: {
-    fontFamily: {
-      sans: ["var(--font-noto-sans-jp)"],
-      title: ["Work Sans"],
-    },
-    container: {
-      center: true,
-      padding: {
-        "2xl": "12rem",
+    extend: {
+      fontFamily: {
+        sans: ["var(--font-plus-jakarta)", "var(--font-noto-sans-jp)", "sans-serif"],
+        title: ["var(--font-plus-jakarta)", "var(--font-noto-sans-jp)", "sans-serif"],
+        mono: ["var(--font-jetbrains-mono)", "monospace"],
+      },
+      colors: {
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
       },
     },
   },
