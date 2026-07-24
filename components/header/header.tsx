@@ -22,10 +22,10 @@ export const Header = () => {
   }, []);
 
   const navLinks = [
-    { name: "実績", href: "#projects" },
-    { name: "強み & スキル", href: "#skills" },
-    { name: "制作フロー", href: "#workflow" },
-    { name: "FAQ", href: "#faq" },
+    { name: "強み & スキル", href: "/#skills" },
+    { name: "軌跡", href: "/#roadmap" },
+    { name: "実績", href: "/#projects" },
+    { name: "制作フロー・FAQ", href: "/process" },
   ];
 
   return (
