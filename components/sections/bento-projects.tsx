@@ -1,13 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
 import { PROJECTS_DATA } from "@/data/projects";
 import { Card, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Sparkles, Layers, ArrowUpRight } from "lucide-react";
+import { SitePreview } from "@/components/ui/site-preview";
+import { ExternalLink, Sparkles, ArrowUpRight } from "lucide-react";
 
 export const BentoProjectsSection = () => {
   return (
@@ -50,26 +50,18 @@ export const BentoProjectsSection = () => {
                   className="h-full flex flex-col justify-between group border-slate-200/80 dark:border-white/10 hover:border-cyan-500/50"
                 >
                   <div>
-                    {/* 画像・メディアエリア */}
+                    {/* 画像・メディアエリア (自動プレビュー & フォールバック機能付き) */}
                     <div className="relative w-full h-56 sm:h-64 overflow-hidden rounded-t-2xl bg-slate-900">
-                      {project.image ? (
-                        <Image
-                          src={project.image}
-                          alt={project.title}
-                          fill
-                          className="object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
-                        />
-                      ) : (
-                        <div className="w-full h-full flex flex-col items-center justify-center bg-slate-100 dark:bg-slate-900 text-slate-400 gap-2">
-                          <Layers className="w-10 h-10 text-slate-400" />
-                          <span className="text-sm font-medium">NO PREVIEW IMAGE</span>
-                        </div>
-                      )}
+                      <SitePreview
+                        url={project.liveUrl}
+                        fallbackImage={project.image}
+                        alt={project.title}
+                      />
 
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-40 transition-opacity duration-300" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-40 transition-opacity duration-300 pointer-events-none" />
 
                       {isFeatured && (
-                        <div className="absolute top-4 left-4">
+                        <div className="absolute top-4 left-4 z-10">
                           <Badge variant="glow" className="px-3 py-1 gap-1 font-bold text-xs bg-slate-950/90 text-cyan-300 backdrop-blur-md border-cyan-500/40">
                             <Sparkles className="w-3 h-3 text-cyan-400" />
                             <span>FEATURED PRODUCT</span>
@@ -78,7 +70,7 @@ export const BentoProjectsSection = () => {
                       )}
 
                       {project.liveUrl && (
-                        <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="absolute top-4 right-4 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                           <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                             <Button variant="glass" size="icon" className="rounded-full w-9 h-9">
                               <ExternalLink className="w-4 h-4 text-cyan-500 dark:text-cyan-300" />
