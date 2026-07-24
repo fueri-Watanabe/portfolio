@@ -4,13 +4,121 @@ import { motion } from "framer-motion";
 import { STRENGTHS_DATA, SKILL_CATEGORIES_DATA, SERVICE_SCOPE_DATA } from "@/data/skills";
 import { Card, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Zap, TrendingUp, Target, Code, Cpu, ShieldCheck } from "lucide-react";
+import {
+  Zap,
+  TrendingUp,
+  Target,
+  Code,
+  Cpu,
+  ShieldCheck,
+  Layout,
+  Database,
+  Cloud,
+  Terminal,
+  Code2,
+  CheckCircle2,
+  Sparkles,
+  Bot,
+} from "lucide-react";
+import {
+  SiNextdotjs,
+  SiReact,
+  SiTailwindcss,
+  SiShadcnui,
+  SiBootstrap,
+  SiHtml5,
+  SiFirebase,
+  SiPrisma,
+  SiPlanetscale,
+  SiGoogleappsscript,
+  SiGooglecloud,
+  SiVercel,
+  SiGooglegemini,
+  SiTypescript,
+  SiJavascript,
+  SiGithub,
+  SiStripe,
+  SiAlgolia,
+  SiSentry,
+  SiFramer,
+} from "@icons-pack/react-simple-icons";
 
 export const SkillsSection = () => {
-  const iconMap: Record<string, React.ReactNode> = {
+  const strengthIconMap: Record<string, React.ReactNode> = {
     Zap: <Zap className="w-6 h-6 text-amber-500" />,
     TrendingUp: <TrendingUp className="w-6 h-6 text-emerald-500" />,
     Target: <Target className="w-6 h-6 text-cyan-500" />,
+  };
+
+  const getCategoryIcon = (category: string) => {
+    switch (category) {
+      case "frontend":
+        return <Layout className="w-5 h-5 text-cyan-500" />;
+      case "backend_db":
+        return <Database className="w-5 h-5 text-emerald-500" />;
+      case "cloud_ai":
+        return <Cloud className="w-5 h-5 text-indigo-500" />;
+      case "languages_tools":
+        return <Terminal className="w-5 h-5 text-amber-500" />;
+      default:
+        return <Code2 className="w-5 h-5 text-cyan-500" />;
+    }
+  };
+
+  const getTechIcon = (iconName: string) => {
+    const iconClass = "w-4 h-4 transition-transform group-hover:scale-110";
+    switch (iconName) {
+      case "nextdotjs":
+        return <SiNextdotjs className={iconClass} />;
+      case "react":
+        return <SiReact className={`${iconClass} text-cyan-400`} />;
+      case "tailwindcss":
+        return <SiTailwindcss className={`${iconClass} text-teal-400`} />;
+      case "shadcnui":
+        return <SiShadcnui className={iconClass} />;
+      case "framermotion":
+        return <SiFramer className={`${iconClass} text-pink-500`} />;
+      case "bootstrap":
+        return <SiBootstrap className={`${iconClass} text-purple-500`} />;
+      case "html5":
+        return <SiHtml5 className={`${iconClass} text-orange-500`} />;
+      case "firebase":
+        return <SiFirebase className={`${iconClass} text-amber-500`} />;
+      case "stripe":
+        return <SiStripe className={`${iconClass} text-indigo-500`} />;
+      case "microcms":
+        return (
+          <span className={`${iconClass} font-bold text-[10px] text-rose-500 flex items-center justify-center`}>
+            m
+          </span>
+        );
+      case "algolia":
+        return <SiAlgolia className={`${iconClass} text-blue-500`} />;
+      case "prisma":
+        return <SiPrisma className={iconClass} />;
+      case "planetscale":
+        return <SiPlanetscale className={iconClass} />;
+      case "googleappsscript":
+        return <SiGoogleappsscript className={`${iconClass} text-emerald-500`} />;
+      case "googlecloud":
+        return <SiGooglecloud className={`${iconClass} text-blue-500`} />;
+      case "vercel":
+        return <SiVercel className={iconClass} />;
+      case "googlegemini":
+        return <SiGooglegemini className={`${iconClass} text-indigo-400`} />;
+      case "sentry":
+        return <SiSentry className={`${iconClass} text-purple-400`} />;
+      case "typescript":
+        return <SiTypescript className={`${iconClass} text-blue-400`} />;
+      case "javascript":
+        return <SiJavascript className={`${iconClass} text-yellow-400`} />;
+      case "antigravity":
+        return <Sparkles className={`${iconClass} text-cyan-400 animate-pulse`} />;
+      case "github":
+        return <SiGithub className={iconClass} />;
+      default:
+        return <Code2 className={`${iconClass} text-cyan-500`} />;
+    }
   };
 
   return (
@@ -47,7 +155,7 @@ export const SkillsSection = () => {
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <div className="w-12 h-12 rounded-xl bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/60 flex items-center justify-center shadow-md">
-                      {iconMap[strength.iconName]}
+                      {strengthIconMap[strength.iconName]}
                     </div>
                     <span className="text-2xl font-black font-mono text-slate-400 dark:text-slate-600/80">
                       {strength.number}
@@ -72,14 +180,14 @@ export const SkillsSection = () => {
           ))}
         </div>
 
-        {/* 2. Web開発領域 & 技術スタック */}
+        {/* 2. Web開発領域 & 4カテゴリ構成の技術スタック */}
         <div className="grid lg:grid-cols-12 gap-8 items-start">
           
           {/* 左: 開発領域 */}
           <div className="lg:col-span-4 space-y-6">
-            <Card glass className="p-8 border-slate-200/80 dark:border-white/10">
+            <Card glass className="p-8 border-slate-200/80 dark:border-white/10 h-full">
               <div className="space-y-4">
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2.5">
                   <Code className="w-5 h-5 text-cyan-500" />
                   <h3 className="text-xl font-bold text-slate-900 dark:text-white font-title">
                     Webアプリケーション開発領域
@@ -93,7 +201,7 @@ export const SkillsSection = () => {
                 <ul className="space-y-3 pt-2">
                   {SERVICE_SCOPE_DATA.map((scope, sIdx) => (
                     <li key={sIdx} className="flex items-start gap-2.5 text-sm text-slate-800 dark:text-slate-200">
-                      <div className="w-1.5 h-1.5 rounded-full bg-cyan-500 mt-2 flex-shrink-0" />
+                      <CheckCircle2 className="w-4 h-4 text-cyan-500 mt-0.5 flex-shrink-0" />
                       <span>{scope}</span>
                     </li>
                   ))}
@@ -102,33 +210,41 @@ export const SkillsSection = () => {
             </Card>
           </div>
 
-          {/* 右: スキルカテゴリ */}
-          <div className="lg:col-span-8 space-y-6">
+          {/* 右: 4カテゴリ技術スタック (2x2 グリッド) */}
+          <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
             {SKILL_CATEGORIES_DATA.map((cat, cIdx) => (
-              <Card key={cIdx} glass className="p-6 border-slate-200/80 dark:border-white/10">
-                <h4 className="text-base font-bold text-slate-800 dark:text-slate-200 mb-4 font-title flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-cyan-500" />
-                  {cat.title}
-                </h4>
+              <Card key={cIdx} glass className="p-6 border-slate-200/80 dark:border-white/10 flex flex-col justify-between hover:border-slate-300 dark:hover:border-slate-700 transition-colors">
+                <div>
+                  {/* カテゴリ見出しアイコン */}
+                  <h4 className="text-base font-bold text-slate-900 dark:text-slate-100 mb-4 font-title flex items-center gap-2.5 border-b border-slate-200/60 dark:border-slate-800/80 pb-3">
+                    {getCategoryIcon(cat.category)}
+                    <span>{cat.title}</span>
+                  </h4>
 
-                <div className="flex flex-wrap gap-2.5">
-                  {cat.items
-                    .filter((item) => item.display)
-                    .map((item, iIdx) => (
-                      <Badge
-                        key={iIdx}
-                        variant="default"
-                        className="px-3 py-2 text-xs font-medium gap-2 bg-white/80 dark:bg-slate-900/80 border-slate-200 dark:border-slate-700/80 hover:border-cyan-500/50 hover:text-cyan-600 dark:hover:text-cyan-300 transition-all cursor-default shadow-sm"
-                      >
-                        <span className="w-1.5 h-1.5 rounded-full bg-cyan-500" />
-                        <span>{item.name}</span>
-                        {item.featuredInProjects && item.featuredInProjects.length > 0 && (
-                          <span className="text-[10px] text-slate-400 dark:text-slate-500 font-mono">
-                            ({item.featuredInProjects.length} projects)
+                  {/* 技術スタックピルバッジ */}
+                  <div className="flex flex-wrap gap-2 pt-1">
+                    {cat.items
+                      .filter((item) => item.display)
+                      .map((item, iIdx) => (
+                        <div
+                          key={iIdx}
+                          className="group relative inline-flex items-center gap-2 px-3 py-2 text-xs font-semibold rounded-xl bg-white/90 dark:bg-slate-900/90 text-slate-800 dark:text-slate-200 border border-slate-200/80 dark:border-slate-800 hover:border-cyan-500/60 dark:hover:border-cyan-400/60 shadow-sm hover:shadow-lg hover:shadow-cyan-500/10 hover:-translate-y-0.5 transition-all duration-300 cursor-default select-none"
+                        >
+                          <span className="flex items-center justify-center">
+                            {getTechIcon(item.iconName)}
                           </span>
-                        )}
-                      </Badge>
-                    ))}
+                          <span>{item.name}</span>
+                          {item.featuredInProjects && item.featuredInProjects.length > 0 && (
+                            <span
+                              className="ml-0.5 bg-cyan-500/15 dark:bg-cyan-400/20 text-cyan-700 dark:text-cyan-300 text-[10px] px-1.5 py-0.5 rounded-full font-mono font-bold shadow-sm"
+                              title={`${item.featuredInProjects.length} つの実績プロダクトで採用`}
+                            >
+                              {item.featuredInProjects.length}
+                            </span>
+                          )}
+                        </div>
+                      ))}
+                  </div>
                 </div>
               </Card>
             ))}

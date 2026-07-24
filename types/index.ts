@@ -22,7 +22,11 @@ export interface Project {
 /**
  * スキル・強みデータ型定義
  */
-export type SkillCategoryType = "languages" | "frontend" | "backend_cloud";
+export type SkillCategoryType =
+  | "frontend"
+  | "backend_db"
+  | "cloud_ai"
+  | "languages_tools";
 
 export interface SkillItem {
   name: string;
