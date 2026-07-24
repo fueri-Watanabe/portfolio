@@ -3,7 +3,7 @@ import { Plus_Jakarta_Sans, Noto_Sans_JP, JetBrains_Mono } from "next/font/googl
 import "./globals.css";
 import Header from "@/components/header/header";
 import Footer from "@/components/footer/footer";
-import Providers from "./components/tools/providers";
+import Providers from "@/components/providers";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
