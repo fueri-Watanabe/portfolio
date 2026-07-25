@@ -56,7 +56,7 @@ export const ROADMAP_DATA: RoadmapItem[] = [
     period: "PHASE 5",
     title: "SPA・プロダクト開発・最新AI技術の実装",
     description:
-      "Reactを用いた高速SPAや、Next.jsを活用した自作Webサービス（foliotreeやfueri LifeChronicleなど）を企画・開発・リリース。",
+      "Reactを用いた高速SPAや、Next.jsを活用した自作Webサービス（foliotreeなど）を企画・開発・リリース。",
     tags: ["SPA", "Next.js", "SaaS", "AI Agent"],
     iconName: "Rocket",
   },

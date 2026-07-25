@@ -68,22 +68,22 @@ export const BentoProjectsSection = () => {
             アイディアの企画から設計・実装・AI連携・クラウドデプロイまで自作・運用しているプロダクト群です。
           </p>
 
-          {/* ピル（カプセル）型 洗練タブフィルター (横幅・内部間隔の黄金比調整) */}
-          <div className="mt-6 inline-flex flex-wrap items-center justify-center gap-2 p-2 rounded-full bg-slate-200/70 dark:bg-slate-900/70 border border-slate-300/80 dark:border-white/10 backdrop-blur-xl shadow-lg">
+          {/* レスポンシブ最適化ピル（カプセル）型タブフィルター (スマホ横一列・横スクロール対応) */}
+          <div className="mt-6 flex flex-row items-center justify-start sm:justify-center gap-1.5 sm:gap-2 p-1.5 rounded-full bg-slate-200/70 dark:bg-slate-900/70 border border-slate-300/80 dark:border-white/10 backdrop-blur-xl shadow-lg max-w-full overflow-x-auto no-scrollbar">
             
             {/* 1. 主力プロダクト */}
             <button
               onClick={() => setActiveTab("active")}
-              className={`px-5 py-2.5 sm:px-6 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 flex items-center gap-2.5 select-none ${
+              className={`px-3.5 py-1.5 sm:px-5 sm:py-2 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 flex items-center gap-1.5 sm:gap-2 whitespace-nowrap flex-shrink-0 select-none ${
                 activeTab === "active"
                   ? "bg-gradient-to-r from-cyan-500 to-indigo-500 text-white shadow-[0_0_20px_rgba(6,182,212,0.4)] scale-[1.02]"
                   : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-300/50 dark:hover:bg-slate-800/50"
               }`}
             >
-              <CheckCircle2 className="w-4 h-4" />
+              <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               <span>主力プロダクト</span>
               <span
-                className={`px-2.5 py-0.5 text-[11px] font-mono font-bold rounded-full ${
+                className={`px-2 py-0.5 text-[10px] sm:text-[11px] font-mono font-bold rounded-full ${
                   activeTab === "active"
                     ? "bg-white/20 text-white"
                     : "bg-slate-300/70 dark:bg-slate-800 text-slate-600 dark:text-slate-400"
@@ -96,16 +96,16 @@ export const BentoProjectsSection = () => {
             {/* 2. 過去作・開発ログ */}
             <button
               onClick={() => setActiveTab("archive")}
-              className={`px-5 py-2.5 sm:px-6 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 flex items-center gap-2.5 select-none ${
+              className={`px-3.5 py-1.5 sm:px-5 sm:py-2 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 flex items-center gap-1.5 sm:gap-2 whitespace-nowrap flex-shrink-0 select-none ${
                 activeTab === "archive"
                   ? "bg-gradient-to-r from-cyan-500 to-indigo-500 text-white shadow-[0_0_20px_rgba(6,182,212,0.4)] scale-[1.02]"
                   : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-300/50 dark:hover:bg-slate-800/50"
               }`}
             >
-              <Archive className="w-4 h-4" />
+              <Archive className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               <span>過去作・開発ログ</span>
               <span
-                className={`px-2.5 py-0.5 text-[11px] font-mono font-bold rounded-full ${
+                className={`px-2 py-0.5 text-[10px] sm:text-[11px] font-mono font-bold rounded-full ${
                   activeTab === "archive"
                     ? "bg-white/20 text-white"
                     : "bg-slate-300/70 dark:bg-slate-800 text-slate-600 dark:text-slate-400"
@@ -118,16 +118,16 @@ export const BentoProjectsSection = () => {
             {/* 3. すべて */}
             <button
               onClick={() => setActiveTab("all")}
-              className={`px-5 py-2.5 sm:px-6 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 flex items-center gap-2.5 select-none ${
+              className={`px-3.5 py-1.5 sm:px-5 sm:py-2 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 flex items-center gap-1.5 sm:gap-2 whitespace-nowrap flex-shrink-0 select-none ${
                 activeTab === "all"
                   ? "bg-gradient-to-r from-cyan-500 to-indigo-500 text-white shadow-[0_0_20px_rgba(6,182,212,0.4)] scale-[1.02]"
                   : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-300/50 dark:hover:bg-slate-800/50"
               }`}
             >
-              <Layers className="w-4 h-4" />
+              <Layers className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               <span>すべて</span>
               <span
-                className={`px-2.5 py-0.5 text-[11px] font-mono font-bold rounded-full ${
+                className={`px-2 py-0.5 text-[10px] sm:text-[11px] font-mono font-bold rounded-full ${
                   activeTab === "all"
                     ? "bg-white/20 text-white"
                     : "bg-slate-300/70 dark:bg-slate-800 text-slate-600 dark:text-slate-400"
