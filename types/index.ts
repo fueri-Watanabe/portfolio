@@ -3,16 +3,21 @@ import { z } from "zod";
 /**
  * プロジェクト（実績）データ型定義
  */
+export type ProjectCategory = "active" | "archive";
+export type ProjectStatus = "Active" | "Archived" | "Experiment";
+
 export interface Project {
   id: string;
   title: string;
   description: string;
-  image: string;
+  image?: string;
   gif?: string;
   tags: string[];
   liveUrl?: string;
   githubUrl?: string;
   featured: boolean; // Bento Gridのフラッグシップ枠用
+  category: ProjectCategory;
+  status: ProjectStatus;
   metrics?: {
     label: string;
     value: string;

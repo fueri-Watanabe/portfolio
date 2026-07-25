@@ -2,17 +2,19 @@ import { Project } from "@/types";
 
 export const PROJECTS_DATA: Project[] = [
   {
-    id: "fueri-lifechronicle",
-    title: "fueri LifeChronicle",
+    id: "negaresearch",
+    title: "NegaResearch",
     description:
-      "Google Gemini APIとFirebaseを活用した次世代のライフログ・対話型記録プラットフォーム。日々の出来事や思考をAIとともに対話し、インサイトを可視化します。",
-    image: "/projectImage/fueri-lifechronicle.webp",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Firebase", "Gemini API", "Vercel"],
-    liveUrl: "https://fueri-lifechronicle.vercel.app/",
-    featured: true, // Bento Grid フラッグシップ
+      "ネガティブ情報や評判の収集・リサーチを効率化するSaaS型Webサービス。AIと連携した情報抽出とリスク要因の可視化をワンストップで提供します。",
+    image: "/projectImage/negaresearch.webp",
+    tags: ["Next.js 14", "TypeScript", "Tailwind CSS", "Stripe", "Supabase", "Vercel"],
+    liveUrl: "https://negaresearch.com/",
+    featured: true,
+    category: "active",
+    status: "Active",
     metrics: [
-      { label: "AI Integration", value: "Gemini 1.5 Flash" },
-      { label: "Architecture", value: "Serverless / Firebase" },
+      { label: "Service", value: "SaaS Platform" },
+      { label: "Monetization", value: "Stripe Subscription" },
     ],
   },
   {
@@ -23,10 +25,44 @@ export const PROJECTS_DATA: Project[] = [
     image: "/projectImage/foliotree.webp",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui", "Firebase"],
     liveUrl: "https://foliotree.jp/",
-    featured: true, // Bento Grid フラッグシップ
+    featured: true,
+    category: "active",
+    status: "Active",
     metrics: [
       { label: "Performance", value: "95+ Lighthouse" },
       { label: "UI System", value: "shadcn/ui / Tailwind" },
+    ],
+  },
+  {
+    id: "portfolio",
+    title: "fueri ポートフォリオ (Next.js 14)",
+    description:
+      "Google CloudとNext.js 14（App Router）をベースに構築した自身のフルスタックエンジニアポートフォリオ。開発実績や提供サービス、スキルスタックをスタイリッシュに集約。",
+    image: "/projectImage/portfolio.webp",
+    tags: ["Next.js 14", "TypeScript", "Tailwind CSS", "Framer Motion", "Google Cloud"],
+    liveUrl: "https://fueri.jp/",
+    featured: true,
+    category: "active",
+    status: "Active",
+    metrics: [
+      { label: "Architecture", value: "Next.js App Router" },
+      { label: "Infrastructure", value: "Google Cloud / Docker" },
+    ],
+  },
+  {
+    id: "fueri-lifechronicle",
+    title: "fueri LifeChronicle",
+    description:
+      "Google Gemini APIとFirebaseを活用した次世代のライフログ・対話型記録プラットフォーム。日々の出来事や思考をAIとともに対話し、インサイトを可視化します。",
+    image: "/projectImage/fueri-lifechronicle.webp",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Firebase", "Gemini API", "Vercel"],
+    liveUrl: "https://fueri-lifechronicle.vercel.app/",
+    featured: false,
+    category: "archive",
+    status: "Experiment",
+    metrics: [
+      { label: "AI Integration", value: "Gemini 1.5 Flash" },
+      { label: "Architecture", value: "Serverless / Firebase" },
     ],
   },
   {
@@ -38,6 +74,8 @@ export const PROJECTS_DATA: Project[] = [
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui", "Vercel"],
     liveUrl: "https://sharevalues.vercel.app/",
     featured: false,
+    category: "archive",
+    status: "Experiment",
   },
   {
     id: "booking-management-system-demo",
@@ -48,16 +86,8 @@ export const PROJECTS_DATA: Project[] = [
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
     liveUrl: "https://booking-management-system-demo.vercel.app/",
     featured: false,
-  },
-  {
-    id: "portfolio",
-    title: "fueri ポートフォリオ",
-    description:
-      "Google CloudとNext.js（App Router）をベースに構築した自身のエンジニアポートフォリオ。開発実績や提供サービス、スキルスタックをスタイリッシュに集約。",
-    image: "/projectImage/portfolio.webp",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Google Cloud"],
-    liveUrl: "http://fueri.jp/",
-    featured: false,
+    category: "archive",
+    status: "Experiment",
   },
   {
     id: "ex-portfolio",
@@ -68,5 +98,7 @@ export const PROJECTS_DATA: Project[] = [
     tags: ["React", "JavaScript", "Bootstrap", "Vercel"],
     liveUrl: "https://react-fueri-website.vercel.app/",
     featured: false,
+    category: "archive",
+    status: "Archived",
   },
 ];

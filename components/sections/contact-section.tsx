@@ -21,6 +21,13 @@ export const ContactSection = () => {
     reset,
   } = useForm<ContactFormData>({
     resolver: zodResolver(ContactSchema),
+    defaultValues: {
+      title: "",
+      contactName: "",
+      company: "",
+      email: "",
+      content: "",
+    },
   });
 
   const onSubmit = (data: ContactFormData) => {
@@ -106,10 +113,11 @@ export const ContactSection = () => {
                   <span className="text-rose-500">*</span>
                 </label>
                 <select
+                  defaultValue=""
                   {...register("title")}
                   className="w-full bg-slate-50 dark:bg-slate-950/80 border border-slate-300 dark:border-slate-700/80 rounded-xl px-4 py-3 text-slate-900 dark:text-slate-100 text-sm focus:outline-none focus:border-cyan-500 transition-colors"
                 >
-                  <option value="" disabled selected>
+                  <option value="" disabled>
                     ご用件を選択してください
                   </option>
                   {CONTACT_TITLES.map((title) => (
