@@ -7,7 +7,7 @@ import { ContactSchema, ContactFormData, CONTACT_TITLES } from "@/types";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Mail, Send, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
+import { Mail, Send, CheckCircle2, AlertCircle, Loader2, ArrowUpRight } from "lucide-react";
 
 export const ContactSection = () => {
   const [isPending, startTransition] = useTransition();
@@ -56,7 +56,7 @@ export const ContactSection = () => {
   return (
     <section id="contact" className="py-24 relative z-10">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* セクションヘッダー */}
         <div className="flex flex-col items-center text-center space-y-4 mb-16">
           <Badge variant="gradient" className="px-4 py-1 gap-1.5 text-xs font-semibold">
@@ -74,7 +74,7 @@ export const ContactSection = () => {
         </div>
 
         <Card glass className="p-8 sm:p-12 border-slate-200/80 dark:border-white/10 shadow-2xl relative">
-          
+
           {submitted ? (
             <div className="py-12 flex flex-col items-center text-center space-y-6">
               <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-500 shadow-xl">
@@ -98,7 +98,7 @@ export const ContactSection = () => {
             </div>
           ) : (
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-              
+
               {serverError && (
                 <div className="p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-600 dark:text-rose-300 text-sm flex items-center gap-2">
                   <AlertCircle className="w-5 h-5 flex-shrink-0" />
@@ -231,6 +231,27 @@ export const ContactSection = () => {
 
             </form>
           )}
+
+          {/* X DM 相談導線 */}
+          <div className="mt-8 pt-6 border-t border-slate-200/80 dark:border-slate-800/80 text-center space-y-3">
+            <p className="text-xs text-slate-500 dark:text-slate-400">
+              フォームのほか、X (旧Twitter) DMからの直接ご相談・お問い合わせも受け付けております
+            </p>
+            <div>
+              <a
+                href="https://x.com/hiroshifueri"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold bg-slate-100 dark:bg-slate-900 text-slate-800 dark:text-slate-200 border border-slate-300/80 dark:border-slate-700/80 hover:border-cyan-500 hover:text-cyan-500 dark:hover:text-cyan-400 hover:shadow-md transition-all duration-200"
+              >
+                <svg className="w-4 h-4 fill-current text-cyan-500" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                </svg>
+                <span>DMで相談する</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
+            </div>
+          </div>
 
         </Card>
 
