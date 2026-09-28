@@ -56,23 +56,23 @@ const REASONS: ReasonItem[] = [
 
 export const WhyChooseUsSection = () => {
   return (
-    <section id="why-choose-us" className="py-24 relative z-10">
+    <section id="why-choose-us" className="py-20 md:py-32 relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* セクションヘッダー */}
         <div className="flex flex-col items-center text-center space-y-3 mb-16">
-          <Badge variant="glow" className="px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-sky-900 bg-white">
+          <Badge variant="glow" className="px-3.5 py-1 text-xs font-semibold uppercase tracking-wider">
             Why Choose Us
           </Badge>
 
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 font-title tracking-tight">
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-800 font-title tracking-tight">
             個人開発者だからこそ提供できる{" "}
-            <span className="bg-gradient-to-r from-sky-600 via-teal-600 to-emerald-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-rose-500 to-red-600 bg-clip-text text-transparent">
               3つの強み
             </span>
           </h2>
 
-          <p className="text-slate-500 max-w-2xl text-base sm:text-lg">
+          <p className="text-slate-600 max-w-2xl text-base sm:text-lg">
             「大手に頼むと高すぎる、でもクラウドソーシングの品質には不安がある」という企業様に選ばれています。
           </p>
         </div>
@@ -91,49 +91,49 @@ export const WhyChooseUsSection = () => {
                 className="flex"
               >
                 <div
-                  className="rounded-3xl p-8 flex flex-col justify-between w-full bg-white border border-sky-100/90 shadow-[0_12px_36px_rgba(14,165,233,0.06),0_2px_8px_rgba(15,23,42,0.04)] hover:shadow-[0_22px_48px_rgba(14,165,233,0.12)] hover:border-sky-300 hover:-translate-y-1 transition-all group"
+                  className="rounded-3xl p-8 flex flex-col justify-between w-full bg-white border border-slate-200/80 shadow-xs hover:shadow-md hover:border-rose-300 hover:-translate-y-0.5 transition-all group"
                 >
                   <div className="space-y-6">
                     {/* アイコン & 番号 */}
                     <div className="flex items-center justify-between">
-                      <div className="w-12 h-12 rounded-2xl flex items-center justify-center bg-sky-50 border border-sky-100 text-sky-800 shadow-sm group-hover:scale-105 group-hover:bg-gradient-to-br group-hover:from-sky-500 group-hover:to-teal-500 group-hover:text-white transition-all">
+                      <div className="w-12 h-12 rounded-2xl flex items-center justify-center bg-rose-50/70 border border-rose-100 text-rose-500 shadow-2xs group-hover:scale-105 group-hover:bg-gradient-to-br group-hover:from-rose-500 group-hover:to-red-600 group-hover:text-white transition-all">
                         <Icon className="w-6 h-6" />
                       </div>
-                      <span className="text-4xl font-extrabold font-mono text-sky-200/80 group-hover:text-sky-400/80 transition-colors">
+                      <span className="text-4xl font-extrabold font-mono text-slate-200 group-hover:text-rose-400/25 transition-colors">
                         {item.number}
                       </span>
                     </div>
 
                     <div>
-                      <h3 className="text-xl font-bold text-slate-900 font-title mb-1.5 group-hover:text-sky-950 transition-colors">
+                      <h3 className="text-xl font-bold text-slate-800 font-title mb-1.5 group-hover:text-rose-600 transition-colors">
                         {item.title}
                       </h3>
-                      <p className="text-xs font-semibold text-sky-700 mb-3">
+                      <p className="text-xs font-bold text-rose-600 mb-3">
                         {item.lead}
                       </p>
-                      <p className="text-sm text-slate-500 leading-relaxed">
+                      <p className="text-sm text-slate-600 leading-relaxed">
                         {item.description}
                       </p>
                     </div>
 
                     {/* 一般的な制作会社との対比 */}
                     <div className="space-y-2.5 pt-4 border-t border-slate-100">
-                      <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-100">
+                      <div className="p-3.5 rounded-2xl bg-slate-50/80 border border-slate-200/80">
                         <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-500 mb-1">
                           <XCircle className="w-3.5 h-3.5 text-slate-400 flex-shrink-0" />
                           <span>一般的な制作会社・開発会社</span>
                         </div>
-                        <p className="text-xs text-slate-500 leading-snug">
+                        <p className="text-xs text-slate-600 leading-snug">
                           {item.traditional}
                         </p>
                       </div>
 
-                      <div className="p-3.5 rounded-2xl bg-gradient-to-r from-[#174668] to-[#286b8b] text-white shadow-md shadow-sky-950/15">
-                        <div className="flex items-center gap-1.5 text-[11px] font-bold text-teal-200 mb-1">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-teal-300 flex-shrink-0" />
+                      <div className="p-3.5 rounded-2xl bg-gradient-to-r from-rose-500 to-red-600 text-white shadow-xs">
+                        <div className="flex items-center gap-1.5 text-[11px] font-bold text-rose-100 mb-1">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-white flex-shrink-0" />
                           <span>当方のソリューション</span>
                         </div>
-                        <p className="text-xs text-sky-50 font-medium leading-snug">
+                        <p className="text-xs text-white font-medium leading-snug">
                           {item.ourAdvantage}
                         </p>
                       </div>
@@ -146,17 +146,17 @@ export const WhyChooseUsSection = () => {
         </div>
 
         {/* 信頼性を支える技術スタックのダイジェスト */}
-        <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/80 shadow-[0_10px_30px_rgba(15,23,42,0.03)]">
+        <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/80 shadow-xs">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="space-y-1 text-center md:text-left">
-              <div className="flex items-center justify-center md:justify-start gap-1.5 text-xs font-bold text-slate-700">
-                <Sparkles className="w-3.5 h-3.5 text-slate-600" />
+              <div className="flex items-center justify-center md:justify-start gap-1.5 text-xs font-bold text-rose-600">
+                <Sparkles className="w-3.5 h-3.5 text-rose-500" />
                 <span>Modern Technology Stack</span>
               </div>
-              <h4 className="text-base sm:text-lg font-bold text-slate-900">
+              <h4 className="text-base sm:text-lg font-bold text-slate-800">
                 保守性・表示速度・セキュリティに優れたモダンスタックを採用
               </h4>
-              <p className="text-xs text-slate-500">
+              <p className="text-xs text-slate-600">
                 最新のNext.js、TypeScript、Google Cloud等の実績多数の技術でクリーンに構築します。
               </p>
             </div>
@@ -165,7 +165,7 @@ export const WhyChooseUsSection = () => {
               {["Next.js", "TypeScript", "Tailwind CSS", "React", "Google Cloud", "Supabase", "Firebase", "GAS", "Stripe API"].map((tech) => (
                 <span
                   key={tech}
-                  className="px-3 py-1 rounded-full text-xs font-medium bg-slate-100 border border-slate-200 text-slate-700 font-mono shadow-sm"
+                  className="px-3 py-1 rounded-full text-xs font-medium bg-slate-50 border border-slate-200 text-slate-700 font-mono shadow-2xs"
                 >
                   {tech}
                 </span>

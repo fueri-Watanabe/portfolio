@@ -12,9 +12,6 @@ import {
   Sparkles,
   Clock,
   ArrowDown,
-  CheckCircle2,
-  ShieldCheck,
-  ChevronRight,
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -77,18 +74,18 @@ const ROLES = [
 
 export default function PartnersPage() {
   return (
-    <main className="min-h-screen text-slate-900 pt-24 pb-20 overflow-x-hidden">
+    <main className="min-h-screen bg-slate-50/70 text-slate-800 pt-24 pb-20 overflow-x-hidden">
       
       {/* 1. Hero セクション */}
       <section className="py-16 sm:py-20 relative z-10">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <Badge variant="glow" className="px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-sky-900 bg-white shadow-sm">
+          <Badge variant="teal" className="px-3.5 py-1 text-xs font-semibold uppercase tracking-wider mb-2">
             Partner Network / 協業パートナー募集
           </Badge>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 font-title tracking-tight leading-[1.15]">
+          <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-800 font-title tracking-tight leading-[1.15]">
             fueriと共にプロジェクトを推進する <br className="hidden sm:inline" />
-            <span className="bg-gradient-to-r from-sky-600 via-teal-600 to-emerald-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-rose-500 to-red-600 bg-clip-text text-transparent">
               パートナー（エンジニア・デザイナー）
             </span>
             を募集
@@ -103,7 +100,7 @@ export default function PartnersPage() {
               <Button
                 variant="primary"
                 size="lg"
-                className="rounded-full px-6 font-bold shadow-lg shadow-sky-950/15 bg-gradient-to-r from-[#174668] to-[#286b8b] hover:from-[#113550] hover:to-[#205975] text-white flex items-center gap-2"
+                className="rounded-full px-6 font-bold shadow-sm hover:shadow-md hover:shadow-rose-500/20 flex items-center gap-2"
               >
                 <span>パートナー登録フォームへ進む</span>
                 <ArrowDown className="w-4 h-4" />
@@ -114,7 +111,7 @@ export default function PartnersPage() {
               <Button
                 variant="outline"
                 size="lg"
-                className="rounded-full px-6 text-slate-700 hover:text-sky-950 border-slate-200 bg-white hover:bg-slate-50 shadow-sm"
+                className="rounded-full px-6 text-slate-700 hover:text-rose-600 border-slate-200 bg-white hover:bg-slate-50 shadow-xs"
               >
                 <span>代表の理念・実績を見る</span>
               </Button>
@@ -127,13 +124,13 @@ export default function PartnersPage() {
       <section className="py-12 relative z-10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center space-y-2 mb-10">
-            <span className="text-xs font-mono font-bold text-sky-700 uppercase tracking-wider">
+            <span className="text-xs font-mono font-bold text-teal-700 uppercase tracking-wider">
               Benefits of Partnership
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-title">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-800 font-title">
               fueriと協業する3つのメリット
             </h2>
-            <p className="text-xs sm:text-sm text-slate-500 max-w-xl mx-auto">
+            <p className="text-xs sm:text-sm text-slate-600 max-w-xl mx-auto">
               エンジニア・デザイナーが最も価値を発揮できる体制を整えています。
             </p>
           </div>
@@ -144,18 +141,18 @@ export default function PartnersPage() {
               return (
                 <div
                   key={item.number}
-                  className="rounded-3xl bg-white border border-slate-200/90 shadow-[0_12px_36px_rgba(14,165,233,0.06),0_2px_8px_rgba(15,23,42,0.03)] p-7 space-y-4 hover:border-sky-300 transition-all hover:-translate-y-0.5"
+                  className="rounded-3xl bg-white border border-slate-200/80 shadow-xs hover:shadow-md hover:border-teal-300 hover:-translate-y-0.5 transition-all p-7 space-y-4"
                 >
                   <div className="flex items-center justify-between">
-                    <div className="w-12 h-12 rounded-2xl bg-sky-50 border border-sky-100 text-sky-800 flex items-center justify-center shadow-sm">
+                    <div className="w-12 h-12 rounded-2xl bg-teal-50 border border-teal-200/80 text-teal-600 flex items-center justify-center shadow-2xs">
                       <Icon className="w-6 h-6" />
                     </div>
-                    <span className="text-2xl font-extrabold font-mono text-slate-200">
+                    <span className="text-2xl font-extrabold font-mono text-slate-300">
                       {item.number}
                     </span>
                   </div>
 
-                  <h3 className="text-lg font-bold text-slate-900 tracking-tight">
+                  <h3 className="text-lg font-bold text-slate-800 tracking-tight">
                     {item.title}
                   </h3>
 
@@ -170,16 +167,16 @@ export default function PartnersPage() {
       </section>
 
       {/* 3. 求めるパートナー像 */}
-      <section className="py-16 relative z-10 bg-slate-50/50 border-y border-slate-100">
+      <section className="py-16 relative z-10 bg-slate-100/60 border-y border-slate-200/80">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center space-y-2 mb-12">
-            <span className="text-xs font-mono font-bold text-sky-700 uppercase tracking-wider">
+            <span className="text-xs font-mono font-bold text-teal-700 uppercase tracking-wider">
               Target Skills & Roles
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-title">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-800 font-title">
               求めるパートナー像・専門領域
             </h2>
-            <p className="text-xs sm:text-sm text-slate-500 max-w-xl mx-auto">
+            <p className="text-xs sm:text-sm text-slate-600 max-w-xl mx-auto">
               以下の領域で得意分野をお持ちの方を歓迎します（いずれか1領域に特化で構いません）。
             </p>
           </div>
@@ -190,17 +187,17 @@ export default function PartnersPage() {
               return (
                 <div
                   key={role.title}
-                  className="rounded-3xl bg-white border border-slate-200/80 shadow-[0_12px_36px_rgba(14,165,233,0.05),0_2px_8px_rgba(15,23,42,0.02)] p-6 sm:p-7 space-y-3.5 hover:border-sky-300 transition-all"
+                  className="rounded-3xl bg-white border border-slate-200/80 shadow-xs hover:shadow-md hover:border-rose-300 hover:-translate-y-0.5 transition-all p-6 sm:p-7 space-y-3.5"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-[#174668] to-[#2c6e8f] text-white flex items-center justify-center flex-shrink-0 shadow-sm">
+                    <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-rose-500 to-red-600 text-white flex items-center justify-center flex-shrink-0 shadow-2xs">
                       <Icon className="w-5 h-5" />
                     </div>
                     <div>
-                      <h3 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight">
+                      <h3 className="text-base sm:text-lg font-bold text-slate-800 tracking-tight">
                         {role.title}
                       </h3>
-                      <span className="text-xs font-mono text-sky-700 font-medium">
+                      <span className="text-xs font-mono text-teal-700 font-medium">
                         {role.tagline}
                       </span>
                     </div>
@@ -214,7 +211,7 @@ export default function PartnersPage() {
                     {role.techStack.map((tech) => (
                       <span
                         key={tech}
-                        className="text-[11px] font-medium px-2.5 py-0.5 rounded-full bg-slate-50 text-slate-700 border border-slate-200/70"
+                        className="text-[11px] font-medium px-2.5 py-0.5 rounded-full bg-slate-50 text-slate-700 border border-slate-200/80"
                       >
                         {tech}
                       </span>

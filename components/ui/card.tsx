@@ -12,10 +12,10 @@ export const Card = React.forwardRef<HTMLDivElement, CardProps>(
       <div
         ref={ref}
         className={cn(
-          "rounded-3xl transition-all duration-300 relative overflow-hidden bg-white border border-sky-100/90 shadow-[0_10px_32px_rgba(14,165,233,0.06),0_2px_8px_rgba(15,23,42,0.04)]",
-          glass && "bg-white/95 backdrop-blur-xl",
+          "rounded-3xl transition-all duration-300 relative overflow-hidden bg-white border border-slate-200/80 shadow-xs hover:shadow-md",
+          glass && "bg-white/95 backdrop-blur-md",
           glow &&
-            "hover:border-sky-300/80 hover:shadow-[0_20px_48px_rgba(14,165,233,0.12),0_4px_12px_rgba(15,23,42,0.05)] hover:-translate-y-1",
+            "hover:border-rose-300/80 hover:shadow-md hover:shadow-rose-500/5 hover:-translate-y-0.5",
           className
         )}
         {...props}
@@ -60,7 +60,7 @@ export const CardDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <p
     ref={ref}
-    className={cn("text-sm text-slate-500 leading-relaxed", className)}
+    className={cn("text-sm text-slate-600 leading-relaxed", className)}
     {...props}
   />
 ));

@@ -13,21 +13,21 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ref
   ) => {
     const baseStyles =
-      "inline-flex items-center justify-center font-medium transition-all duration-300 rounded-full focus:outline-none focus:ring-2 focus:ring-sky-400 disabled:opacity-50 disabled:pointer-events-none select-none tracking-tight";
+      "inline-flex items-center justify-center font-medium transition-all duration-300 rounded-full focus:outline-none focus:ring-2 focus:ring-rose-400 disabled:opacity-50 disabled:pointer-events-none select-none tracking-tight";
 
     const variants = {
       default:
-        "bg-gradient-to-r from-[#174668] to-[#286b8b] hover:from-[#123854] hover:to-[#205975] text-white shadow-md shadow-sky-950/15 hover:shadow-lg hover:shadow-sky-800/25 active:scale-95",
+        "bg-gradient-to-r from-rose-500 to-red-600 hover:from-rose-600 hover:to-red-700 text-white shadow-sm shadow-rose-500/15 hover:shadow-md hover:shadow-rose-500/25 active:scale-95",
       primary:
-        "bg-gradient-to-r from-[#1a4464] via-[#245e82] to-[#2d7396] hover:from-[#133752] hover:to-[#215a77] text-white font-semibold shadow-md shadow-sky-950/20 hover:shadow-xl hover:shadow-sky-600/30 hover:-translate-y-0.5 active:translate-y-0",
+        "bg-gradient-to-r from-rose-500 to-red-600 hover:from-rose-600 hover:to-red-700 text-white font-semibold shadow-sm hover:shadow-md hover:shadow-rose-500/25 hover:-translate-y-0.5 active:translate-y-0",
       secondary:
-        "bg-sky-50/80 hover:bg-sky-100 text-sky-950 border border-sky-200/70 shadow-sm active:scale-95",
+        "bg-slate-100/90 hover:bg-slate-200/90 text-slate-700 border border-slate-200/80 shadow-xs active:scale-95",
       outline:
-        "border border-sky-200/90 hover:border-sky-400 text-slate-800 hover:text-sky-950 bg-white hover:bg-sky-50/60 shadow-sm active:scale-95",
+        "border border-slate-200/90 hover:border-rose-300 text-slate-700 hover:text-rose-600 bg-white hover:bg-rose-50/40 shadow-xs active:scale-95",
       ghost:
-        "text-slate-600 hover:text-sky-950 hover:bg-sky-50/80 active:scale-95",
+        "text-slate-600 hover:text-slate-900 hover:bg-slate-100/80 active:scale-95",
       glass:
-        "bg-white/90 hover:bg-white text-slate-900 border border-sky-100 shadow-md hover:shadow-lg hover:border-sky-300 hover:shadow-sky-500/10 active:scale-95",
+        "bg-white/90 hover:bg-white text-slate-700 border border-slate-200/80 shadow-xs hover:border-slate-300 active:scale-95 backdrop-blur-md",
     };
 
     const sizes = {

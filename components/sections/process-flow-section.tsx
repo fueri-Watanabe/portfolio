@@ -88,23 +88,23 @@ const FLOW_STEPS: FlowStep[] = [
 
 export const ProcessFlowSection = () => {
   return (
-    <section id="process-flow" className="py-24 relative z-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="process-flow" className="py-20 md:py-32 relative z-10">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* セクションヘッダー */}
         <div className="flex flex-col items-center text-center space-y-3 mb-16">
-          <Badge variant="glow" className="px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-sky-900 bg-white">
+          <Badge variant="glow" className="px-3.5 py-1 text-xs font-semibold uppercase tracking-wider">
             Process & Workflow
           </Badge>
 
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 font-title tracking-tight">
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-800 font-title tracking-tight">
             発注から納品・運用の{" "}
-            <span className="bg-gradient-to-r from-sky-600 via-teal-600 to-emerald-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-rose-500 to-red-600 bg-clip-text text-transparent">
               流れ
             </span>
           </h2>
 
-          <p className="text-slate-500 max-w-2xl text-base sm:text-lg">
+          <p className="text-slate-600 max-w-2xl text-base sm:text-lg">
             明確なステップと密なコミュニケーションで、安心・確実にプロジェクトを推進します。
           </p>
         </div>
@@ -125,29 +125,29 @@ export const ProcessFlowSection = () => {
                 className="relative flex flex-col"
               >
                 <div
-                  className="rounded-3xl p-5 sm:p-6 flex flex-col justify-between h-full bg-white border border-sky-100/90 shadow-[0_10px_32px_rgba(14,165,233,0.06),0_2px_8px_rgba(15,23,42,0.04)] hover:shadow-[0_20px_45px_rgba(14,165,233,0.12)] hover:border-sky-300 hover:-translate-y-1 transition-all group"
+                  className="rounded-3xl p-5 sm:p-6 flex flex-col justify-between h-full bg-white border border-slate-200/80 shadow-xs hover:shadow-md hover:border-rose-300 hover:-translate-y-0.5 transition-all group"
                 >
                   <div>
                     {/* ステップ番号 & アイコン */}
                     <div className="flex items-center justify-between mb-4">
-                      <div className="w-10 h-10 rounded-2xl flex items-center justify-center bg-sky-50 border border-sky-100 text-sky-800 shadow-sm group-hover:scale-105 group-hover:bg-gradient-to-br group-hover:from-sky-500 group-hover:to-teal-500 group-hover:text-white transition-all">
+                      <div className="w-10 h-10 rounded-2xl flex items-center justify-center bg-rose-50/70 border border-rose-100 text-rose-500 shadow-2xs group-hover:scale-105 group-hover:bg-gradient-to-br group-hover:from-rose-500 group-hover:to-red-600 group-hover:text-white transition-all">
                         <Icon className="w-5 h-5" />
                       </div>
-                      <span className="text-lg font-extrabold font-mono text-sky-200/80 group-hover:text-sky-400/80 transition-colors">
+                      <span className="text-lg font-extrabold font-mono text-slate-200 group-hover:text-rose-400/25 transition-colors">
                         {item.step}
                       </span>
                     </div>
 
                     {/* タイトル */}
-                    <h3 className="text-base font-bold text-slate-900 font-title mb-1.5">
+                    <h3 className="text-base font-bold text-slate-800 font-title mb-1.5">
                       {item.title}
                     </h3>
-                    <p className="text-xs text-slate-500 mb-4 leading-relaxed">
+                    <p className="text-xs text-slate-600 mb-4 leading-relaxed">
                       {item.shortDesc}
                     </p>
 
                     {/* 詳細箇条書き */}
-                    <ul className="space-y-2 text-[11px] text-slate-600 mb-4">
+                    <ul className="space-y-2 text-[11px] text-slate-700 mb-4">
                       {item.details.map((detail, idx) => (
                         <li key={idx} className="flex items-start gap-1.5 leading-tight">
                           <CheckCircle2 className="w-3 h-3 text-teal-600 flex-shrink-0 mt-0.5" />
@@ -159,7 +159,7 @@ export const ProcessFlowSection = () => {
 
                   {/* 安心ポイントバッジ */}
                   <div className="pt-3 border-t border-slate-100">
-                    <span className="inline-flex items-center justify-center text-[10px] font-bold text-sky-900 bg-sky-50/80 px-2 py-1 rounded-full border border-sky-200/60 w-full text-center">
+                    <span className="inline-flex items-center justify-center text-[10px] font-bold text-rose-700 bg-rose-50 px-2 py-1 rounded-full border border-rose-200 w-full text-center">
                       <span>{item.point}</span>
                     </span>
                   </div>
@@ -167,8 +167,8 @@ export const ProcessFlowSection = () => {
 
                 {/* PC表示用のステップ間矢印 */}
                 {!isLast && (
-                  <div className="hidden lg:flex absolute top-1/2 -right-3 -translate-y-1/2 z-20 w-6 h-6 rounded-full bg-white border border-sky-200 items-center justify-center shadow-sm pointer-events-none text-sky-600">
-                    <ArrowRight className="w-3 h-3 text-sky-500" />
+                  <div className="hidden lg:flex absolute top-1/2 -right-3 -translate-y-1/2 z-20 w-6 h-6 rounded-full bg-white border border-slate-200 items-center justify-center shadow-xs pointer-events-none text-rose-500">
+                    <ArrowRight className="w-3 h-3 text-rose-500" />
                   </div>
                 )}
               </motion.div>
@@ -182,10 +182,10 @@ export const ProcessFlowSection = () => {
             <Button
               variant="outline"
               size="sm"
-              className="rounded-full px-5 py-2 text-xs font-semibold text-slate-700 hover:text-sky-950 border-slate-200 bg-white hover:bg-slate-50 shadow-sm gap-1.5 group"
+              className="rounded-full px-5 py-2 text-xs font-semibold text-slate-700 hover:text-rose-600 border-slate-200 bg-white hover:bg-slate-50 shadow-xs gap-1.5 group"
             >
               <span>詳しい各工程の詳細・よくある質問（FAQ）を見る</span>
-              <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-sky-700 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-3.5 h-3.5 text-rose-500 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>
         </div>

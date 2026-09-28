@@ -9,27 +9,27 @@
   }
 
   body {
-    @apply antialiased text-slate-900 min-h-screen bg-white;
-    background-color: #ffffff;
+    @apply antialiased text-slate-800 min-h-screen bg-slate-50/70;
+    background-color: #fafbfe;
   }
 
   ::selection {
-    background-color: #0ea5e9;
-    color: #ffffff;
+    background-color: #ffe4e6;
+    color: #e11d48;
   }
 }
 
 .custom-button {
-  @apply border drop-shadow-sm rounded-full px-4 py-2 border-slate-200 font-semibold tracking-wide text-sm bg-white text-slate-800 disabled:opacity-40 disabled:cursor-not-allowed hover:shadow-md hover:border-sky-300 hover:bg-sky-50/50 transition-all;
+  @apply border drop-shadow-sm rounded-full px-4 py-2 border-slate-200 font-semibold tracking-wide text-sm bg-white text-slate-800 disabled:opacity-40 disabled:cursor-not-allowed hover:shadow-sm hover:border-rose-400 hover:text-rose-600 transition-all;
 }
 
-/* スクロールバーのカスタマイズ（ライト＆クリーン） */
+/* スクロールバーのカスタマイズ（ライト＆繊細なグレー） */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #ffffff;
+  background: #f8fafc;
 }
 ::-webkit-scrollbar-thumb {
   background: #cbd5e1;

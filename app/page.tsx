@@ -10,7 +10,7 @@ import ContactSection from "@/components/sections/contact-section";
 
 export default function Home() {
   return (
-    <main className="min-h-screen text-slate-900 overflow-x-hidden">
+    <main className="min-h-screen bg-slate-50/70 text-slate-800 overflow-x-hidden">
       {/* 1. Hero Section + 診断UI */}
       <HeroSection />
 

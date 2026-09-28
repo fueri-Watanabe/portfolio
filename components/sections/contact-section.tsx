@@ -77,46 +77,48 @@ export const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-24 relative z-10">
+    <section id="contact" className="py-20 md:py-32 relative z-10">
+      {/* 上部のシームレス境界線 */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200/80 to-transparent" />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* セクションヘッダー */}
         <div className="flex flex-col items-center text-center space-y-3 mb-16">
-          <Badge variant="glow" className="px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-sky-900 bg-white">
+          <Badge variant="glow" className="px-3.5 py-1 text-xs font-semibold uppercase tracking-wider mb-1">
             Let's Build Together
           </Badge>
 
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 font-title tracking-tight">
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-800 font-title tracking-tight">
             Web開発・お見積りの{" "}
-            <span className="bg-gradient-to-r from-sky-600 via-teal-600 to-emerald-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-rose-500 to-red-600 bg-clip-text text-transparent">
               ご相談
             </span>
           </h2>
 
-          <p className="text-slate-500 max-w-xl text-base sm:text-lg">
+          <p className="text-slate-600 max-w-xl text-base sm:text-lg">
             新規システム開発・既存ツール改修・保守など、お気軽にお問い合わせください。
           </p>
         </div>
 
-        <div className="rounded-3xl bg-white border border-sky-100/90 shadow-[0_20px_50px_rgba(14,165,233,0.08),0_4px_16px_rgba(15,23,42,0.04)] p-8 sm:p-12 relative">
+        <div className="rounded-3xl bg-white border border-slate-200/80 shadow-xs hover:shadow-sm p-8 sm:p-12 relative transition-all">
 
           {submitted ? (
             <div className="py-12 flex flex-col items-center text-center space-y-6">
-              <div className="w-16 h-16 rounded-full bg-teal-50 border border-teal-200 flex items-center justify-center text-teal-800 shadow-sm">
+              <div className="w-16 h-16 rounded-full bg-teal-50 border border-teal-200 flex items-center justify-center text-teal-600 shadow-2xs">
                 <CheckCircle2 className="w-8 h-8 text-teal-600" />
               </div>
               <div className="space-y-2">
-                <h3 className="text-2xl font-bold text-slate-900 font-title">
+                <h3 className="text-2xl font-bold text-slate-800 font-title">
                   お問い合わせを受け付けました
                 </h3>
-                <p className="text-slate-500 text-sm max-w-md">
+                <p className="text-slate-600 text-sm max-w-md">
                   ご連絡ありがとうございます。内容を確認のうえ、原則24時間以内に折り返しメールにてご連絡いたします。
                 </p>
               </div>
               <Button
                 variant="outline"
                 onClick={() => setSubmitted(false)}
-                className="mt-4 rounded-full"
+                className="mt-4 rounded-full bg-white border-slate-200 text-slate-700 hover:bg-slate-50"
               >
                 フォームに戻る
               </Button>
@@ -140,19 +142,19 @@ export const ContactSection = () => {
                 <select
                   defaultValue=""
                   {...register("title")}
-                  className="w-full bg-slate-50 border border-slate-200 rounded-2xl px-4 py-3.5 text-slate-900 text-sm focus:outline-none focus:border-sky-500 focus:bg-white focus:ring-2 focus:ring-sky-500/20 transition-all"
+                  className="w-full bg-white border border-slate-200/90 rounded-2xl px-4 py-3.5 text-slate-800 text-sm focus:outline-none focus:border-rose-400 focus:bg-white focus:ring-2 focus:ring-rose-400/20 transition-all hover:border-slate-300"
                 >
-                  <option value="" disabled>
+                  <option value="" disabled className="bg-white text-slate-400">
                     ご用件を選択してください
                   </option>
                   {CONTACT_TITLES.map((title) => (
-                    <option key={title} value={title} className="bg-white text-slate-900">
+                    <option key={title} value={title} className="bg-white text-slate-800">
                       {title}
                     </option>
                   ))}
                 </select>
                 {errors.title && (
-                  <p className="text-xs text-rose-500 flex items-center gap-1 mt-1">
+                  <p className="text-xs text-rose-600 flex items-center gap-1 mt-1">
                     <AlertCircle className="w-3.5 h-3.5" />
                     <span>{errors.title.message}</span>
                   </p>
@@ -170,10 +172,10 @@ export const ContactSection = () => {
                     type="text"
                     placeholder="山田 太郎"
                     {...register("contactName")}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-2xl px-4 py-3.5 text-slate-900 text-sm focus:outline-none focus:border-sky-500 focus:bg-white focus:ring-2 focus:ring-sky-500/20 transition-all"
+                    className="w-full bg-white border border-slate-200/90 rounded-2xl px-4 py-3.5 text-slate-800 placeholder:text-slate-400 text-sm focus:outline-none focus:border-rose-400 focus:bg-white focus:ring-2 focus:ring-rose-400/20 transition-all hover:border-slate-300"
                   />
                   {errors.contactName && (
-                    <p className="text-xs text-rose-500 flex items-center gap-1 mt-1">
+                    <p className="text-xs text-rose-600 flex items-center gap-1 mt-1">
                       <AlertCircle className="w-3.5 h-3.5" />
                       <span>{errors.contactName.message}</span>
                     </p>
@@ -188,7 +190,7 @@ export const ContactSection = () => {
                     type="text"
                     placeholder="株式会社サンプル"
                     {...register("company")}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-2xl px-4 py-3.5 text-slate-900 text-sm focus:outline-none focus:border-sky-500 focus:bg-white focus:ring-2 focus:ring-sky-500/20 transition-all"
+                    className="w-full bg-white border border-slate-200/90 rounded-2xl px-4 py-3.5 text-slate-800 placeholder:text-slate-400 text-sm focus:outline-none focus:border-rose-400 focus:bg-white focus:ring-2 focus:ring-rose-400/20 transition-all hover:border-slate-300"
                   />
                 </div>
               </div>
@@ -203,10 +205,10 @@ export const ContactSection = () => {
                   type="email"
                   placeholder="example@fueri.jp"
                   {...register("email")}
-                  className="w-full bg-slate-50 border border-slate-200 rounded-2xl px-4 py-3.5 text-slate-900 text-sm focus:outline-none focus:border-sky-500 focus:bg-white focus:ring-2 focus:ring-sky-500/20 transition-all"
+                  className="w-full bg-white border border-slate-200/90 rounded-2xl px-4 py-3.5 text-slate-800 placeholder:text-slate-400 text-sm focus:outline-none focus:border-rose-400 focus:bg-white focus:ring-2 focus:ring-rose-400/20 transition-all hover:border-slate-300"
                 />
                 {errors.email && (
-                  <p className="text-xs text-rose-500 flex items-center gap-1 mt-1">
+                  <p className="text-xs text-rose-600 flex items-center gap-1 mt-1">
                     <AlertCircle className="w-3.5 h-3.5" />
                     <span>{errors.email.message}</span>
                   </p>
@@ -231,14 +233,14 @@ export const ContactSection = () => {
                   rows={6}
                   placeholder="ご検討中のシステム要件やご質問、ご予算感などをお書きください。"
                   {...register("content")}
-                  className={`w-full bg-slate-50 border rounded-2xl px-4 py-3.5 text-slate-900 text-sm focus:outline-none focus:border-sky-500 focus:bg-white focus:ring-2 focus:ring-sky-500/20 transition-all resize-none ${
+                  className={`w-full bg-white border rounded-2xl px-4 py-3.5 text-slate-800 placeholder:text-slate-400 text-sm focus:outline-none focus:border-rose-400 focus:bg-white focus:ring-2 focus:ring-rose-400/20 transition-all resize-none hover:border-slate-300 ${
                     isPrefilled
-                      ? "border-teal-400 ring-2 ring-teal-400/30 bg-teal-50/20"
-                      : "border-slate-200"
+                      ? "border-teal-400 ring-2 ring-teal-400/20 bg-teal-50/20"
+                      : "border-slate-200/90"
                   }`}
                 />
                 {errors.content && (
-                  <p className="text-xs text-rose-500 flex items-center gap-1 mt-1">
+                  <p className="text-xs text-rose-600 flex items-center gap-1 mt-1">
                     <AlertCircle className="w-3.5 h-3.5" />
                     <span>{errors.content.message}</span>
                   </p>
@@ -251,7 +253,7 @@ export const ContactSection = () => {
                 variant="primary"
                 size="lg"
                 disabled={isPending}
-                className="w-full justify-center rounded-full font-bold py-4 mt-4 shadow-lg shadow-sky-950/20"
+                className="w-full justify-center rounded-full font-bold py-4 mt-4 shadow-sm hover:shadow-md hover:shadow-rose-500/20"
               >
                 {isPending ? (
                   <>
@@ -279,13 +281,13 @@ export const ContactSection = () => {
                 href="https://x.com/hiroshifueri"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold bg-sky-50 text-sky-900 border border-sky-200 hover:bg-sky-100 transition-all duration-200"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold bg-slate-50/80 text-slate-700 border border-slate-200 hover:bg-white hover:border-rose-300 hover:text-rose-600 transition-all duration-200 shadow-2xs"
               >
-                <svg className="w-4 h-4 fill-current text-sky-700" viewBox="0 0 24 24" aria-hidden="true">
+                <svg className="w-4 h-4 fill-current text-slate-700" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                 </svg>
                 <span>DMで相談する</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
+                <ArrowUpRight className="w-3.5 h-3.5 text-rose-500" />
               </a>
             </div>
           </div>

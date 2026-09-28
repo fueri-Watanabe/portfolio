@@ -1,14 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Badge } from "@/components/ui/badge";
-import {
-  Cpu,
-  Layers,
-  Sparkles,
-  Link as LinkIcon,
-  CheckCircle2,
-} from "lucide-react";
+import { Link as LinkIcon, CheckCircle2 } from "lucide-react";
 
 interface IntegrationItem {
   name: string;
@@ -32,55 +25,55 @@ const INTEGRATION_ITEMS: IntegrationItem[] = [
 
 export const IntegrationsSection = () => {
   return (
-    <section className="py-12 relative z-10">
+    <section className="w-full bg-white/80 border-b border-slate-200/80 py-20 md:py-28 relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="rounded-3xl bg-white border border-slate-200/80 shadow-[0_12px_36px_rgba(14,165,233,0.05),0_2px_8px_rgba(15,23,42,0.03)] p-6 sm:p-9 text-center space-y-5"
+          className="text-center space-y-8"
         >
           {/* ヘッダー */}
-          <div className="space-y-2 max-w-2xl mx-auto">
-            <div className="inline-flex items-center gap-1.5 text-xs font-bold text-sky-800 bg-sky-50 px-3 py-1 rounded-full border border-sky-200/80">
+          <div className="space-y-3 max-w-3xl mx-auto">
+            <div className="inline-flex items-center gap-1.5 text-xs font-bold text-sky-800 bg-sky-50 px-3.5 py-1 rounded-full border border-sky-200/80 shadow-2xs">
               <LinkIcon className="w-3.5 h-3.5 text-sky-600" />
               <span>Integrations & Compatibility</span>
             </div>
-            <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 font-title tracking-tight">
-              貴社で現在お使いの各種ツールや外部APIとの柔軟な連携が可能です
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-800 font-title tracking-tight">
+              貴社で現在お使いの各種ツールや外部APIとの柔軟な連携に対応
             </h3>
-            <p className="text-xs sm:text-sm text-slate-500">
-              既存業務のやり方を無理に変えることなく、すでにお使いのサービスとシームレスにつなぎ込みます。
+            <p className="text-sm text-slate-600 leading-relaxed max-w-2xl mx-auto">
+              既存業務のやり方を無理に変えることなく、すでにお使いのサービスやプラットフォームとシームレスにつなぎ込みます。
             </p>
           </div>
 
-          {/* ツール一覧バッジグリッド */}
-          <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 max-w-4xl mx-auto pt-2">
+          {/* ツール一覧バッジグリッド（ティール＆スカイによる安心の配色） */}
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-3.5 max-w-5xl mx-auto pt-2">
             {INTEGRATION_ITEMS.map((item, idx) => (
               <div
                 key={idx}
-                className={`px-3.5 py-2 rounded-2xl text-xs sm:text-sm font-semibold border transition-all duration-200 flex items-center gap-2 shadow-2xs select-none ${
+                className={`px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-semibold border transition-all duration-200 flex items-center gap-2.5 shadow-2xs hover:-translate-y-0.5 select-none ${
                   item.highlight
-                    ? "bg-slate-50/90 border-slate-200 hover:border-sky-400 hover:bg-sky-50/40 text-slate-800"
-                    : "bg-white border-slate-200/80 hover:border-sky-300 hover:bg-slate-50 text-slate-700"
+                    ? "bg-teal-50/80 border-teal-200/90 hover:border-teal-300 hover:bg-white text-slate-800"
+                    : "bg-slate-50 border-slate-200/90 hover:border-slate-300 hover:bg-white text-slate-700"
                 }`}
               >
-                <span className="w-2 h-2 rounded-full bg-teal-500 flex-shrink-0" />
+                <span className={`w-2 h-2 rounded-full flex-shrink-0 ${item.highlight ? "bg-teal-500" : "bg-slate-400"}`} />
                 <span>{item.name}</span>
               </div>
             ))}
           </div>
 
           {/* サポート案内 */}
-          <div className="pt-2 flex flex-wrap items-center justify-center gap-4 text-xs text-slate-500">
-            <span className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-3.5 h-3.5 text-teal-600" />
-              <span>上記以外の独自SaaS・カスタムAPIも対応可能</span>
+          <div className="pt-3 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-600">
+            <span className="flex items-center gap-1.5 bg-slate-50 px-3.5 py-1.5 rounded-full border border-slate-200/80">
+              <CheckCircle2 className="w-4 h-4 text-teal-600" />
+              <span className="font-medium">上記以外の独自SaaS・カスタムAPIも対応可能</span>
             </span>
-            <span className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-3.5 h-3.5 text-teal-600" />
-              <span>Webhooks / REST API連携にも対応</span>
+            <span className="flex items-center gap-1.5 bg-slate-50 px-3.5 py-1.5 rounded-full border border-slate-200/80">
+              <CheckCircle2 className="w-4 h-4 text-teal-600" />
+              <span className="font-medium">Webhooks / REST API連携にも柔軟対応</span>
             </span>
           </div>
         </motion.div>

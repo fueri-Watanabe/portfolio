@@ -13,15 +13,15 @@ export const WorkflowSection = () => {
         
         {/* セクションヘッダー */}
         <div className="flex flex-col items-center text-center space-y-3 mb-16">
-          <Badge variant="glow" className="px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-slate-700 bg-white">
+          <Badge variant="glow" className="px-3.5 py-1 text-xs font-semibold uppercase tracking-wider mb-1">
             Workflow & Steps
           </Badge>
 
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 font-title tracking-tight">
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-800 font-title tracking-tight">
             お問い合わせから納品までのステップ
           </h2>
 
-          <p className="text-slate-500 max-w-2xl text-base sm:text-lg">
+          <p className="text-slate-600 max-w-2xl text-base sm:text-lg">
             明確なステップと密なコミュニケーションで、安心・確実にプロジェクトを推進します。
           </p>
         </div>
@@ -36,10 +36,10 @@ export const WorkflowSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
             >
-              <div className="rounded-3xl bg-white border border-slate-200/80 shadow-[0_8px_30px_rgba(15,23,42,0.03)] hover:shadow-[0_16px_36px_rgba(15,23,42,0.06)] hover:-translate-y-1 transition-all p-6 h-full flex flex-col justify-between relative group">
+              <div className="rounded-3xl bg-white border border-slate-200/80 shadow-xs hover:shadow-md hover:border-rose-300 hover:-translate-y-0.5 transition-all p-6 h-full flex flex-col justify-between relative group">
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <div className="w-10 h-10 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-center font-bold text-slate-800 font-mono text-sm shadow-sm">
+                    <div className="w-10 h-10 rounded-2xl bg-rose-50/70 border border-rose-100 flex items-center justify-center font-bold text-rose-500 font-mono text-sm shadow-2xs">
                       0{step.stepNumber}
                     </div>
                     {step.iconSrc && (
@@ -55,18 +55,18 @@ export const WorkflowSection = () => {
                     )}
                   </div>
 
-                  <h3 className="text-xl font-bold text-slate-900 font-title group-hover:text-slate-700 transition-colors">
+                  <h3 className="text-xl font-bold text-slate-800 font-title group-hover:text-rose-600 transition-colors">
                     {step.title}
                   </h3>
 
-                  <p className="text-sm text-slate-500 leading-relaxed">
+                  <p className="text-sm text-slate-600 leading-relaxed">
                     {step.description}
                   </p>
                 </div>
 
                 {step.detailHint && (
-                  <div className="pt-4 mt-4 border-t border-slate-100 text-[12px] text-slate-400 flex items-center gap-1.5">
-                    <Info className="w-3.5 h-3.5 text-slate-500 flex-shrink-0" />
+                  <div className="pt-4 mt-4 border-t border-slate-100 text-[12px] text-slate-500 flex items-center gap-1.5">
+                    <Info className="w-3.5 h-3.5 text-rose-500 flex-shrink-0" />
                     <span>{step.detailHint}</span>
                   </div>
                 )}
@@ -75,9 +75,9 @@ export const WorkflowSection = () => {
           ))}
         </div>
 
-        <div className="mt-12 p-6 rounded-3xl bg-white border border-slate-200/80 text-center max-w-3xl mx-auto space-y-2 shadow-sm">
+        <div className="mt-12 p-6 rounded-3xl bg-white border border-slate-200/80 text-center max-w-3xl mx-auto space-y-2 shadow-xs">
           {WORKFLOW_NOTES.map((note, idx) => (
-            <p key={idx} className="text-xs text-slate-500">
+            <p key={idx} className="text-xs text-slate-600">
               {note}
             </p>
           ))}

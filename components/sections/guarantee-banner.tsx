@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Badge } from "@/components/ui/badge";
 import { ShieldCheck, FileText, RefreshCw, CheckCircle2 } from "lucide-react";
 
 const GUARANTEE_POINTS = [
@@ -27,61 +26,61 @@ const GUARANTEE_POINTS = [
 
 export const GuaranteeBanner = () => {
   return (
-    <section className="py-10 relative z-10">
+    <section className="w-full bg-slate-100/60 border-y border-slate-200/80 py-20 md:py-28 relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="rounded-3xl bg-gradient-to-br from-white via-sky-50/30 to-teal-50/20 border border-sky-100 shadow-[0_12px_36px_rgba(14,165,233,0.06),0_2px_8px_rgba(15,23,42,0.03)] p-6 sm:p-10"
+          className="space-y-10"
         >
           {/* ヘッダー */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 border-b border-sky-100/80 mb-8">
-            <div className="space-y-1">
-              <div className="inline-flex items-center gap-1.5 text-xs font-bold text-teal-800 bg-teal-50 px-3 py-1 rounded-full border border-teal-200/80 mb-1">
+          <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-4 pb-6 border-b border-slate-200/80">
+            <div className="space-y-2">
+              <div className="inline-flex items-center gap-1.5 text-xs font-bold text-teal-800 bg-teal-50 px-3.5 py-1 rounded-full border border-teal-200/80 shadow-2xs">
                 <ShieldCheck className="w-3.5 h-3.5 text-teal-600" />
                 <span>After Support & Quality Guarantee</span>
               </div>
-              <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 font-title tracking-tight">
-                納品後も安心の「保証・サポート体制」
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-800 font-title tracking-tight">
+                納品後も安心の「品質保証 & 運用サポート体制」
               </h3>
             </div>
-            <p className="text-xs sm:text-sm text-slate-500 max-w-md">
+            <p className="text-xs sm:text-sm text-slate-600 max-w-md leading-relaxed">
               「作って終わり」ではなく、現場で確実に成果を出し続けるまで寄り添う伴走型の開発をお約束します。
             </p>
           </div>
 
           {/* 3つの安心ポイント */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
             {GUARANTEE_POINTS.map((item, idx) => {
               const Icon = item.icon;
               return (
                 <div
                   key={idx}
-                  className="rounded-2xl bg-white p-5 sm:p-6 border border-slate-200/80 shadow-xs flex flex-col justify-between hover:border-sky-300 transition-colors"
+                  className="rounded-3xl bg-white p-7 sm:p-8 border border-slate-200/90 shadow-xs flex flex-col justify-between hover:border-teal-300 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
                 >
-                  <div className="space-y-3">
+                  <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <div className="w-10 h-10 rounded-xl bg-teal-50 text-teal-700 border border-teal-100 flex items-center justify-center shadow-xs">
-                        <Icon className="w-5 h-5" />
+                      <div className="w-12 h-12 rounded-2xl bg-teal-50 text-teal-600 border border-teal-100 flex items-center justify-center shadow-2xs">
+                        <Icon className="w-6 h-6" />
                       </div>
-                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-100 text-slate-700">
+                      <span className="text-[11px] font-bold px-3 py-1 rounded-full bg-teal-50 text-teal-800 border border-teal-200/80">
                         {item.tagline}
                       </span>
                     </div>
 
-                    <h4 className="text-sm sm:text-base font-bold text-slate-900 tracking-tight">
+                    <h4 className="text-base sm:text-lg font-bold text-slate-800 tracking-tight">
                       {item.title}
                     </h4>
 
-                    <p className="text-xs text-slate-600 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                       {item.desc}
                     </p>
                   </div>
 
-                  <div className="pt-3 mt-3 border-t border-slate-100 flex items-center gap-1.5 text-[11px] font-semibold text-teal-700">
-                    <CheckCircle2 className="w-3.5 h-3.5" />
+                  <div className="pt-4 mt-5 border-t border-slate-100 flex items-center gap-1.5 text-xs font-semibold text-teal-700">
+                    <CheckCircle2 className="w-4 h-4 text-teal-600" />
                     <span>迅速・丁寧なフォロー体制</span>
                   </div>
                 </div>

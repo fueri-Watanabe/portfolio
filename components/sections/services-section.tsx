@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -22,7 +21,7 @@ interface ServicePackage {
   price: string;
   delivery: string;
   badge?: string;
-  badgeColor?: string;
+  badgeType?: "rose" | "teal";
   icon: React.ElementType;
   contactTitle: string;
   problems: string[];
@@ -59,7 +58,7 @@ const PACKAGES: ServicePackage[] = [
     price: "100,000円〜",
     delivery: "1週間 〜 3週間",
     badge: "人気 No.1",
-    badgeColor: "bg-slate-900 text-white border-slate-900",
+    badgeType: "rose",
     icon: Cpu,
     contactTitle: "システム開発の相談・見積り",
     problems: [
@@ -82,7 +81,7 @@ const PACKAGES: ServicePackage[] = [
     price: "250,000円〜",
     delivery: "2週間 〜 4週間",
     badge: "おすすめ",
-    badgeColor: "bg-slate-900 text-white border-slate-900",
+    badgeType: "teal",
     icon: Globe,
     contactTitle: "Webサイトの構築",
     problems: [
@@ -142,23 +141,23 @@ export const ServicesSection = () => {
   };
 
   return (
-    <section id="services" className="py-24 relative z-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="services" className="py-20 md:py-32 relative z-10">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* セクションヘッダー（Flowformスタイルのタイポグラフィ） */}
+        {/* セクションヘッダー */}
         <div className="flex flex-col items-center text-center space-y-3 mb-16">
-          <Badge variant="glow" className="px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-sky-900 bg-white">
+          <Badge variant="glow" className="px-3.5 py-1 text-xs font-semibold uppercase tracking-wider">
             Solutions & Services
           </Badge>
 
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 font-title tracking-tight">
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-800 font-title tracking-tight">
             明確な提供価値と{" "}
-            <span className="bg-gradient-to-r from-sky-600 via-teal-600 to-emerald-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-rose-500 to-red-600 bg-clip-text text-transparent">
               定額プラン
             </span>
           </h2>
 
-          <p className="text-slate-500 max-w-2xl text-base sm:text-lg">
+          <p className="text-slate-600 max-w-2xl text-base sm:text-lg">
             「何にいくらかかるのか」の不透明さを排除。ご予算と課題の規模に合わせて、最適なパッケージをご用意しています。
           </p>
         </div>
@@ -177,46 +176,50 @@ export const ServicesSection = () => {
                 className="flex"
               >
                 <div
-                  className="rounded-3xl p-6 sm:p-7 flex flex-col justify-between w-full bg-white border border-sky-100/90 shadow-[0_12px_36px_rgba(14,165,233,0.06),0_2px_8px_rgba(15,23,42,0.04)] hover:shadow-[0_22px_48px_rgba(14,165,233,0.12)] hover:border-sky-300 hover:-translate-y-1 transition-all duration-300 relative group"
+                  className="rounded-3xl p-6 sm:p-7 flex flex-col justify-between w-full bg-white border border-slate-200/80 shadow-xs hover:shadow-md hover:border-rose-300 hover:-translate-y-0.5 transition-all duration-300 relative group"
                 >
                   {/* 上部バッジ & 番号 */}
                   <div>
                     <div className="flex items-center justify-between mb-5">
                       <div className="flex items-center gap-2.5">
-                        <div className="w-10 h-10 rounded-2xl flex items-center justify-center bg-sky-50 border border-sky-100 text-sky-800 group-hover:scale-105 group-hover:bg-gradient-to-br group-hover:from-sky-500 group-hover:to-teal-500 group-hover:text-white transition-all shadow-sm">
+                        <div className="w-10 h-10 rounded-2xl flex items-center justify-center bg-rose-50/70 border border-rose-100 text-rose-500 group-hover:scale-105 group-hover:bg-gradient-to-br group-hover:from-rose-500 group-hover:to-red-600 group-hover:text-white transition-all shadow-2xs">
                           <Icon className="w-5 h-5" />
                         </div>
-                        <span className="text-xs font-mono font-bold text-sky-700/60">
+                        <span className="text-xs font-mono font-bold text-slate-400">
                           {pkg.number}
                         </span>
                       </div>
                       {pkg.badge && (
                         <span
-                          className="text-[10px] font-bold px-3 py-1 rounded-full border shadow-sm bg-gradient-to-r from-[#174668] to-[#286b8b] text-white border-transparent"
+                          className={`text-[10px] font-bold px-3 py-1 rounded-full shadow-2xs ${
+                            pkg.badgeType === "teal"
+                              ? "bg-teal-50 text-teal-800 border border-teal-200"
+                              : "bg-gradient-to-r from-rose-500 to-red-600 text-white border-transparent"
+                          }`}
                         >
                           {pkg.badge}
                         </span>
                       )}
                     </div>
 
-                    <h3 className="text-lg sm:text-xl font-bold text-slate-900 font-title mb-1.5 group-hover:text-slate-700 transition-colors">
+                    <h3 className="text-lg sm:text-xl font-bold text-slate-800 font-title mb-1.5 group-hover:text-rose-600 transition-colors">
                       {pkg.name}
                     </h3>
-                    <p className="text-xs text-slate-500 mb-5 leading-relaxed min-h-[36px]">
+                    <p className="text-xs text-slate-600 mb-5 leading-relaxed min-h-[36px]">
                       {pkg.tagline}
                     </p>
 
                     {/* 価格 & 納期ハイライト */}
-                    <div className="p-4 rounded-2xl bg-slate-50 border border-slate-100 mb-5">
+                    <div className="p-4 rounded-2xl bg-slate-50/80 border border-slate-200/80 mb-5">
                       <div className="flex items-baseline justify-between mb-1">
                         <span className="text-[11px] font-medium text-slate-500">
                           想定料金目安
                         </span>
-                        <span className="text-base sm:text-lg font-extrabold text-slate-900 font-mono">
+                        <span className="text-base sm:text-lg font-extrabold text-slate-800 font-mono">
                           {pkg.price}
                         </span>
                       </div>
-                      <div className="flex items-center justify-between text-xs text-slate-600 pt-1.5 border-t border-slate-200/60">
+                      <div className="flex items-center justify-between text-xs text-slate-700 pt-1.5 border-t border-slate-200/80">
                         <span className="flex items-center gap-1 text-[11px] text-slate-500">
                           <Clock className="w-3.5 h-3.5 text-slate-400" />
                           納期目安
@@ -230,13 +233,13 @@ export const ServicesSection = () => {
                     {/* 解決できる悩み */}
                     <div className="space-y-2 mb-5">
                       <div className="text-[11px] font-bold text-slate-800 flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-slate-400" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-rose-500" />
                         <span>こんなお悩みを解決</span>
                       </div>
                       <ul className="space-y-1.5 text-xs text-slate-600">
                         {pkg.problems.map((prob, i) => (
                           <li key={i} className="flex items-start gap-1.5">
-                            <span className="text-slate-400 leading-tight">•</span>
+                            <span className="text-rose-500 leading-tight">•</span>
                             <span>{prob}</span>
                           </li>
                         ))}
@@ -246,13 +249,13 @@ export const ServicesSection = () => {
                     {/* 含まれる内容 */}
                     <div className="space-y-2 mb-6">
                       <div className="text-[11px] font-bold text-slate-800 flex items-center gap-1.5">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-slate-700" />
+                        <CheckCircle2 className="w-3.5 h-3.5 text-teal-600" />
                         <span>提供内容</span>
                       </div>
-                      <ul className="space-y-1.5 text-xs text-slate-600">
+                      <ul className="space-y-1.5 text-xs text-slate-700">
                         {pkg.features.map((feat, i) => (
                           <li key={i} className="flex items-start gap-1.5">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-slate-800 flex-shrink-0 mt-0.5" />
+                            <CheckCircle2 className="w-3.5 h-3.5 text-teal-600 flex-shrink-0 mt-0.5" />
                             <span>{feat}</span>
                           </li>
                         ))}
@@ -266,7 +269,11 @@ export const ServicesSection = () => {
                       variant={pkg.badge ? "primary" : "outline"}
                       size="md"
                       onClick={() => handleSelectPackage(pkg)}
-                      className="w-full justify-center group/btn text-xs font-semibold py-2.5 rounded-full"
+                      className={`w-full justify-center group/btn text-xs font-semibold py-2.5 rounded-full ${
+                        pkg.badge
+                          ? "shadow-sm"
+                          : "bg-white hover:bg-rose-50/40 text-slate-700 hover:text-rose-600 border-slate-200 hover:border-rose-300"
+                      }`}
                     >
                       <span>このプランで相談する</span>
                       <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />

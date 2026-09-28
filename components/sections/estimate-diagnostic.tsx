@@ -318,32 +318,32 @@ export const EstimateDiagnostic = () => {
   const progressPercent = (step / 4) * 100;
 
   return (
-    <div className="w-full h-full flex flex-col rounded-3xl bg-white border border-sky-100 shadow-[0_20px_50px_rgba(14,165,233,0.1),0_4px_16px_rgba(15,23,42,0.05)] overflow-hidden transition-all duration-300">
+    <div className="w-full h-full flex flex-col rounded-3xl bg-white border border-slate-200/90 shadow-md overflow-hidden transition-all duration-300">
       {/* 診断ヘッダー */}
-      <div className="px-6 py-4 border-b border-sky-50 bg-sky-50/30 flex items-center justify-between gap-4">
+      <div className="px-6 py-4 border-b border-slate-200/80 bg-slate-50/70 flex items-center justify-between gap-4">
         <div className="flex items-center gap-2.5">
           <div className="flex items-center gap-1.5">
-            <span className="w-2.5 h-2.5 rounded-full bg-sky-300 inline-block" />
-            <span className="w-2.5 h-2.5 rounded-full bg-teal-300 inline-block" />
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block" />
+            <span className="w-2.5 h-2.5 rounded-full bg-rose-400 inline-block" />
+            <span className="w-2.5 h-2.5 rounded-full bg-amber-400 inline-block" />
+            <span className="w-2.5 h-2.5 rounded-full bg-teal-400 inline-block" />
           </div>
-          <div className="h-3.5 w-[1px] bg-sky-200 mx-1" />
-          <div className="flex items-center gap-1.5 text-xs font-bold text-sky-950">
-            <Calculator className="w-3.5 h-3.5 text-sky-600" />
+          <div className="h-3.5 w-[1px] bg-slate-200 mx-1" />
+          <div className="flex items-center gap-1.5 text-xs font-bold text-slate-800">
+            <Calculator className="w-3.5 h-3.5 text-rose-500" />
             <span>30秒 概算見積・課題診断</span>
           </div>
         </div>
 
-        <div className="flex items-center gap-1.5 text-xs font-mono text-sky-700">
-          <span className="text-sky-900 font-bold">Step {step}</span>
+        <div className="flex items-center gap-1.5 text-xs font-mono text-slate-500">
+          <span className="text-slate-800 font-bold">Step {step}</span>
           <span>/ 4</span>
         </div>
       </div>
 
-      {/* プログレスバー（澄んだ海・空のグラデーション） */}
-      <div className="w-full h-1 bg-sky-100 relative overflow-hidden">
+      {/* プログレスバー（アクセントローズのグラデーション） */}
+      <div className="w-full h-1 bg-slate-100 relative overflow-hidden">
         <motion.div
-          className="h-full bg-gradient-to-r from-sky-400 via-teal-400 to-emerald-400"
+          className="h-full bg-gradient-to-r from-rose-500 via-rose-400 to-red-500"
           initial={{ width: "25%" }}
           animate={{ width: `${progressPercent}%` }}
           transition={{ duration: 0.35, ease: "easeOut" }}
@@ -351,7 +351,7 @@ export const EstimateDiagnostic = () => {
       </div>
 
       {/* ステップコンテンツ本体 */}
-      <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between min-h-[390px]">
+      <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between min-h-[380px]">
         <AnimatePresence custom={direction} mode="wait">
           {/* --- Step 1: カテゴリ選択 --- */}
           {step === 1 && (
@@ -366,15 +366,15 @@ export const EstimateDiagnostic = () => {
               className="space-y-4"
             >
               <div>
-                <div className="flex flex-wrap items-center justify-between gap-1.5 mb-1">
-                  <span className="text-[11px] font-semibold text-sky-700 uppercase tracking-wider">
+                <div className="flex flex-wrap items-center justify-between gap-1.5 mb-1.5">
+                  <span className="text-[11px] font-bold text-rose-600 uppercase tracking-wider">
                     Step 1 / 4
                   </span>
-                  <span className="text-[10px] sm:text-[11px] font-medium text-teal-800 bg-teal-50 px-2.5 py-0.5 rounded-full border border-teal-200/70 inline-flex items-center">
+                  <span className="text-[10px] sm:text-[11px] font-medium text-rose-700 bg-rose-50 px-2.5 py-0.5 rounded-full border border-rose-200 inline-flex items-center">
                     【まずは30秒】お悩みをタップするだけで概算とプランがわかります
                   </span>
                 </div>
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight">
+                <h3 className="text-base sm:text-lg font-bold text-slate-800 tracking-tight">
                   ご相談・ご依頼のカテゴリをお選びください
                 </h3>
                 <p className="text-xs text-slate-500 mt-0.5">
@@ -382,7 +382,8 @@ export const EstimateDiagnostic = () => {
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 gap-2">
+              {/* 3列の広々としたグリッド */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 {STEP1_OPTIONS.map((opt) => {
                   const Icon = opt.icon;
                   const isSelected = selectedCategory?.id === opt.id;
@@ -391,42 +392,47 @@ export const EstimateDiagnostic = () => {
                       key={opt.id}
                       type="button"
                       onClick={() => handleSelectStep1(opt)}
-                      className={`group w-full text-left p-2.5 sm:p-3 rounded-2xl border transition-all duration-200 flex items-center justify-between gap-3 ${
+                      className={`group w-full text-left p-3.5 sm:p-4 rounded-2xl border transition-all duration-200 flex flex-col justify-between gap-3 ${
                         isSelected
-                          ? "bg-gradient-to-r from-[#174668] to-[#286b8b] text-white border-[#174668] shadow-md shadow-sky-950/20"
-                          : "bg-slate-50/70 border-slate-200/80 hover:bg-white hover:border-sky-300 hover:shadow-[0_4px_16px_rgba(14,165,233,0.08)] text-slate-800"
+                          ? "bg-gradient-to-r from-rose-500 to-red-600 text-white border-rose-500 shadow-sm shadow-rose-500/20 scale-[1.01]"
+                          : "bg-slate-50/70 border-slate-200/80 hover:bg-white hover:border-rose-300 hover:shadow-xs text-slate-800"
                       }`}
                     >
-                      <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
-                        <div
-                          className={`w-8 h-8 sm:w-9 sm:h-9 rounded-xl flex items-center justify-center flex-shrink-0 transition-transform ${
-                            isSelected
-                              ? "bg-white/10 text-white"
-                              : "bg-white border border-slate-200 text-slate-700 group-hover:scale-105"
-                          }`}
-                        >
-                          <Icon className="w-4 h-4" />
+                      <div className="space-y-2">
+                        <div className="flex items-center justify-between gap-2">
+                          <div
+                            className={`w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 transition-transform ${
+                              isSelected
+                                ? "bg-white/20 text-white"
+                                : "bg-white border border-slate-200/90 text-rose-500 group-hover:scale-105 shadow-2xs"
+                            }`}
+                          >
+                            <Icon className="w-4 h-4" />
+                          </div>
+                          <span
+                            className={`text-[10px] font-semibold font-mono px-2 py-0.5 rounded-full ${
+                              isSelected
+                                ? "bg-white/20 text-white"
+                                : "bg-white border border-slate-200 text-slate-700"
+                            }`}
+                          >
+                            {opt.priceHint}
+                          </span>
                         </div>
-                        <div className="min-w-0">
-                          <div className={`text-xs sm:text-sm font-bold transition-colors truncate ${isSelected ? "text-white" : "group-hover:text-slate-950"}`}>
+                        <div>
+                          <div className={`text-xs sm:text-sm font-bold transition-colors ${isSelected ? "text-white" : "group-hover:text-rose-600"}`}>
                             {opt.title}
                           </div>
-                          <div className={`text-[11px] truncate ${isSelected ? "text-slate-200" : "text-slate-500"}`}>
+                          <div className={`text-[11px] leading-relaxed mt-0.5 line-clamp-2 ${isSelected ? "text-rose-100" : "text-slate-500"}`}>
                             {opt.desc}
                           </div>
                         </div>
                       </div>
-                      <div className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
-                        <span
-                          className={`text-[10px] sm:text-[11px] font-semibold font-mono px-2 sm:px-2.5 py-0.5 rounded-full ${
-                            isSelected
-                              ? "bg-white/20 text-white"
-                              : "bg-white border border-slate-200 text-slate-700"
-                          }`}
-                        >
-                          {opt.priceHint}
+                      <div className="flex items-center justify-end pt-1">
+                        <span className={`text-[10px] font-medium flex items-center gap-0.5 ${isSelected ? "text-white" : "text-rose-600 group-hover:translate-x-0.5 transition-transform"}`}>
+                          <span>選択する</span>
+                          <ChevronRight className="w-3.5 h-3.5" />
                         </span>
-                        <ChevronRight className={`w-3.5 h-3.5 sm:w-4 sm:h-4 transition-all ${isSelected ? "text-white" : "text-slate-400 group-hover:text-slate-700 group-hover:translate-x-0.5"}`} />
                       </div>
                     </button>
                   );
@@ -448,10 +454,10 @@ export const EstimateDiagnostic = () => {
               className="space-y-4"
             >
               <div>
-                <span className="inline-block text-[11px] font-semibold text-slate-500 uppercase tracking-wider mb-1">
+                <span className="inline-block text-[11px] font-bold text-rose-600 uppercase tracking-wider mb-1">
                   Step 2 / 4
                 </span>
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight">
+                <h3 className="text-base sm:text-lg font-bold text-slate-800 tracking-tight">
                   あなたのお立場・対象をお選びください
                 </h3>
                 <p className="text-xs text-slate-500 mt-0.5">
@@ -459,7 +465,8 @@ export const EstimateDiagnostic = () => {
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 gap-2.5">
+              {/* 4列の広々としたグリッド */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                 {STEP2_OPTIONS.map((opt) => {
                   const Icon = opt.icon;
                   const isSelected = selectedTarget?.id === opt.id;
@@ -468,32 +475,34 @@ export const EstimateDiagnostic = () => {
                       key={opt.id}
                       type="button"
                       onClick={() => handleSelectStep2(opt)}
-                      className={`group w-full text-left p-3.5 rounded-2xl border transition-all duration-200 flex items-center justify-between gap-3 ${
+                      className={`group w-full text-left p-4 rounded-2xl border transition-all duration-200 flex flex-col justify-between gap-3 ${
                         isSelected
-                          ? "bg-gradient-to-r from-[#174668] to-[#286b8b] text-white border-[#174668] shadow-md shadow-sky-950/20"
-                          : "bg-slate-50/70 border-slate-200/80 hover:bg-white hover:border-sky-300 hover:shadow-[0_4px_16px_rgba(14,165,233,0.08)] text-slate-800"
+                          ? "bg-gradient-to-r from-rose-500 to-red-600 text-white border-rose-500 shadow-sm shadow-rose-500/20 scale-[1.01]"
+                          : "bg-slate-50/70 border-slate-200/80 hover:bg-white hover:border-rose-300 hover:shadow-xs text-slate-800"
                       }`}
                     >
-                      <div className="flex items-center gap-3">
+                      <div className="space-y-2.5">
                         <div
                           className={`w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 transition-transform ${
                             isSelected
-                              ? "bg-white/10 text-white"
-                              : "bg-white border border-slate-200 text-sky-800 group-hover:scale-105"
+                              ? "bg-white/20 text-white"
+                              : "bg-white border border-slate-200/90 text-rose-500 group-hover:scale-105 shadow-2xs"
                           }`}
                         >
                           <Icon className="w-4 h-4" />
                         </div>
                         <div>
-                          <div className={`text-xs sm:text-sm font-bold transition-colors ${isSelected ? "text-white" : "group-hover:text-sky-950"}`}>
+                          <div className={`text-xs sm:text-sm font-bold transition-colors ${isSelected ? "text-white" : "group-hover:text-rose-600"}`}>
                             {opt.title}
                           </div>
-                          <div className={`text-[11px] ${isSelected ? "text-slate-300" : "text-slate-500"}`}>
+                          <div className={`text-[11px] leading-relaxed mt-0.5 ${isSelected ? "text-rose-100" : "text-slate-500"}`}>
                             {opt.desc}
                           </div>
                         </div>
                       </div>
-                      <ChevronRight className={`w-4 h-4 transition-all ${isSelected ? "text-white" : "text-slate-400 group-hover:text-slate-700 group-hover:translate-x-0.5"}`} />
+                      <div className="flex items-center justify-end pt-1">
+                        <ChevronRight className={`w-4 h-4 transition-all ${isSelected ? "text-white" : "text-slate-400 group-hover:text-rose-500 group-hover:translate-x-0.5"}`} />
+                      </div>
                     </button>
                   );
                 })}
@@ -514,10 +523,10 @@ export const EstimateDiagnostic = () => {
               className="space-y-4"
             >
               <div>
-                <span className="inline-block text-[11px] font-semibold text-sky-700 uppercase tracking-wider mb-1">
+                <span className="inline-block text-[11px] font-bold text-rose-600 uppercase tracking-wider mb-1">
                   Step 3 / 4
                 </span>
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight">
+                <h3 className="text-base sm:text-lg font-bold text-slate-800 tracking-tight">
                   ご希望の納期・スケジュール感は？
                 </h3>
                 <p className="text-xs text-slate-500 mt-0.5">
@@ -525,7 +534,8 @@ export const EstimateDiagnostic = () => {
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 gap-2.5">
+              {/* 4列の広々としたグリッド */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                 {STEP3_OPTIONS.map((opt) => {
                   const Icon = opt.icon;
                   const isSelected = selectedTimeline?.id === opt.id;
@@ -534,32 +544,34 @@ export const EstimateDiagnostic = () => {
                       key={opt.id}
                       type="button"
                       onClick={() => handleSelectStep3(opt)}
-                      className={`group w-full text-left p-3.5 rounded-2xl border transition-all duration-200 flex items-center justify-between gap-3 ${
+                      className={`group w-full text-left p-4 rounded-2xl border transition-all duration-200 flex flex-col justify-between gap-3 ${
                         isSelected
-                          ? "bg-gradient-to-r from-[#174668] to-[#286b8b] text-white border-[#174668] shadow-md shadow-sky-950/20"
-                          : "bg-slate-50/70 border-slate-200/80 hover:bg-white hover:border-sky-300 hover:shadow-[0_4px_16px_rgba(14,165,233,0.08)] text-slate-800"
+                          ? "bg-gradient-to-r from-rose-500 to-red-600 text-white border-rose-500 shadow-sm shadow-rose-500/20 scale-[1.01]"
+                          : "bg-slate-50/70 border-slate-200/80 hover:bg-white hover:border-rose-300 hover:shadow-xs text-slate-800"
                       }`}
                     >
-                      <div className="flex items-center gap-3">
+                      <div className="space-y-2.5">
                         <div
                           className={`w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 transition-transform ${
                             isSelected
-                              ? "bg-white/10 text-white"
-                              : "bg-white border border-slate-200 text-teal-700 group-hover:scale-105"
+                              ? "bg-white/20 text-white"
+                              : "bg-white border border-slate-200/90 text-rose-500 group-hover:scale-105 shadow-2xs"
                           }`}
                         >
                           <Icon className="w-4 h-4" />
                         </div>
                         <div>
-                          <div className={`text-xs sm:text-sm font-bold transition-colors ${isSelected ? "text-white" : "group-hover:text-teal-950"}`}>
+                          <div className={`text-xs sm:text-sm font-bold transition-colors ${isSelected ? "text-white" : "group-hover:text-rose-600"}`}>
                             {opt.title}
                           </div>
-                          <div className={`text-[11px] ${isSelected ? "text-slate-300" : "text-slate-500"}`}>
+                          <div className={`text-[11px] leading-relaxed mt-0.5 ${isSelected ? "text-rose-100" : "text-slate-500"}`}>
                             {opt.desc}
                           </div>
                         </div>
                       </div>
-                      <ChevronRight className={`w-4 h-4 transition-all ${isSelected ? "text-white" : "text-slate-400 group-hover:text-slate-700 group-hover:translate-x-0.5"}`} />
+                      <div className="flex items-center justify-end pt-1">
+                        <ChevronRight className={`w-4 h-4 transition-all ${isSelected ? "text-white" : "text-slate-400 group-hover:text-rose-500 group-hover:translate-x-0.5"}`} />
+                      </div>
                     </button>
                   );
                 })}
@@ -567,7 +579,7 @@ export const EstimateDiagnostic = () => {
             </motion.div>
           )}
 
-          {/* --- Step 4: 診断結果・概算提示 --- */}
+          {/* --- Step 4: 診断結果・概算提示 (ワイド2カラム構成) --- */}
           {step === 4 && result && (
             <motion.div
               key="step-4"
@@ -579,91 +591,93 @@ export const EstimateDiagnostic = () => {
               transition={{ duration: 0.25 }}
               className="space-y-4"
             >
-              <div>
-                <div className="flex items-center justify-between mb-1.5">
-                  <Badge variant="glow" className="text-[11px] py-0.5 px-3 gap-1 font-bold">
-                    <Sparkles className="w-3 h-3 text-sky-600" />
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
+                <div>
+                  <Badge variant="glow" className="text-[11px] py-0.5 px-3 gap-1 font-bold mb-1">
+                    <Sparkles className="w-3 h-3 text-rose-500" />
                     <span>診断結果・ご提案プラン</span>
                   </Badge>
-                  <button
-                    onClick={handleReset}
-                    className="text-[11px] text-slate-500 hover:text-sky-700 flex items-center gap-1 transition-colors"
-                  >
-                    <RotateCcw className="w-3 h-3" />
-                    <span>やり直す</span>
-                  </button>
+                  <h3 className="text-lg sm:text-xl font-extrabold text-slate-800 tracking-tight font-title">
+                    {result.planName}
+                  </h3>
                 </div>
-                <h3 className="text-base sm:text-lg font-extrabold text-slate-900 tracking-tight font-title">
-                  {result.planName}
-                </h3>
-              </div>
-
-              {/* 概算見積り・納期カード */}
-              <div className="space-y-2">
-                <div className="grid grid-cols-2 gap-3 p-3.5 rounded-2xl bg-gradient-to-br from-sky-50/90 via-teal-50/40 to-white border border-sky-100 shadow-sm">
-                  <div>
-                    <div className="text-[10px] uppercase font-bold text-sky-700 tracking-wider">
-                      想定概算金額
-                    </div>
-                    <div className="text-sm sm:text-base font-extrabold bg-gradient-to-r from-sky-700 via-teal-600 to-emerald-600 bg-clip-text text-transparent font-mono mt-0.5">
-                      {result.priceRange}
-                    </div>
-                  </div>
-                  <div>
-                    <div className="text-[10px] uppercase font-bold text-slate-500 tracking-wider">
-                      想定納期目安
-                    </div>
-                    <div className="text-sm sm:text-base font-bold text-slate-800 mt-0.5">
-                      {result.deliveryTime}
-                    </div>
-                  </div>
-                </div>
-
-                {/* 含まれるサポート内容 */}
-                <div className="flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl bg-teal-50/70 border border-teal-200/60 text-slate-800">
-                  <div className="w-6 h-6 rounded-lg bg-teal-600 text-white flex items-center justify-center flex-shrink-0 shadow-sm">
-                    <ShieldCheck className="w-3.5 h-3.5" />
-                  </div>
-                  <div className="text-xs">
-                    <span className="font-bold text-teal-900 mr-1.5">含まれるサポート:</span>
-                    <span className="text-slate-700 font-medium">{result.supportIncluded}</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* メリット箇条書き */}
-              <div className="space-y-1.5">
-                <div className="text-[11px] font-semibold text-slate-600 flex items-center gap-1">
-                  <ShieldCheck className="w-3.5 h-3.5 text-teal-600" />
-                  <span>このプランでの対応ポイント・メリット</span>
-                </div>
-                <div className="space-y-1.5 bg-slate-50/80 p-3 rounded-2xl border border-slate-200/70">
-                  {result.benefits.map((benefit, i) => (
-                    <div key={i} className="flex items-start gap-2 text-xs text-slate-700">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-teal-600 flex-shrink-0 mt-0.5" />
-                      <span>{benefit}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* CTAボタン */}
-              <div className="pt-1 space-y-1.5">
-                <Button
-                  variant="primary"
-                  size="md"
-                  onClick={handleApplyToContact}
-                  className="w-full justify-center shadow-lg shadow-sky-950/20 group font-bold text-xs sm:text-sm py-3 rounded-full"
+                <button
+                  onClick={handleReset}
+                  className="text-xs text-slate-500 hover:text-rose-600 flex items-center gap-1 transition-colors px-2.5 py-1 rounded-full hover:bg-slate-100"
                 >
-                  <span>この診断結果を添えて無料相談（30分）する</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-                <p className="text-xs text-center text-slate-500 leading-relaxed px-1">
-                  ※ 正式なご契約前の費用は一切発生しません。まだ要件が固まっていない段階でのご相談も大歓迎です。
-                </p>
-                <p className="text-[10px] text-center text-slate-400">
-                  （下部のフォームに診断内容が自動入力され、スムーズにご相談いただけます）
-                </p>
+                  <RotateCcw className="w-3.5 h-3.5" />
+                  <span>条件を変えて再診断</span>
+                </button>
+              </div>
+
+              {/* ワイド2カラムグリッド */}
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 pt-1 items-start">
+                {/* 左側: 金額・納期・サポート内容 (5カラム) */}
+                <div className="lg:col-span-5 space-y-3">
+                  <div className="p-4 rounded-2xl bg-slate-50/80 border border-slate-200/90 shadow-2xs space-y-3">
+                    <div>
+                      <div className="text-[10px] uppercase font-bold text-rose-600 tracking-wider">
+                        想定概算金額
+                      </div>
+                      <div className="text-xl sm:text-2xl font-extrabold bg-gradient-to-r from-rose-600 to-red-600 bg-clip-text text-transparent font-mono mt-0.5">
+                        {result.priceRange}
+                      </div>
+                    </div>
+                    <div className="pt-2 border-t border-slate-200/80">
+                      <div className="text-[10px] uppercase font-bold text-slate-500 tracking-wider">
+                        想定納期目安
+                      </div>
+                      <div className="text-base font-bold text-slate-800 mt-0.5">
+                        {result.deliveryTime}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 含まれるサポート内容 */}
+                  <div className="flex items-center gap-2.5 px-3.5 py-3 rounded-xl bg-teal-50/90 border border-teal-200/90 text-slate-800">
+                    <div className="w-7 h-7 rounded-lg bg-teal-600 text-white flex items-center justify-center flex-shrink-0 shadow-2xs">
+                      <ShieldCheck className="w-4 h-4" />
+                    </div>
+                    <div className="text-xs leading-snug">
+                      <span className="font-bold text-teal-800 block">安心の標準サポート</span>
+                      <span className="text-teal-900 font-medium">{result.supportIncluded}</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 右側: メリット箇条書き & CTAボタン (7カラム) */}
+                <div className="lg:col-span-7 space-y-3.5">
+                  <div className="space-y-1.5">
+                    <div className="text-xs font-semibold text-slate-800 flex items-center gap-1.5">
+                      <ShieldCheck className="w-4 h-4 text-teal-600" />
+                      <span>このプランでの対応ポイント・メリット</span>
+                    </div>
+                    <div className="space-y-2 bg-slate-50/70 p-3.5 rounded-2xl border border-slate-200/80">
+                      {result.benefits.map((benefit, i) => (
+                        <div key={i} className="flex items-start gap-2 text-xs text-slate-700">
+                          <CheckCircle2 className="w-4 h-4 text-teal-600 flex-shrink-0 mt-0.5" />
+                          <span className="leading-relaxed">{benefit}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* CTAボタン */}
+                  <div className="pt-1 space-y-1.5">
+                    <Button
+                      variant="primary"
+                      size="md"
+                      onClick={handleApplyToContact}
+                      className="w-full justify-center shadow-sm hover:shadow-md hover:shadow-rose-500/20 group font-bold text-xs sm:text-sm py-3.5 rounded-full"
+                    >
+                      <span>この診断結果を添えて無料相談（30分）する</span>
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                    <p className="text-xs text-center text-slate-500 leading-relaxed px-1">
+                      ※ 正式なご契約前の費用は一切発生しません。要件が固まっていない段階でのご相談も大歓迎です。
+                    </p>
+                  </div>
+                </div>
               </div>
             </motion.div>
           )}
@@ -671,7 +685,7 @@ export const EstimateDiagnostic = () => {
 
         {/* 戻るナビゲーションバー（Step 2, 3 時） */}
         {step > 1 && step < 4 && (
-          <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+          <div className="pt-3 border-t border-slate-200 flex items-center justify-between">
             <button
               type="button"
               onClick={goToPrevStep}
@@ -686,7 +700,7 @@ export const EstimateDiagnostic = () => {
               onClick={handleReset}
               className="inline-flex items-center gap-1 text-[11px] text-slate-400 hover:text-slate-700 transition-colors"
             >
-              <RotateCcw className="w-3 h-3" />
+              <RotateCcw className="w-3.5 h-3.5" />
               <span>やり直す</span>
             </button>
           </div>
