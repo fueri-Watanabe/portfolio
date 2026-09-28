@@ -2,19 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
-.custom-button {
-  @apply border-b border-r drop-shadow rounded-lg p-2.5 border-gray-300 dark:bg-slate-800 font-semibold dark:border-slate-600
-  tracking-wide text-sm placeholder-gray-400 bg-white disabled:opacity-40 disabled:cursor-not-allowed hover:drop-shadow-xl hover:bg-slate-100 hover:dark:bg-slate-900;
-}
-
 @layer base {
   :root {
     --widget: 0 0 100%;
+    color-scheme: light;
+  }
+
+  body {
+    @apply antialiased text-slate-900 min-h-screen bg-white;
+    background-color: #ffffff;
+  }
+
+  ::selection {
+    background-color: #0ea5e9;
+    color: #ffffff;
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  .dark {
-    --widget: 222 47 11%;
-  }
+.custom-button {
+  @apply border drop-shadow-sm rounded-full px-4 py-2 border-slate-200 font-semibold tracking-wide text-sm bg-white text-slate-800 disabled:opacity-40 disabled:cursor-not-allowed hover:shadow-md hover:border-sky-300 hover:bg-sky-50/50 transition-all;
+}
+
+/* スクロールバーのカスタマイズ（ライト＆クリーン） */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
 }

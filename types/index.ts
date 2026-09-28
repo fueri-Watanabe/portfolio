@@ -10,6 +10,7 @@ export interface Project {
   id: string;
   title: string;
   description: string;
+  impact?: string; // 解決した課題・導入効果（ビフォーアフター）
   image?: string;
   gif?: string;
   tags: string[];

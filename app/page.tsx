@@ -1,62 +1,43 @@
-import Link from "next/link";
 import HeroSection from "@/components/sections/hero-section";
+import ServicesSection from "@/components/sections/services-section";
+import GuaranteeBanner from "@/components/sections/guarantee-banner";
+import IntegrationsSection from "@/components/sections/integrations-section";
+import WhyChooseUsSection from "@/components/sections/why-choose-us";
+import ProcessFlowSection from "@/components/sections/process-flow-section";
 import BentoProjectsSection from "@/components/sections/bento-projects";
-import SkillsSection from "@/components/sections/skills-section";
-import RoadmapSection from "@/components/sections/roadmap";
+import ProfileSection from "@/components/sections/profile-section";
 import ContactSection from "@/components/sections/contact-section";
-import { Card, CardTitle, CardDescription } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { ArrowRight, GitCommitHorizontal } from "lucide-react";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300 overflow-x-hidden">
-      {/* 1. ヒーローセクション */}
+    <main className="min-h-screen text-slate-900 overflow-x-hidden">
+      {/* 1. Hero Section + 診断UI */}
       <HeroSection />
 
-      {/* 2. スキル & 強み */}
-      <SkillsSection />
+      {/* 2. 解決型サービスパッケージ (松竹梅4プラン) */}
+      <ServicesSection />
 
-      {/* 3. タイムライン・開発の軌跡 */}
-      <RoadmapSection />
+      {/* 3. アフターサポート・品質保証バナー */}
+      <GuaranteeBanner />
 
-      {/* 4. Bento Grid 実績プロダクト */}
+      {/* 4. 対応可能な連携ツール・技術一覧 */}
+      <IntegrationsSection />
+
+      {/* 5. 選ばれる3つの理由 */}
+      <WhyChooseUsSection />
+
+      {/* 6. 発注〜納品・アフターサポートの流れ */}
+      <ProcessFlowSection />
+
+      {/* 7. 実績・ソリューション事例 (Bento Grid / 導入効果付き) */}
       <BentoProjectsSection />
 
-      {/* 5. 制作フロー & FAQ サブページへの誘導 CTA カード */}
-      <section className="py-16 relative z-10 bg-slate-100/40 dark:bg-slate-950/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card glass glow className="p-8 sm:p-12 border-slate-200/80 dark:border-white/10 relative overflow-hidden">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
-              <div className="space-y-4 max-w-2xl text-center md:text-left">
-                <Badge variant="gradient" className="px-3.5 py-1 text-xs gap-1.5 font-semibold">
-                  <GitCommitHorizontal className="w-3.5 h-3.5 text-cyan-500" />
-                  <span>Process & FAQ / 開発ステップ・ご契約</span>
-                </Badge>
-                <CardTitle className="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white font-title">
-                  制作の流れ・開発ステップ・よくある質問
-                </CardTitle>
-                <CardDescription className="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
-                  お問い合わせからヒアリング、要件定義、実装、テスト・納品までの流れや、開発に関するよくある質問（FAQ）について専用ページで詳しくご案内しております。
-                </CardDescription>
-              </div>
+      {/* 8. 代表プロフィール (/about へのリンク付き) */}
+      <ProfileSection />
 
-              <div className="flex-shrink-0">
-                <Link href="/process">
-                  <Button variant="primary" size="lg" className="shadow-lg shadow-cyan-500/20 group">
-                    <span>制作フロー・FAQを見る</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </Link>
-              </div>
-            </div>
-          </Card>
-        </div>
-      </section>
-
-      {/* 6. お問い合わせ */}
+      {/* 9. お問い合わせフォーム */}
       <ContactSection />
     </main>
   );
 }
+

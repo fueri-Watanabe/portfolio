@@ -3,9 +3,8 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { WORKFLOW_DATA, WORKFLOW_NOTES } from "@/data/workflow";
-import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Clock, Info } from "lucide-react";
+import { Info } from "lucide-react";
 
 export const WorkflowSection = () => {
   return (
@@ -13,17 +12,16 @@ export const WorkflowSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* セクションヘッダー */}
-        <div className="flex flex-col items-center text-center space-y-4 mb-16">
-          <Badge variant="gradient" className="px-4 py-1 gap-1.5 text-xs font-semibold">
-            <Clock className="w-3.5 h-3.5 text-cyan-500" />
-            <span>Workflow & Steps / 制作の流れ</span>
+        <div className="flex flex-col items-center text-center space-y-3 mb-16">
+          <Badge variant="glow" className="px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-slate-700 bg-white">
+            Workflow & Steps
           </Badge>
 
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white font-title tracking-tight">
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 font-title tracking-tight">
             お問い合わせから納品までのステップ
           </h2>
 
-          <p className="text-slate-600 dark:text-slate-400 max-w-2xl text-base sm:text-lg">
+          <p className="text-slate-500 max-w-2xl text-base sm:text-lg">
             明確なステップと密なコミュニケーションで、安心・確実にプロジェクトを推進します。
           </p>
         </div>
@@ -38,14 +36,14 @@ export const WorkflowSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
             >
-              <Card glass glow className="p-6 h-full flex flex-col justify-between border-slate-200/80 dark:border-white/10 hover:border-cyan-500/50 relative group">
+              <div className="rounded-3xl bg-white border border-slate-200/80 shadow-[0_8px_30px_rgba(15,23,42,0.03)] hover:shadow-[0_16px_36px_rgba(15,23,42,0.06)] hover:-translate-y-1 transition-all p-6 h-full flex flex-col justify-between relative group">
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <div className="w-10 h-10 rounded-full bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center font-bold text-cyan-600 dark:text-cyan-300 font-mono text-sm shadow-md">
+                    <div className="w-10 h-10 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-center font-bold text-slate-800 font-mono text-sm shadow-sm">
                       0{step.stepNumber}
                     </div>
                     {step.iconSrc && (
-                      <div className="w-12 h-12 relative opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all">
+                      <div className="w-12 h-12 relative opacity-75 group-hover:opacity-100 group-hover:scale-105 transition-all">
                         <Image
                           src={step.iconSrc}
                           alt={step.title}
@@ -57,29 +55,29 @@ export const WorkflowSection = () => {
                     )}
                   </div>
 
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white font-title group-hover:text-cyan-600 dark:group-hover:text-cyan-300 transition-colors">
+                  <h3 className="text-xl font-bold text-slate-900 font-title group-hover:text-slate-700 transition-colors">
                     {step.title}
                   </h3>
 
-                  <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                  <p className="text-sm text-slate-500 leading-relaxed">
                     {step.description}
                   </p>
                 </div>
 
                 {step.detailHint && (
-                  <div className="pt-4 mt-4 border-t border-slate-200 dark:border-slate-800/80 text-[12px] text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
-                    <Info className="w-3.5 h-3.5 text-cyan-500 flex-shrink-0" />
+                  <div className="pt-4 mt-4 border-t border-slate-100 text-[12px] text-slate-400 flex items-center gap-1.5">
+                    <Info className="w-3.5 h-3.5 text-slate-500 flex-shrink-0" />
                     <span>{step.detailHint}</span>
                   </div>
                 )}
-              </Card>
+              </div>
             </motion.div>
           ))}
         </div>
 
-        <div className="mt-12 p-6 rounded-2xl bg-white/60 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 text-center max-w-3xl mx-auto space-y-2 shadow-sm">
+        <div className="mt-12 p-6 rounded-3xl bg-white border border-slate-200/80 text-center max-w-3xl mx-auto space-y-2 shadow-sm">
           {WORKFLOW_NOTES.map((note, idx) => (
-            <p key={idx} className="text-xs text-slate-500 dark:text-slate-400">
+            <p key={idx} className="text-xs text-slate-500">
               {note}
             </p>
           ))}

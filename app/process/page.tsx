@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function ProcessPage() {
   return (
-    <main className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300 pt-20 overflow-x-hidden">
+    <main className="min-h-screen text-slate-900 pt-20 overflow-x-hidden">
       {/* 1. 制作の流れ (Workflow) */}
       <WorkflowSection />
 
