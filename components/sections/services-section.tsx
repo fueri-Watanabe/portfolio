@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -11,6 +12,7 @@ import {
   CheckCircle2,
   Clock,
   ArrowRight,
+  ShieldCheck,
 } from "lucide-react";
 
 interface ServicePackage {
@@ -19,6 +21,7 @@ interface ServicePackage {
   name: string;
   tagline: string;
   price: string;
+  priceSub?: string;
   delivery: string;
   badge?: string;
   badgeType?: "rose" | "teal";
@@ -33,7 +36,7 @@ const PACKAGES: ServicePackage[] = [
     id: "spot-fix",
     number: "01",
     name: "スポット改修・相談",
-    tagline: "「ここだけ直したい」「急ぎで相談したい」に即対応",
+    tagline: "「ここだけ直したい」に即座に対応するピンポイント修復",
     price: "30,000円〜",
     delivery: "最短即日 〜 3営業日",
     icon: Wrench,
@@ -54,9 +57,10 @@ const PACKAGES: ServicePackage[] = [
     id: "gas-automation",
     number: "02",
     name: "GAS・業務自動化",
-    tagline: "日々のルーチン作業・手作業の転記をゼロにする",
-    price: "100,000円〜",
-    delivery: "1週間 〜 3週間",
+    tagline: "毎日の手作業・転記ミスをゼロにする業務効率化パック",
+    price: "50,000円〜",
+    priceSub: "ライト自動化 5万円〜 / 標準システム化 15万円〜",
+    delivery: "1週間 〜 2週間",
     badge: "人気 No.1",
     badgeType: "rose",
     icon: Cpu,
@@ -67,9 +71,9 @@ const PACKAGES: ServicePackage[] = [
       "高額な専用SaaSを契約するほどの予算はない",
     ],
     features: [
-      "現在の業務フロー整理・要件ヒアリング",
-      "Google Apps Script (GAS) 実装",
-      "各種外部サービス・API連携（Slack/LINE等）",
+      "スプレッドシート自動化・関数/GAS実装",
+      "Slack / LINE / Gmail 自動通知・フォーム転記",
+      "小規模な効率化から標準システム化まで柔軟対応",
       "簡易操作マニュアル ＋ 納品後1ヶ月無料サポート",
     ],
   },
@@ -77,7 +81,7 @@ const PACKAGES: ServicePackage[] = [
     id: "website-lp",
     number: "03",
     name: "Webサイト・LP制作",
-    tagline: "圧倒的な高速表示・高CVRで成果を最大化する",
+    tagline: "Next.jsによる圧倒的表示速度とCVRを追求したWeb制作",
     price: "250,000円〜",
     delivery: "2週間 〜 4週間",
     badge: "おすすめ",
@@ -99,8 +103,8 @@ const PACKAGES: ServicePackage[] = [
   {
     id: "custom-webapp",
     number: "04",
-    name: "カスタムWebシステム",
-    tagline: "自社専用のツールやSaaS・MVPを素早く形にする",
+    name: "カスタムWebシステム・SaaS開発",
+    tagline: "認証・決済・DBを備えたMVP開発・独自SaaS構築",
     price: "500,000円〜",
     delivery: "1ヶ月 〜 2ヶ月",
     icon: Layers,
@@ -121,7 +125,7 @@ const PACKAGES: ServicePackage[] = [
 
 export const ServicesSection = () => {
   const handleSelectPackage = (pkg: ServicePackage) => {
-    const formattedContent = `【ご相談パッケージ】${pkg.name}（概算: ${pkg.price} / 目安納期: ${pkg.delivery}）
+    const formattedContent = `【ご相談パッケージ】${pkg.name}（概算: ${pkg.price} (税込) / 目安納期: ${pkg.delivery}）
 --------------------------------------------------
 【現在の課題・ご要望】
 （※お困りごとや実現したいこと、対象サイトのURL等をご自由にご記入ください）`;
@@ -213,12 +217,17 @@ export const ServicesSection = () => {
                     <div className="p-4 rounded-2xl bg-slate-50/80 border border-slate-200/80 mb-5">
                       <div className="flex items-baseline justify-between mb-1">
                         <span className="text-[11px] font-medium text-slate-500">
-                          想定料金目安
+                          想定料金目安 (税込)
                         </span>
                         <span className="text-base sm:text-lg font-extrabold text-slate-800 font-mono">
                           {pkg.price}
                         </span>
                       </div>
+                      {pkg.priceSub && (
+                        <div className="text-[10px] text-rose-600 font-medium mb-1.5 pb-1 border-b border-dashed border-slate-200">
+                          ※ {pkg.priceSub}
+                        </div>
+                      )}
                       <div className="flex items-center justify-between text-xs text-slate-700 pt-1.5 border-t border-slate-200/80">
                         <span className="flex items-center gap-1 text-[11px] text-slate-500">
                           <Clock className="w-3.5 h-3.5 text-slate-400" />
@@ -285,10 +294,53 @@ export const ServicesSection = () => {
           })}
         </div>
 
+        {/* 全プラン共通の3大安心保証 */}
+        <div className="mt-14 max-w-4xl mx-auto rounded-3xl bg-white border border-slate-200/90 shadow-xs p-6 sm:p-8">
+          <div className="flex items-center justify-center gap-2 text-xs font-bold text-teal-800 bg-teal-50 px-3.5 py-1 rounded-full border border-teal-200/80 w-fit mx-auto mb-5">
+            <ShieldCheck className="w-3.5 h-3.5 text-teal-600" />
+            <span>全プラン標準付帯・安心のサポート保証</span>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+            <div className="space-y-1.5 p-2">
+              <div className="text-xs sm:text-sm font-bold text-slate-800 flex items-center justify-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-teal-600" />
+                <span>代表（渡部）の直接担当</span>
+              </div>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                要件整理から設計・品質管理まで代表が一貫して責任対応
+              </p>
+            </div>
+            <div className="space-y-1.5 p-2 border-t md:border-t-0 md:border-x border-slate-100">
+              <div className="text-xs sm:text-sm font-bold text-slate-800 flex items-center justify-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-teal-600" />
+                <span>1ヶ月間の無償バグ修正</span>
+              </div>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                納品後に発覚した動作不具合や崩れも無償で迅速修復
+              </p>
+            </div>
+            <div className="space-y-1.5 p-2 border-t md:border-t-0 border-slate-100">
+              <div className="text-xs sm:text-sm font-bold text-slate-800 flex items-center justify-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-teal-600" />
+                <span>簡易操作マニュアル添付</span>
+              </div>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                属人化を防ぎ、現場の誰もがスムーズに運用できるよう配慮
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* 補足注記 */}
-        <div className="mt-12 text-center text-xs text-slate-500 space-y-1">
-          <p>※ 表示価格は税別です。要件のボリュームや仕様に応じて柔軟にお見積りを調整いたします。</p>
-          <p>※ すべてのプランに「納品後1ヶ月の無償バグ修正サポート」が付属しています。</p>
+        <div className="mt-8 text-center text-xs text-slate-500 space-y-1.5">
+          <p>※ 表示価格はすべて税込です。業務ボリュームや要件のカスタマイズに応じて柔軟にお見積りを調整いたします。</p>
+          <p>
+            ※ 保証の適用条件や検収に関する詳細は、
+            <Link href="/terms" className="text-rose-600 underline hover:text-rose-700 ml-1 font-medium">
+              ご利用規約 & サポート保証規定
+            </Link>
+            をご確認ください。
+          </p>
         </div>
 
       </div>

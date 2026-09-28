@@ -1,7 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { ShieldCheck, FileText, RefreshCw, CheckCircle2 } from "lucide-react";
+import { ShieldCheck, FileText, RefreshCw, CheckCircle2, ArrowRight } from "lucide-react";
 
 const GUARANTEE_POINTS = [
   {
@@ -46,9 +47,18 @@ export const GuaranteeBanner = () => {
                 納品後も安心の「品質保証 & 運用サポート体制」
               </h3>
             </div>
-            <p className="text-xs sm:text-sm text-slate-600 max-w-md leading-relaxed">
-              「作って終わり」ではなく、現場で確実に成果を出し続けるまで寄り添う伴走型の開発をお約束します。
-            </p>
+            <div className="space-y-1.5 text-left md:text-right">
+              <p className="text-xs sm:text-sm text-slate-600 max-w-md leading-relaxed">
+                「作って終わり」ではなく、現場で確実に成果を出し続けるまで寄り添う伴走型の開発をお約束します。
+              </p>
+              <Link
+                href="/terms"
+                className="inline-flex items-center gap-1 text-xs text-rose-600 hover:text-rose-700 underline font-medium"
+              >
+                <span>詳しい保証規定・検収条件を見る</span>
+                <ArrowRight className="w-3 h-3" />
+              </Link>
+            </div>
           </div>
 
           {/* 3つの安心ポイント */}

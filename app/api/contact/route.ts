@@ -7,6 +7,15 @@ export const POST = async (request: NextRequest) => {
     const data: ContactFormData = await request.json();
     const { title, contactName, company, email, content } = data;
 
+    // 環境変数（SMTP設定）の検証
+    if (!process.env.MAIL_USER || !process.env.MAIL_PASS) {
+      console.error("⚠️ [Contact API] MAIL_USER または MAIL_PASS が未設定です。VercelのEnvironment Variablesをご確認ください。");
+      return NextResponse.json(
+        { error: "メール送信の設定が未完了です。環境変数（MAIL_USER, MAIL_PASS）をご確認ください。" },
+        { status: 500 },
+      );
+    }
+
     const companyText = company ? company : "指定なし";
     // HTML用改行エスケープ
     const formattedContent = content.replace(/\n/g, "<br>");
@@ -76,7 +85,7 @@ ${content}
       text: `${contactName} 様
 
 この度はお問い合わせいただき、誠にありがとうございます。
-個人事業主 fueri（フエリ）の渡部です。
+Web/システム開発スタジオ fueri（フエリ）代表の渡部です。
 
 送信いただいた内容は正常に受け付けいたしました。
 内容を確認の上、通常1〜2営業日以内にご返信させていただきます。
@@ -106,17 +115,17 @@ ${content}
 
 --------------------------------------------------
 fueri（フエリ）
-Hiroshi Watanabe / 渡部 弘
-Web開発 / 業務自動化・ツール構築 / 受託開発
+代表 / 開発責任者：渡部 弘（Hiroshi Watanabe）
+Webシステム開発 / 業務自動化 / 受託開発
 Web: https://fueri.jp
 --------------------------------------------------`,
       html: `
         <div style="font-family: sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 8px; padding: 24px; background-color: #ffffff;">
-          <h2 style="color: #0f172a; margin-top: 0; font-size: 20px; border-bottom: 2px solid #3b82f6; padding-bottom: 10px;">
+          <h2 style="color: #0f172a; margin-top: 0; font-size: 20px; border-bottom: 2px solid #e11d48; padding-bottom: 10px;">
             お問い合わせを受け付けいたしました
           </h2>
           <p style="margin-top: 16px;"><strong>${contactName} 様</strong></p>
-          <p>この度は、ポートフォリオサイトよりお問い合わせいただき誠にありがとうございます。<br>個人事業主 <strong>fueri（フエリ）</strong> です。</p>
+          <p>この度は、Webサイトよりお問い合わせいただき誠にありがとうございます。<br>Web/システム開発スタジオ <strong>fueri（フエリ）</strong> 代表の渡部です。</p>
           <p>送信いただきました内容は正常に受信いたしました。<br>内容を確認の上、<strong>通常 1〜2 営業日以内</strong>にご返信させていただきます。</p>
 
           <div style="margin: 24px 0; padding: 20px; background-color: #f8fafc; border-radius: 6px; border: 1px solid #cbd5e1;">
@@ -142,8 +151,8 @@ Web: https://fueri.jp
 
           <div style="font-size: 14px; color: #475569;">
             <p style="margin: 0; font-weight: bold; color: #0f172a; font-size: 16px;">fueri（フエリ）</p>
-            <p style="margin: 4px 0;">Hiroshi Watanabe / 渡部 弘</p>
-            <p style="margin: 4px 0; font-size: 13px;">Webシステム開発 / SPA・Next.js / 業務自動化・ツール作成</p>
+            <p style="margin: 4px 0;">代表 / 開発責任者：渡部 弘（Hiroshi Watanabe）</p>
+            <p style="margin: 4px 0; font-size: 13px;">Webシステム開発 / 業務自動化 / 受託開発</p>
           </div>
         </div>
       `,

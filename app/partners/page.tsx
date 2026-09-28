@@ -12,6 +12,7 @@ import {
   Sparkles,
   Clock,
   ArrowDown,
+  ArrowRight,
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -220,6 +221,21 @@ export default function PartnersPage() {
                 </div>
               );
             })}
+          </div>
+
+          {/* ガイドライン案内 */}
+          <div className="mt-10 text-center">
+            <div className="inline-flex flex-col sm:flex-row items-center gap-1.5 py-3 px-5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs text-xs text-slate-600">
+              <span>※ アサイン後の開発基準やチームルールについては</span>
+              <Link
+                href="/partners/guideline"
+                className="text-rose-600 font-semibold underline hover:text-rose-700 inline-flex items-center gap-1"
+              >
+                <span>パートナー品質ガイドライン</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+              <span>をご確認ください。</span>
+            </div>
           </div>
         </div>
       </section>

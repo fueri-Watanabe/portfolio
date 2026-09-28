@@ -10,6 +10,10 @@ export interface Project {
   id: string;
   title: string;
   description: string;
+  solutionType?: string; // B2Bソリューションカテゴリ（例: 独自SaaS開発 / MVP構築）
+  highlightBadges?: string[]; // B2B訴求ハイライトバッジ
+  challenge?: string; // 抱えていた課題
+  solution?: string; // 提供したソリューション
   impact?: string; // 解決した課題・導入効果（ビフォーアフター）
   image?: string;
   gif?: string;

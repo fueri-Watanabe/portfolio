@@ -1,12 +1,14 @@
 "use client";
 
 import { useState, useTransition, useEffect } from "react";
+import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ContactSchema, ContactFormData, CONTACT_TITLES } from "@/types";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Mail, Send, CheckCircle2, AlertCircle, Loader2, ArrowUpRight, Sparkles } from "lucide-react";
+import ClientPrepDocuments from "@/components/sections/client-prep-documents";
 
 export const ContactSection = () => {
   const [isPending, startTransition] = useTransition();
@@ -268,6 +270,19 @@ export const ContactSection = () => {
                 )}
               </Button>
 
+              {/* 規約・保証規定リンク */}
+              <p className="text-center text-xs text-slate-500 pt-1">
+                ※ 送信前に
+                <Link
+                  href="/terms"
+                  target="_blank"
+                  className="text-rose-600 underline hover:text-rose-700 mx-1 font-medium"
+                >
+                  ご利用規約 & サポート保証規定
+                </Link>
+                をご確認ください。
+              </p>
+
             </form>
           )}
 
@@ -293,6 +308,9 @@ export const ContactSection = () => {
           </div>
 
         </div>
+
+        {/* 発注検討者向け：事前準備 & 安心のお約束ドキュメント（ヒアリングシート＆契約条件） */}
+        <ClientPrepDocuments />
 
       </div>
     </section>

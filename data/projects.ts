@@ -1,114 +1,103 @@
 import { Project } from "@/types";
 
+export interface PersonalProject {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  tags: string[];
+  liveUrl?: string;
+}
+
+/**
+ * B2B受託開発事例（守秘義務に配慮した業界・課題表現）
+ */
 export const PROJECTS_DATA: Project[] = [
+  {
+    id: "b2b-gas-automation",
+    title: "製造・小売業向け 業務データマルチツール連携スクリプト",
+    solutionType: "業務自動化 / GAS",
+    highlightBadges: ["月25時間の手作業削減", "転記ミス・手入力ゼロ化"],
+    challenge: "スプレッドシート、Gmail、Slack間での手動転記と通知作業による対応遅延・入力ミス。",
+    solution: "GAS ＋ 各種外部API（Slack, Gmail）を組み合わせたデータ自動転記・通知システムの構築。",
+    impact: "毎月の手作業コストを25時間削減、対応漏れ・転記ミスを完全防止。",
+    description:
+      "製造・小売業における受注・問い合わせ・在庫データの転記作業を自動化。スプレッドシートとコミュニケーションツールを繋ぎ、現場の工数を大幅に削減。",
+    tags: ["Google Apps Script", "Google Sheets API", "Slack API", "Gmail API"],
+    featured: true,
+    category: "active",
+    status: "Active",
+    metrics: [
+      { label: "削減工数", value: "月25時間削減" },
+      { label: "入力精度", value: "ミス0件化" },
+    ],
+  },
+  {
+    id: "b2b-realestate-mvp",
+    title: "不動産・事業者向け リアルタイム試算＆顧客管理Webシステム",
+    solutionType: "Webシステム開発 / MVP",
+    highlightBadges: ["要件定義から1ヶ月でMVP納品", "商談時間を30%短縮"],
+    challenge: "営業現場での手計算・見積もり提案に時間がかかり、成約率とレスポンス速度に伸び悩み。",
+    solution: "Next.js + Supabase + Stripe による高速試算シミュレーターおよび顧客管理画面の構築。",
+    impact: "営業現場での試算・提案時間を30%短縮。要件定義から1ヶ月で初期運用を開始。",
+    description:
+      "複雑な料金計算や契約プランをリアルタイムに試算し、顧客情報と紐付けて一元管理するWebアプリケーション。直感的なUIで商談スピードを加速。",
+    tags: ["Next.js 14", "TypeScript", "Supabase", "Stripe API", "Tailwind CSS"],
+    featured: true,
+    category: "active",
+    status: "Active",
+    metrics: [
+      { label: "納期", value: "1ヶ月でMVP納品" },
+      { label: "商談工数", value: "30%短縮" },
+    ],
+  },
+  {
+    id: "b2b-corporate-lp",
+    title: "B2Bサービス・士業向け 爆速・高CVRコーポレートWebサイト",
+    solutionType: "Web制作 / LP最適化",
+    highlightBadges: ["PageSpeedスコア 98点", "CVR 1.8倍向上"],
+    challenge: "既存サイトの表示速度が遅く、スマートフォンからの離脱率が高い。",
+    solution: "Next.js 14 + Tailwind CSS による爆速表示化、お問い合わせ診断フォームの最適化。",
+    impact: "モバイル表示速度2.5倍向上、問い合わせ率（CVR）1.8倍達成。",
+    description:
+      "表示速度と成約率（CVR）に徹底特化したコーポレートサイト。診断型見積もりフォームとSEO内部対策により、反響獲得を最大化。",
+    tags: ["Next.js 14", "TypeScript", "Tailwind CSS", "Framer Motion", "SEO / CVR最適化"],
+    featured: true,
+    category: "active",
+    status: "Active",
+    metrics: [
+      { label: "PageSpeed", value: "98点達成" },
+      { label: "問い合わせ率", value: "1.8倍向上" },
+    ],
+  },
+];
+
+/**
+ * 代表の個人開発プロダクト（プロダクト探求枠用）
+ */
+export const PERSONAL_PROJECTS_DATA: PersonalProject[] = [
   {
     id: "negaresearch",
     title: "NegaResearch",
-    description:
-      "ネガティブ情報や評判の収集・リサーチを効率化するSaaS型Webサービス。AIと連携した情報抽出とリスク要因の可視化をワンストップで提供します。",
-    impact: "認証・決済・DB連携を一元化 ➔ MVP開発を最短3週間でリリース",
-    image: "/projectImage/negaresearch.webp",
-    tags: ["Next.js 14", "TypeScript", "Tailwind CSS", "Stripe", "Supabase", "Vercel"],
+    subtitle: "Stripe決済連携 自作SaaS",
+    description: "市場リサーチやネガティブ情報の収集コストを大幅カット。認証・決済・DB連携を一元化し最短3週間でローンチ。",
+    tags: ["Next.js 14", "Supabase", "Stripe"],
     liveUrl: "https://negaresearch.com/",
-    featured: true,
-    category: "active",
-    status: "Active",
-    metrics: [
-      { label: "Service", value: "SaaS Platform" },
-      { label: "Monetization", value: "Stripe Subscription" },
-    ],
   },
   {
-    id: "portfolio",
-    title: "fueri ポートフォリオ (Next.js 14)",
-    description:
-      "Google CloudとNext.js 14（App Router）をベースに構築した自身のフルスタックエンジニアポートフォリオ。開発実績や提供サービス、スキルスタックをスタイリッシュに集約。",
-    impact: "Next.jsによる表示速度2.5倍向上 ➔ フォーム離脱率の軽減とCVR向上",
-    image: "/projectImage/portfolio.webp",
-    tags: ["Next.js 14", "TypeScript", "Tailwind CSS", "Framer Motion", "Google Cloud"],
-    liveUrl: "https://fueri.jp/",
-    featured: true,
-    category: "active",
-    status: "Active",
-    metrics: [
-      { label: "Architecture", value: "Next.js App Router" },
-      { label: "Infrastructure", value: "Google Cloud / Docker" },
-    ],
-  },
-  {
-    id: "booking-management-system-demo",
-    title: "予約管理システム・自動化ツール",
-    description:
-      "店舗やサービスの予約受付・顧客管理・リマインド通知を自動化するマルチデバイス対応Webアプリケーション。手作業での台帳入力ミスを撲滅。",
-    impact: "毎月30時間の転記作業をゼロ化 ➔ 年間約100万円相当の業務コストカット",
-    image: "/projectImage/booking-management-system-demo.webp",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "GAS / API連携", "Vercel"],
-    liveUrl: "https://booking-management-system-demo.vercel.app/",
-    featured: true,
-    category: "active",
-    status: "Active",
-    metrics: [
-      { label: "Efficiency", value: "月30時間削減" },
-      { label: "Cost Down", value: "年間約100万円" },
-    ],
+    id: "fueri-lifechronicle",
+    title: "LifeChronicle",
+    subtitle: "Gemini API連携 AI対話アプリ",
+    description: "Google Gemini APIとFirebaseを活用し、日々の思考やインサイトをAIと対話しながら可視化するライフログアプリ。",
+    tags: ["Next.js", "Gemini API", "Firebase"],
+    liveUrl: "https://fueri-lifechronicle.vercel.app/",
   },
   {
     id: "foliotree",
     title: "foliotree",
-    description:
-      "クリエイターやエンジニアのためのポートフォリオ統合・共有プラットフォーム。モダンなUIパーツ（shadcn/ui）とFirebaseを活用した快適な操作感を提供します。",
-    impact: "表示速度Lighthouse 95+ ➔ スムーズな回遊性と快適な閲覧体験を実現",
-    image: "/projectImage/foliotree.webp",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui", "Firebase"],
+    subtitle: "ポートフォリオ統合プラットフォーム",
+    description: "shadcn/uiとFirebaseを活用し、表示速度Lighthouse 95+を達成したクリエイター向け作品共有サービス。",
+    tags: ["Next.js", "shadcn/ui", "Firebase"],
     liveUrl: "https://foliotree.jp/",
-    featured: false,
-    category: "active",
-    status: "Active",
-    metrics: [
-      { label: "Performance", value: "95+ Lighthouse" },
-      { label: "UI System", value: "shadcn/ui / Tailwind" },
-    ],
-  },
-  {
-    id: "fueri-lifechronicle",
-    title: "fueri LifeChronicle",
-    description:
-      "Google Gemini APIとFirebaseを活用した次世代のライフログ・対話型記録プラットフォーム。日々の出来事や思考をAIとともに対話し、インサイトを可視化します。",
-    impact: "Gemini APIとリアルタイム連携 ➔ 思考の自動整理と低レイテンシ対話を実現",
-    image: "/projectImage/fueri-lifechronicle.webp",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Firebase", "Gemini API", "Vercel"],
-    liveUrl: "https://fueri-lifechronicle.vercel.app/",
-    featured: false,
-    category: "archive",
-    status: "Experiment",
-    metrics: [
-      { label: "AI Integration", value: "Gemini 1.5 Flash" },
-      { label: "Architecture", value: "Serverless / Firebase" },
-    ],
-  },
-  {
-    id: "sharevalues",
-    title: "sharevalues",
-    description:
-      "個人やチームの価値観を整理し共有するためのWebアプリケーション。直感的なカードUIとシームレスなデザインでスムーズな相互理解を促進します。",
-    impact: "直感的なカードUI設計 ➔ チーム内の合意形成スピードを大幅向上",
-    image: "/projectImage/sharevalues.webp",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui", "Vercel"],
-    liveUrl: "https://sharevalues.vercel.app/",
-    featured: false,
-    category: "archive",
-    status: "Experiment",
-  },
-  {
-    id: "ex-portfolio",
-    title: "旧ポートフォリオ (React)",
-    description:
-      "ReactとBootstrapを用いて初期に構築した旧バージョンのポートフォリオサイト。自身のフロントエンド開発能力のアップデートプロセスを示す実績アーカイヴ。",
-    image: "/projectImage/ex-portfolio.webp",
-    tags: ["React", "JavaScript", "Bootstrap", "Vercel"],
-    liveUrl: "https://react-fueri-website.vercel.app/",
-    featured: false,
-    category: "archive",
-    status: "Archived",
   },
 ];

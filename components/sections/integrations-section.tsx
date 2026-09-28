@@ -1,26 +1,39 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Link as LinkIcon, CheckCircle2 } from "lucide-react";
+import { Link as LinkIcon, CheckCircle2, Webhook } from "lucide-react";
+import {
+  SiGoogleappsscript,
+  SiGooglesheets,
+  SiGmail,
+  SiNotion,
+  SiLine,
+  SiStripe,
+  SiNextdotjs,
+  SiSupabase,
+  SiFirebase,
+  SiGooglecloud,
+} from "react-icons/si";
+import { SiSlack } from "@icons-pack/react-simple-icons";
 
 interface IntegrationItem {
   name: string;
-  category: "業務ツール" | "チャット・決済" | "モダン基盤";
-  highlight?: boolean;
+  icon: React.ElementType;
 }
 
 const INTEGRATION_ITEMS: IntegrationItem[] = [
-  { name: "Google App Script (GAS)", category: "業務ツール", highlight: true },
-  { name: "Google スプレッドシート", category: "業務ツール", highlight: true },
-  { name: "Gmail", category: "業務ツール" },
-  { name: "Slack", category: "チャット・決済", highlight: true },
-  { name: "LINE Messaging API", category: "チャット・決済" },
-  { name: "Notion", category: "業務ツール" },
-  { name: "Stripe", category: "チャット・決済", highlight: true },
-  { name: "Next.js", category: "モダン基盤", highlight: true },
-  { name: "Supabase", category: "モダン基盤" },
-  { name: "Firebase", category: "モダン基盤" },
-  { name: "Google Cloud (GCP)", category: "モダン基盤" },
+  { name: "Google App Script (GAS)", icon: SiGoogleappsscript },
+  { name: "Google スプレッドシート", icon: SiGooglesheets },
+  { name: "Gmail", icon: SiGmail },
+  { name: "Slack", icon: SiSlack },
+  { name: "LINE Messaging API", icon: SiLine },
+  { name: "Notion", icon: SiNotion },
+  { name: "Stripe", icon: SiStripe },
+  { name: "Next.js", icon: SiNextdotjs },
+  { name: "Supabase", icon: SiSupabase },
+  { name: "Firebase", icon: SiFirebase },
+  { name: "Google Cloud (GCP)", icon: SiGooglecloud },
+  { name: "カスタム REST / Webhook API", icon: Webhook },
 ];
 
 export const IntegrationsSection = () => {
@@ -48,21 +61,20 @@ export const IntegrationsSection = () => {
             </p>
           </div>
 
-          {/* ツール一覧バッジグリッド（ティール＆スカイによる安心の配色） */}
+          {/* ツール一覧バッジグリッド（全ツールを統一アクセントカラーで静的配置） */}
           <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-3.5 max-w-5xl mx-auto pt-2">
-            {INTEGRATION_ITEMS.map((item, idx) => (
-              <div
-                key={idx}
-                className={`px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-semibold border transition-all duration-200 flex items-center gap-2.5 shadow-2xs hover:-translate-y-0.5 select-none ${
-                  item.highlight
-                    ? "bg-teal-50/80 border-teal-200/90 hover:border-teal-300 hover:bg-white text-slate-800"
-                    : "bg-slate-50 border-slate-200/90 hover:border-slate-300 hover:bg-white text-slate-700"
-                }`}
-              >
-                <span className={`w-2 h-2 rounded-full flex-shrink-0 ${item.highlight ? "bg-teal-500" : "bg-slate-400"}`} />
-                <span>{item.name}</span>
-              </div>
-            ))}
+            {INTEGRATION_ITEMS.map((item, idx) => {
+              const Icon = item.icon;
+              return (
+                <div
+                  key={idx}
+                  className="px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-semibold border border-teal-200/80 bg-teal-50/80 text-slate-800 shadow-2xs hover:-translate-y-0.5 hover:bg-white hover:border-teal-300 hover:shadow-xs transition-all duration-200 flex items-center gap-2.5 select-none"
+                >
+                  <Icon className="w-4 h-4 text-teal-600 flex-shrink-0" />
+                  <span>{item.name}</span>
+                </div>
+              );
+            })}
           </div>
 
           {/* サポート案内 */}

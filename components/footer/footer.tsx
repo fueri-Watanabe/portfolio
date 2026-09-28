@@ -70,9 +70,19 @@ export const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link href="/terms" className="hover:text-rose-600 transition-colors">
+                  ご利用規約・保証規定
+                </Link>
+              </li>
+              <li>
                 <Link href="/partners" className="hover:text-rose-600 transition-colors flex items-center gap-1.5">
                   <span>パートナー募集</span>
                   <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded-full bg-teal-50 text-teal-800 border border-teal-200">協業</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/partners/guideline" className="hover:text-rose-600 transition-colors">
+                  パートナー品質ガイドライン
                 </Link>
               </li>
               <li>

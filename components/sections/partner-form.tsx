@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
   Send,
@@ -283,8 +284,19 @@ ${formData.message || "特記事項なし"}`;
               </span>
             )}
           </Button>
-          <p className="text-[11px] text-center text-slate-500 mt-2">
-            ※ ご登録いただいた情報は協業の連絡用途のみに厳重に利用いたします。
+          <p className="text-[11px] text-center text-slate-500 mt-2.5 space-y-1">
+            <span className="block">※ ご登録いただいた情報は協業の連絡用途のみに厳重に利用いたします。</span>
+            <span className="block text-slate-600">
+              ※ アサイン後の開発基準やチームルールについては
+              <Link
+                href="/partners/guideline"
+                target="_blank"
+                className="text-rose-600 underline font-medium hover:text-rose-700 ml-1"
+              >
+                パートナー品質ガイドライン
+              </Link>
+              をご確認ください。
+            </span>
           </p>
         </div>
       </form>

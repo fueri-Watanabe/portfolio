@@ -16,9 +16,9 @@ export const HeroSection = () => {
       {/* 2. 建築的グラフィック装飾（やわらかなライトグレー＆ローズ） */}
       <div className="absolute top-24 right-8 lg:right-32 w-80 h-40 border border-slate-200 rounded-full pointer-events-none opacity-60 -rotate-6" />
       <div className="absolute top-32 right-14 lg:right-40 w-64 h-28 border border-rose-200/70 rounded-full pointer-events-none opacity-60 -rotate-6" />
-      
+
       {/* 繊細な斜線ハッチング */}
-      <div 
+      <div
         className="absolute top-20 left-6 lg:left-24 w-36 h-20 opacity-10 pointer-events-none"
         style={{
           backgroundImage: "repeating-linear-gradient(45deg, #f43f5e 0, #f43f5e 1px, transparent 0, transparent 8px)"
@@ -27,7 +27,7 @@ export const HeroSection = () => {
 
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          
+
           {/* 左カラム: キャッチコピー & アクション */}
           <motion.div
             className="lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left space-y-6 sm:space-y-8"
@@ -59,31 +59,30 @@ export const HeroSection = () => {
                 className="flex items-center gap-2.5 justify-center lg:justify-start"
               >
                 <span className="text-xs sm:text-sm font-bold tracking-wider text-rose-600 uppercase font-mono">
-                  Full-stack Web Engineering
+                  WEB ENGINEERING & AUTOMATION STUDIO
                 </span>
                 <span className="w-8 h-[1.5px] bg-rose-500/40" />
               </motion.div>
 
               <motion.h1
-                className="text-4xl sm:text-5xl lg:text-[3.8rem] xl:text-[4.2rem] font-extrabold tracking-[-0.035em] text-slate-800 font-title leading-[1.1]"
+                className="text-3xl sm:text-5xl lg:text-[3.2rem] xl:text-[3.6rem] font-extrabold tracking-tight text-slate-800 font-title leading-[1.3] sm:leading-[1.35]"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.6 }}
               >
-                Engineering solutions <br className="hidden sm:inline" />
-                <span className="font-light text-slate-400">that shape</span>{" "}
-                <span className="bg-gradient-to-r from-rose-500 to-red-600 bg-clip-text text-transparent">
-                  businesses
+                事業を加速させる、<br className="hidden sm:inline" />
+                <span className="bg-gradient-to-r from-rose-500 to-red-600 bg-clip-text text-transparent inline-block sm:mt-1">
+                  直通Web開発・業務自動化。
                 </span>
               </motion.h1>
 
               <motion.p
-                className="text-lg sm:text-xl font-bold text-slate-700 pt-1"
+                className="text-base sm:text-lg font-bold text-slate-700 pt-1"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.6 }}
               >
-                fueri / Hiroshi Watanabe — Web Developer
+                Web/システム開発スタジオ fueri | フエリ
               </motion.p>
 
               <motion.p
@@ -92,7 +91,7 @@ export const HeroSection = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.6 }}
               >
-                Webアプリケーション開発・業務システム開発を通じてビジネス課題を解決。アイデアから設計・実装・クラウド運用まで、高い解像度と透明性をもって具現化します。
+                「仕様が決まっていない」「どこに頼むべきか分からない」そんな段階からご相談可能です。Webサイト制作からGASによる業務自動化、独自Webシステムの構築まで、現場に寄り添う高い解像度で具現化します。
               </motion.p>
             </div>
 
@@ -105,15 +104,15 @@ export const HeroSection = () => {
             >
               <div className="flex items-center gap-2 bg-white border border-slate-200/90 px-4 py-2 rounded-full shadow-xs">
                 <CheckCircle2 className="w-4 h-4 text-teal-600" />
-                <span className="font-medium">迅速なレスポンス</span>
+                <span className="font-medium">スピード着手 & 直通レス</span>
               </div>
               <div className="flex items-center gap-2 bg-white border border-slate-200/90 px-4 py-2 rounded-full shadow-xs">
                 <CheckCircle2 className="w-4 h-4 text-teal-600" />
-                <span className="font-medium">一貫担当・高解像度</span>
+                <span className="font-medium">責任ある専任ディレクション</span>
               </div>
               <div className="flex items-center gap-2 bg-white border border-slate-200/90 px-4 py-2 rounded-full shadow-xs">
                 <CheckCircle2 className="w-4 h-4 text-teal-600" />
-                <span className="font-medium">最新モダンスタック</span>
+                <span className="font-medium">高品質なモダンスタック</span>
               </div>
             </motion.div>
 
@@ -130,7 +129,7 @@ export const HeroSection = () => {
                   size="lg"
                   className="w-full sm:w-auto font-bold shadow-sm hover:shadow-md hover:shadow-rose-500/20"
                 >
-                  <span>プロダクト実績を見る</span>
+                  <span>開発実績を見る</span>
                   <ArrowRight className="w-4 h-4" />
                 </Button>
               </Link>
@@ -142,7 +141,7 @@ export const HeroSection = () => {
                   className="w-full sm:w-auto bg-white hover:bg-slate-50 text-slate-700 hover:text-rose-600 border-slate-200 hover:border-rose-300 shadow-xs"
                 >
                   <Sparkles className="w-4 h-4 text-rose-500" />
-                  <span>開発のご相談・見積り</span>
+                  <span>無料相談・概算見積もり</span>
                 </Button>
               </Link>
             </motion.div>

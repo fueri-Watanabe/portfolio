@@ -10,6 +10,34 @@ import {
   XCircle,
   Sparkles,
 } from "lucide-react";
+import {
+  SiNextdotjs,
+  SiTypescript,
+  SiTailwindcss,
+  SiReact,
+  SiGooglecloud,
+  SiSupabase,
+  SiFirebase,
+  SiGoogleappsscript,
+  SiStripe,
+} from "react-icons/si";
+
+interface TechStackItem {
+  name: string;
+  icon: React.ElementType;
+}
+
+const MODERN_TECH_STACK: TechStackItem[] = [
+  { name: "Next.js", icon: SiNextdotjs },
+  { name: "TypeScript", icon: SiTypescript },
+  { name: "Tailwind CSS", icon: SiTailwindcss },
+  { name: "React", icon: SiReact },
+  { name: "Google Cloud", icon: SiGooglecloud },
+  { name: "Supabase", icon: SiSupabase },
+  { name: "Firebase", icon: SiFirebase },
+  { name: "GAS", icon: SiGoogleappsscript },
+  { name: "Stripe API", icon: SiStripe },
+];
 
 interface ReasonItem {
   number: string;
@@ -24,32 +52,32 @@ interface ReasonItem {
 const REASONS: ReasonItem[] = [
   {
     number: "01",
-    title: "迅速なレスポンス & スピード着手",
-    lead: "「持ち帰り検討」によるタイムロスをゼロに",
+    title: "スピード着手 & 直通レスポンス",
+    lead: "営業の伝言ゲーム・社内持ち帰り検討をゼロ化",
     description:
-      "営業担当と開発者の間で発生する社内伝言ゲームがありません。初回のお問い合わせから技術的な実現可否や概算の判断を即座に行い、最短即日〜数日での初期着手を実現します。",
-    traditional: "問い合わせ ➔ 営業面談 ➔ 社内確認 ➔ 見積提示まで1〜2週間要する",
-    ourAdvantage: "代表エンジニアが直接対応。その場で技術可否と概算を提示し即着手可能",
+      "営業専任を挟まず、技術を熟知した代表が直接一次窓口から対応。初回のお問い合わせから技術的な実現可否や工数を即座に判断し、最短即日〜数営業日での初期着手・迅速な課題解決を実現します。",
+    traditional: "問い合わせ ➔ 営業面談 ➔ 開発部門への持ち帰り確認 ➔ 見積提示まで1〜2週間要する",
+    ourAdvantage: "代表が直通対応。営業の伝言ゲームを無くし、その場で技術可否と概算を即断即決",
     icon: Zap,
   },
   {
     number: "02",
-    title: "適正かつリーズナブルな価格設定",
-    lead: "無駄な営業人件費・オフィス固定費を徹底カット",
+    title: "中間コストを削った適正価格",
+    lead: "営業マージンや無駄な管理コストをカット",
     description:
-      "大規模な開発会社では開発費用の大部分を営業マージンや多層下請けの中間コストが占めています。直接契約・個人事業主ならではのスリムな体制により、高品質なコードを大手比半額以下の水準で提供します。",
-    traditional: "営業費・進行管理費・多重下請けマージンが上乗せされ高額になりがち",
-    ourAdvantage: "直接受託のため中間マージンゼロ。必要な開発工数だけの適正価格",
+      "大手受託会社や代理店では開発費用の大部分を営業人件費や多重下請けの中間マージンが占めています。fueriは直接契約・自社直通の少数精鋭体制により、適正な実働コストのみで高品質な開発を提供します。",
+    traditional: "多重下請けマージン・営業経費・間接部門費が上乗せされ開発費が高騰しがち",
+    ourAdvantage: "直通受託・少数精鋭体制で中間マージンをカット。純粋な開発工数のみの透明な適正価格",
     icon: TrendingUp,
   },
   {
     number: "03",
-    title: "解像度の高い一貫担当 & モダンスタック",
-    lead: "「言われた通り」ではなく「ビジネス成果」を見据えた実装",
+    title: "高解像度な要件定義 & 品質管理",
+    lead: "代表が直接ヒアリングし、コード品質から納品後の保守まで保証",
     description:
-      "ヒアリングから要件定義、DB設計、フロントエンド実装、保守まで同一人物が担当。Next.jsやTypeScript、Google Cloud等のモダンスタックにより、高速で保守しやすいシステムを構築します。",
-    traditional: "設計書通りの機械的コーディングで、現場の使い勝手や拡張性が後回し",
-    ourAdvantage: "業務課題を深く理解した上で、最も運用しやすいUI/アーキテクチャを提案",
+      "要件定義からアーキテクチャ選定、実装、納品時のQA（品質検証）、納品後の運用サポートまで代表が一貫して責任管理。言われたものを作るだけでなく、現場の運用性と将来の拡張性を見据えた高品質なシステムを納品します。",
+    traditional: "設計書通りの機械的コーディングで、現場の運用性や納品後の保守・品質管理が形骸化",
+    ourAdvantage: "代表が設計からQA・運用まで責任管理。ビジネス成果と使いやすさを両立する品質を保証",
     icon: Target,
   },
 ];
@@ -66,14 +94,14 @@ export const WhyChooseUsSection = () => {
           </Badge>
 
           <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-800 font-title tracking-tight">
-            個人開発者だからこそ提供できる{" "}
+            fueriが選ばれる{" "}
             <span className="bg-gradient-to-r from-rose-500 to-red-600 bg-clip-text text-transparent">
-              3つの強み
+              3つの理由
             </span>
           </h2>
 
           <p className="text-slate-600 max-w-2xl text-base sm:text-lg">
-            「大手に頼むと高すぎる、でもクラウドソーシングの品質には不安がある」という企業様に選ばれています。
+            営業マージンや多層下請けを排除。代表直通の少数精鋭・専任ディレクション体制だからこそ実現できる強みです。
           </p>
         </div>
 
@@ -131,7 +159,7 @@ export const WhyChooseUsSection = () => {
                       <div className="p-3.5 rounded-2xl bg-gradient-to-r from-rose-500 to-red-600 text-white shadow-xs">
                         <div className="flex items-center gap-1.5 text-[11px] font-bold text-rose-100 mb-1">
                           <CheckCircle2 className="w-3.5 h-3.5 text-white flex-shrink-0" />
-                          <span>当方のソリューション</span>
+                          <span>fueri（代表専任体制）</span>
                         </div>
                         <p className="text-xs text-white font-medium leading-snug">
                           {item.ourAdvantage}
@@ -161,15 +189,19 @@ export const WhyChooseUsSection = () => {
               </p>
             </div>
 
-            <div className="flex flex-wrap items-center justify-center gap-2 max-w-md">
-              {["Next.js", "TypeScript", "Tailwind CSS", "React", "Google Cloud", "Supabase", "Firebase", "GAS", "Stripe API"].map((tech) => (
-                <span
-                  key={tech}
-                  className="px-3 py-1 rounded-full text-xs font-medium bg-slate-50 border border-slate-200 text-slate-700 font-mono shadow-2xs"
-                >
-                  {tech}
-                </span>
-              ))}
+            <div className="flex flex-wrap items-center justify-center md:justify-end gap-2 max-w-lg">
+              {MODERN_TECH_STACK.map((tech) => {
+                const Icon = tech.icon;
+                return (
+                  <span
+                    key={tech.name}
+                    className="px-3 py-1.5 rounded-full text-xs font-medium bg-slate-50 border border-slate-200 text-slate-700 font-mono shadow-2xs flex items-center gap-2 hover:border-teal-300 hover:bg-teal-50/50 transition-colors"
+                  >
+                    <Icon className="w-4 h-4 text-teal-600 flex-shrink-0" />
+                    <span>{tech.name}</span>
+                  </span>
+                );
+              })}
             </div>
           </div>
         </div>
