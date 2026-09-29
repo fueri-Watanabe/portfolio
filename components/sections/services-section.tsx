@@ -147,7 +147,7 @@ export const ServicesSection = () => {
   return (
     <section id="services" className="py-20 md:py-32 relative z-10">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* セクションヘッダー */}
         <div className="flex flex-col items-center text-center space-y-3 mb-16">
           <Badge variant="glow" className="px-3.5 py-1 text-xs font-semibold uppercase tracking-wider">
@@ -155,14 +155,11 @@ export const ServicesSection = () => {
           </Badge>
 
           <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-800 font-title tracking-tight">
-            明確な提供価値と{" "}
-            <span className="bg-gradient-to-r from-rose-500 to-red-600 bg-clip-text text-transparent">
-              定額プラン
-            </span>
+            明確な提供価値
           </h2>
 
           <p className="text-slate-600 max-w-2xl text-base sm:text-lg">
-            「何にいくらかかるのか」の不透明さを排除。ご予算と課題の規模に合わせて、最適なパッケージをご用意しています。
+            ご予算と課題の規模に合わせて、最適なパッケージをご用意しています。
           </p>
         </div>
 
@@ -195,11 +192,10 @@ export const ServicesSection = () => {
                       </div>
                       {pkg.badge && (
                         <span
-                          className={`text-[10px] font-bold px-3 py-1 rounded-full shadow-2xs ${
-                            pkg.badgeType === "teal"
-                              ? "bg-teal-50 text-teal-800 border border-teal-200"
-                              : "bg-gradient-to-r from-rose-500 to-red-600 text-white border-transparent"
-                          }`}
+                          className={`text-[10px] font-bold px-3 py-1 rounded-full shadow-2xs ${pkg.badgeType === "teal"
+                            ? "bg-teal-50 text-teal-800 border border-teal-200"
+                            : "bg-gradient-to-r from-rose-500 to-red-600 text-white border-transparent"
+                            }`}
                         >
                           {pkg.badge}
                         </span>
@@ -278,11 +274,10 @@ export const ServicesSection = () => {
                       variant={pkg.badge ? "primary" : "outline"}
                       size="md"
                       onClick={() => handleSelectPackage(pkg)}
-                      className={`w-full justify-center group/btn text-xs font-semibold py-2.5 rounded-full ${
-                        pkg.badge
-                          ? "shadow-sm"
-                          : "bg-white hover:bg-rose-50/40 text-slate-700 hover:text-rose-600 border-slate-200 hover:border-rose-300"
-                      }`}
+                      className={`w-full justify-center group/btn text-xs font-semibold py-2.5 rounded-full ${pkg.badge
+                        ? "shadow-sm"
+                        : "bg-white hover:bg-rose-50/40 text-slate-700 hover:text-rose-600 border-slate-200 hover:border-rose-300"
+                        }`}
                     >
                       <span>このプランで相談する</span>
                       <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />

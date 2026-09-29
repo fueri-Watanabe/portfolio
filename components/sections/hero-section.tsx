@@ -72,7 +72,7 @@ export const HeroSection = () => {
               >
                 事業を加速させる、<br className="hidden sm:inline" />
                 <span className="bg-gradient-to-r from-rose-500 to-red-600 bg-clip-text text-transparent inline-block sm:mt-1">
-                  直通Web開発・業務自動化。
+                  Web開発・業務自動化。
                 </span>
               </motion.h1>
 
@@ -82,7 +82,7 @@ export const HeroSection = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.6 }}
               >
-                Web/システム開発スタジオ fueri | フエリ
+                Webシステム開発スタジオ fueri
               </motion.p>
 
               <motion.p

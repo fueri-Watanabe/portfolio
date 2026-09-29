@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -9,6 +10,10 @@ import {
   CheckCircle2,
   XCircle,
   Sparkles,
+  ShieldCheck,
+  FileText,
+  RefreshCw,
+  ArrowRight,
 } from "lucide-react";
 import {
   SiNextdotjs,
@@ -171,6 +176,78 @@ export const WhyChooseUsSection = () => {
               </motion.div>
             );
           })}
+        </div>
+
+        {/* 納品後も安心の品質保証 & アフターサポート統合カード */}
+        <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/80 shadow-xs mb-8">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 pb-6 border-b border-slate-100">
+            <div className="space-y-1">
+              <div className="inline-flex items-center gap-1.5 text-xs font-bold text-teal-800 bg-teal-50 px-3 py-1 rounded-full border border-teal-200/80">
+                <ShieldCheck className="w-3.5 h-3.5 text-teal-600" />
+                <span>Quality Guarantee & Support</span>
+              </div>
+              <h3 className="text-lg sm:text-xl font-bold text-slate-800 font-title">
+                納品後も安心の「品質保証 & 運用サポート体制」
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-600">
+                「作って終わり」ではなく、現場で確実に成果を出し続けるまで寄り添う伴走型の開発をお約束します。
+              </p>
+            </div>
+            <Link
+              href="/terms"
+              className="inline-flex items-center gap-1 text-xs text-rose-600 hover:text-rose-700 underline font-medium flex-shrink-0"
+            >
+              <span>詳しい保証規定・検収条件を見る</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6">
+            <div className="p-4 rounded-2xl bg-slate-50/80 border border-slate-200/80 flex items-start gap-3.5">
+              <div className="w-10 h-10 rounded-xl bg-teal-50 text-teal-600 border border-teal-100 flex items-center justify-center flex-shrink-0 shadow-2xs">
+                <ShieldCheck className="w-5 h-5" />
+              </div>
+              <div className="space-y-1">
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-bold text-slate-800">30日間無償バグ修正保証</span>
+                  <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-teal-50 text-teal-800 border border-teal-200/80">標準付帯</span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  納品後に発覚した予期せぬ動作不良やレイアウト崩れは無償で迅速に対応いたします。
+                </p>
+              </div>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-slate-50/80 border border-slate-200/80 flex items-start gap-3.5">
+              <div className="w-10 h-10 rounded-xl bg-teal-50 text-teal-600 border border-teal-100 flex items-center justify-center flex-shrink-0 shadow-2xs">
+                <FileText className="w-5 h-5" />
+              </div>
+              <div className="space-y-1">
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-bold text-slate-800">引き継ぎ・操作マニュアル</span>
+                  <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-teal-50 text-teal-800 border border-teal-200/80">属人化防止</span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  社内メンバーでスムーズに運用・更新できるよう、わかりやすい操作ガイドや手順書を添付します。
+                </p>
+              </div>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-slate-50/80 border border-slate-200/80 flex items-start gap-3.5">
+              <div className="w-10 h-10 rounded-xl bg-teal-50 text-teal-600 border border-teal-100 flex items-center justify-center flex-shrink-0 shadow-2xs">
+                <RefreshCw className="w-5 h-5" />
+              </div>
+              <div className="space-y-1">
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-bold text-slate-800">月額保守・機能拡張</span>
+                  <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-teal-50 text-teal-800 border border-teal-200/80">月額5万円〜</span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  リリース後の機能追加や定期アップデートサポートもワンストップでお任せいただけます。
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* 信頼性を支える技術スタックのダイジェスト */}

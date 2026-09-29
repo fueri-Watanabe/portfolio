@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Mail, Send, CheckCircle2, AlertCircle, Loader2, ArrowUpRight, Sparkles } from "lucide-react";
 import ClientPrepDocuments from "@/components/sections/client-prep-documents";
+import { ProfileCompactCard } from "@/components/sections/profile-section";
 
 export const ContactSection = () => {
   const [isPending, startTransition] = useTransition();
@@ -85,7 +86,7 @@ export const ContactSection = () => {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* セクションヘッダー */}
-        <div className="flex flex-col items-center text-center space-y-3 mb-16">
+        <div className="flex flex-col items-center text-center space-y-3 mb-8 sm:mb-10">
           <Badge variant="glow" className="px-3.5 py-1 text-xs font-semibold uppercase tracking-wider mb-1">
             Let's Build Together
           </Badge>
@@ -100,6 +101,11 @@ export const ContactSection = () => {
           <p className="text-slate-600 max-w-xl text-base sm:text-lg">
             新規システム開発・既存ツール改修・保守など、お気軽にお問い合わせください。
           </p>
+        </div>
+
+        {/* 代表直通コンタクトカード (軽量版) */}
+        <div className="mb-8 sm:mb-10">
+          <ProfileCompactCard />
         </div>
 
         <div className="rounded-3xl bg-white border border-slate-200/80 shadow-xs hover:shadow-sm p-8 sm:p-12 relative transition-all">
