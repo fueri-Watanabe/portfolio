@@ -192,7 +192,7 @@ export default function ProcessPage() {
           </Badge>
           <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-800 font-title tracking-tight leading-tight">
             発注から納品・運用の{" "}
-            <span className="bg-gradient-to-r from-rose-500 to-red-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-violet-600 via-indigo-600 to-cyan-600 bg-clip-text text-transparent">
               詳細プロセス
             </span>
           </h1>

@@ -8,22 +8,20 @@ import EstimateDiagnostic from "@/components/sections/estimate-diagnostic";
 
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-[92vh] flex items-center justify-center pt-32 pb-20 md:pb-28 lg:pb-32 overflow-hidden bg-slate-50/70">
-      {/* 1. ライト背景に溶け込む柔らかなローズ＆ティールのアンビエント光彩 */}
-      <div className="absolute top-10 left-1/4 w-[600px] h-[450px] bg-gradient-to-br from-rose-100/50 via-teal-50/30 to-transparent rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute top-24 right-10 w-[550px] h-[400px] bg-gradient-to-bl from-rose-100/40 via-slate-100/40 to-transparent rounded-full blur-[150px] pointer-events-none" />
+    <section className="relative min-h-[92vh] flex items-center justify-center pt-32 pb-20 md:pb-28 lg:pb-32 overflow-hidden bg-slate-50">
+      {/* 1. Light Neo-Glass マルチカラーグラデーションオーブ（Violet + Cyan） */}
+      <div className="absolute top-8 left-1/4 w-[680px] h-[520px] bg-gradient-to-br from-violet-200/35 via-cyan-100/25 to-transparent rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-20 right-10 w-[600px] h-[460px] bg-gradient-to-bl from-cyan-200/30 via-violet-100/25 to-transparent rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute -bottom-16 left-1/3 w-[500px] h-[380px] bg-gradient-to-tr from-indigo-200/25 via-cyan-100/20 to-transparent rounded-full blur-[120px] pointer-events-none" />
 
-      {/* 2. 建築的グラフィック装飾（やわらかなライトグレー＆ローズ） */}
-      <div className="absolute top-24 right-8 lg:right-32 w-80 h-40 border border-slate-200 rounded-full pointer-events-none opacity-60 -rotate-6" />
-      <div className="absolute top-32 right-14 lg:right-40 w-64 h-28 border border-rose-200/70 rounded-full pointer-events-none opacity-60 -rotate-6" />
-
-      {/* 繊細な斜線ハッチング */}
+      {/* 2. 微細なNeo-Glassグリッド背景 */}
       <div
-        className="absolute top-20 left-6 lg:left-24 w-36 h-20 opacity-10 pointer-events-none"
-        style={{
-          backgroundImage: "repeating-linear-gradient(45deg, #f43f5e 0, #f43f5e 1px, transparent 0, transparent 8px)"
-        }}
+        className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-40 pointer-events-none"
       />
+
+      {/* 3. 建築的グラフィック装飾（微細なフロストサークル） */}
+      <div className="absolute top-24 right-8 lg:right-32 w-80 h-40 border border-cyan-200/50 rounded-full pointer-events-none opacity-40 -rotate-6" />
+      <div className="absolute top-32 right-14 lg:right-40 w-64 h-28 border border-violet-200/50 rounded-full pointer-events-none opacity-50 -rotate-6" />
 
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
@@ -35,16 +33,16 @@ export const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
-            {/* ステータスバッジ */}
+            {/* ステータスバッジ（Neo-Glassフロストバッジ） */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.1, duration: 0.4 }}
             >
-              <div className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full text-xs font-semibold border border-slate-200/90 bg-white text-slate-700 shadow-xs backdrop-blur-sm">
+              <div className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full text-xs font-semibold border border-slate-200/80 bg-white/80 backdrop-blur-xl text-slate-700 shadow-glass hover:border-violet-300/80 hover:ring-1 hover:ring-violet-500/20 transition-all">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-rose-500"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
                 </span>
                 <span className="tracking-tight">Available for Projects / 案件・開発相談受付中</span>
               </div>
@@ -58,10 +56,10 @@ export const HeroSection = () => {
                 transition={{ delay: 0.15, duration: 0.5 }}
                 className="flex items-center gap-2.5 justify-center lg:justify-start"
               >
-                <span className="text-xs sm:text-sm font-bold tracking-wider text-rose-600 uppercase font-mono">
+                <span className="text-xs sm:text-sm font-bold tracking-wider text-violet-600 uppercase font-mono">
                   WEB ENGINEERING & AUTOMATION STUDIO
                 </span>
-                <span className="w-8 h-[1.5px] bg-rose-500/40" />
+                <span className="w-8 h-[1.5px] bg-violet-500/40" />
               </motion.div>
 
               <motion.h1
@@ -70,9 +68,9 @@ export const HeroSection = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.6 }}
               >
-                事業を加速させる、<br className="hidden sm:inline" />
-                <span className="bg-gradient-to-r from-rose-500 to-red-600 bg-clip-text text-transparent inline-block sm:mt-1">
-                  Web開発・業務自動化。
+                中小企業・スタートアップのDX推進を加速させる、<br className="hidden sm:inline" />
+                <span className="bg-gradient-to-r from-violet-600 via-indigo-600 to-cyan-600 bg-clip-text text-transparent inline-block sm:mt-1">
+                  Webシステム開発・業務自動化。
                 </span>
               </motion.h1>
 
@@ -91,27 +89,27 @@ export const HeroSection = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.6 }}
               >
-                「仕様が決まっていない」「どこに頼むべきか分からない」そんな段階からご相談可能です。Webサイト制作からGASによる業務自動化、独自Webシステムの構築まで、現場に寄り添う高い解像度で具現化します。
+                「仕様が決まっていない」「どこに頼むべきか分からない」段階からご相談いただけます。現場の業務効率化・社内ツールDXから、Next.jsによるWebシステム開発、新規事業のMVP開発・SaaS構築まで、現場に寄り添う高い解像度で具現化します。
               </motion.p>
             </div>
 
-            {/* クイック特徴リスト */}
+            {/* クイック特徴リスト（Neo-Glassフロストピル） */}
             <motion.div
               className="flex flex-wrap justify-center lg:justify-start gap-2.5 sm:gap-3 text-xs sm:text-sm text-slate-700"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.6 }}
             >
-              <div className="flex items-center gap-2 bg-white border border-slate-200/90 px-4 py-2 rounded-full shadow-xs">
-                <CheckCircle2 className="w-4 h-4 text-teal-600" />
+              <div className="flex items-center gap-2 bg-white/80 backdrop-blur-md border border-slate-200/80 px-4 py-2 rounded-full shadow-2xs hover:border-violet-300/80 hover:ring-1 hover:ring-violet-500/20 hover:shadow-glass hover:-translate-y-0.5 transition-all">
+                <CheckCircle2 className="w-4 h-4 text-cyan-600" />
                 <span className="font-medium">スピード着手 & 直通レス</span>
               </div>
-              <div className="flex items-center gap-2 bg-white border border-slate-200/90 px-4 py-2 rounded-full shadow-xs">
-                <CheckCircle2 className="w-4 h-4 text-teal-600" />
+              <div className="flex items-center gap-2 bg-white/80 backdrop-blur-md border border-slate-200/80 px-4 py-2 rounded-full shadow-2xs hover:border-violet-300/80 hover:ring-1 hover:ring-violet-500/20 hover:shadow-glass hover:-translate-y-0.5 transition-all">
+                <CheckCircle2 className="w-4 h-4 text-cyan-600" />
                 <span className="font-medium">責任ある専任ディレクション</span>
               </div>
-              <div className="flex items-center gap-2 bg-white border border-slate-200/90 px-4 py-2 rounded-full shadow-xs">
-                <CheckCircle2 className="w-4 h-4 text-teal-600" />
+              <div className="flex items-center gap-2 bg-white/80 backdrop-blur-md border border-slate-200/80 px-4 py-2 rounded-full shadow-2xs hover:border-violet-300/80 hover:ring-1 hover:ring-violet-500/20 hover:shadow-glass hover:-translate-y-0.5 transition-all">
+                <CheckCircle2 className="w-4 h-4 text-cyan-600" />
                 <span className="font-medium">高品質なモダンスタック</span>
               </div>
             </motion.div>
@@ -127,7 +125,7 @@ export const HeroSection = () => {
                 <Button
                   variant="primary"
                   size="lg"
-                  className="w-full sm:w-auto font-bold shadow-sm hover:shadow-md hover:shadow-rose-500/20"
+                  className="w-full sm:w-auto font-bold shadow-glass hover:shadow-glass-hover"
                 >
                   <span>開発実績を見る</span>
                   <ArrowRight className="w-4 h-4" />
@@ -138,9 +136,9 @@ export const HeroSection = () => {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="w-full sm:w-auto bg-white hover:bg-slate-50 text-slate-700 hover:text-rose-600 border-slate-200 hover:border-rose-300 shadow-xs"
+                  className="w-full sm:w-auto bg-white/80 backdrop-blur-md hover:bg-white text-slate-700 hover:text-violet-700 border-slate-200/90 hover:border-violet-300 shadow-glass"
                 >
-                  <Sparkles className="w-4 h-4 text-rose-500" />
+                  <Sparkles className="w-4 h-4 text-cyan-500" />
                   <span>無料相談・概算見積もり</span>
                 </Button>
               </Link>

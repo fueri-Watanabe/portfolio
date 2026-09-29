@@ -9,21 +9,34 @@
   }
 
   body {
-    @apply antialiased text-slate-800 min-h-screen bg-slate-50/70;
-    background-color: #fafbfe;
+    @apply antialiased text-slate-800 min-h-screen bg-slate-50;
+    background-color: #f8fafc;
   }
 
   ::selection {
-    background-color: #ffe4e6;
-    color: #e11d48;
+    background-color: #ede9fe;
+    color: #4c1d95;
+  }
+}
+
+@layer utilities {
+  /* Light Neo-Glass (Violet × Cyan パレット) */
+  .neo-glass {
+    @apply bg-white/80 backdrop-blur-xl border border-slate-200/80 shadow-glass transition-all duration-300;
+  }
+  .neo-glass-card {
+    @apply bg-white/80 backdrop-blur-xl border border-slate-200/80 shadow-glass hover:shadow-glass-hover hover:border-violet-300/80 hover:ring-1 hover:ring-violet-500/20 hover:-translate-y-0.5 transition-all duration-300;
+  }
+  .neo-glass-subtle {
+    @apply bg-white/60 backdrop-blur-md border border-slate-200/70 shadow-2xs;
   }
 }
 
 .custom-button {
-  @apply border drop-shadow-sm rounded-full px-4 py-2 border-slate-200 font-semibold tracking-wide text-sm bg-white text-slate-800 disabled:opacity-40 disabled:cursor-not-allowed hover:shadow-sm hover:border-rose-400 hover:text-rose-600 transition-all;
+  @apply border drop-shadow-sm rounded-full px-4 py-2 border-slate-200 font-semibold tracking-wide text-sm bg-white/90 backdrop-blur-sm text-slate-800 disabled:opacity-40 disabled:cursor-not-allowed hover:shadow-glass hover:border-violet-400 hover:text-violet-700 transition-all;
 }
 
-/* スクロールバーのカスタマイズ（ライト＆繊細なグレー） */
+/* スクロールバーのカスタマイズ（極薄ライト＆繊細なスレート） */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;

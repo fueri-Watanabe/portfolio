@@ -36,10 +36,10 @@ export const WorkflowSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
             >
-              <div className="rounded-3xl bg-white border border-slate-200/80 shadow-xs hover:shadow-md hover:border-rose-300 hover:-translate-y-0.5 transition-all p-6 h-full flex flex-col justify-between relative group">
+              <div className="rounded-3xl bg-white border border-slate-200/80 shadow-xs hover:shadow-md hover:border-violet-300 hover:ring-1 hover:ring-violet-500/20 hover:-translate-y-0.5 transition-all p-6 h-full flex flex-col justify-between relative group">
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <div className="w-10 h-10 rounded-2xl bg-rose-50/70 border border-rose-100 flex items-center justify-center font-bold text-rose-500 font-mono text-sm shadow-2xs">
+                    <div className="w-10 h-10 rounded-2xl bg-violet-50/70 border border-violet-100 flex items-center justify-center font-bold text-violet-600 font-mono text-sm shadow-2xs">
                       0{step.stepNumber}
                     </div>
                     {step.iconSrc && (
@@ -55,7 +55,7 @@ export const WorkflowSection = () => {
                     )}
                   </div>
 
-                  <h3 className="text-xl font-bold text-slate-800 font-title group-hover:text-rose-600 transition-colors">
+                  <h3 className="text-xl font-bold text-slate-800 font-title group-hover:text-violet-600 transition-colors">
                     {step.title}
                   </h3>
 
@@ -66,7 +66,7 @@ export const WorkflowSection = () => {
 
                 {step.detailHint && (
                   <div className="pt-4 mt-4 border-t border-slate-100 text-[12px] text-slate-500 flex items-center gap-1.5">
-                    <Info className="w-3.5 h-3.5 text-rose-500 flex-shrink-0" />
+                    <Info className="w-3.5 h-3.5 text-cyan-600 flex-shrink-0" />
                     <span>{step.detailHint}</span>
                   </div>
                 )}

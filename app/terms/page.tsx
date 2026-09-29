@@ -236,7 +236,7 @@ export default function TermsPage() {
               <Button
                 variant="primary"
                 size="md"
-                className="font-bold rounded-full text-xs px-6 py-2.5 bg-gradient-to-r from-rose-500 to-red-600 hover:from-rose-600 hover:to-red-700 text-white shadow-xs"
+                className="font-bold rounded-full text-xs px-6 py-2.5 bg-gradient-to-r from-violet-600 via-indigo-600 to-cyan-600 hover:from-violet-700 hover:to-cyan-700 text-white shadow-xs"
               >
                 <span>無料相談・お問い合わせ</span>
                 <ArrowRight className="w-3.5 h-3.5" />

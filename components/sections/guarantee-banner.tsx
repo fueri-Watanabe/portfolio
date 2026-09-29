@@ -39,8 +39,8 @@ export const GuaranteeBanner = () => {
           {/* ヘッダー */}
           <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-4 pb-6 border-b border-slate-200/80">
             <div className="space-y-2">
-              <div className="inline-flex items-center gap-1.5 text-xs font-bold text-teal-800 bg-teal-50 px-3.5 py-1 rounded-full border border-teal-200/80 shadow-2xs">
-                <ShieldCheck className="w-3.5 h-3.5 text-teal-600" />
+              <div className="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-800 bg-cyan-50 px-3.5 py-1 rounded-full border border-cyan-200/80 shadow-2xs">
+                <ShieldCheck className="w-3.5 h-3.5 text-cyan-600" />
                 <span>After Support & Quality Guarantee</span>
               </div>
               <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-800 font-title tracking-tight">
@@ -53,7 +53,7 @@ export const GuaranteeBanner = () => {
               </p>
               <Link
                 href="/terms"
-                className="inline-flex items-center gap-1 text-xs text-rose-600 hover:text-rose-700 underline font-medium"
+                className="inline-flex items-center gap-1 text-xs text-violet-600 hover:text-violet-700 underline font-medium"
               >
                 <span>詳しい保証規定・検収条件を見る</span>
                 <ArrowRight className="w-3 h-3" />
@@ -68,14 +68,14 @@ export const GuaranteeBanner = () => {
               return (
                 <div
                   key={idx}
-                  className="rounded-3xl bg-white p-7 sm:p-8 border border-slate-200/90 shadow-xs flex flex-col justify-between hover:border-teal-300 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
+                  className="rounded-3xl bg-white p-7 sm:p-8 border border-slate-200/90 shadow-xs flex flex-col justify-between hover:border-violet-300 hover:ring-1 hover:ring-violet-500/20 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
                 >
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <div className="w-12 h-12 rounded-2xl bg-teal-50 text-teal-600 border border-teal-100 flex items-center justify-center shadow-2xs">
+                      <div className="w-12 h-12 rounded-2xl bg-cyan-50 text-cyan-600 border border-cyan-100 flex items-center justify-center shadow-2xs">
                         <Icon className="w-6 h-6" />
                       </div>
-                      <span className="text-[11px] font-bold px-3 py-1 rounded-full bg-teal-50 text-teal-800 border border-teal-200/80">
+                      <span className="text-[11px] font-bold px-3 py-1 rounded-full bg-cyan-50 text-cyan-800 border border-cyan-200/80">
                         {item.tagline}
                       </span>
                     </div>
@@ -89,8 +89,8 @@ export const GuaranteeBanner = () => {
                     </p>
                   </div>
 
-                  <div className="pt-4 mt-5 border-t border-slate-100 flex items-center gap-1.5 text-xs font-semibold text-teal-700">
-                    <CheckCircle2 className="w-4 h-4 text-teal-600" />
+                  <div className="pt-4 mt-5 border-t border-slate-100 flex items-center gap-1.5 text-xs font-semibold text-cyan-700">
+                    <CheckCircle2 className="w-4 h-4 text-cyan-600" />
                     <span>迅速・丁寧なフォロー体制</span>
                   </div>
                 </div>

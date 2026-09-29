@@ -86,7 +86,7 @@ export default function PartnersPage() {
 
           <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-800 font-title tracking-tight leading-[1.15]">
             fueriと共にプロジェクトを推進する <br className="hidden sm:inline" />
-            <span className="bg-gradient-to-r from-rose-500 to-red-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-violet-600 via-indigo-600 to-cyan-600 bg-clip-text text-transparent">
               パートナー（エンジニア・デザイナー）
             </span>
             を募集
@@ -101,7 +101,7 @@ export default function PartnersPage() {
               <Button
                 variant="primary"
                 size="lg"
-                className="rounded-full px-6 font-bold shadow-sm hover:shadow-md hover:shadow-rose-500/20 flex items-center gap-2"
+                className="rounded-full px-6 font-bold shadow-sm hover:shadow-md hover:shadow-violet-500/20 flex items-center gap-2"
               >
                 <span>パートナー登録フォームへ進む</span>
                 <ArrowDown className="w-4 h-4" />
@@ -112,7 +112,7 @@ export default function PartnersPage() {
               <Button
                 variant="outline"
                 size="lg"
-                className="rounded-full px-6 text-slate-700 hover:text-rose-600 border-slate-200 bg-white hover:bg-slate-50 shadow-xs"
+                className="rounded-full px-6 text-slate-700 hover:text-violet-600 border-slate-200 hover:border-violet-300 bg-white hover:bg-slate-50 shadow-xs"
               >
                 <span>代表の理念・実績を見る</span>
               </Button>
@@ -188,10 +188,10 @@ export default function PartnersPage() {
               return (
                 <div
                   key={role.title}
-                  className="rounded-3xl bg-white border border-slate-200/80 shadow-xs hover:shadow-md hover:border-rose-300 hover:-translate-y-0.5 transition-all p-6 sm:p-7 space-y-3.5"
+                  className="rounded-3xl bg-white border border-slate-200/80 shadow-xs hover:shadow-md hover:border-violet-300 hover:ring-1 hover:ring-violet-500/20 hover:-translate-y-0.5 transition-all p-6 sm:p-7 space-y-3.5"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-rose-500 to-red-600 text-white flex items-center justify-center flex-shrink-0 shadow-2xs">
+                    <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-violet-600 via-indigo-600 to-cyan-500 text-white flex items-center justify-center flex-shrink-0 shadow-2xs">
                       <Icon className="w-5 h-5" />
                     </div>
                     <div>

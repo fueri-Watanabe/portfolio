@@ -4,10 +4,11 @@ import IntegrationsSection from "@/components/sections/integrations-section";
 import WhyChooseUsSection from "@/components/sections/why-choose-us";
 import BentoProjectsSection from "@/components/sections/bento-projects";
 import ContactSection from "@/components/sections/contact-section";
+import ProfileSection from "@/components/sections/profile-section";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-slate-50/70 text-slate-800 overflow-x-hidden">
+    <main className="min-h-screen bg-slate-50 text-slate-800 overflow-x-hidden">
       {/* 1. Hero Section + 診断UI */}
       <HeroSection />
 
@@ -23,8 +24,11 @@ export default function Home() {
       {/* 5. 実績・ソリューション事例 (Bento Grid / 導入効果付き) */}
       <BentoProjectsSection />
 
-      {/* 6. 代表直通コンタクトカード ＋ お問い合わせフォーム ＋ 事前準備ドキュメント */}
+      {/* 6. お問い合わせフォーム ＋ 事前準備ドキュメント */}
       <ContactSection />
+
+      {/* 7. 代表プロフィール ＆ 開発体制 */}
+      <ProfileSection />
     </main>
   );
 }

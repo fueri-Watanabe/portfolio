@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import RoadmapSection from "@/components/sections/roadmap";
 import ContactSection from "@/components/sections/contact-section";
 import { Badge } from "@/components/ui/badge";
 import {
-  Code2,
   HeartHandshake,
   Lightbulb,
   ShieldCheck,
@@ -41,13 +41,20 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="rounded-3xl bg-white border border-slate-200/80 shadow-xs p-8 sm:p-12 space-y-8">
             <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 border-b border-slate-100 pb-8">
-              <div className="w-24 h-24 rounded-3xl bg-rose-50/70 border border-rose-100 p-2 flex-shrink-0 shadow-2xs flex items-center justify-center">
-                <div className="w-full h-full bg-white rounded-2xl flex items-center justify-center text-rose-500 shadow-2xs">
-                  <Code2 className="w-10 h-10 text-rose-500" />
+              <div className="w-24 h-24 rounded-3xl bg-gradient-to-tr from-violet-600 via-indigo-600 to-cyan-500 p-1 flex-shrink-0 shadow-2xs flex items-center justify-center">
+                <div className="w-full h-full bg-white rounded-[20px] flex items-center justify-center overflow-hidden">
+                  <Image
+                    src="/myicon.webp"
+                    alt="渡部 弘"
+                    width={96}
+                    height={96}
+                    className="w-full h-full object-cover"
+                    priority
+                  />
                 </div>
               </div>
-              <div className="text-center sm:text-left space-y-1">
-                <span className="text-xs font-mono font-semibold text-rose-600 uppercase tracking-wider">
+              <div className="text-center sm:text-left space-y-1.5 flex-1">
+                <span className="text-xs font-mono font-semibold text-violet-600 uppercase tracking-wider">
                   個人事業主 fueri（フエリ） 代表
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-800 font-title">
@@ -56,20 +63,35 @@ export default function AboutPage() {
                 <p className="text-xs text-slate-500">
                   拠点: 日本国内（リモート全国対応） / 専門: Web開発・業務効率化・Next.jsフルスタック
                 </p>
+
+                {/* X (旧Twitter) プロフィールリンク */}
+                <div className="pt-1.5 flex items-center justify-center sm:justify-start gap-2">
+                  <a
+                    href="https://x.com/hiroshifueri"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-600 hover:text-violet-600 bg-slate-50 hover:bg-violet-50/60 border border-slate-200/80 hover:border-violet-200 px-3 py-1 rounded-full transition-all duration-200 group shadow-2xs"
+                  >
+                    <svg className="w-3.5 h-3.5 fill-current text-slate-500 group-hover:text-violet-600 transition-colors" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
+                    <span>@hiroshifueri</span>
+                  </a>
+                </div>
               </div>
             </div>
 
             {/* 開発へのこだわり・3つの哲学 */}
             <div className="space-y-4">
               <h3 className="text-lg font-bold text-slate-800 flex items-center gap-2">
-                <Lightbulb className="w-5 h-5 text-rose-500" />
+                <Lightbulb className="w-5 h-5 text-violet-600" />
                 <span>受託開発における3つのこだわり</span>
               </h3>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
                 <div className="p-5 rounded-2xl bg-slate-50/80 border border-slate-200/80 space-y-2">
                   <div className="flex items-center gap-1.5 text-xs font-bold text-slate-800">
-                    <Target className="w-4 h-4 text-rose-500" />
+                    <Target className="w-4 h-4 text-violet-600" />
                     <span>01. 目的志向の実装</span>
                   </div>
                   <p className="text-xs text-slate-600 leading-relaxed">
@@ -79,7 +101,7 @@ export default function AboutPage() {
 
                 <div className="p-5 rounded-2xl bg-slate-50/80 border border-slate-200/80 space-y-2">
                   <div className="flex items-center gap-1.5 text-xs font-bold text-slate-800">
-                    <HeartHandshake className="w-4 h-4 text-teal-600" />
+                    <HeartHandshake className="w-4 h-4 text-cyan-600" />
                     <span>02. 誠実でオープンな対話</span>
                   </div>
                   <p className="text-xs text-slate-600 leading-relaxed">
@@ -89,7 +111,7 @@ export default function AboutPage() {
 
                 <div className="p-5 rounded-2xl bg-slate-50/80 border border-slate-200/80 space-y-2">
                   <div className="flex items-center gap-1.5 text-xs font-bold text-slate-800">
-                    <ShieldCheck className="w-4 h-4 text-teal-600" />
+                    <ShieldCheck className="w-4 h-4 text-cyan-600" />
                     <span>03. クリーンで保守性の高い設計</span>
                   </div>
                   <p className="text-xs text-slate-600 leading-relaxed">

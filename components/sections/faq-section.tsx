@@ -49,14 +49,14 @@ export const FAQSection = () => {
                   className="w-full p-6 text-left flex items-center justify-between gap-4 focus:outline-none group cursor-pointer"
                 >
                   <div className="flex items-center gap-3">
-                    <MessageSquare className="w-5 h-5 text-teal-600 flex-shrink-0" />
-                    <span className="font-bold text-base sm:text-lg text-slate-800 group-hover:text-rose-600 transition-colors">
+                    <MessageSquare className="w-5 h-5 text-cyan-600 flex-shrink-0" />
+                    <span className="font-bold text-base sm:text-lg text-slate-800 group-hover:text-violet-600 transition-colors">
                       {faq.question}
                     </span>
                   </div>
                   <ChevronDown
                     className={`w-5 h-5 text-slate-400 transition-transform duration-300 flex-shrink-0 ${
-                      isOpen ? "rotate-180 text-rose-500" : ""
+                      isOpen ? "rotate-180 text-violet-600" : ""
                     }`}
                   />
                 </button>
@@ -91,7 +91,7 @@ export const FAQSection = () => {
                 相談・見積りは完全無料です。まだ仕様が決まっていない段階でもどうぞ。
               </p>
               <Link href="/#contact">
-                <Button variant="primary" size="lg" className="rounded-full px-8 mt-2 shadow-sm hover:shadow-md hover:shadow-rose-500/20 font-bold">
+                <Button variant="primary" size="lg" className="rounded-full px-8 mt-2 shadow-sm hover:shadow-md hover:shadow-violet-500/20 font-bold">
                   <span>無料相談・お問い合わせ</span>
                 </Button>
               </Link>

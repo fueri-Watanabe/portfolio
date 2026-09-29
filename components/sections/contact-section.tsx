@@ -7,9 +7,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { ContactSchema, ContactFormData, CONTACT_TITLES } from "@/types";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Mail, Send, CheckCircle2, AlertCircle, Loader2, ArrowUpRight, Sparkles } from "lucide-react";
+import { Mail, Send, CheckCircle2, AlertCircle, Loader2, Sparkles } from "lucide-react";
 import ClientPrepDocuments from "@/components/sections/client-prep-documents";
-import { ProfileCompactCard } from "@/components/sections/profile-section";
 
 export const ContactSection = () => {
   const [isPending, startTransition] = useTransition();
@@ -92,28 +91,23 @@ export const ContactSection = () => {
           </Badge>
 
           <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-800 font-title tracking-tight">
-            Web開発・お見積りの{" "}
-            <span className="bg-gradient-to-r from-rose-500 to-red-600 bg-clip-text text-transparent">
+            Webシステム開発・DX推進の{" "}
+            <span className="bg-gradient-to-r from-violet-600 via-indigo-600 to-cyan-600 bg-clip-text text-transparent">
               ご相談
             </span>
           </h2>
 
           <p className="text-slate-600 max-w-xl text-base sm:text-lg">
-            新規システム開発・既存ツール改修・保守など、お気軽にお問い合わせください。
+            Webシステム開発、社内業務効率化（GAS自動化）、新規事業のMVP開発・SaaS構築など、お気軽にお問い合わせください。
           </p>
         </div>
 
-        {/* 代表直通コンタクトカード (軽量版) */}
-        <div className="mb-8 sm:mb-10">
-          <ProfileCompactCard />
-        </div>
-
-        <div className="rounded-3xl bg-white border border-slate-200/80 shadow-xs hover:shadow-sm p-8 sm:p-12 relative transition-all">
+        <div className="rounded-3xl bg-white/80 backdrop-blur-xl border border-slate-200/80 shadow-glass hover:border-violet-300/80 hover:ring-1 hover:ring-violet-500/20 p-8 sm:p-12 relative transition-all duration-300">
 
           {submitted ? (
             <div className="py-12 flex flex-col items-center text-center space-y-6">
-              <div className="w-16 h-16 rounded-full bg-teal-50 border border-teal-200 flex items-center justify-center text-teal-600 shadow-2xs">
-                <CheckCircle2 className="w-8 h-8 text-teal-600" />
+              <div className="w-16 h-16 rounded-full bg-cyan-50 border border-cyan-200 flex items-center justify-center text-cyan-600 shadow-2xs">
+                <CheckCircle2 className="w-8 h-8 text-cyan-600" />
               </div>
               <div className="space-y-2">
                 <h3 className="text-2xl font-bold text-slate-800 font-title">
@@ -126,7 +120,7 @@ export const ContactSection = () => {
               <Button
                 variant="outline"
                 onClick={() => setSubmitted(false)}
-                className="mt-4 rounded-full bg-white border-slate-200 text-slate-700 hover:bg-slate-50"
+                className="mt-4 rounded-full bg-white/80 backdrop-blur-sm border-slate-200 text-slate-700 hover:bg-white hover:text-violet-600 hover:border-violet-300 shadow-2xs"
               >
                 フォームに戻る
               </Button>
@@ -145,12 +139,12 @@ export const ContactSection = () => {
               <div className="space-y-2">
                 <label className="text-sm font-semibold text-slate-800 flex items-center gap-1">
                   <span>ご用件</span>
-                  <span className="text-rose-500">*</span>
+                  <span className="text-violet-500">*</span>
                 </label>
                 <select
                   defaultValue=""
                   {...register("title")}
-                  className="w-full bg-white border border-slate-200/90 rounded-2xl px-4 py-3.5 text-slate-800 text-sm focus:outline-none focus:border-rose-400 focus:bg-white focus:ring-2 focus:ring-rose-400/20 transition-all hover:border-slate-300"
+                  className="w-full bg-white/80 backdrop-blur-sm border border-slate-200/80 rounded-2xl px-4 py-3.5 text-slate-800 text-sm focus:outline-none focus:border-violet-500 focus:bg-white focus:ring-2 focus:ring-violet-500/20 transition-all hover:border-violet-300/80"
                 >
                   <option value="" disabled className="bg-white text-slate-400">
                     ご用件を選択してください
@@ -174,13 +168,13 @@ export const ContactSection = () => {
                 <div className="space-y-2">
                   <label className="text-sm font-semibold text-slate-800 flex items-center gap-1">
                     <span>お名前</span>
-                    <span className="text-rose-500">*</span>
+                    <span className="text-violet-500">*</span>
                   </label>
                   <input
                     type="text"
                     placeholder="山田 太郎"
                     {...register("contactName")}
-                    className="w-full bg-white border border-slate-200/90 rounded-2xl px-4 py-3.5 text-slate-800 placeholder:text-slate-400 text-sm focus:outline-none focus:border-rose-400 focus:bg-white focus:ring-2 focus:ring-rose-400/20 transition-all hover:border-slate-300"
+                    className="w-full bg-white/80 backdrop-blur-sm border border-slate-200/80 rounded-2xl px-4 py-3.5 text-slate-800 placeholder:text-slate-400 text-sm focus:outline-none focus:border-violet-500 focus:bg-white focus:ring-2 focus:ring-violet-500/20 transition-all hover:border-violet-300/80"
                   />
                   {errors.contactName && (
                     <p className="text-xs text-rose-600 flex items-center gap-1 mt-1">
@@ -198,7 +192,7 @@ export const ContactSection = () => {
                     type="text"
                     placeholder="株式会社サンプル"
                     {...register("company")}
-                    className="w-full bg-white border border-slate-200/90 rounded-2xl px-4 py-3.5 text-slate-800 placeholder:text-slate-400 text-sm focus:outline-none focus:border-rose-400 focus:bg-white focus:ring-2 focus:ring-rose-400/20 transition-all hover:border-slate-300"
+                    className="w-full bg-white/80 backdrop-blur-sm border border-slate-200/80 rounded-2xl px-4 py-3.5 text-slate-800 placeholder:text-slate-400 text-sm focus:outline-none focus:border-violet-500 focus:bg-white focus:ring-2 focus:ring-violet-500/20 transition-all hover:border-violet-300/80"
                   />
                 </div>
               </div>
@@ -207,13 +201,13 @@ export const ContactSection = () => {
               <div className="space-y-2">
                 <label className="text-sm font-semibold text-slate-800 flex items-center gap-1">
                   <span>メールアドレス</span>
-                  <span className="text-rose-500">*</span>
+                  <span className="text-violet-500">*</span>
                 </label>
                 <input
                   type="email"
                   placeholder="example@fueri.jp"
                   {...register("email")}
-                  className="w-full bg-white border border-slate-200/90 rounded-2xl px-4 py-3.5 text-slate-800 placeholder:text-slate-400 text-sm focus:outline-none focus:border-rose-400 focus:bg-white focus:ring-2 focus:ring-rose-400/20 transition-all hover:border-slate-300"
+                  className="w-full bg-white/80 backdrop-blur-sm border border-slate-200/80 rounded-2xl px-4 py-3.5 text-slate-800 placeholder:text-slate-400 text-sm focus:outline-none focus:border-violet-500 focus:bg-white focus:ring-2 focus:ring-violet-500/20 transition-all hover:border-violet-300/80"
                 />
                 {errors.email && (
                   <p className="text-xs text-rose-600 flex items-center gap-1 mt-1">
@@ -228,11 +222,11 @@ export const ContactSection = () => {
                 <div className="flex items-center justify-between">
                   <label className="text-sm font-semibold text-slate-800 flex items-center gap-1">
                     <span>お問い合わせ内容</span>
-                    <span className="text-rose-500">*</span>
+                    <span className="text-violet-500">*</span>
                   </label>
                   {isPrefilled && (
-                    <span className="inline-flex items-center gap-1 text-xs font-semibold text-teal-800 animate-pulse bg-teal-50 px-3 py-1 rounded-full border border-teal-200">
-                      <Sparkles className="w-3 h-3 text-teal-600" />
+                    <span className="inline-flex items-center gap-1 text-xs font-semibold text-cyan-800 animate-pulse bg-cyan-50 px-3 py-1 rounded-full border border-cyan-200">
+                      <Sparkles className="w-3 h-3 text-cyan-600" />
                       診断結果が自動入力されました
                     </span>
                   )}
@@ -241,10 +235,10 @@ export const ContactSection = () => {
                   rows={6}
                   placeholder="ご検討中のシステム要件やご質問、ご予算感などをお書きください。"
                   {...register("content")}
-                  className={`w-full bg-white border rounded-2xl px-4 py-3.5 text-slate-800 placeholder:text-slate-400 text-sm focus:outline-none focus:border-rose-400 focus:bg-white focus:ring-2 focus:ring-rose-400/20 transition-all resize-none hover:border-slate-300 ${
+                  className={`w-full bg-white/80 backdrop-blur-sm border rounded-2xl px-4 py-3.5 text-slate-800 placeholder:text-slate-400 text-sm focus:outline-none focus:border-violet-500 focus:bg-white focus:ring-2 focus:ring-violet-500/20 transition-all resize-none hover:border-violet-300/80 ${
                     isPrefilled
-                      ? "border-teal-400 ring-2 ring-teal-400/20 bg-teal-50/20"
-                      : "border-slate-200/90"
+                      ? "border-cyan-400 ring-2 ring-cyan-400/20 bg-cyan-50/20"
+                      : "border-slate-200/80"
                   }`}
                 />
                 {errors.content && (
@@ -261,7 +255,7 @@ export const ContactSection = () => {
                 variant="primary"
                 size="lg"
                 disabled={isPending}
-                className="w-full justify-center rounded-full font-bold py-4 mt-4 shadow-sm hover:shadow-md hover:shadow-rose-500/20"
+                className="w-full justify-center rounded-full font-bold py-4 mt-4 shadow-glass hover:shadow-glass-hover hover:shadow-violet-500/20 transition-all"
               >
                 {isPending ? (
                   <>
@@ -282,7 +276,7 @@ export const ContactSection = () => {
                 <Link
                   href="/terms"
                   target="_blank"
-                  className="text-rose-600 underline hover:text-rose-700 mx-1 font-medium"
+                  className="text-violet-600 underline hover:text-violet-700 mx-1 font-medium"
                 >
                   ご利用規約 & サポート保証規定
                 </Link>
@@ -291,28 +285,6 @@ export const ContactSection = () => {
 
             </form>
           )}
-
-          {/* X DM 相談導線 */}
-          <div className="mt-8 pt-6 border-t border-slate-100 text-center space-y-3">
-            <p className="text-xs text-slate-500">
-              フォームのほか、X (旧Twitter) DMからの直接ご相談・お問い合わせも受け付けております
-            </p>
-            <div>
-              <a
-                href="https://x.com/hiroshifueri"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold bg-slate-50/80 text-slate-700 border border-slate-200 hover:bg-white hover:border-rose-300 hover:text-rose-600 transition-all duration-200 shadow-2xs"
-              >
-                <svg className="w-4 h-4 fill-current text-slate-700" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                </svg>
-                <span>DMで相談する</span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-rose-500" />
-              </a>
-            </div>
-          </div>
-
         </div>
 
         {/* 発注検討者向け：事前準備 & 安心のお約束ドキュメント（ヒアリングシート＆契約条件） */}

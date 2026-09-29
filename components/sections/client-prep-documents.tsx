@@ -121,12 +121,12 @@ export const ClientPrepDocuments = () => {
   return (
     <div className="w-full mt-10">
       {/* トリガーカード */}
-      <div className="rounded-3xl bg-slate-50/80 border border-slate-200/90 p-5 sm:p-6 transition-all duration-300">
+      <div className="rounded-3xl bg-white/80 backdrop-blur-xl border border-slate-200/80 p-5 sm:p-6 shadow-glass hover:border-violet-300/80 hover:ring-1 hover:ring-violet-500/20 transition-all duration-300">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="space-y-1">
             <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-teal-50 text-teal-800 border border-teal-200/80">
-                <Sparkles className="w-3 h-3 text-teal-600" />
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-cyan-50 text-cyan-800 border border-cyan-200/80">
+                <Sparkles className="w-3 h-3 text-cyan-600" />
                 <span>安心のお約束 & 事前準備ドキュメント</span>
               </span>
             </div>
@@ -143,7 +143,7 @@ export const ClientPrepDocuments = () => {
             variant="outline"
             size="sm"
             onClick={() => setIsOpen(!isOpen)}
-            className="rounded-full px-4 py-2 text-xs font-semibold bg-white border-slate-200 hover:border-teal-300 text-slate-700 hover:text-teal-700 shadow-2xs gap-1.5 flex-shrink-0"
+            className="rounded-full px-4 py-2 text-xs font-semibold bg-white border-slate-200 hover:border-violet-300 text-slate-700 hover:text-violet-700 shadow-2xs gap-1.5 flex-shrink-0"
           >
             <span>{isOpen ? "閉じる" : "ドキュメントを展開して確認・コピー"}</span>
             <ChevronDown
@@ -172,7 +172,7 @@ export const ClientPrepDocuments = () => {
                     onClick={() => setActiveTab("hearing")}
                     className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
                       activeTab === "hearing"
-                        ? "bg-teal-600 text-white shadow-xs"
+                        ? "bg-gradient-to-r from-violet-600 to-cyan-600 text-white shadow-xs"
                         : "text-slate-600 hover:text-slate-900"
                     }`}
                   >
@@ -184,7 +184,7 @@ export const ClientPrepDocuments = () => {
                     onClick={() => setActiveTab("terms")}
                     className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
                       activeTab === "terms"
-                        ? "bg-teal-600 text-white shadow-xs"
+                        ? "bg-gradient-to-r from-violet-600 to-cyan-600 text-white shadow-xs"
                         : "text-slate-600 hover:text-slate-900"
                     }`}
                   >
@@ -200,8 +200,8 @@ export const ClientPrepDocuments = () => {
                   onClick={() => handleCopy(activeTab)}
                   className={`rounded-full px-4 py-2 text-xs font-bold transition-all flex items-center gap-1.5 shadow-xs ${
                     copied === activeTab
-                      ? "bg-emerald-600 text-white hover:bg-emerald-600"
-                      : "bg-slate-800 text-white hover:bg-slate-900"
+                      ? "bg-cyan-600 text-white hover:bg-cyan-600"
+                      : "bg-gradient-to-r from-violet-600 via-indigo-600 to-cyan-600 text-white hover:opacity-95"
                   }`}
                 >
                   {copied === activeTab ? (
@@ -220,7 +220,7 @@ export const ClientPrepDocuments = () => {
 
               {/* ドキュメント解説バナー */}
               <div className="p-3 rounded-2xl bg-white border border-slate-200/80 text-xs text-slate-600 flex items-start gap-2 mb-3">
-                <Info className="w-4 h-4 text-teal-600 flex-shrink-0 mt-0.5" />
+                <Info className="w-4 h-4 text-cyan-600 flex-shrink-0 mt-0.5" />
                 <div>
                   {activeTab === "hearing" ? (
                     <span>
@@ -236,7 +236,7 @@ export const ClientPrepDocuments = () => {
 
               {/* プレビューコードブロック */}
               <div className="relative rounded-2xl bg-slate-900 text-slate-100 p-4 sm:p-5 font-mono text-xs overflow-x-auto max-h-[360px] overflow-y-auto leading-relaxed border border-slate-800 shadow-inner">
-                <pre className="whitespace-pre-wrap font-mono text-[11px] sm:text-xs text-slate-200 selection:bg-teal-500 selection:text-white">
+                <pre className="whitespace-pre-wrap font-mono text-[11px] sm:text-xs text-slate-200 selection:bg-violet-500 selection:text-white">
                   {currentContent}
                 </pre>
               </div>

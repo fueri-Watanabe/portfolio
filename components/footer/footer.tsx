@@ -1,7 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
-import { Code2, Github, ArrowUp } from "lucide-react";
+import { Github, ArrowUp } from "lucide-react";
 
 export const Footer = () => {
   const scrollToTop = () => {
@@ -16,8 +17,16 @@ export const Footer = () => {
           {/* 左カラム: ブランド */}
           <div className="md:col-span-2 space-y-3">
             <div className="flex items-center gap-2.5">
-              <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-rose-500 to-red-600 flex items-center justify-center shadow-xs">
-                <Code2 className="w-3.5 h-3.5 text-white" />
+              <div className="relative w-7 h-7 rounded-full bg-gradient-to-tr from-violet-600 via-indigo-600 to-cyan-500 p-0.5 flex items-center justify-center shadow-xs flex-shrink-0">
+                <div className="w-full h-full bg-white rounded-full flex items-center justify-center overflow-hidden p-0.5">
+                  <Image
+                    src="/logo.webp"
+                    alt="fueri"
+                    width={22}
+                    height={22}
+                    className="object-contain"
+                  />
+                </div>
               </div>
               <span className="font-bold text-base text-slate-800 tracking-tight">
                 fueri <span className="text-slate-500 text-xs font-normal">/ Hiroshi Watanabe</span>
@@ -33,22 +42,22 @@ export const Footer = () => {
             <h4 className="text-xs font-bold text-slate-800 uppercase tracking-wider">Navigation</h4>
             <ul className="space-y-1.5 text-xs text-slate-600">
               <li>
-                <Link href="/#services" className="hover:text-rose-600 transition-colors">
+                <Link href="/#services" className="hover:text-violet-600 transition-colors">
                   サービス一覧
                 </Link>
               </li>
               <li>
-                <Link href="/#why-choose-us" className="hover:text-rose-600 transition-colors">
+                <Link href="/#why-choose-us" className="hover:text-violet-600 transition-colors">
                   選ばれる理由
                 </Link>
               </li>
               <li>
-                <Link href="/#process-flow" className="hover:text-rose-600 transition-colors">
+                <Link href="/#process-flow" className="hover:text-violet-600 transition-colors">
                   開発の流れ
                 </Link>
               </li>
               <li>
-                <Link href="/#projects" className="hover:text-rose-600 transition-colors">
+                <Link href="/#projects" className="hover:text-violet-600 transition-colors">
                   実績プロダクト
                 </Link>
               </li>
@@ -60,33 +69,33 @@ export const Footer = () => {
             <h4 className="text-xs font-bold text-slate-800 uppercase tracking-wider">Information</h4>
             <ul className="space-y-1.5 text-xs text-slate-600">
               <li>
-                <Link href="/about" className="hover:text-rose-600 transition-colors">
+                <Link href="/about" className="hover:text-violet-600 transition-colors">
                   代表プロフィール・理念
                 </Link>
               </li>
               <li>
-                <Link href="/process" className="hover:text-rose-600 transition-colors">
+                <Link href="/process" className="hover:text-violet-600 transition-colors">
                   よくある質問 (FAQ)
                 </Link>
               </li>
               <li>
-                <Link href="/terms" className="hover:text-rose-600 transition-colors">
+                <Link href="/terms" className="hover:text-violet-600 transition-colors">
                   ご利用規約・保証規定
                 </Link>
               </li>
               <li>
-                <Link href="/partners" className="hover:text-rose-600 transition-colors flex items-center gap-1.5">
+                <Link href="/partners" className="hover:text-violet-600 transition-colors flex items-center gap-1.5">
                   <span>パートナー募集</span>
-                  <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded-full bg-teal-50 text-teal-800 border border-teal-200">協業</span>
+                  <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded-full bg-cyan-50 text-cyan-800 border border-cyan-200">協業</span>
                 </Link>
               </li>
               <li>
-                <Link href="/partners/guideline" className="hover:text-rose-600 transition-colors">
+                <Link href="/partners/guideline" className="hover:text-violet-600 transition-colors">
                   パートナー品質ガイドライン
                 </Link>
               </li>
               <li>
-                <Link href="/#contact" className="hover:text-rose-600 transition-colors">
+                <Link href="/#contact" className="hover:text-violet-600 transition-colors">
                   お見積り・ご相談
                 </Link>
               </li>
@@ -102,24 +111,11 @@ export const Footer = () => {
           </div>
 
           <div className="flex items-center gap-2">
-            <a
-              href="https://x.com/hiroshifueri"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 rounded-full text-slate-500 hover:text-rose-600 hover:bg-slate-200/60 transition-colors"
-              aria-label="X"
-              title="X"
-            >
-              <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-              </svg>
-            </a>
-
             <Link
               href="https://github.com/fueri-Watanabe"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-full text-slate-500 hover:text-rose-600 hover:bg-slate-200/60 transition-colors"
+              className="p-2 rounded-full text-slate-500 hover:text-violet-600 hover:bg-slate-200/60 transition-colors"
               aria-label="GitHub"
               title="GitHub"
             >
@@ -128,7 +124,7 @@ export const Footer = () => {
 
             <button
               onClick={scrollToTop}
-              className="p-2 rounded-full text-slate-500 hover:text-rose-600 hover:bg-slate-200/60 transition-colors ml-2"
+              className="p-2 rounded-full text-slate-500 hover:text-violet-600 hover:bg-slate-200/60 transition-colors ml-2"
               aria-label="Back to Top"
               title="ページ最上部へ戻る"
             >

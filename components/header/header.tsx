@@ -1,9 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ArrowUpRight, Code2 } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export const Header = () => {
@@ -44,11 +45,20 @@ export const Header = () => {
           href="/"
           className="flex items-center gap-2.5 group transition-transform duration-200 active:scale-95 pl-1.5"
         >
-          <div className="w-8 h-8 rounded-full p-0.5 shadow-xs group-hover:scale-105 transition-transform flex items-center justify-center bg-gradient-to-tr from-rose-500 to-red-600 text-white">
-            <Code2 className="w-4 h-4" />
+          <div className="relative w-8 h-8 rounded-full p-0.5 shadow-xs group-hover:scale-105 transition-transform flex items-center justify-center bg-gradient-to-tr from-violet-600 via-indigo-600 to-cyan-500 flex-shrink-0">
+            <div className="w-full h-full bg-white rounded-full flex items-center justify-center overflow-hidden p-0.5">
+              <Image
+                src="/logo.webp"
+                alt="fueri"
+                width={26}
+                height={26}
+                className="object-contain"
+                priority
+              />
+            </div>
           </div>
           <div className="flex flex-col">
-            <span className="font-bold text-sm leading-none tracking-tight text-slate-800 group-hover:text-rose-600 transition-colors">
+            <span className="font-bold text-sm leading-none tracking-tight text-slate-800 group-hover:text-violet-600 transition-colors">
               fueri{" "}
               <span className="text-xs font-normal text-slate-500">
                 / Hiroshi Watanabe

@@ -20,14 +20,26 @@ const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
 });
 
-const siteName = "fueri / Hiroshi Watanabe - Portfolio";
-const description = "Web Developer / フルスタックエンジニア Hiroshi Watanabe のポートフォリオサイト";
+const siteName = "fueri | 中小企業・スタートアップのWebシステム開発・DX推進パートナー";
+const description = "中小企業・スタートアップのDX推進と業務効率化を加速させるWebシステム開発・業務自動化スタジオ fueri。社内ツールDX・GAS自動化からNext.jsによるWebシステム・SaaS/MVP構築まで、代表直通体制で伴走支援します。";
 const url = "https://fueri.jp";
 
 export const metadata: Metadata = {
   metadataBase: new URL(url),
   title: { default: siteName, template: `%s - ${siteName}` },
   description,
+  keywords: [
+    "DX",
+    "DX推進",
+    "業務効率化",
+    "Webシステム開発",
+    "MVP開発",
+    "SaaS構築",
+    "社内ツールDX",
+    "GAS自動化",
+    "Next.js",
+    "fueri",
+  ],
   openGraph: {
     title: siteName,
     description,
@@ -39,7 +51,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#fafbfe",
+  themeColor: "#f8fafc",
 };
 
 export default function RootLayout({
@@ -50,7 +62,7 @@ export default function RootLayout({
   return (
     <html lang="ja" className="scroll-smooth">
       <body
-        className={`${plusJakartaSans.variable} ${notoSansJP.variable} ${jetbrainsMono.variable} font-sans text-slate-800 bg-slate-50/70 antialiased min-h-screen flex flex-col`}
+        className={`${plusJakartaSans.variable} ${notoSansJP.variable} ${jetbrainsMono.variable} font-sans text-slate-800 bg-slate-50 antialiased min-h-screen flex flex-col`}
       >
         <Providers>
           <Header />

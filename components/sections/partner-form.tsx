@@ -91,7 +91,7 @@ ${formData.message || "特記事項なし"}`;
   if (submitted) {
     return (
       <div className="p-8 sm:p-12 rounded-3xl bg-white border border-slate-200/80 shadow-xs text-center space-y-4 max-w-2xl mx-auto">
-        <div className="w-16 h-16 rounded-full bg-teal-50 text-teal-600 border border-teal-200 flex items-center justify-center mx-auto shadow-2xs">
+        <div className="w-16 h-16 rounded-full bg-cyan-50 text-cyan-600 border border-cyan-200 flex items-center justify-center mx-auto shadow-2xs">
           <CheckCircle2 className="w-8 h-8" />
         </div>
         <h3 className="text-xl sm:text-2xl font-extrabold text-slate-800 font-title">
@@ -115,7 +115,7 @@ ${formData.message || "特記事項なし"}`;
                 message: "",
               });
             }}
-            className="rounded-full text-xs bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100"
+            className="rounded-full text-xs bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100 hover:text-violet-600"
           >
             別の内容で登録・再入力する
           </Button>
@@ -127,8 +127,8 @@ ${formData.message || "特記事項なし"}`;
   return (
     <div className="p-6 sm:p-10 rounded-3xl bg-white border border-slate-200/80 shadow-xs hover:shadow-sm relative overflow-hidden transition-all">
       <div className="mb-8 text-center sm:text-left space-y-1">
-        <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-teal-800 bg-teal-50 px-3 py-1 rounded-full border border-teal-200/80 mb-1">
-          <ShieldCheck className="w-3.5 h-3.5 text-teal-600" />
+        <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-800 bg-cyan-50 px-3 py-1 rounded-full border border-cyan-200/80 mb-1">
+          <ShieldCheck className="w-3.5 h-3.5 text-cyan-600" />
           <span>登録無料・案件発生時に優先的にお声がけします</span>
         </div>
         <h3 className="text-xl sm:text-2xl font-extrabold text-slate-800 font-title">
@@ -144,9 +144,9 @@ ${formData.message || "特記事項なし"}`;
           {/* お名前 */}
           <div className="space-y-1.5">
             <label className="text-xs font-bold text-slate-800 flex items-center gap-1.5">
-              <User className="w-3.5 h-3.5 text-rose-500" />
+              <User className="w-3.5 h-3.5 text-violet-500" />
               <span>お名前</span>
-              <span className="text-rose-500 font-bold">*</span>
+              <span className="text-violet-500 font-bold">*</span>
             </label>
             <input
               type="text"
@@ -155,16 +155,16 @@ ${formData.message || "特記事項なし"}`;
               value={formData.name}
               onChange={handleChange}
               placeholder="例: 山田 太郎"
-              className="w-full px-4 py-2.5 rounded-xl border border-slate-200/90 text-sm focus:outline-none focus:border-rose-400 focus:ring-2 focus:ring-rose-400/20 transition-all bg-white text-slate-800 placeholder:text-slate-400 hover:border-slate-300"
+              className="w-full px-4 py-2.5 rounded-xl border border-slate-200/90 text-sm focus:outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-500/20 transition-all bg-white text-slate-800 placeholder:text-slate-400 hover:border-slate-300"
             />
           </div>
 
           {/* メールアドレス */}
           <div className="space-y-1.5">
             <label className="text-xs font-bold text-slate-800 flex items-center gap-1.5">
-              <Mail className="w-3.5 h-3.5 text-rose-500" />
+              <Mail className="w-3.5 h-3.5 text-violet-500" />
               <span>メールアドレス</span>
-              <span className="text-rose-500 font-bold">*</span>
+              <span className="text-violet-500 font-bold">*</span>
             </label>
             <input
               type="email"
@@ -173,7 +173,7 @@ ${formData.message || "特記事項なし"}`;
               value={formData.email}
               onChange={handleChange}
               placeholder="例: your-name@example.com"
-              className="w-full px-4 py-2.5 rounded-xl border border-slate-200/90 text-sm focus:outline-none focus:border-rose-400 focus:ring-2 focus:ring-rose-400/20 transition-all bg-white text-slate-800 placeholder:text-slate-400 hover:border-slate-300"
+              className="w-full px-4 py-2.5 rounded-xl border border-slate-200/90 text-sm focus:outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-500/20 transition-all bg-white text-slate-800 placeholder:text-slate-400 hover:border-slate-300"
             />
           </div>
         </div>
@@ -182,16 +182,16 @@ ${formData.message || "特記事項なし"}`;
           {/* 主な職種 / 得意領域 */}
           <div className="space-y-1.5">
             <label className="text-xs font-bold text-slate-800 flex items-center gap-1.5">
-              <Briefcase className="w-3.5 h-3.5 text-rose-500" />
+              <Briefcase className="w-3.5 h-3.5 text-violet-500" />
               <span>主な職種 / 得意領域</span>
-              <span className="text-rose-500 font-bold">*</span>
+              <span className="text-violet-500 font-bold">*</span>
             </label>
             <select
               name="role"
               required
               value={formData.role}
               onChange={handleChange}
-              className="w-full px-4 py-2.5 rounded-xl border border-slate-200/90 text-sm focus:outline-none focus:border-rose-400 focus:ring-2 focus:ring-rose-400/20 transition-all bg-white text-slate-800 hover:border-slate-300"
+              className="w-full px-4 py-2.5 rounded-xl border border-slate-200/90 text-sm focus:outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-500/20 transition-all bg-white text-slate-800 hover:border-slate-300"
             >
               <option value="フロントエンド">フロントエンド（Next.js / TypeScript）</option>
               <option value="バックエンド・インフラ">バックエンド・インフラ（GCP / Firebase / Supabase）</option>
@@ -204,16 +204,16 @@ ${formData.message || "特記事項なし"}`;
           {/* 稼働可能時間の目安 */}
           <div className="space-y-1.5">
             <label className="text-xs font-bold text-slate-800 flex items-center gap-1.5">
-              <Clock className="w-3.5 h-3.5 text-rose-500" />
+              <Clock className="w-3.5 h-3.5 text-violet-500" />
               <span>稼働可能時間の目安</span>
-              <span className="text-rose-500 font-bold">*</span>
+              <span className="text-violet-500 font-bold">*</span>
             </label>
             <select
               name="availableHours"
               required
               value={formData.availableHours}
               onChange={handleChange}
-              className="w-full px-4 py-2.5 rounded-xl border border-slate-200/90 text-sm focus:outline-none focus:border-rose-400 focus:ring-2 focus:ring-rose-400/20 transition-all bg-white text-slate-800 hover:border-slate-300"
+              className="w-full px-4 py-2.5 rounded-xl border border-slate-200/90 text-sm focus:outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-500/20 transition-all bg-white text-slate-800 hover:border-slate-300"
             >
               <option value="週5〜10時間">週5〜10時間（副業・すきま時間）</option>
               <option value="週10〜20時間">週10〜20時間（副業・中規模案件）</option>
@@ -226,7 +226,7 @@ ${formData.message || "特記事項なし"}`;
         {/* ポートフォリオ・GitHub URL */}
         <div className="space-y-1.5">
           <label className="text-xs font-bold text-slate-800 flex items-center gap-1.5">
-            <Globe className="w-3.5 h-3.5 text-rose-500" />
+            <Globe className="w-3.5 h-3.5 text-violet-500" />
             <span>ポートフォリオ / GitHub URL</span>
             <span className="text-slate-400 text-[10px] font-normal">（任意）</span>
           </label>
@@ -236,14 +236,14 @@ ${formData.message || "特記事項なし"}`;
             value={formData.portfolioUrl}
             onChange={handleChange}
             placeholder="例: https://github.com/your-account または ポートフォリオサイトURL"
-            className="w-full px-4 py-2.5 rounded-xl border border-slate-200/90 text-sm focus:outline-none focus:border-rose-400 focus:ring-2 focus:ring-rose-400/20 transition-all bg-white text-slate-800 placeholder:text-slate-400 hover:border-slate-300"
+            className="w-full px-4 py-2.5 rounded-xl border border-slate-200/90 text-sm focus:outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-500/20 transition-all bg-white text-slate-800 placeholder:text-slate-400 hover:border-slate-300"
           />
         </div>
 
         {/* メッセージ・自己PR */}
         <div className="space-y-1.5">
           <label className="text-xs font-bold text-slate-800 flex items-center gap-1.5">
-            <MessageSquare className="w-3.5 h-3.5 text-rose-500" />
+            <MessageSquare className="w-3.5 h-3.5 text-violet-500" />
             <span>メッセージ・自己PR・希望案件タイプ</span>
             <span className="text-slate-400 text-[10px] font-normal">（任意）</span>
           </label>
@@ -253,7 +253,7 @@ ${formData.message || "特記事項なし"}`;
             value={formData.message}
             onChange={handleChange}
             placeholder="得意な技術スタック、過去の実績概要、やってみたい案件分野などがあれば自由にご記入ください。"
-            className="w-full px-4 py-2.5 rounded-xl border border-slate-200/90 text-sm focus:outline-none focus:border-rose-400 focus:ring-2 focus:ring-rose-400/20 transition-all bg-white text-slate-800 placeholder:text-slate-400 hover:border-slate-300 resize-y"
+            className="w-full px-4 py-2.5 rounded-xl border border-slate-200/90 text-sm focus:outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-500/20 transition-all bg-white text-slate-800 placeholder:text-slate-400 hover:border-slate-300 resize-y"
           />
         </div>
 
@@ -270,7 +270,7 @@ ${formData.message || "特記事項なし"}`;
             disabled={loading}
             variant="primary"
             size="lg"
-            className="w-full justify-center rounded-full text-sm font-bold shadow-sm hover:shadow-md hover:shadow-rose-500/20 py-3.5"
+            className="w-full justify-center rounded-full text-sm font-bold shadow-sm hover:shadow-md hover:shadow-violet-500/20 py-3.5"
           >
             {loading ? (
               <span className="flex items-center gap-2">
@@ -291,7 +291,7 @@ ${formData.message || "特記事項なし"}`;
               <Link
                 href="/partners/guideline"
                 target="_blank"
-                className="text-rose-600 underline font-medium hover:text-rose-700 ml-1"
+                className="text-violet-600 underline font-medium hover:text-violet-700 ml-1"
               >
                 パートナー品質ガイドライン
               </Link>

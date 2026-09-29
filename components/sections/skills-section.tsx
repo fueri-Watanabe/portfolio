@@ -127,7 +127,7 @@ export const SkillsSection = () => {
         
         {/* ヘッダー */}
         <div className="flex flex-col items-center text-center space-y-4 mb-16">
-          <Badge variant="gradient" className="px-4 py-1 gap-1.5 text-xs font-semibold">
+          <Badge variant="glow" className="px-4 py-1 gap-1.5 text-xs font-semibold uppercase tracking-wider">
             <Cpu className="w-3.5 h-3.5 text-cyan-500" />
             <span>Skills & Value Proposition / 強みとスキル</span>
           </Badge>
@@ -151,7 +151,7 @@ export const SkillsSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Card glass glow className="p-8 h-full flex flex-col justify-between border-slate-200/80 dark:border-white/10 hover:border-cyan-500/50">
+              <Card glass glow className="p-8 h-full flex flex-col justify-between border-slate-200/80 dark:border-white/10 hover:border-violet-300/80 hover:ring-1 hover:ring-violet-500/20">
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <div className="w-12 h-12 rounded-xl bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/60 flex items-center justify-center shadow-md">

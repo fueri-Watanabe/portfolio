@@ -14,12 +14,12 @@ import {
 
 export const RoadmapSection = () => {
   const iconMap: Record<string, React.ReactNode> = {
-    Code2: <Code2 className="w-4 h-4 text-rose-500" />,
-    Briefcase: <Briefcase className="w-4 h-4 text-rose-500" />,
-    Layers: <Layers className="w-4 h-4 text-teal-600" />,
-    Building2: <Building2 className="w-4 h-4 text-teal-600" />,
-    Rocket: <Rocket className="w-4 h-4 text-rose-500" />,
-    Sparkles: <Sparkles className="w-4 h-4 text-rose-500" />,
+    Code2: <Code2 className="w-4 h-4 text-violet-600" />,
+    Briefcase: <Briefcase className="w-4 h-4 text-violet-600" />,
+    Layers: <Layers className="w-4 h-4 text-cyan-600" />,
+    Building2: <Building2 className="w-4 h-4 text-cyan-600" />,
+    Rocket: <Rocket className="w-4 h-4 text-cyan-600" />,
+    Sparkles: <Sparkles className="w-4 h-4 text-violet-600" />,
   };
 
   return (
@@ -63,24 +63,24 @@ export const RoadmapSection = () => {
                 >
                   {/* タイムライン軸上のアイコンノード */}
                   <div className="absolute left-6 md:left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-white border border-slate-200/90 flex items-center justify-center shadow-xs z-20">
-                    {iconMap[item.iconName] || <Code2 className="w-4 h-4 text-rose-500" />}
+                    {iconMap[item.iconName] || <Code2 className="w-4 h-4 text-violet-600" />}
                   </div>
 
                   {/* カード領域 */}
                   <div className={`w-full md:w-1/2 pl-16 md:pl-0 ${isEven ? "md:pr-12 md:text-right" : "md:pl-12"}`}>
                     <div
-                      className={`p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/80 shadow-xs hover:shadow-md hover:border-rose-300 hover:-translate-y-0.5 transition-all duration-300 ${
-                        item.isCurrent ? "border-rose-300 ring-2 ring-rose-400/20" : ""
+                      className={`p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/80 shadow-xs hover:shadow-md hover:border-violet-300 hover:ring-1 hover:ring-violet-500/20 hover:-translate-y-0.5 transition-all duration-300 ${
+                        item.isCurrent ? "border-violet-300 ring-2 ring-violet-400/20" : ""
                       }`}
                     >
                       <div className={`space-y-3 ${isEven ? "md:items-end" : ""}`}>
                         {/* フェーズ & バッジ */}
                         <div className={`flex items-center gap-2 flex-wrap ${isEven ? "md:justify-end" : ""}`}>
-                          <span className="text-xs font-mono font-bold text-rose-600 tracking-wider">
+                          <span className="text-xs font-mono font-bold text-violet-600 tracking-wider">
                             {item.period}
                           </span>
                           {item.isCurrent && (
-                            <span className="px-2.5 py-0.5 rounded-full text-[10px] bg-gradient-to-r from-rose-500 to-red-600 text-white font-bold tracking-tight shadow-2xs">
+                            <span className="px-2.5 py-0.5 rounded-full text-[10px] bg-gradient-to-r from-violet-600 to-cyan-600 text-white font-bold tracking-tight shadow-2xs">
                               NOW & BEYOND
                             </span>
                           )}

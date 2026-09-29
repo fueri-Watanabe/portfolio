@@ -22,13 +22,17 @@ export function Badge({
     outline:
       "border border-slate-200/90 text-slate-700 bg-white/90 backdrop-blur-sm",
     gradient:
-      "bg-gradient-to-r from-rose-50 to-red-50 text-rose-700 border border-rose-200/80 shadow-xs",
+      "bg-gradient-to-r from-violet-50 to-cyan-50 text-violet-800 border border-violet-200/80 shadow-xs",
     glow:
-      "bg-rose-50 text-rose-700 border border-rose-200/80 shadow-xs",
+      "bg-violet-50/80 text-violet-800 border border-violet-200/80 shadow-2xs",
     teal:
-      "bg-teal-50 text-teal-800 border border-teal-200/80 shadow-xs",
+      "bg-cyan-50 text-cyan-800 border border-cyan-200/80 shadow-xs",
     sky:
       "bg-sky-50 text-sky-800 border border-sky-200/80 shadow-xs",
+    cyan:
+      "bg-cyan-50 text-cyan-800 border border-cyan-200/80 shadow-xs",
+    violet:
+      "bg-violet-50 text-violet-800 border border-violet-200/80 shadow-xs",
   };
 
   return (
