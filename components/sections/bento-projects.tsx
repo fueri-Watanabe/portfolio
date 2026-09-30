@@ -17,8 +17,12 @@ import {
 
 export const BentoProjectsSection = () => {
   return (
-    <section id="projects" className="py-20 md:py-32 relative z-10">
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="py-20 md:py-32 relative z-10 overflow-hidden">
+      {/* 背景アンビエントグロー */}
+      <div className="absolute top-1/4 left-1/4 w-[650px] h-[500px] bg-gradient-to-r from-violet-400/20 via-indigo-300/15 to-transparent rounded-full blur-3xl opacity-35 pointer-events-none" />
+      <div className="absolute bottom-20 right-10 w-[550px] h-[450px] bg-gradient-to-bl from-cyan-400/20 via-violet-300/15 to-transparent rounded-full blur-3xl opacity-30 pointer-events-none" />
+
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* セクションヘッダー */}
         <div className="flex flex-col items-center text-center mb-14">
@@ -70,6 +74,93 @@ export const BentoProjectsSection = () => {
                     <h3 className="text-lg sm:text-xl font-bold text-slate-800 font-title group-hover:text-violet-600 transition-colors leading-snug">
                       {project.title}
                     </h3>
+
+                    {/* システム構成・データフロー ミニチュア図解 */}
+                    <div className="p-2.5 rounded-2xl bg-gradient-to-r from-slate-50/90 to-white/70 border border-slate-200/80 shadow-2xs">
+                      {project.id === "b2b-gas-automation" && (
+                        <div className="space-y-1.5 font-mono text-[10px]">
+                          <div className="flex items-center justify-between text-[9px] text-slate-400 font-sans font-semibold">
+                            <span>ARCHITECTURAL FLOW</span>
+                            <span className="flex items-center gap-1 text-emerald-600">
+                              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                              Pipeline Active
+                            </span>
+                          </div>
+                          <div className="flex items-center justify-between gap-1 text-center">
+                            <div className="flex-1 p-1 rounded-lg bg-emerald-50/80 border border-emerald-200/70 text-emerald-800 font-bold leading-tight">
+                              <div className="text-[9px]">Sheets</div>
+                              <span className="text-[7.5px] font-normal text-emerald-600">データ集約</span>
+                            </div>
+                            <span className="text-slate-400 text-[10px]">➔</span>
+                            <div className="flex-1 p-1 rounded-lg bg-violet-50/80 border border-violet-200/70 text-violet-800 font-bold leading-tight">
+                              <div className="text-[9px]">GAS Engine</div>
+                              <span className="text-[7.5px] font-normal text-violet-600">自動トリガー</span>
+                            </div>
+                            <span className="text-slate-400 text-[10px]">➔</span>
+                            <div className="flex-1 p-1 rounded-lg bg-cyan-50/80 border border-cyan-200/70 text-cyan-800 font-bold leading-tight">
+                              <div className="text-[9px]">Slack/Mail</div>
+                              <span className="text-[7.5px] font-normal text-cyan-600">即時マルチ通知</span>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+
+                      {project.id === "b2b-realestate-mvp" && (
+                        <div className="space-y-1.5 font-mono text-[10px]">
+                          <div className="flex items-center justify-between text-[9px] text-slate-400 font-sans font-semibold">
+                            <span>SYSTEM TOPOLOGY</span>
+                            <span className="flex items-center gap-1 text-cyan-600">
+                              <span className="w-1.5 h-1.5 rounded-full bg-cyan-500 animate-pulse" />
+                              Realtime Sync
+                            </span>
+                          </div>
+                          <div className="flex items-center justify-between gap-1 text-center">
+                            <div className="flex-1 p-1 rounded-lg bg-slate-100/90 border border-slate-200 text-slate-800 font-bold leading-tight">
+                              <div className="text-[9px]">Client UI</div>
+                              <span className="text-[7.5px] font-normal text-slate-500">リアルタイム試算</span>
+                            </div>
+                            <span className="text-slate-400 text-[10px]">➔</span>
+                            <div className="flex-1 p-1 rounded-lg bg-indigo-50/80 border border-indigo-200/70 text-indigo-800 font-bold leading-tight">
+                              <div className="text-[9px]">Next.js+DB</div>
+                              <span className="text-[7.5px] font-normal text-indigo-600">Supabase RLS</span>
+                            </div>
+                            <span className="text-slate-400 text-[10px]">➔</span>
+                            <div className="flex-1 p-1 rounded-lg bg-violet-50/80 border border-violet-200/70 text-violet-800 font-bold leading-tight">
+                              <div className="text-[9px]">Stripe API</div>
+                              <span className="text-[7.5px] font-normal text-violet-600">決済＆CRM連携</span>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+
+                      {project.id === "b2b-corporate-lp" && (
+                        <div className="space-y-1.5 font-mono text-[10px]">
+                          <div className="flex items-center justify-between text-[9px] text-slate-400 font-sans font-semibold">
+                            <span>SPEED PIPELINE</span>
+                            <span className="flex items-center gap-1 text-amber-600">
+                              <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+                              High-Speed CDN
+                            </span>
+                          </div>
+                          <div className="flex items-center justify-between gap-1 text-center">
+                            <div className="flex-1 p-1 rounded-lg bg-amber-50/80 border border-amber-200/70 text-amber-800 font-bold leading-tight">
+                              <div className="text-[9px]">訪問ユーザー</div>
+                              <span className="text-[7.5px] font-normal text-amber-600">Edge SSR キャッシュ</span>
+                            </div>
+                            <span className="text-slate-400 text-[10px]">➔</span>
+                            <div className="flex-1 p-1 rounded-lg bg-cyan-50/80 border border-cyan-200/70 text-cyan-800 font-bold leading-tight">
+                              <div className="text-[9px]">高速描画</div>
+                              <span className="text-[7.5px] font-normal text-cyan-600">PageSpeed 98点</span>
+                            </div>
+                            <span className="text-slate-400 text-[10px]">➔</span>
+                            <div className="flex-1 p-1 rounded-lg bg-emerald-50/80 border border-emerald-200/70 text-emerald-800 font-bold leading-tight">
+                              <div className="text-[9px]">診断CV</div>
+                              <span className="text-[7.5px] font-normal text-emerald-600">成約率 1.8倍</span>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
 
                     {/* ハイライトバッジ */}
                     {project.highlightBadges && (

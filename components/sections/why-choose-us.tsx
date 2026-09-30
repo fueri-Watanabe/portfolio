@@ -89,8 +89,12 @@ const REASONS: ReasonItem[] = [
 
 export const WhyChooseUsSection = () => {
   return (
-    <section id="why-choose-us" className="py-20 md:py-32 relative z-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="why-choose-us" className="py-20 md:py-32 relative z-10 overflow-hidden">
+      {/* 背景アンビエントグロー */}
+      <div className="absolute top-1/3 right-1/4 w-[600px] h-[450px] bg-gradient-to-l from-violet-400/20 via-indigo-300/15 to-transparent rounded-full blur-3xl opacity-40 pointer-events-none" />
+      <div className="absolute -bottom-10 left-10 w-[500px] h-[400px] bg-gradient-to-tr from-cyan-400/20 via-violet-300/15 to-transparent rounded-full blur-3xl opacity-35 pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* セクションヘッダー */}
         <div className="flex flex-col items-center text-center space-y-3 mb-16">
@@ -124,17 +128,26 @@ export const WhyChooseUsSection = () => {
                 className="flex"
               >
                 <div
-                  className="rounded-3xl p-8 flex flex-col justify-between w-full bg-white/80 backdrop-blur-xl border border-slate-200/80 shadow-glass hover:shadow-glass-hover hover:border-violet-300/80 hover:ring-1 hover:ring-violet-500/20 hover:-translate-y-1 transition-all duration-300 group"
+                  className="rounded-3xl p-8 flex flex-col justify-between w-full bg-white/80 backdrop-blur-xl border border-slate-200/80 shadow-glass hover:shadow-glass-hover hover:border-violet-300/80 hover:ring-1 hover:ring-violet-500/20 hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden"
                 >
-                  <div className="space-y-6">
-                    {/* アイコン & 番号 */}
+                  {/* カード右上: 巨大な半透明タイポグラフィ数字装飾 */}
+                  <span className="absolute -top-3 right-4 text-7xl sm:text-8xl font-black font-mono text-slate-900/[0.04] group-hover:text-violet-600/10 group-hover:scale-105 transition-all select-none pointer-events-none">
+                    {item.number}
+                  </span>
+
+                  <div className="space-y-6 relative z-10">
+                    {/* 上部アクセントライン & アイコン演出 */}
                     <div className="flex items-center justify-between">
-                      <div className="w-12 h-12 rounded-2xl flex items-center justify-center bg-violet-50/80 border border-violet-100 text-violet-600 shadow-2xs group-hover:scale-105 group-hover:bg-gradient-to-r group-hover:from-violet-600 group-hover:to-cyan-600 group-hover:text-white transition-all">
-                        <Icon className="w-6 h-6" />
+                      <div className="relative">
+                        {/* アイコン周囲の鮮やかなグラデーションバブル光輪 */}
+                        <div className="absolute -inset-1.5 rounded-2xl bg-gradient-to-tr from-violet-500/20 via-indigo-500/20 to-cyan-500/30 blur-xs group-hover:scale-110 transition-transform" />
+                        <div className="relative w-12 h-12 rounded-2xl flex items-center justify-center bg-white border border-slate-200/80 text-violet-600 shadow-2xs group-hover:scale-105 group-hover:bg-gradient-to-r group-hover:from-violet-600 group-hover:to-cyan-600 group-hover:text-white transition-all">
+                          <Icon className="w-6 h-6" />
+                        </div>
                       </div>
-                      <span className="text-4xl font-extrabold font-mono text-slate-200 group-hover:text-violet-400/25 transition-colors">
-                        {item.number}
-                      </span>
+
+                      {/* アクセントバー */}
+                      <div className="h-1.5 w-12 rounded-full bg-gradient-to-r from-violet-500 via-indigo-500 to-cyan-500 group-hover:w-20 transition-all duration-300 shadow-2xs" />
                     </div>
 
                     <div>

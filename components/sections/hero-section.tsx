@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -9,26 +10,27 @@ import EstimateDiagnostic from "@/components/sections/estimate-diagnostic";
 export const HeroSection = () => {
   return (
     <section className="relative min-h-[92vh] flex items-center justify-center pt-32 pb-20 md:pb-28 lg:pb-32 overflow-hidden bg-slate-50">
-      {/* 1. Light Neo-Glass マルチカラーグラデーションオーブ（Violet + Cyan） */}
-      <div className="absolute top-8 left-1/4 w-[680px] h-[520px] bg-gradient-to-br from-violet-200/35 via-cyan-100/25 to-transparent rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute top-20 right-10 w-[600px] h-[460px] bg-gradient-to-bl from-cyan-200/30 via-violet-100/25 to-transparent rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute -bottom-16 left-1/3 w-[500px] h-[380px] bg-gradient-to-tr from-indigo-200/25 via-cyan-100/20 to-transparent rounded-full blur-[120px] pointer-events-none" />
+      {/* 1. リッチなNeo-Glassアンビエントグラデーションオーブ（Violet + Indigo + Cyan） */}
+      <div className="absolute top-10 left-1/4 w-[720px] h-[540px] bg-gradient-to-r from-violet-400/25 via-indigo-300/20 to-cyan-400/25 rounded-full blur-3xl opacity-40 pointer-events-none animate-pulse duration-[8000ms]" />
+      <div className="absolute top-36 right-4 w-[600px] h-[480px] bg-gradient-to-bl from-cyan-400/20 via-violet-300/20 to-transparent rounded-full blur-3xl opacity-35 pointer-events-none" />
+      <div className="absolute -bottom-20 left-1/3 w-[520px] h-[400px] bg-gradient-to-tr from-indigo-300/20 via-cyan-200/25 to-violet-200/20 rounded-full blur-3xl opacity-30 pointer-events-none" />
 
       {/* 2. 微細なNeo-Glassグリッド背景 */}
       <div
         className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-40 pointer-events-none"
       />
 
-      {/* 3. 建築的グラフィック装飾（微細なフロストサークル） */}
-      <div className="absolute top-24 right-8 lg:right-32 w-80 h-40 border border-cyan-200/50 rounded-full pointer-events-none opacity-40 -rotate-6" />
-      <div className="absolute top-32 right-14 lg:right-40 w-64 h-28 border border-violet-200/50 rounded-full pointer-events-none opacity-50 -rotate-6" />
+      {/* 3. 建築的グラフィック装飾（微細なフロストサークル & デコレーティブライン） */}
+      <div className="absolute top-20 right-8 lg:right-32 w-80 h-40 border border-cyan-300/40 rounded-full pointer-events-none opacity-40 -rotate-6" />
+      <div className="absolute top-28 right-14 lg:right-40 w-64 h-28 border border-violet-300/40 rounded-full pointer-events-none opacity-50 -rotate-6" />
+      <div className="absolute top-1/2 left-6 w-24 h-24 border border-indigo-200/30 rounded-2xl rotate-12 pointer-events-none hidden sm:block" />
 
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
 
-          {/* 左カラム: キャッチコピー & アクション */}
+          {/* 左カラム: キャッチコピー & 3Dビジュアル & アクション */}
           <motion.div
-            className="lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left space-y-6 sm:space-y-8"
+            className="lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left space-y-6 sm:space-y-7"
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
@@ -145,14 +147,41 @@ export const HeroSection = () => {
             </motion.div>
           </motion.div>
 
-          {/* 右カラム: インタラクティブ概算見積もり・課題診断 */}
+          {/* 右カラム: インタラクティブ概算見積もり・課題診断 & 透過3Dオブジェクト */}
           <motion.div
             className="lg:col-span-7 flex flex-col items-center relative w-full"
             initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
-            <div className="w-full">
+            {/* 3D透過アートオブジェクト（右上・背面に浮遊配置） */}
+            <div className="absolute -top-14 sm:-top-20 -right-6 sm:-right-12 z-0 pointer-events-none select-none">
+              {/* 背面の鮮やかなオーロラグロー */}
+              <div className="absolute -inset-6 bg-gradient-to-tr from-violet-500/25 via-indigo-500/20 to-cyan-500/25 rounded-full blur-3xl opacity-80" />
+
+              {/* 浮遊モーション適用 */}
+              <motion.div
+                animate={{ y: [0, -12, 0], rotate: [0, 1.5, 0] }}
+                transition={{
+                  duration: 6,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="relative w-44 sm:w-56 md:w-64 lg:w-72 aspect-square opacity-85 sm:opacity-95 drop-shadow-[0_20px_35px_rgba(99,102,241,0.22)]"
+              >
+                <Image
+                  src="/images/hero-3d.webp"
+                  alt="fueri 3D Cloud Architecture"
+                  fill
+                  sizes="(max-width: 640px) 180px, (max-width: 1024px) 240px, 300px"
+                  className="object-contain"
+                  priority
+                />
+              </motion.div>
+            </div>
+
+            {/* 積算シミュレーター本体（z-10で前面に配置） */}
+            <div className="w-full relative z-10">
               <EstimateDiagnostic />
             </div>
           </motion.div>

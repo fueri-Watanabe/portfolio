@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
@@ -14,6 +15,13 @@ import {
   ArrowRight,
   ShieldCheck,
 } from "lucide-react";
+
+const SERVICE_BG_IMAGES: Record<string, string> = {
+  "spot-fix": "/images/service-spot.png",
+  "gas-automation": "/images/service-gas.png",
+  "website-lp": "/images/service-web.png",
+  "custom-webapp": "/images/service-saas.png",
+};
 
 interface ServicePackage {
   id: string;
@@ -145,8 +153,12 @@ export const ServicesSection = () => {
   };
 
   return (
-    <section id="services" className="py-20 md:py-32 relative z-10">
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="services" className="py-20 md:py-32 relative z-10 overflow-hidden">
+      {/* 背景アンビエントグロー */}
+      <div className="absolute top-1/4 left-10 w-96 h-96 bg-gradient-to-tr from-violet-400/20 via-indigo-300/15 to-transparent rounded-full blur-3xl opacity-40 pointer-events-none" />
+      <div className="absolute bottom-10 right-10 w-[450px] h-[450px] bg-gradient-to-bl from-cyan-400/20 via-violet-300/15 to-transparent rounded-full blur-3xl opacity-35 pointer-events-none" />
+
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* セクションヘッダー */}
         <div className="flex flex-col items-center text-center space-y-3 mb-16">
@@ -178,22 +190,148 @@ export const ServicesSection = () => {
                 className="flex"
               >
                 <div
-                  className={`rounded-3xl p-6 sm:p-7 flex flex-col justify-between w-full bg-white/80 backdrop-blur-xl border transition-all duration-300 relative group ${
+                  className={`rounded-3xl p-6 sm:p-7 flex flex-col justify-between w-full bg-white/80 backdrop-blur-xl border transition-all duration-300 relative group overflow-hidden ${
                     isFeatured
                       ? "border-violet-300/80 ring-1 ring-violet-500/30 shadow-glow-violet hover:border-violet-400 hover:ring-violet-500/50 hover:-translate-y-1"
                       : "border-slate-200/80 shadow-glass hover:shadow-glass-hover hover:border-violet-300/80 hover:ring-1 hover:ring-violet-500/20 hover:-translate-y-1"
                   }`}
                 >
-                  {/* 上部バッジ & 番号 */}
-                  <div>
-                    <div className="flex items-center justify-between mb-5">
+                  {/* カード背景の3Dウォーターマーク画像 (透過 & ホバーマイクロインタラクション) */}
+                  {SERVICE_BG_IMAGES[pkg.id] && (
+                    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
+                      <Image
+                        src={SERVICE_BG_IMAGES[pkg.id]}
+                        alt=""
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                        className="object-contain object-bottom scale-110 blur-[1px] opacity-10 dark:opacity-15 group-hover:opacity-20 transition-opacity duration-500"
+                        priority={index < 2}
+                      />
+                    </div>
+                  )}
+
+                  {/* 表面コンテンツ（テキスト・SVG図解等は relative z-10 で完全維持） */}
+                  <div className="relative z-10 flex flex-col justify-between h-full">
+                    <div>
+                      {/* サービス内容を模したミニUIイラスト（SVG / CSSグラフィック） */}
+                      <div className="mb-5 rounded-2xl p-3 bg-gradient-to-b from-slate-50/90 to-white/60 border border-slate-200/80 shadow-inner overflow-hidden relative group-hover:border-violet-200/90 transition-colors">
+                      {/* 背景の微細な光彩 */}
+                      <div className="absolute -top-10 -right-10 w-24 h-24 bg-gradient-to-br from-violet-400/10 via-cyan-400/10 to-transparent rounded-full blur-xl pointer-events-none" />
+
+                      {pkg.id === "spot-fix" && (
+                        /* スポット改修: コード修正・エディタ風ミニUI */
+                        <div className="space-y-1.5 font-mono text-[10px]">
+                          <div className="flex items-center justify-between pb-1 border-b border-slate-200/60">
+                            <div className="flex items-center gap-1">
+                              <span className="w-2 h-2 rounded-full bg-rose-400/80" />
+                              <span className="w-2 h-2 rounded-full bg-amber-400/80" />
+                              <span className="w-2 h-2 rounded-full bg-emerald-400/80" />
+                            </div>
+                            <span className="text-[9px] text-slate-400">quick-fix.ts</span>
+                          </div>
+                          <div className="bg-rose-50 text-rose-700 px-2 py-0.5 rounded flex items-center justify-between">
+                            <span>- layout.overflow: error</span>
+                            <span className="text-[9px] text-rose-500 font-sans">Bug</span>
+                          </div>
+                          <div className="bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded flex items-center justify-between font-bold">
+                            <span>+ fixed: responsive.ok()</span>
+                            <span className="text-[9px] text-emerald-600 font-sans">Solved ✓</span>
+                          </div>
+                        </div>
+                      )}
+
+                      {pkg.id === "gas-automation" && (
+                        /* GAS業務自動化: スプレッドシート ➔ 外部連携フローミニUI */
+                        <div className="flex items-center justify-between gap-1 text-[10px] font-sans">
+                          {/* Sheets */}
+                          <div className="p-1.5 rounded-lg bg-emerald-50 border border-emerald-200/80 text-center flex-1">
+                            <div className="text-[9px] font-bold text-emerald-800">Sheets</div>
+                            <div className="grid grid-cols-2 gap-0.5 mt-1">
+                              <span className="h-1.5 bg-emerald-200 rounded-2xs" />
+                              <span className="h-1.5 bg-emerald-300 rounded-2xs" />
+                              <span className="h-1.5 bg-emerald-200 rounded-2xs" />
+                              <span className="h-1.5 bg-emerald-300 rounded-2xs" />
+                            </div>
+                          </div>
+                          {/* GAS Engine */}
+                          <div className="flex flex-col items-center px-1">
+                            <span className="text-violet-600 text-[11px] animate-pulse">⚡️</span>
+                            <span className="text-[8px] font-mono text-slate-400">Auto</span>
+                          </div>
+                          {/* Slack/Gmail */}
+                          <div className="p-1.5 rounded-lg bg-violet-50 border border-violet-200/80 text-center flex-1">
+                            <div className="text-[9px] font-bold text-violet-800">Slack / Mail</div>
+                            <div className="text-[8px] font-semibold text-violet-600 bg-white rounded px-1 mt-1 shadow-2xs">
+                              即時通知 ✓
+                            </div>
+                          </div>
+                        </div>
+                      )}
+
+                      {pkg.id === "website-lp" && (
+                        /* Webサイト/LP: ブラウザウィンドウ ＋ 高速スコアミニUI */
+                        <div className="space-y-1.5">
+                          <div className="flex items-center justify-between pb-1 border-b border-slate-200/60">
+                            <div className="flex items-center gap-1">
+                              <span className="w-2 h-2 rounded-full bg-slate-300" />
+                              <span className="w-2 h-2 rounded-full bg-slate-300" />
+                              <span className="w-2 h-2 rounded-full bg-slate-300" />
+                            </div>
+                            <span className="text-[9px] font-mono bg-cyan-100 text-cyan-800 px-1.5 py-0.2 rounded-full font-bold">
+                              ⚡️ 98 Score
+                            </span>
+                          </div>
+                          <div className="space-y-1">
+                            <div className="h-2 w-3/4 bg-slate-200 rounded-full" />
+                            <div className="h-1.5 w-1/2 bg-slate-200/70 rounded-full" />
+                            <div className="flex items-center justify-between pt-0.5">
+                              <div className="h-3 w-12 bg-gradient-to-r from-violet-500 to-cyan-500 rounded-full" />
+                              <span className="text-[8px] text-slate-400 font-mono">Next.js 14</span>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+
+                      {pkg.id === "custom-webapp" && (
+                        /* Webシステム/SaaS: 認証・DB・決済ダッシュボードミニUI */
+                        <div className="space-y-1.5 text-[9px]">
+                          <div className="flex items-center justify-between pb-1 border-b border-slate-200/60">
+                            <span className="font-bold text-slate-700">SaaS Console</span>
+                            <span className="text-[8px] px-1.5 py-0.2 rounded-full bg-indigo-50 text-indigo-700 font-semibold border border-indigo-200/60">
+                              Auth / Stripe
+                            </span>
+                          </div>
+                          <div className="grid grid-cols-3 gap-1 text-center">
+                            <div className="p-1 rounded bg-slate-100/80">
+                              <span className="text-[8px] text-slate-400 block">User</span>
+                              <span className="font-bold text-slate-700">Active</span>
+                            </div>
+                            <div className="p-1 rounded bg-slate-100/80">
+                              <span className="text-[8px] text-slate-400 block">DB</span>
+                              <span className="font-bold text-slate-700">Postgres</span>
+                            </div>
+                            <div className="p-1 rounded bg-emerald-50 text-emerald-800 font-bold">
+                              <span className="text-[8px] text-emerald-600 block">Pay</span>
+                              <span>200 OK</span>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* 上部バッジ & アイコン */}
+                    <div className="flex items-center justify-between mb-4">
                       <div className="flex items-center gap-2.5">
-                        <div className={`w-10 h-10 rounded-2xl flex items-center justify-center transition-all shadow-2xs ${
-                          isFeatured
-                            ? "bg-violet-50/80 border border-violet-100 text-violet-600 group-hover:scale-105 group-hover:bg-gradient-to-r group-hover:from-violet-600 group-hover:to-cyan-600 group-hover:text-white"
-                            : "bg-slate-50 border border-slate-200/80 text-violet-600 group-hover:scale-105 group-hover:bg-gradient-to-r group-hover:from-violet-600 group-hover:to-cyan-600 group-hover:text-white"
-                        }`}>
-                          <Icon className="w-5 h-5" />
+                        {/* アイコン背景の鮮やかなグラデーションバブル */}
+                        <div className="relative">
+                          <div className="absolute -inset-1 rounded-2xl bg-gradient-to-tr from-violet-500/20 via-indigo-500/20 to-cyan-500/30 blur-xs group-hover:scale-110 transition-transform" />
+                          <div className={`relative w-10 h-10 rounded-2xl flex items-center justify-center transition-all shadow-2xs ${
+                            isFeatured
+                              ? "bg-violet-50/90 border border-violet-200 text-violet-600 group-hover:scale-105 group-hover:bg-gradient-to-r group-hover:from-violet-600 group-hover:to-cyan-600 group-hover:text-white"
+                              : "bg-white border border-slate-200/80 text-violet-600 group-hover:scale-105 group-hover:bg-gradient-to-r group-hover:from-violet-600 group-hover:to-cyan-600 group-hover:text-white"
+                          }`}>
+                            <Icon className="w-5 h-5" />
+                          </div>
                         </div>
                         <span className="text-xs font-mono font-bold text-slate-400">
                           {pkg.number}
@@ -295,8 +433,9 @@ export const ServicesSection = () => {
                     </Button>
                   </div>
                 </div>
-              </motion.div>
-            );
+              </div>
+            </motion.div>
+          );
           })}
         </div>
 

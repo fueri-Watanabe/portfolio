@@ -114,10 +114,14 @@ export const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-32 relative z-10">
+    <section id="contact" className="py-20 md:py-32 relative z-10 overflow-hidden">
+      {/* 背景アンビエントグローオーブ */}
+      <div className="absolute top-1/3 left-1/4 w-[600px] h-[500px] bg-gradient-to-r from-violet-400/25 via-indigo-300/15 to-cyan-400/20 rounded-full blur-3xl opacity-35 pointer-events-none" />
+      <div className="absolute -bottom-10 right-10 w-[450px] h-[400px] bg-gradient-to-tl from-cyan-400/20 via-violet-300/15 to-transparent rounded-full blur-3xl opacity-30 pointer-events-none" />
+
       {/* 上部のシームレス境界線 */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200/80 to-transparent" />
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* セクションヘッダー */}
         <div className="flex flex-col items-center text-center space-y-3 mb-8 sm:mb-10">
