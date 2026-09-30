@@ -122,7 +122,7 @@ export const ContactSection = () => {
         {/* セクションヘッダー */}
         <div className="flex flex-col items-center text-center space-y-3 mb-8 sm:mb-10">
           <Badge variant="glow" className="px-3.5 py-1 text-xs font-semibold uppercase tracking-wider mb-1">
-            Let's Build Together
+            Let&apos;s Build Together
           </Badge>
 
           <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-800 font-title tracking-tight">
