@@ -30,6 +30,10 @@
   .neo-glass-subtle {
     @apply bg-white/60 backdrop-blur-md border border-slate-200/70 shadow-2xs;
   }
+  .pause-hover:hover,
+  .group:hover .marquee-track {
+    animation-play-state: paused !important;
+  }
 }
 
 .custom-button {
