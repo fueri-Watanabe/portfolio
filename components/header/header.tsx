@@ -52,6 +52,18 @@ export const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // モバイルメニュー展開時の背景スクロールロック
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen]);
+
   return (
     <header
       className={cn(
@@ -335,13 +347,14 @@ export const Header = () => {
             </div>
           )}
 
-          {/* モバイル用ハンバーガーボタン */}
+          {/* モバイル用ハンバーガーボタン (タップ領域 44px × 44px 確保) */}
           {!isDiagnosticPage && (
             <div className="flex items-center gap-1 md:hidden">
               <button
+                type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 rounded-full text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors"
-                aria-label="Toggle Menu"
+                className="w-11 h-11 flex items-center justify-center rounded-full text-slate-700 hover:text-slate-900 hover:bg-slate-100/80 active:bg-slate-200/80 transition-colors"
+                aria-label={mobileMenuOpen ? "メニューを閉じる" : "メニューを開く"}
               >
                 {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
@@ -350,167 +363,176 @@ export const Header = () => {
         </div>
       </div>
 
-      {/* モバイル用アコーディオンメニュー */}
+      {/* モバイル用アコーディオンメニュー + 背景オーバーレイ */}
       {mobileMenuOpen && (
-        <div className="pointer-events-auto fixed top-16 left-4 right-4 max-w-sm mx-auto max-h-[80vh] overflow-y-auto p-4 rounded-3xl bg-white/95 backdrop-blur-2xl border border-slate-200 shadow-xl flex flex-col gap-3 md:hidden animate-in fade-in slide-in-from-top-2 duration-200 z-50">
-          <div className="flex flex-col gap-2">
-            {/* 1. サービス & 料金 アコーディオン */}
-            <div className="border border-slate-100 rounded-2xl overflow-hidden bg-slate-50/50">
-              <button
-                type="button"
-                onClick={() => toggleMobileGroup("services")}
-                className="w-full flex items-center justify-between p-3 text-xs font-bold text-slate-800 hover:bg-slate-100/60 transition-colors"
+        <>
+          {/* 背景スクロール抑止 & タップで閉じるオーバーレイ */}
+          <div
+            className="fixed inset-0 bg-slate-900/30 backdrop-blur-xs z-40 md:hidden animate-in fade-in duration-200"
+            onClick={() => setMobileMenuOpen(false)}
+            aria-hidden="true"
+          />
+
+          <div className="pointer-events-auto fixed top-16 sm:top-18 left-3 sm:left-4 right-3 sm:right-4 max-w-sm mx-auto max-h-[82vh] overflow-y-auto p-4 rounded-3xl bg-white/95 backdrop-blur-2xl border border-slate-200 shadow-2xl flex flex-col gap-3 md:hidden animate-in fade-in slide-in-from-top-2 duration-200 z-50">
+            <div className="flex flex-col gap-2">
+              {/* 1. サービス & 料金 アコーディオン */}
+              <div className="border border-slate-100 rounded-2xl overflow-hidden bg-slate-50/50">
+                <button
+                  type="button"
+                  onClick={() => toggleMobileGroup("services")}
+                  className="w-full min-h-[44px] flex items-center justify-between p-3 text-xs font-bold text-slate-800 hover:bg-slate-100/60 transition-colors"
+                >
+                  <span>サービス & 料金</span>
+                  <ChevronDown
+                    className={cn(
+                      "w-4 h-4 text-slate-400 transition-transform duration-200",
+                      mobileExpanded.services && "rotate-180 text-violet-600"
+                    )}
+                  />
+                </button>
+                {mobileExpanded.services && (
+                  <div className="p-2 pt-0 flex flex-col gap-1 border-t border-slate-100/60">
+                    <Link
+                      href="/diagnostic"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="min-h-[44px] flex items-center justify-between p-2.5 rounded-xl bg-violet-50/60 text-violet-900 text-xs font-semibold"
+                    >
+                      <span className="flex items-center gap-2">
+                        <Calculator className="w-3.5 h-3.5 text-violet-600" />
+                        積算見積シミュレーター
+                      </span>
+                      <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-violet-200/80 text-violet-800">
+                        ⚡️ おすすめ
+                      </span>
+                    </Link>
+                    <Link
+                      href="/#services"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="min-h-[44px] flex items-center gap-2 p-2.5 rounded-xl text-slate-700 hover:bg-slate-100 text-xs font-medium"
+                    >
+                      <Layers className="w-3.5 h-3.5 text-indigo-500" />
+                      提供サービス・料金プラン
+                    </Link>
+                    <Link
+                      href="/process"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="min-h-[44px] flex items-center gap-2 p-2.5 rounded-xl text-slate-700 hover:bg-slate-100 text-xs font-medium"
+                    >
+                      <Workflow className="w-3.5 h-3.5 text-teal-500" />
+                      開発の流れ & FAQ
+                    </Link>
+                  </div>
+                )}
+              </div>
+
+              {/* 2. 実績 & 特徴 アコーディオン */}
+              <div className="border border-slate-100 rounded-2xl overflow-hidden bg-slate-50/50">
+                <button
+                  type="button"
+                  onClick={() => toggleMobileGroup("projects")}
+                  className="w-full min-h-[44px] flex items-center justify-between p-3 text-xs font-bold text-slate-800 hover:bg-slate-100/60 transition-colors"
+                >
+                  <span>実績 & 特徴</span>
+                  <ChevronDown
+                    className={cn(
+                      "w-4 h-4 text-slate-400 transition-transform duration-200",
+                      mobileExpanded.projects && "rotate-180 text-violet-600"
+                    )}
+                  />
+                </button>
+                {mobileExpanded.projects && (
+                  <div className="p-2 pt-0 flex flex-col gap-1 border-t border-slate-100/60">
+                    <Link
+                      href="/#projects"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="min-h-[44px] flex items-center gap-2 p-2.5 rounded-xl text-slate-700 hover:bg-slate-100 text-xs font-medium"
+                    >
+                      <LayoutGrid className="w-3.5 h-3.5 text-cyan-600" />
+                      開発実績・事例 (Bento Grid)
+                    </Link>
+                    <Link
+                      href="/#why-choose-us"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="min-h-[44px] flex items-center gap-2 p-2.5 rounded-xl text-slate-700 hover:bg-slate-100 text-xs font-medium"
+                    >
+                      <ShieldCheck className="w-3.5 h-3.5 text-amber-600" />
+                      選ばれる理由・品質保証
+                    </Link>
+                  </div>
+                )}
+              </div>
+
+              {/* 3. 代表プロフィール (直接リンク) */}
+              <Link
+                href="/about"
+                onClick={() => setMobileMenuOpen(false)}
+                className="min-h-[44px] flex items-center gap-2 p-3 rounded-2xl border border-slate-100 bg-slate-50/50 hover:bg-slate-100/60 text-xs font-bold text-slate-800 transition-colors"
               >
-                <span>サービス & 料金</span>
-                <ChevronDown
-                  className={cn(
-                    "w-4 h-4 text-slate-400 transition-transform duration-200",
-                    mobileExpanded.services && "rotate-180 text-violet-600"
-                  )}
-                />
-              </button>
-              {mobileExpanded.services && (
-                <div className="p-2 pt-0 flex flex-col gap-1 border-t border-slate-100/60">
-                  <Link
-                    href="/diagnostic"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between p-2 rounded-xl bg-violet-50/50 text-violet-900 text-xs font-semibold"
-                  >
-                    <span className="flex items-center gap-2">
-                      <Calculator className="w-3.5 h-3.5 text-violet-600" />
-                      積算見積シミュレーター
-                    </span>
-                    <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-violet-200/80 text-violet-800">
-                      ⚡️ おすすめ
-                    </span>
-                  </Link>
-                  <Link
-                    href="/#services"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center gap-2 p-2 rounded-xl text-slate-700 hover:bg-slate-100 text-xs font-medium"
-                  >
-                    <Layers className="w-3.5 h-3.5 text-indigo-500" />
-                    提供サービス・料金プラン
-                  </Link>
-                  <Link
-                    href="/process"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center gap-2 p-2 rounded-xl text-slate-700 hover:bg-slate-100 text-xs font-medium"
-                  >
-                    <Workflow className="w-3.5 h-3.5 text-teal-500" />
-                    開発の流れ & FAQ
-                  </Link>
-                </div>
-              )}
+                <User className="w-4 h-4 text-slate-500" />
+                <span>代表プロフィール</span>
+              </Link>
+
+              {/* 4. 規約 & パートナー アコーディオン */}
+              <div className="border border-slate-100 rounded-2xl overflow-hidden bg-slate-50/50">
+                <button
+                  type="button"
+                  onClick={() => toggleMobileGroup("legal")}
+                  className="w-full min-h-[44px] flex items-center justify-between p-3 text-xs font-bold text-slate-800 hover:bg-slate-100/60 transition-colors"
+                >
+                  <span>規約 & パートナー</span>
+                  <ChevronDown
+                    className={cn(
+                      "w-4 h-4 text-slate-400 transition-transform duration-200",
+                      mobileExpanded.legal && "rotate-180 text-violet-600"
+                    )}
+                  />
+                </button>
+                {mobileExpanded.legal && (
+                  <div className="p-2 pt-0 flex flex-col gap-1 border-t border-slate-100/60">
+                    <Link
+                      href="/terms"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="min-h-[44px] flex items-center gap-2 p-2.5 rounded-xl text-slate-700 hover:bg-slate-100 text-xs font-medium"
+                    >
+                      <FileText className="w-3.5 h-3.5 text-slate-500" />
+                      ご利用規約・30日保証規定
+                    </Link>
+                    <Link
+                      href="/partners"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="min-h-[44px] flex items-center justify-between p-2.5 rounded-xl text-slate-700 hover:bg-slate-100 text-xs font-medium"
+                    >
+                      <span className="flex items-center gap-2">
+                        <Users className="w-3.5 h-3.5 text-teal-600" />
+                        パートナー募集
+                      </span>
+                      <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-teal-100 text-teal-700 font-semibold">
+                        募集中
+                      </span>
+                    </Link>
+                    <Link
+                      href="/partners/guideline"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="min-h-[44px] flex items-center gap-2 p-2.5 rounded-xl text-slate-700 hover:bg-slate-100 text-xs font-medium"
+                    >
+                      <BookOpen className="w-3.5 h-3.5 text-indigo-600" />
+                      品質ガイドライン
+                    </Link>
+                  </div>
+                )}
+              </div>
             </div>
 
-            {/* 2. 実績 & 特徴 アコーディオン */}
-            <div className="border border-slate-100 rounded-2xl overflow-hidden bg-slate-50/50">
-              <button
-                type="button"
-                onClick={() => toggleMobileGroup("projects")}
-                className="w-full flex items-center justify-between p-3 text-xs font-bold text-slate-800 hover:bg-slate-100/60 transition-colors"
-              >
-                <span>実績 & 特徴</span>
-                <ChevronDown
-                  className={cn(
-                    "w-4 h-4 text-slate-400 transition-transform duration-200",
-                    mobileExpanded.projects && "rotate-180 text-violet-600"
-                  )}
-                />
-              </button>
-              {mobileExpanded.projects && (
-                <div className="p-2 pt-0 flex flex-col gap-1 border-t border-slate-100/60">
-                  <Link
-                    href="/#projects"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center gap-2 p-2 rounded-xl text-slate-700 hover:bg-slate-100 text-xs font-medium"
-                  >
-                    <LayoutGrid className="w-3.5 h-3.5 text-cyan-600" />
-                    開発実績・事例 (Bento Grid)
-                  </Link>
-                  <Link
-                    href="/#why-choose-us"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center gap-2 p-2 rounded-xl text-slate-700 hover:bg-slate-100 text-xs font-medium"
-                  >
-                    <ShieldCheck className="w-3.5 h-3.5 text-amber-600" />
-                    選ばれる理由・品質保証
-                  </Link>
-                </div>
-              )}
-            </div>
-
-            {/* 3. 代表プロフィール (直接リンク) */}
-            <Link
-              href="/about"
-              onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center gap-2 p-3 rounded-2xl border border-slate-100 bg-slate-50/50 hover:bg-slate-100/60 text-xs font-bold text-slate-800 transition-colors"
-            >
-              <User className="w-4 h-4 text-slate-500" />
-              <span>代表プロフィール</span>
-            </Link>
-
-            {/* 4. 規約 & パートナー アコーディオン */}
-            <div className="border border-slate-100 rounded-2xl overflow-hidden bg-slate-50/50">
-              <button
-                type="button"
-                onClick={() => toggleMobileGroup("legal")}
-                className="w-full flex items-center justify-between p-3 text-xs font-bold text-slate-800 hover:bg-slate-100/60 transition-colors"
-              >
-                <span>規約 & パートナー</span>
-                <ChevronDown
-                  className={cn(
-                    "w-4 h-4 text-slate-400 transition-transform duration-200",
-                    mobileExpanded.legal && "rotate-180 text-violet-600"
-                  )}
-                />
-              </button>
-              {mobileExpanded.legal && (
-                <div className="p-2 pt-0 flex flex-col gap-1 border-t border-slate-100/60">
-                  <Link
-                    href="/terms"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center gap-2 p-2 rounded-xl text-slate-700 hover:bg-slate-100 text-xs font-medium"
-                  >
-                    <FileText className="w-3.5 h-3.5 text-slate-500" />
-                    ご利用規約・30日保証規定
-                  </Link>
-                  <Link
-                    href="/partners"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between p-2 rounded-xl text-slate-700 hover:bg-slate-100 text-xs font-medium"
-                  >
-                    <span className="flex items-center gap-2">
-                      <Users className="w-3.5 h-3.5 text-teal-600" />
-                      パートナー募集
-                    </span>
-                    <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-teal-100 text-teal-700 font-semibold">
-                      募集中
-                    </span>
-                  </Link>
-                  <Link
-                    href="/partners/guideline"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center gap-2 p-2 rounded-xl text-slate-700 hover:bg-slate-100 text-xs font-medium"
-                  >
-                    <BookOpen className="w-3.5 h-3.5 text-indigo-600" />
-                    品質ガイドライン
-                  </Link>
-                </div>
-              )}
+            <div className="pt-2 border-t border-slate-100">
+              <Link href="/#contact" onClick={() => setMobileMenuOpen(false)}>
+                <Button variant="primary" className="w-full min-h-[44px] justify-center rounded-full text-xs py-3">
+                  <span>お問い合わせフォーム</span>
+                  <ArrowUpRight className="w-4 h-4" />
+                </Button>
+              </Link>
             </div>
           </div>
-
-          <div className="pt-2 border-t border-slate-100">
-            <Link href="/#contact" onClick={() => setMobileMenuOpen(false)}>
-              <Button variant="primary" className="w-full justify-center rounded-full text-xs py-2.5">
-                <span>お問い合わせフォーム</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </Button>
-            </Link>
-          </div>
-        </div>
+        </>
       )}
     </header>
   );

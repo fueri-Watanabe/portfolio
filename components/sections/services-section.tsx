@@ -1,8 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -14,6 +15,7 @@ import {
   Clock,
   ArrowRight,
   ShieldCheck,
+  ChevronDown,
 } from "lucide-react";
 
 const SERVICE_BG_IMAGES: Record<string, string> = {
@@ -132,6 +134,15 @@ const PACKAGES: ServicePackage[] = [
 ];
 
 export const ServicesSection = () => {
+  const [expandedCards, setExpandedCards] = useState<Record<string, boolean>>({});
+
+  const toggleCard = (id: string) => {
+    setExpandedCards((prev) => ({
+      ...prev,
+      [id]: !prev[id],
+    }));
+  };
+
   const handleSelectPackage = (pkg: ServicePackage) => {
     const formattedContent = `【ご相談パッケージ】${pkg.name}（概算: ${pkg.price} (税込) / 目安納期: ${pkg.delivery}）
 --------------------------------------------------
@@ -176,10 +187,11 @@ export const ServicesSection = () => {
         </div>
 
         {/* 4つのパッケージカード（グリッド） */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
           {PACKAGES.map((pkg, index) => {
             const Icon = pkg.icon;
             const isFeatured = pkg.badge === "人気 No.1";
+            const isExpanded = !!expandedCards[pkg.id];
             return (
               <motion.div
                 key={pkg.id}
@@ -383,30 +395,14 @@ export const ServicesSection = () => {
                       </div>
                     </div>
 
-                    {/* 解決できる悩み */}
-                    <div className="space-y-2 mb-5">
-                      <div className="text-[11px] font-bold text-slate-800 flex items-center gap-1.5">
-                        <span className={`w-1.5 h-1.5 rounded-full ${isFeatured ? "bg-violet-500" : "bg-cyan-500"}`} />
-                        <span>こんなお悩みを解決</span>
-                      </div>
-                      <ul className="space-y-1.5 text-xs text-slate-600">
-                        {pkg.problems.map((prob, i) => (
-                          <li key={i} className="flex items-start gap-1.5">
-                            <span className={isFeatured ? "text-violet-500 leading-tight" : "text-cyan-500 leading-tight"}>•</span>
-                            <span>{prob}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* 含まれる内容 */}
-                    <div className="space-y-2 mb-6">
+                    {/* 基本表示：代表的な特徴3つ */}
+                    <div className="space-y-2 mb-4">
                       <div className="text-[11px] font-bold text-slate-800 flex items-center gap-1.5">
                         <CheckCircle2 className="w-3.5 h-3.5 text-cyan-600" />
-                        <span>提供内容</span>
+                        <span>主な提供内容</span>
                       </div>
                       <ul className="space-y-1.5 text-xs text-slate-700">
-                        {pkg.features.map((feat, i) => (
+                        {pkg.features.slice(0, 3).map((feat, i) => (
                           <li key={i} className="flex items-start gap-1.5">
                             <CheckCircle2 className="w-3.5 h-3.5 text-cyan-600 flex-shrink-0 mt-0.5" />
                             <span>{feat}</span>
@@ -414,6 +410,71 @@ export const ServicesSection = () => {
                         ))}
                       </ul>
                     </div>
+
+                    {/* 詳細トグルボタン (ネオグラス調マイクロボタン) */}
+                    <button
+                      type="button"
+                      onClick={() => toggleCard(pkg.id)}
+                      className="w-full my-1 py-2 px-3 rounded-xl text-[11px] font-semibold flex items-center justify-center gap-1.5 border border-slate-200/80 bg-white/70 hover:bg-white text-slate-600 hover:text-violet-600 hover:border-violet-300 shadow-2xs hover:shadow-glass transition-all duration-200 group/accordion cursor-pointer"
+                      aria-expanded={isExpanded}
+                    >
+                      <span>
+                        {isExpanded ? "詳細を閉じる" : "詳細な対応範囲・解決課題を見る"}
+                      </span>
+                      <ChevronDown
+                        className={`w-3.5 h-3.5 text-slate-400 group-hover/accordion:text-violet-600 transition-transform duration-300 ${
+                          isExpanded ? "rotate-180 text-violet-600" : ""
+                        }`}
+                      />
+                    </button>
+
+                    {/* 開閉式アコーディオン詳細エリア */}
+                    <AnimatePresence initial={false}>
+                      {isExpanded && (
+                        <motion.div
+                          key={`details-${pkg.id}`}
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
+                          className="overflow-hidden"
+                        >
+                          <div className="pt-3 pb-1 space-y-4 border-t border-slate-100 my-2">
+                            {/* 解決できる悩み */}
+                            <div className="space-y-2">
+                              <div className="text-[11px] font-bold text-slate-800 flex items-center gap-1.5">
+                                <span className={`w-1.5 h-1.5 rounded-full ${isFeatured ? "bg-violet-500" : "bg-cyan-500"}`} />
+                                <span>こんなお悩みを解決</span>
+                              </div>
+                              <ul className="space-y-1.5 text-xs text-slate-600">
+                                {pkg.problems.map((prob, i) => (
+                                  <li key={i} className="flex items-start gap-1.5">
+                                    <span className={isFeatured ? "text-violet-500 leading-tight" : "text-cyan-500 leading-tight"}>•</span>
+                                    <span>{prob}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+
+                            {/* 含まれる全提供内容 */}
+                            <div className="space-y-2">
+                              <div className="text-[11px] font-bold text-slate-800 flex items-center gap-1.5">
+                                <CheckCircle2 className="w-3.5 h-3.5 text-cyan-600" />
+                                <span>具体的な提供内容（全項目）</span>
+                              </div>
+                              <ul className="space-y-1.5 text-xs text-slate-700">
+                                {pkg.features.map((feat, i) => (
+                                  <li key={i} className="flex items-start gap-1.5">
+                                    <CheckCircle2 className="w-3.5 h-3.5 text-cyan-600 flex-shrink-0 mt-0.5" />
+                                    <span>{feat}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
 
                   {/* アクションCTA */}

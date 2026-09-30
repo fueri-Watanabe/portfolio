@@ -8,7 +8,7 @@ import ProfileSection from "@/components/sections/profile-section";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-slate-50 text-slate-800 overflow-x-hidden">
+    <main className="min-h-screen bg-slate-50 text-slate-800 overflow-x-hidden w-full max-w-full">
       {/* 1. Hero Section + 診断UI */}
       <HeroSection />
 
