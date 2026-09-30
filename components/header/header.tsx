@@ -3,11 +3,14 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export const Header = () => {
+  const pathname = usePathname();
+  const isDiagnosticPage = pathname === "/diagnostic";
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -59,51 +62,68 @@ export const Header = () => {
           </div>
           <div className="flex flex-col">
             <span className="font-bold text-sm leading-none tracking-tight text-slate-800 group-hover:text-violet-600 transition-colors">
-              fueri{" "}
-              <span className="text-xs font-normal text-slate-500">
-                / Hiroshi Watanabe
-              </span>
+              fueri
             </span>
           </div>
         </Link>
 
-        {/* 中央: デスクトップ用ナビゲーション */}
-        <nav className="hidden md:flex items-center gap-1 border border-slate-200/80 bg-slate-50/80 px-3 py-1 rounded-full backdrop-blur-md">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              className="text-xs font-medium px-3 py-1.5 rounded-full text-slate-600 hover:text-slate-900 hover:bg-white shadow-none hover:shadow-xs transition-all duration-200"
-            >
-              {link.name}
-            </Link>
-          ))}
-        </nav>
+        {/* 中央: デスクトップ用ナビゲーション (診断LPでは非表示) */}
+        {!isDiagnosticPage ? (
+          <nav className="hidden md:flex items-center gap-1 border border-slate-200/80 bg-slate-50/80 px-3 py-1 rounded-full backdrop-blur-md">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                className="text-xs font-medium px-3 py-1.5 rounded-full text-slate-600 hover:text-slate-900 hover:bg-white shadow-none hover:shadow-xs transition-all duration-200"
+              >
+                {link.name}
+              </Link>
+            ))}
+          </nav>
+        ) : (
+          <div className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-violet-50/80 border border-violet-200/80 text-[11px] font-semibold text-violet-800">
+            <span className="w-1.5 h-1.5 rounded-full bg-violet-600 animate-pulse" />
+            30秒 概算積算シミュレーター
+          </div>
+        )}
 
-        {/* 右: CTAボタン */}
-        <div className="hidden md:flex items-center gap-2 pr-1">
-          <Link href="/#contact">
-            <Button
-              variant="primary"
-              size="sm"
-              className="rounded-full px-4 text-xs font-semibold shadow-xs"
+        {/* 右: CTAボタン (診断LPではトップページへ戻るリンクまたは非表示) */}
+        {!isDiagnosticPage ? (
+          <div className="hidden md:flex items-center gap-2 pr-1">
+            <Link href="/#contact">
+              <Button
+                variant="primary"
+                size="sm"
+                className="rounded-full px-4 text-xs font-semibold shadow-xs"
+              >
+                <span>お問い合わせ</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </Button>
+            </Link>
+          </div>
+        ) : (
+          <div className="hidden sm:flex items-center pr-1">
+            <Link
+              href="/"
+              className="text-xs font-medium text-slate-500 hover:text-violet-600 transition-colors"
             >
-              <span>お問い合わせ</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
-            </Button>
-          </Link>
-        </div>
+              fueri 公式トップへ ➔
+            </Link>
+          </div>
+        )}
 
         {/* モバイル用操作ボタン */}
-        <div className="flex items-center gap-1 md:hidden">
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-full text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors"
-            aria-label="Toggle Menu"
-          >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
-        </div>
+        {!isDiagnosticPage && (
+          <div className="flex items-center gap-1 md:hidden">
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="p-2 rounded-full text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors"
+              aria-label="Toggle Menu"
+            >
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
+        )}
       </div>
 
       {/* モバイル用ポップアップメニュー */}

@@ -13,7 +13,7 @@ export const Footer = () => {
     <footer className="w-full border-t border-slate-200/80 bg-slate-50/70 backdrop-blur-md relative z-10 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-          
+
           {/* 左カラム: ブランド */}
           <div className="md:col-span-2 space-y-3">
             <div className="flex items-center gap-2.5">
@@ -29,7 +29,7 @@ export const Footer = () => {
                 </div>
               </div>
               <span className="font-bold text-base text-slate-800 tracking-tight">
-                fueri <span className="text-slate-500 text-xs font-normal">/ Hiroshi Watanabe</span>
+                fueri
               </span>
             </div>
             <p className="text-xs text-slate-600 max-w-sm leading-relaxed">
@@ -69,6 +69,19 @@ export const Footer = () => {
             <h4 className="text-xs font-bold text-slate-800 uppercase tracking-wider">Information</h4>
             <ul className="space-y-1.5 text-xs text-slate-600">
               <li>
+                <Link
+                  href="/diagnostic"
+                  className="hover:text-violet-600 transition-colors flex items-center gap-1.5 font-medium text-slate-800 hover:text-violet-700 group py-0.5"
+                >
+                  <span className="font-semibold text-violet-700 group-hover:underline">
+                    30秒 積算見積シミュレーター ⚡️
+                  </span>
+                  <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-full bg-gradient-to-r from-violet-600 to-cyan-500 text-white shadow-2xs">
+                    おすすめ
+                  </span>
+                </Link>
+              </li>
+              <li>
                 <Link href="/about" className="hover:text-violet-600 transition-colors">
                   代表プロフィール・理念
                 </Link>
@@ -107,7 +120,7 @@ export const Footer = () => {
         {/* コピーライト & ソーシャルリンク */}
         <div className="pt-8 border-t border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="text-xs text-slate-500 text-center sm:text-left">
-            © 2021-{new Date().getFullYear()} fueri / Hiroshi Watanabe. All Rights Reserved.
+            © 2021-{new Date().getFullYear()} fueri. All Rights Reserved.
           </div>
 
           <div className="flex items-center gap-2">
