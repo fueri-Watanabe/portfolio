@@ -20,33 +20,78 @@ const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
 });
 
-const siteName = "fueri | 中小企業・スタートアップのWebシステム開発・DX推進パートナー";
-const description = "中小企業・スタートアップのDX推進と業務効率化を加速させるWebシステム開発・業務自動化スタジオ fueri。社内ツールDX・GAS自動化からNext.jsによるWebシステム・SaaS/MVP構築まで、代表直通体制で伴走支援します。";
-const url = "https://fueri.jp";
+const siteTitle = "fueri - Webシステム開発・業務自動化スタジオ";
+const siteDescription =
+  "中小企業・スタートアップのDX推進を加速させる、Next.jsによるWebシステム開発・GAS業務自動化スタジオ。";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://fueri.jp";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(url),
-  title: { default: siteName, template: `%s - ${siteName}` },
-  description,
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: siteTitle,
+    template: `%s | ${siteTitle}`,
+  },
+  description: siteDescription,
+  applicationName: "fueri",
+  authors: [{ name: "渡部 洋 (Hiroshi Watanabe)", url: siteUrl }],
+  generator: "Next.js",
   keywords: [
-    "DX",
-    "DX推進",
-    "業務効率化",
-    "Webシステム開発",
-    "MVP開発",
-    "SaaS構築",
-    "社内ツールDX",
-    "GAS自動化",
-    "Next.js",
     "fueri",
+    "Webシステム開発",
+    "業務自動化",
+    "GAS",
+    "Google Apps Script",
+    "社内DX",
+    "社内ツールDX",
+    "Next.js",
+    "SaaS構築",
+    "MVP開発",
+    "LP制作",
+    "受託開発",
+    "フリーランスエンジニア",
   ],
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/logo.webp", type: "image/webp" },
+    ],
+    apple: [{ url: "/logo.webp", sizes: "180x180", type: "image/webp" }],
+  },
   openGraph: {
-    title: siteName,
-    description,
-    url,
-    siteName,
+    title: siteTitle,
+    description: siteDescription,
+    url: siteUrl,
+    siteName: "fueri",
     locale: "ja_JP",
     type: "website",
+    images: [
+      {
+        url: "/images/ogp-image.png",
+        width: 1200,
+        height: 630,
+        alt: siteTitle,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteTitle,
+    description: siteDescription,
+    images: ["/images/ogp-image.png"],
   },
 };
 
