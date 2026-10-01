@@ -1,56 +1,60 @@
 steps:
-  #Package Install
-  - name: "gcr.io/cloud-builders/npm:node-${_NODE_VERSION}"
-    args: ["install"]
-
-  #Unit test
-  - name: "gcr.io/cloud-builders/npm:node-${_NODE_VERSION}"
-    args: ["test"]
-
-  #Build image
-  - name: "gcr.io/cloud-builders/docker"
-    dir: .
+  # 1. Docker イメージのビルド (--build-arg で環境変数を注入)
+  - name: gcr.io/cloud-builders/docker
     args:
-      [
-        "build",
-        "--build-arg",
-        "NEXT_PUBLIC_GA_ID=${_NEXT_PUBLIC_GA_ID}",
-        "--build-arg",
-        "NEXT_PUBLIC_CLARITY_ID=${_NEXT_PUBLIC_CLARITY_ID}",
-        "--build-arg",
-        "NEXT_PUBLIC_SITE_URL=${_NEXT_PUBLIC_SITE_URL}",
-        "-t",
-        "gcr.io/$PROJECT_ID/${_IMAGE_NAME}:${_TAG}",
-        ".",
-      ]
+      - build
+      - "--no-cache"
+      - "--build-arg"
+      - "NEXT_PUBLIC_GA_ID=${_NEXT_PUBLIC_GA_ID}"
+      - "--build-arg"
+      - "NEXT_PUBLIC_CLARITY_ID=${_NEXT_PUBLIC_CLARITY_ID}"
+      - "--build-arg"
+      - "NEXT_PUBLIC_SITE_URL=${_NEXT_PUBLIC_SITE_URL}"
+      - "-t"
+      - "$_AR_HOSTNAME/$PROJECT_ID/cloud-run-source-deploy/$REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA"
+      - .
+      - "-f"
+      - Dockerfile
+    id: Build
 
-  #Push image
-  - name: "gcr.io/cloud-builders/docker"
-    args: ["push", "gcr.io/$PROJECT_ID/${_IMAGE_NAME}"]
-
-  #Deploy image
-  - name: "gcr.io/cloud-builders/gcloud"
-    id: "deploy-cloud-run"
+  # 2. Artifact Registry へのプッシュ
+  - name: gcr.io/cloud-builders/docker
     args:
-      [
-        "beta",
-        "run",
-        "deploy",
-        "${_SERVICE_NAME}",
-        "--image",
-        "gcr.io/$PROJECT_ID/${_SERVICE_NAME}",
-        "--region",
-        "${_REGION}",
-        "--platform",
-        "managed",
-        "--allow-unauthenticated",
-      ]
+      - push
+      - "$_AR_HOSTNAME/$PROJECT_ID/cloud-run-source-deploy/$REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA"
+    id: Push
+
+  # 3. Cloud Run へのデプロイ
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk:slim
+    entrypoint: gcloud
+    args:
+      - run
+      - services
+      - update
+      - $_SERVICE_NAME
+      - "--platform=managed"
+      - "--image=$_AR_HOSTNAME/$PROJECT_ID/cloud-run-source-deploy/$REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA"
+      - "--labels=managed-by=gcp-cloud-build-deploy-cloud-run,commit-sha=$COMMIT_SHA,gcb-build-id=$BUILD_ID,gcb-trigger-id=$_TRIGGER_ID"
+      - "--region=$_DEPLOY_REGION"
+      - "--quiet"
+    id: Deploy
+
+images:
+  - "$_AR_HOSTNAME/$PROJECT_ID/cloud-run-source-deploy/$REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA"
+
+options:
+  substitutionOption: ALLOW_LOOSE
+  logging: CLOUD_LOGGING_ONLY
 
 substitutions:
-  _REGION: asia-northeast1
-  _SERVICE_NAME: nextjs-cloudrun
-  _IMAGE_NAME: nextjs-cloudrun
-  _TAG: latest
-  _NODE_VERSION: 21.1.0
+  _DEPLOY_REGION: asia-northeast1
+  _AR_HOSTNAME: asia-northeast1-docker.pkg.dev
+  _SERVICE_NAME: portfolio
   _NEXT_PUBLIC_GA_ID: "G-W7M20TPHKL"
   _NEXT_PUBLIC_CLARITY_ID: ""
+  _NEXT_PUBLIC_SITE_URL: "https://fueri.jp"
+
+tags:
+  - gcp-cloud-build-deploy-cloud-run
+  - gcp-cloud-build-deploy-cloud-run-managed
+  - portfolio
