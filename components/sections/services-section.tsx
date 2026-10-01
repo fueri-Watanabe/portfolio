@@ -17,6 +17,7 @@ import {
   ShieldCheck,
   ChevronDown,
 } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 
 const SERVICE_BG_IMAGES: Record<string, string> = {
   "spot-fix": "/images/service-spot.png",
@@ -137,13 +138,19 @@ export const ServicesSection = () => {
   const [expandedCards, setExpandedCards] = useState<Record<string, boolean>>({});
 
   const toggleCard = (id: string) => {
-    setExpandedCards((prev) => ({
-      ...prev,
-      [id]: !prev[id],
-    }));
+    setExpandedCards((prev) => {
+      const nextState = !prev[id];
+      trackEvent.accordionToggle(id, nextState);
+      return {
+        ...prev,
+        [id]: nextState,
+      };
+    });
   };
 
   const handleSelectPackage = (pkg: ServicePackage) => {
+    trackEvent.ctaClick(pkg.name, "services_plan");
+
     const formattedContent = `【ご相談パッケージ】${pkg.name}（概算: ${pkg.price} (税込) / 目安納期: ${pkg.delivery}）
 --------------------------------------------------
 【現在の課題・ご要望】

@@ -26,6 +26,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { trackEvent } from "@/lib/analytics";
 
 // --- 型定義 ---
 export interface CategoryOption {
@@ -424,6 +425,15 @@ export const EstimateDiagnostic = () => {
   const goToStep = (targetStep: number) => {
     setDirection(targetStep > step ? 1 : -1);
     setStep(targetStep);
+
+    // 見積結果画面到達時のイベント計測
+    if (targetStep === 4) {
+      trackEvent.diagnosticComplete({
+        category: selectedCategory.title,
+        grandTotal: grandTotal,
+        featuresCount: selectedFeatureObjects.length,
+      });
+    }
   };
 
   const handleReset = () => {
@@ -466,6 +476,11 @@ export const EstimateDiagnostic = () => {
 
   // お問い合わせフォームへの自動反映
   const handleApplyToContact = () => {
+    trackEvent.applyDiagnosticToContact({
+      category: selectedCategory.title,
+      grandTotal: grandTotal,
+    });
+
     const featureLines =
       selectedFeatureObjects.length > 0
         ? selectedFeatureObjects.map((f) => `  - ${f.title} (${f.priceLabel})`).join("\n")

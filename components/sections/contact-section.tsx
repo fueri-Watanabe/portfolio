@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Mail, Send, CheckCircle2, AlertCircle, Loader2, Sparkles, Clock, Check, ArrowRight } from "lucide-react";
 import ClientPrepDocuments from "@/components/sections/client-prep-documents";
+import { trackEvent } from "@/lib/analytics";
 
 export interface DiagnosticCardData {
   categoryTitle: string;
@@ -101,6 +102,9 @@ export const ContactSection = () => {
         });
 
         if (response.ok) {
+          trackEvent.contactSubmit({
+            category: data.title,
+          });
           setSubmitted(true);
           reset();
           setDiagnosticSummary(null);
