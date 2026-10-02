@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
   description: siteDescription,
   applicationName: "fueri",
-  authors: [{ name: "渡部 洋 (Hiroshi Watanabe)", url: siteUrl }],
+  authors: [{ name: "渡部 弘 (Hiroshi Watanabe)", url: siteUrl }],
   generator: "Next.js",
   keywords: [
     "fueri",

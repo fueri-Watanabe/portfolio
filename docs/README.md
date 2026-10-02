@@ -9,6 +9,8 @@
 ```
 docs/
 ├── README.md                           # 本ドキュメント（インデックス）
+├── BUSINESS_SPEC.md                    # ビジネス仕様書 兼 営業・運用ガイドライン
+├── GOOGLE_ADS_SPEC.md                  # Google広告 運用設定仕様書
 └── templates/
     ├── proposal-terms-template.md      # 見積書・提案書用の標準注記（特記事項・取引条件）
     └── client-hearing-sheet.md         # クライアント初回ヒアリングシート
@@ -16,9 +18,25 @@ docs/
 
 ---
 
-## 📄 各テンプレートの用途と利用フロー
+## 📄 各ドキュメント・仕様書の用途と利用フロー
 
-### 1. [proposal-terms-template.md](templates/proposal-terms-template.md)
+### 1. [BUSINESS_SPEC.md](BUSINESS_SPEC.md)
+- **用途**: fueriのサービス体系、料金・概算ロジック、競合優位性、契約・検収ルールをまとめた総合ビジネス仕様書。
+- **主要項目**:
+  - 提供サービス一覧（4大パッケージの対象課題・価格帯・納期）
+  - 競合比較・強み（代表直通・適正価格・モダンスタック）
+  - 積算診断ツール（`/diagnostic`）の単価・計算ロジック
+  - 契約・検収・トラブル防止規定（着手金基準、14日検収期間、1ヶ月無償保証）
+
+### 2. [GOOGLE_ADS_SPEC.md](GOOGLE_ADS_SPEC.md)
+- **用途**: Google検索広告（リスティング広告）のキャンペーン・広告グループ運用設定仕様書。
+- **主要項目**:
+  - キャンペーン基本設定（CV目標、地域、入札戦略、初期日額予算）
+  - 広告グループ設定（診断LP向け登録キーワード一覧）
+  - 除外キーワード（ネガティブキーワード）リスト
+  - 今後の拡張計画（GAS業務自動化・スポット修正グループ）
+
+### 3. [templates/proposal-terms-template.md](templates/proposal-terms-template.md)
 - **用途**: クライアントへのお見積書（PDF/スプレッドシート）やご提案書を発行する際に添付・記載する標準取引条件（特記事項）。
 - **主要項目**:
   - 見積有効期限（1ヶ月間）
@@ -28,7 +46,7 @@ docs/
   - 納品後30日間の初期不具合（バグ）無償保証
   - 著作権および成果物の帰属（代金完納時移転）
 
-### 2. [client-hearing-sheet.md](templates/client-hearing-sheet.md)
+### 4. [templates/client-hearing-sheet.md](templates/client-hearing-sheet.md)
 - **用途**: 初回面談（Zoom/Google Meet）前後の事前ヒアリング、またはチャットツール（Slack/LINE/メール）上での要件整理用フォーマット。
 - **主要項目**:
   - 基本情報（貴社名・ご担当者名・連絡先・URL）
