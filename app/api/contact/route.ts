@@ -9,9 +9,14 @@ export const POST = async (request: NextRequest) => {
 
     // 環境変数（SMTP設定）の検証
     if (!process.env.MAIL_USER || !process.env.MAIL_PASS) {
-      console.error("⚠️ [Contact API] MAIL_USER または MAIL_PASS が未設定です。VercelのEnvironment Variablesをご確認ください。");
+      console.error(
+        "⚠️ [Contact API] MAIL_USER または MAIL_PASS が未設定です。VercelのEnvironment Variablesをご確認ください。",
+      );
       return NextResponse.json(
-        { error: "メール送信の設定が未完了です。環境変数（MAIL_USER, MAIL_PASS）をご確認ください。" },
+        {
+          error:
+            "メール送信の設定が未完了です。環境変数（MAIL_USER, MAIL_PASS）をご確認ください。",
+        },
         { status: 500 },
       );
     }
@@ -19,6 +24,25 @@ export const POST = async (request: NextRequest) => {
     const companyText = company ? company : "指定なし";
     // HTML用改行エスケープ
     const formattedContent = content.replace(/\n/g, "<br>");
+
+    // ----------------------------------------------------------------
+    // Googleスプレッドシート（GAS）への非同期保存処理
+    // ----------------------------------------------------------------
+    const gasUrl = process.env.GAS_CONTACT_URL;
+    if (gasUrl) {
+      // メール送信処理を妨げないよう、非同期（awaitなし）で呼び出します
+      fetch(gasUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          title,
+          contactName,
+          company: companyText,
+          email,
+          content,
+        }),
+      }).catch((err) => console.error("⚠️ [GAS Save Error]:", err));
+    }
 
     // 1. 管理者（ご自身）向け通知メール
     const toHostMessage = {
